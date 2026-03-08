@@ -25,6 +25,7 @@ export default function RootLayout({
               <Link href="/market" className="text-sm text-[#9ca3af] hover:text-white transition">Market</Link>
               <Link href="/whitepaper" className="text-sm text-[#9ca3af] hover:text-white transition">Whitepaper</Link>
               <Link href="/docs" className="text-sm text-[#9ca3af] hover:text-white transition">Docs</Link>
+              <Link href="/terms" className="text-sm text-[#9ca3af] hover:text-white transition">Terms</Link>
               <a href="https://github.com/rogerwu188/clawfarm-site" target="_blank" rel="noopener noreferrer" className="text-sm text-[#9ca3af] hover:text-white transition">GitHub</a>
               <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="text-sm text-[#9ca3af] hover:text-white transition">X</a>
             </div>
