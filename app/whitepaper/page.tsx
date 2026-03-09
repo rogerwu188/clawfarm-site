@@ -310,19 +310,24 @@ export default function Whitepaper() {
             </p>
             <div className="space-y-3">
               <div className="flex justify-between items-center py-2 border-b border-[#222]">
-                <span className="text-[#9ca3af]">Base Pool (Usage Rewards)</span>
-                <span className="text-white font-mono">50% — 500,000,000</span>
+                <span className="text-[#9ca3af]">Compute Pool (Usage Rewards)</span>
+                <span className="text-white font-mono">50% — by inference consumption</span>
               </div>
               <div className="flex justify-between items-center py-2 border-b border-[#222]">
-                <span className="text-[#9ca3af]">Revenue Pool (Task Rewards)</span>
-                <span className="text-white font-mono">40% — 400,000,000</span>
+                <span className="text-[#9ca3af]">Output Pool (Task Rewards)</span>
+                <span className="text-white font-mono">50% — by task completion</span>
               </div>
               <div className="flex justify-between items-center py-2 border-b border-[#222]">
-                <span className="text-[#9ca3af]">Treasury (Network Maintenance)</span>
-                <span className="text-white font-mono">10% — 100,000,000</span>
+                <span className="text-[#9ca3af]">Treasury (Buyback Fund)</span>
+                <span className="text-white font-mono">3% tax on all earnings</span>
               </div>
             </div>
             <p className="text-[#9ca3af] leading-relaxed mt-4">
+              The treasury is not funded by emission. Instead, 3% of every node&apos;s earnings is taxed
+              and directed to the treasury for protocol buyback — creating a value loop where
+              more work → more consumption → more earnings → stronger buyback.
+            </p>
+            <p className="text-[#9ca3af] leading-relaxed mt-2">
               Points are a simulation mechanism for the Genesis phase.
               They have no monetary value, are not transferable, and are not securities.
             </p>
@@ -359,12 +364,12 @@ export default function Whitepaper() {
           <div className="card p-8 mb-8">
             <h2 className="text-xl font-semibold text-white mb-4">13. Daily Emission Allocation</h2>
             <p className="text-[#9ca3af] leading-relaxed mb-4">
-              Each day&apos;s emission is split across the three pools:
+              Each day&apos;s emission is split into two equal pools:
             </p>
             <ul className="text-[#9ca3af] leading-relaxed space-y-2 ml-4 mb-4">
-              <li>• <span className="text-white">50%</span> → Base Pool: distributed proportionally to each node&apos;s usage_tokens vs total network usage</li>
-              <li>• <span className="text-white">40%</span> → Revenue Pool: distributed proportionally to each node&apos;s completed tasks vs total completed tasks</li>
-              <li>• <span className="text-white">10%</span> → Treasury: reserved for network operations, bug bounties, and protocol development</li>
+              <li>• <span className="text-white">50%</span> → Compute Pool: distributed proportionally to each node&apos;s token consumption vs total network usage</li>
+              <li>• <span className="text-white">50%</span> → Output Pool: distributed proportionally to each node&apos;s completed tasks vs total completed tasks</li>
+              <li>• <span className="text-white">3% tax</span> on all distributed rewards → Treasury buyback fund</li>
             </ul>
             <p className="text-[#9ca3af] leading-relaxed">
               Settlement runs once per day at 00:00 UTC. Results are written to the Points Ledger.
@@ -378,10 +383,15 @@ export default function Whitepaper() {
               For a given node <span className="font-mono text-white">i</span> on day <span className="font-mono text-white">d</span>:
             </p>
             <div className="bg-[#111] p-4 rounded-lg font-mono text-sm text-[#9ca3af] mb-4 overflow-x-auto">
-              <p>base_reward(i,d) = daily_emission × 0.5 × (usage_tokens(i,d) / total_usage_tokens(d))</p>
-              <p className="mt-2">task_reward(i,d) = daily_emission × 0.4 × (tasks_completed(i,d) / total_tasks_completed(d))</p>
-              <p className="mt-2">total_reward(i,d) = base_reward(i,d) + task_reward(i,d)</p>
+              <p>compute_reward(i,d) = emission × 0.5 × (usage(i,d) / total_usage(d))</p>
+              <p className="mt-2">output_reward(i,d)  = emission × 0.5 × (tasks(i,d) / total_tasks(d))</p>
+              <p className="mt-2">gross_reward(i,d)   = compute_reward + output_reward</p>
+              <p className="mt-2">treasury_tax(i,d)   = gross_reward × 0.03</p>
+              <p className="mt-2">net_reward(i,d)     = gross_reward - treasury_tax</p>
             </div>
+            <p className="text-[#9ca3af] leading-relaxed mb-2">
+              The 3% treasury tax creates a flywheel: more work → more consumption → more earnings → larger buyback fund → stronger token value.
+            </p>
             <p className="text-[#9ca3af] leading-relaxed">
               If a node has zero usage and zero task completions on a given day, it earns zero Points.
               There is no passive income. The network rewards activity.
@@ -390,17 +400,25 @@ export default function Whitepaper() {
 
           {/* 15. Treasury */}
           <div className="card p-8 mb-8">
-            <h2 className="text-xl font-semibold text-white mb-4">15. Treasury</h2>
+            <h2 className="text-xl font-semibold text-white mb-4">15. Treasury &amp; Buyback</h2>
             <p className="text-[#9ca3af] leading-relaxed mb-4">
-              The Treasury receives 10% of daily emissions and is used for:
+              The Treasury is funded by a 3% tax on all node earnings — not by emission allocation.
+              This design ensures the treasury grows proportionally to network activity.
+            </p>
+            <p className="text-[#9ca3af] leading-relaxed mb-4">
+              Treasury funds are used exclusively for:
             </p>
             <ul className="text-[#9ca3af] leading-relaxed space-y-2 ml-4">
+              <li>• <span className="text-white">Token buyback</span> — Primary use. Removes supply, increases value.</li>
               <li>• Protocol development and maintenance</li>
-              <li>• Bug bounties and security audits</li>
               <li>• Infrastructure costs (database, API, hosting)</li>
-              <li>• Emergency reserves</li>
+              <li>• Bug bounties and security audits</li>
             </ul>
             <p className="text-[#9ca3af] leading-relaxed mt-4">
+              The value loop: nodes work → consume inference → earn rewards → 3% taxed → treasury buys back →
+              token cost converts to token value. More activity = stronger buyback pressure.
+            </p>
+            <p className="text-[#9ca3af] leading-relaxed mt-2">
               Treasury spending is transparent and recorded on-ledger.
             </p>
           </div>
