@@ -6,8 +6,10 @@ export default function Docs() {
   return (
     <main>
       <div className="state-strip">
-        <div className="max-w-6xl mx-auto px-6 flex gap-8">
-          <span>Surface: <span className="text-[#8a8f98]">Operational</span></span>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="strip-inner">
+            <div className="state-item"><span className="label">Surface</span><span className="val">Operational</span></div>
+          </div>
         </div>
       </div>
 

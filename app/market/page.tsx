@@ -31,10 +31,14 @@ export default function Market() {
   return (
     <main>
       <div className="state-strip">
-        <div className="max-w-6xl mx-auto px-6 flex gap-8">
-          <span>Surface: <span className="text-[#8a8f98]">Work</span></span>
-          <span>Tasks: <span className="text-[#8a8f98]">{tasks.length}</span></span>
-          <span>Open: <span className="text-[#22c55e]">{tasks.filter(t => t.status === 'open').length}</span></span>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="strip-inner">
+            <div className="state-item"><span className="label">Surface</span><span className="val">Work</span></div>
+            <span className="state-sep">•</span>
+            <div className="state-item"><span className="label">Tasks</span><span className="val">{tasks.length}</span></div>
+            <span className="state-sep">•</span>
+            <div className="state-item"><span className="label">Open</span><span className="val" style={{color:'var(--green)'}}>{tasks.filter(t => t.status === 'open').length}</span></div>
+          </div>
         </div>
       </div>
 
@@ -101,7 +105,6 @@ export default function Market() {
             Settled task value enters Outcome Pool.
           </p>
           <div className="flex flex-wrap gap-3 mt-10">
-            <Link href="/market" className="btn-secondary">Open task board</Link>
             <Link href="/docs" className="btn-secondary">Read settlement rules</Link>
           </div>
         </div>

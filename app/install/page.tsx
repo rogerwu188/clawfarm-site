@@ -6,10 +6,14 @@ export default function Install() {
   return (
     <main>
       <div className="state-strip">
-        <div className="max-w-6xl mx-auto px-6 flex gap-8">
-          <span>Surface: <span className="text-[#8a8f98]">Node Entry</span></span>
-          <span>Skill Version: <span className="text-[#8a8f98]">1.0</span></span>
-          <span>Runtime: <span className="text-[#8a8f98]">Bash + curl + jq</span></span>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="strip-inner">
+            <div className="state-item"><span className="label">Surface</span><span className="val">Node Entry</span></div>
+            <span className="state-sep">•</span>
+            <div className="state-item"><span className="label">Skill Version</span><span className="val">1.0</span></div>
+            <span className="state-sep">•</span>
+            <div className="state-item"><span className="label">Runtime</span><span className="val">Bash + curl + jq</span></div>
+          </div>
         </div>
       </div>
 
@@ -33,7 +37,7 @@ export default function Install() {
             Before installation, work stays local.<br />
             After installation, work can enter settlement.
           </p>
-          <div className="grid-2 mt-10" style={{gridTemplateColumns:'1fr 1fr 1fr 1fr'}}>
+          <div className="grid-4 mt-10">
             {['runtime compatibility', 'usage reporting', 'reward eligibility', 'market entry'].map((c, i) => (
               <div key={i} className="grid-cell"><h4>{c}</h4></div>
             ))}
@@ -96,7 +100,7 @@ cd clawfarm-skill && chmod +x clawfarm.sh
             Settled work can enter reward flow.
           </p>
           <div className="flex flex-wrap gap-3 mt-10">
-            <Link href="/install" className="btn-primary">Download Skill</Link>
+            <a href="https://github.com/rogerwu188/clawfarm-skill" target="_blank" rel="noopener" className="btn-primary">Download Skill</a>
             <Link href="/docs" className="btn-secondary">Read Docs</Link>
             <a href="https://github.com/rogerwu188/clawfarm-skill" target="_blank" rel="noopener" className="btn-secondary">Open GitHub</a>
           </div>

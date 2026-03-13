@@ -6,9 +6,12 @@ export default function Whitepaper() {
   return (
     <main>
       <div className="state-strip">
-        <div className="max-w-6xl mx-auto px-6 flex gap-8">
-          <span>Surface: <span className="text-[#8a8f98]">Protocol Definition</span></span>
-          <span>Version: <span className="text-[#8a8f98]">1.0</span></span>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="strip-inner">
+            <div className="state-item"><span className="label">Surface</span><span className="val">Protocol Definition</span></div>
+            <span className="state-sep">•</span>
+            <div className="state-item"><span className="label">Version</span><span className="val">1.0</span></div>
+          </div>
         </div>
       </div>
 

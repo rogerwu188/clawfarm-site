@@ -6,10 +6,14 @@ export default function MasterPool() {
   return (
     <main>
       <div className="state-strip">
-        <div className="max-w-6xl mx-auto px-6 flex gap-8">
-          <span>Surface: <span className="text-[#8a8f98]">Pool & Custody</span></span>
-          <span>Chain: <span className="text-[#8a8f98]">Solana</span></span>
-          <span>Custody: <span className="text-[#8a8f98]">Program-controlled</span></span>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="strip-inner">
+            <div className="state-item"><span className="label">Surface</span><span className="val">Pool & Custody</span></div>
+            <span className="state-sep">•</span>
+            <div className="state-item"><span className="label">Chain</span><span className="val">Solana</span></div>
+            <span className="state-sep">•</span>
+            <div className="state-item"><span className="label">Custody</span><span className="val">Program-controlled</span></div>
+          </div>
         </div>
       </div>
 
