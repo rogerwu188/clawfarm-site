@@ -6,9 +6,12 @@ export default function Providers() {
   return (
     <main>
       <div className="state-strip">
-        <div className="max-w-6xl mx-auto px-6 flex gap-8">
-          <span>Surface: <span className="text-[#8a8f98]">Provider Integration</span></span>
-          <span>Policy: <span className="text-[#8a8f98]">Native Only</span></span>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="strip-inner">
+            <div className="state-item"><span className="label">Surface</span><span className="val">Provider Integration</span></div>
+            <span className="state-sep">•</span>
+            <div className="state-item"><span className="label">Policy</span><span className="val">Native Only</span></div>
+          </div>
         </div>
       </div>
 
