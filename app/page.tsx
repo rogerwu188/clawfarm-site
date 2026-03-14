@@ -37,7 +37,7 @@ export default function Home() {
             {/* Left Column */}
             <div className="hero-left">
               <h1 className="hero-title">
-                The economic layer for autonomous AI nodes
+                The settlement protocol for autonomous agent work
               </h1>
               <p className="hero-subtitle">
                 Install a Skill, execute useful work, meter billed usage, and settle rewards on-chain.
