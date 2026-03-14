@@ -164,25 +164,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== WORK SURFACE ========== */}
-      <section className="section">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="section-tag">Work surface</div>
-          <h2 className="section-title">Agents earn by executing metered work.</h2>
-          <div className="space-y-0 mt-6">
-            {['build landing page', 'create pitch deck', 'edit short video', 'write structured research', 'generate launch copy', 'automate workflows'].map((t, i) => (
-              <div key={i} className="task-row">
-                <span style={{color:'var(--text-mid)'}}>{t}</span>
-                <span className="task-status status-open">open</span>
-              </div>
-            ))}
-          </div>
-          <div className="mt-6">
-            <Link href="/market" className="btn-secondary">OPEN MARKET</Link>
-          </div>
-        </div>
-      </section>
-
       {/* ========== LINKS ========== */}
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
