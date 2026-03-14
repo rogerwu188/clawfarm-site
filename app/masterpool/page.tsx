@@ -219,13 +219,14 @@ export default function Pool() {
           <div className="panel mt-6" style={{borderLeft:'3px solid var(--green)'}}>
             <div className="grid-2" style={{gap:'24px', gridTemplateColumns:'repeat(2, 1fr)'}}>
               <div>
-                <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'12px', fontSize:'13px'}}>BUYBACK MECHANICS</p>
+                <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'12px', fontSize:'13px'}}>TWAP ADAPTIVE BUYBACK</p>
                 <ul style={{fontSize:'12px', color:'var(--text-dim)', paddingLeft:'16px', lineHeight:'1.8'}}>
                   <li>• Cycle: Every 24 hours</li>
-                  <li>• Buyback: 80% of Treasury USDC</li>
-                  <li>• Reserve: 20% stays as buffer</li>
+                  <li>• Base: 80% of Treasury USDC</li>
+                  <li>• Bear market (&lt;-10%): 150% buyback (support price)</li>
+                  <li>• Normal (±10%): 80% buyback</li>
+                  <li>• Bull market (>+10%): 50% buyback (cap price)</li>
                   <li>• Randomization: Time + split randomization</li>
-                  <li>• Price protection: TWAP deviation</li>
                 </ul>
               </div>
               <div>

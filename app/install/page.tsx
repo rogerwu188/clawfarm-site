@@ -58,13 +58,13 @@ export default function Install() {
                 </ol>
               </div>
               <div>
-                <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'12px', fontSize:'13px'}}>BUYBACK MECHANICS</p>
+                <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'12px', fontSize:'13px'}}>TWAP ADAPTIVE BUYBACK</p>
                 <ul className="section-text space-y-2" style={{fontSize:'12px'}}>
                   <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Cycle:</strong> Every 24 hours</li>
-                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Buyback:</strong> 80% of Treasury USDC</li>
-                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Reserve:</strong> 20% stays as buffer</li>
-                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Randomization:</strong> Time + split randomization</li>
-                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Burn:</strong> All bought tokens → burn address</li>
+                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Base:</strong> 80% of Treasury USDC</li>
+                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>熊市:</strong> 偏离&lt;-10% → 150% (护盘)</li>
+                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>牛市:</strong> 偏离&gt;+10% → 50% (控盘)</li>
+                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Burn:</strong> All bought → burn address</li>
                 </ul>
               </div>
             </div>
@@ -72,9 +72,15 @@ export default function Install() {
           
           <div className="panel mt-4" style={{backgroundColor:'rgba(0,255,0,0.05)'}}>
             <pre className="text-[11px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto">
-{`Treasury = Non-Discretionary Buyback & Burn Engine
+{`Treasury = TWAP Adaptive Buyback & Burn Engine
 ┌────────────────────────────────────────────────────────────┐
-│  Every 24 hours:                                          │
+│  Every 24 hours:                                         │
+│  ├── Fetch 24h TWAP price                                 │
+│  ├── Calculate deviation from current price                 │
+│  ├── Apply adaptive buyback strength:                     │
+│  │   ├── Bear market (<-10%): 150% (strong buy)         │
+│  │   ├── Normal (±10%): 80% (standard)                   │
+│  │   └── Bull market (>+10%): 50% (light buy)          │
 │  ├── 80% USDC → Programmatic buyback (randomized)       │
 │  ├── 20% USDC → Treasury reserve                         │
 │  └── Bought tokens → Burn address (destroyed)            │
