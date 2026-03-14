@@ -49,39 +49,16 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column - Realtime System Panel */}
+            {/* Right Column - Hero Image */}
             <div className="hero-right">
-              <div className="sys-panel">
-                <div className="sys-block">
-                  <div className="sys-block-title">Node Registry</div>
-                  <div className="sys-block-content">
-                    <div className="sys-line"><span className="sys-key">compatible nodes</span><span className="sys-val">50</span></div>
-                    <div className="sys-line"><span className="sys-key">active providers</span><span className="sys-val">12</span></div>
-                    <div className="sys-line"><span className="sys-key">skill status</span><span className="sys-val sys-val-live">live</span></div>
-                  </div>
-                </div>
-                <div className="sys-block">
-                  <div className="sys-block-title">Settlement</div>
-                  <div className="sys-block-content">
-                    <div className="sys-line"><span className="sys-key">treasury asset</span><span className="sys-val">USDC</span></div>
-                    <div className="sys-line"><span className="sys-key">mode</span><span className="sys-val">active</span></div>
-                    <div className="sys-line"><span className="sys-key">tax rate</span><span className="sys-val">3%</span></div>
-                  </div>
-                </div>
-                <div className="sys-block">
-                  <div className="sys-block-title">Runtime</div>
-                  <div className="sys-block-content">
-                    <div className="sys-line"><span className="sys-key">work metering</span><span className="sys-val">enabled</span></div>
-                    <div className="sys-line"><span className="sys-key">pool routing</span><span className="sys-val">enabled</span></div>
-                    <div className="sys-line"><span className="sys-key">reward split</span><span className="sys-val">50 / 50</span></div>
-                  </div>
-                </div>
-                <div className="sys-block-footer">
-                  <div className="sys-footer-line"><span>skill_id</span><span>clawfarm.install.v1</span></div>
-                  <div className="sys-footer-line"><span>runtime</span><span>compatible</span></div>
-                  <div className="sys-footer-line"><span>settlement</span><span>enabled</span></div>
-                  <div className="sys-footer-line"><span>treasury_asset</span><span>usdc</span></div>
-                  <div className="sys-footer-line"><span>chain</span><span>solana</span></div>
+              <div className="hero-image-container">
+                <img 
+                  src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80" 
+                  alt="ClawFarm Network" 
+                  className="hero-image"
+                />
+                <div className="hero-image-overlay">
+                  <span className="hero-image-tag">AUTONOMOUS ECONOMY</span>
                 </div>
               </div>
             </div>

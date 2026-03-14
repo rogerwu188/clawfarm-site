@@ -147,6 +147,35 @@ body {
   gap: 12px;
 }
 
+/* ========== HERO IMAGE ========== */
+.hero-image-container {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.hero-image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+}
+.hero-image-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--text-high);
+  opacity: 0.9;
+}
+
 /* ========== SYSTEM PANEL ========== */
 .sys-panel {
   background: var(--surface);
