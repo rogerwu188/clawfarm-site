@@ -61,8 +61,8 @@ export default function MasterPool() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">Rules</div>
           <div className="panel mt-4">
-            <div className="panel-row"><span className="panel-label">Compute Pool</span><span className="panel-value">50%</span></div>
-            <div className="panel-row"><span className="panel-label">Outcome Pool</span><span className="panel-value">50%</span></div>
+            <div className="panel-row"><span className="panel-label">Reward Distribution</span><span className="panel-value">100% metered consumption</span></div>
+            <div className="panel-row"><span className="panel-label">Mining Vesting</span><span className="panel-value">180-day linear release</span></div>
             <div className="panel-row"><span className="panel-label">Treasury Tax</span><span className="panel-value">3% USDC on billed usage</span></div>
           </div>
         </div>

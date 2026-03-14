@@ -83,6 +83,7 @@ export default function Docs() {
             <div className="panel-row"><span className="panel-label">Consumption Pool</span><span className="panel-value">100% — by metered usage</span></div>
             <div className="panel-row"><span className="panel-label">Quality Pool</span><span className="panel-value">0% — excluded</span></div>
             <div className="panel-row"><span className="panel-label">Treasury</span><span className="panel-value">3% of billed usage</span></div>
+            <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear</span></div>
             <div className="panel-row"><span className="panel-label">Verification</span><span className="panel-value">Objective (programmatic)</span></div>
           </div>
           <p className="section-small">The protocol rewards consumption because it is objective and verifiable. Quality is judged by the market, not the protocol.</p>

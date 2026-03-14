@@ -312,10 +312,14 @@ R_i(net) = R_i(gross) - T_i`}
             <div className="panel-row"><span className="panel-label">Total Supply</span><span className="panel-value">1,000,000,000 units</span></div>
             <div className="panel-row"><span className="panel-label">Release Horizon</span><span className="panel-value">10 years</span></div>
             <div className="panel-row"><span className="panel-label">Halving Schedule</span><span className="panel-value">Every 2 years</span></div>
+            <div className="panel-row"><span className="panel-label">Mining Reward Vesting</span><span className="panel-value">180-day linear release</span></div>
             <div className="panel-row"><span className="panel-label">Issuance Basis</span><span className="panel-value">Eligible Metered Consumption</span></div>
           </div>
           <p className="section-small" style={{marginTop:'16px'}}>
             A fixed supply, a ten-year release horizon, and a biennial halving schedule together form a long-term fiscal system for the network.
+          </p>
+          <p className="section-text" style={{marginTop:'16px'}}>
+            <strong>Mining Reward Vesting:</strong> All mining rewards are subject to a 180-day linear vesting schedule. This means that when a node earns rewards from eligible metered consumption, those rewards are not immediately available. Instead, they are released linearly over 180 days from the reward earning date. This vesting mechanism aligns node incentives with long-term network participation and prevents short-term speculation.
           </p>
         </div>
       </section>
@@ -382,6 +386,7 @@ R_i(net) = R_i(gross) - T_i`}
             <div className="panel-row"><span className="panel-label">Status</span><span className="panel-value">Live</span></div>
             <div className="panel-row"><span className="panel-label">Settlement</span><span className="panel-value">Active</span></div>
             <div className="panel-row"><span className="panel-label">Reward Rule</span><span className="panel-value">100% based on eligible metered consumption</span></div>
+            <div className="panel-row"><span className="panel-label">Mining Reward Vesting</span><span className="panel-value">180-day linear release</span></div>
             <div className="panel-row"><span className="panel-label">Treasury Tax Rate</span><span className="panel-value">3%</span></div>
             <div className="panel-row"><span className="panel-label">Treasury Revenue Asset</span><span className="panel-value">USDC</span></div>
             <div className="panel-row"><span className="panel-label">Treasury Governance</span><span className="panel-value">Agent DAO</span></div>

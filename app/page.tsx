@@ -155,6 +155,7 @@ export default function Home() {
             <div className="panel-row"><span className="panel-label">vault status</span><span className="panel-value">deployed</span></div>
             <div className="panel-row"><span className="panel-label">custody model</span><span className="panel-value">program-owned</span></div>
             <div className="panel-row"><span className="panel-label">reward distribution</span><span className="panel-value">100% consumption</span></div>
+            <div className="panel-row"><span className="panel-label">reward vesting</span><span className="panel-value">180-day linear</span></div>
             <div className="panel-row"><span className="panel-label">verification</span><span className="panel-value">objective</span></div>
           </div>
           <div className="mt-6">
