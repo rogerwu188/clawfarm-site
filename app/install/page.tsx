@@ -17,7 +17,7 @@ export default function Install() {
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="section-title text-[36px]">Install the ClawFarm Skill</h1>
           <p className="section-text" style={{marginTop:'12px', fontSize:'16px', color:'var(--text-mid)'}}>
-            Install the Skill into your runtime, ClawBox, or OpenClaw environment so token usage inside the ecosystem becomes metered network activity eligible for settlement and rewards.
+            Installing the ClawFarm Skill allows a compatible runtime, ClawBox, or OpenClaw environment to convert billed token consumption into protocol-recognized metered activity eligible for settlement and reward allocation.
           </p>
         </div>
       </section>
@@ -32,54 +32,116 @@ export default function Install() {
         </div>
       </section>
 
+      {/* Data Models */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">What changes after install</div>
-          
-          <div className="grid-2 mt-6" style={{gap:'32px'}}>
-            <div>
-              <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'16px'}}>BEFORE INSTALLATION</p>
-              <ul className="section-text space-y-3">
-                <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--red)'}}>×</span> token usage remains an internal operating cost</li>
-                <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--red)'}}>×</span> execution stays inside your local runtime or provider stack</li>
-                <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--red)'}}>×</span> no protocol accounting</li>
-                <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--red)'}}>×</span> no reward eligibility</li>
-              </ul>
-            </div>
-            <div>
-              <p className="section-text" style={{color:'var(--green)', marginBottom:'16px'}}>AFTER INSTALLATION</p>
-              <ul className="section-text space-y-3">
-                <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> token usage is metered by the ClawFarm Skill</li>
-                <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> billed consumption is recorded as network activity</li>
-                <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> execution inside OpenClaw / ClawBox can enter settlement</li>
-                <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> eligible usage can earn protocol token rewards</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="grid-4 mt-6" style={{gridTemplateColumns:'repeat(4, 1fr)', gap:'16px'}}>
+          <div className="section-tag">Core Data Models</div>
+          <div className="grid-3 mt-6" style={{gridTemplateColumns:'repeat(3, 1fr)', gap:'16px'}}>
             {[
-              {title:'runtime integration', desc:'compatible runtime or provider stack'},
-              {title:'usage metering', desc:'token consumption tracked'},
-              {title:'settlement eligibility', desc:'enters protocol accounting'},
-              {title:'network rewards', desc:'eligible for token issuance'},
-            ].map((c, i) => (
+              {title:'Provider', desc:'model_vendor, runtime_operator, clawbox_operator, openclaw_ecosystem_app'},
+              {title:'NodeRuntime', desc:'runtime environment, machine identity, public key'},
+              {title:'SkillInstall', desc:'skill registration, metering enabled, settlement enabled'},
+              {title:'TaskExecution', desc:'task state, source, status transitions'},
+              {title:'UsageRecord', desc:'token count, billed amount, eligibility, signature'},
+              {title:'SettlementRecord', desc:'gross reward, treasury tax, vesting schedule'},
+            ].map((m, i) => (
               <div key={i} className="grid-cell">
-                <h4 style={{fontSize:'13px', textTransform:'uppercase', letterSpacing:'0.05em'}}>{c.title}</h4>
-                <p className="section-small" style={{marginTop:'8px'}}>{c.desc}</p>
+                <h4 style={{fontSize:'13px', textTransform:'uppercase', letterSpacing:'0.05em', color:'var(--green)'}}>{m.title}</h4>
+                <p className="section-small" style={{marginTop:'8px', fontSize:'11px'}}>{m.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* API Flow */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Minimum requirements</div>
+          <div className="section-tag">Integration Flow</div>
+          <div className="space-y-0 mt-6">
+            {[
+              {step:'1', title:'Register Provider', endpoint:'POST /api/providers/register', desc:'Create provider identity'},
+              {step:'2', title:'Register Runtime', endpoint:'POST /api/runtimes/register', desc:'Register runtime environment'},
+              {step:'3', title:'Install Skill', endpoint:'POST /api/skill/install', desc:'Enable metering & settlement'},
+              {step:'4', title:'Start Task', endpoint:'POST /api/tasks/start', desc:'Create task execution record'},
+              {step:'5', title:'Report Usage', endpoint:'POST /api/usage/report', desc:'Submit token/billed usage'},
+              {step:'6', title:'Complete Task', endpoint:'POST /api/tasks/complete', desc:'Mark task delivered'},
+              {step:'7', title:'Query Settlement', endpoint:'GET /api/settlements/:providerId', desc:'View rewards & vesting'},
+            ].map((f, i) => (
+              <div key={i} className="seq-item">
+                <span className="seq-num">{f.step}</span>
+                <div>
+                  <span className="seq-text">{f.title}</span>
+                  <span className="block text-[11px] text-[#505560] font-mono mt-1">{f.endpoint}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Code Examples */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">Usage Report API</div>
+          <div className="panel mt-4">
+            <pre className="text-[12px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto">
+{`// POST /api/usage/report
+{
+  "providerId": "prov_001",
+  "runtimeId": "rt_001", 
+  "skillInstallId": "si_001",
+  "taskExecutionId": "task_001",
+  "modelName": "gpt-4.1",
+  "tokenInput": 1200,
+  "tokenOutput": 3400,
+  "tokenTotal": 4600,
+  "computeUnits": 12.5,
+  "billedAmountUsd": "0.92",
+  "usageClass": "generation",
+  "usageSource": "clawbox",
+  "signature": "ed25519_sig_xxx"
+}
+
+// Response
+{
+  "usageRecordId": "usage_001",
+  "eligible": true,
+  "eligibilityReason": "protocol_qualified_billed_usage"
+}`}
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">Settlement Response</div>
+          <div className="panel mt-4">
+            <pre className="text-[12px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto">
+{`// GET /api/settlements/:providerId?epoch=2026-03-14
+{
+  "providerId": "prov_001",
+  "runtimeId": "rt_001",
+  "settlementEpoch": "2026-03-14",
+  "totalEligibleConsumption": "142330.55",
+  "providerEligibleConsumption": "240.92",
+  "grossReward": "1692.40",
+  "treasuryTax": "50.77",
+  "netReward": "1641.63",
+  "vestingDays": 180,
+  "vestingStartAt": "2026-03-14T00:00:00Z",
+  "vestingEndAt": "2026-09-10T00:00:00Z"
+}`}
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      {/* Minimum Requirements */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">Minimum Requirements</div>
           <ul className="space-y-3 text-[#8a8f98] text-[14px]">
             <li>· compatible runtime or provider stack</li>
             <li>· access to token-billed model execution</li>
@@ -91,46 +153,37 @@ export default function Install() {
         </div>
       </section>
 
+      {/* Quick Install */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Steps</div>
-          <div className="space-y-0">
-            {[
-              'Install the ClawFarm Skill into your runtime',
-              'Configure provider stack or OpenClaw environment',
-              'Bind settlement wallet address',
-              'Connect to ClawFarm network',
-              'Start reporting metered usage',
-              'Become settlement-eligible and earn rewards',
-            ].map((s, i) => (
-              <div key={i} className="seq-item">
-                <span className="seq-num">{i + 1}</span>
-                <span className="seq-text">{s}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="panel mt-10">
-            <div className="text-xs text-[#505560] tracking-widest uppercase mb-4">Quick install</div>
+          <div className="section-tag">Quick Install</div>
+          <div className="panel mt-4">
             <pre className="text-[13px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto">
 {`git clone https://github.com/rogerwu188/clawfarm-skill.git
 cd clawfarm-skill && chmod +x clawfarm.sh
 
+# Configure provider and wallet
 ./clawfarm.sh config --wallet <SOLANA_ADDRESS>
+./clawfarm.sh config --provider "My Model Service"
+
+# Register with network
 ./clawfarm.sh register
+
+# Check status
 ./clawfarm.sh status`}
             </pre>
           </div>
         </div>
       </section>
 
+      {/* After Integration */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">After integration</div>
+          <div className="section-tag">After Integration</div>
           <p className="section-text">
             Your runtime becomes connected to the ClawFarm network.<br />
             Token usage is metered and recorded as protocol activity.<br />
-            Eligible consumption enters settlement and earns token rewards.
+            Eligible consumption enters daily settlement with 180-day linear vesting.
           </p>
           <div className="flex flex-wrap gap-3 mt-10">
             <Link href="/install" className="btn-primary">Download Skill</Link>
