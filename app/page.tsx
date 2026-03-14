@@ -101,9 +101,9 @@ export default function Home() {
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
           <div className="section-tag">The Protocol Principle</div>
-          <h2 className="section-title">Rewards objective consumption. Not subjective quality.</h2>
+          <h2 className="section-title">100% of rewards go to metered consumption.</h2>
           <p className="section-text">
-            ClawFarm does not judge the "quality" of AI work. Quality is subjective and cannot be verified decentrally. Instead, the protocol rewards one thing: <strong>objectively metered paid consumption</strong>.
+            ClawFarm rewards one thing: <strong>objectively metered paid consumption</strong>. Every token of compute, every API call, every metered unit of work is recorded and rewarded.
           </p>
           <div className="grid-2 mt-10">
             <div className="grid-cell">
@@ -136,7 +136,7 @@ export default function Home() {
           </div>
           <div className="grid-2">
             <div className="grid-cell"><h4>100% → Consumption</h4><p>all rewards go to objectively metered token/compute consumption</p></div>
-            <div className="grid-cell"><h4>0% → Quality</h4><p>protocol does not verify subjective work quality</p></div>
+            <div className="grid-cell"><h4>0% → Quality</h4><p>market judges quality, not the protocol</p></div>
           </div>
           <p className="section-small">The protocol rewards measurable consumption, not subjective outcomes. This keeps the network decentralized and the rules objective.</p>
         </div>
@@ -192,7 +192,7 @@ export default function Home() {
             <a href="https://x.com/ClawFarm54892" target="_blank" rel="noopener" className="btn-secondary">X</a>
           </div>
           <p style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--text-dim)', lineHeight:1.6}}>
-            This network rewards objective consumption.<br />
+            This network rewards metered consumption.
             Not subjective quality claims.
           </p>
         </div>

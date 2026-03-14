@@ -77,7 +77,7 @@ export default function Docs() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">Rewards</div>
           <p className="section-text mb-4">
-            <strong>100% of mining rewards go to objectively metered consumption.</strong> The protocol does NOT reward subjective quality.
+            <strong>100% of mining rewards go to objectively metered consumption.</strong>
           </p>
           <div className="panel mt-4">
             <div className="panel-row"><span className="panel-label">Consumption Pool</span><span className="panel-value">100% — by metered usage</span></div>

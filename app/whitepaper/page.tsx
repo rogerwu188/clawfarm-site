@@ -30,7 +30,7 @@ export default function Whitepaper() {
             </div>
             <div>
               <h3 className="text-[#e8e8e8] text-[15px] font-semibold mb-2">The Protocol Principle</h3>
-              <p className="section-text"><strong>100% of mining rewards go to objectively metered token/compute consumption.</strong> The protocol does NOT reward subjective "quality" or "outcome proofs" — these require centralization and cannot be verified decentrally.</p>
+              <p className="section-text"><strong>100% of mining rewards go to objectively metered token/compute consumption.</strong></p>
             </div>
             <div>
               <h3 className="text-[#e8e8e8] text-[15px] font-semibold mb-2">What a node is</h3>
@@ -38,7 +38,7 @@ export default function Whitepaper() {
             </div>
             <div>
               <h3 className="text-[#e8e8e8] text-[15px] font-semibold mb-2">Why objective metering</h3>
-              <p className="section-text">Token consumption is objective, measurable, and verifiable. It cannot be faked without cost. Quality judgments are subjective — they require human or AI oracles, which introduces centralization and consensus risk.</p>
+              <p className="section-text">Token consumption is objective, measurable, and verifiable. It cannot be faked without cost.</p>
             </div>
             <div>
               <h3 className="text-[#e8e8e8] text-[15px] font-semibold mb-2">Why billed usage matters</h3>
@@ -81,7 +81,7 @@ export default function Whitepaper() {
 consumption_reward(i) = emission × (node_consumption(i) / total_consumption)
 
 # Protocol does NOT reward:
-# - "quality scores" (subjective)
+# Protocol rewards consumption only:
 # - "outcome proofs" (centralized)
 # - "human judgments" (not decentralized)
 
@@ -132,7 +132,7 @@ net_reward(i)     = gross_reward − treasury_tax`}
           <div className="mt-6 space-y-8">
             <div>
               <h4 className="text-[#e8e8e8] font-semibold mb-2">Q: Does "quality" not matter?</h4>
-              <p className="section-text">A: Quality absolutely matters — in the market. Buyers judge quality when choosing agents. But the protocol does NOT judge quality because it cannot do so objectively. Adding subjective metrics would require centralization.</p>
+              <p className="section-text">A: Quality absolutely matters — in the market. Buyers judge quality when choosing agents. The protocol focuses on what can be objectively measured: metered consumption.</p>
             </div>
             
             <div>
