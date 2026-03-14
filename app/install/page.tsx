@@ -37,6 +37,49 @@ export default function Install() {
         </div>
       </section>
 
+      {/* Treasury Tax Flow - NEW SECTION */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag" style={{backgroundColor:'var(--green)'}}>3% Treasury Tax Flow</div>
+          <p className="section-text mt-4" style={{fontSize:'14px'}}>
+            The Protocol collects <strong>3% Treasury tax</strong> from every model call. This tax is built into the Gateway and deducted automatically from each transaction.
+          </p>
+          
+          <div className="panel mt-6" style={{borderLeft:'3px solid var(--green)'}}>
+            <div className="grid-2" style={{gap:'24px', gridTemplateColumns:'repeat(2, 1fr)'}}>
+              <div>
+                <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'12px', fontSize:'13px'}}>PAYMENT FLOW</p>
+                <ol style={{fontSize:'12px', color:'var(--text-dim)', paddingLeft:'16px', lineHeight:'1.8'}}>
+                  <li>1. User pays for API calls via Gateway</li>
+                  <li>2. Gateway forwards call to Model Provider</li>
+                  <li>3. Model Provider receives payment</li>
+                  <li>4. <strong style={{color:'var(--green)'}}>3% tax deducted automatically</strong></li>
+                  <li>5. Tax sent to Treasury address</li>
+                </ol>
+              </div>
+              <div>
+                <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'12px', fontSize:'13px'}}>TREASURY DETAILS</p>
+                <ul className="section-text space-y-2" style={{fontSize:'12px'}}>
+                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Tax Rate:</strong> 3% of billed amount</li>
+                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Deducted from:</strong> User payment</li>
+                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Frequency:</strong> Per epoch (15 min)</li>
+                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Address:</strong> Hardcoded in Gateway</li>
+                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Public:</strong> Known to all participants</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div className="panel mt-4" style={{backgroundColor:'rgba(0,255,0,0.05)'}}>
+            <pre className="text-[11px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto">
+{`Example: User pays $100 for API calls
+├── Model Provider receives: $97
+└── Treasury (3% tax): $3 (auto-deducted by Gateway)`}
+            </pre>
+          </div>
+        </div>
+      </section>
+
       {/* Why Gateway */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
@@ -56,7 +99,7 @@ export default function Install() {
               <ul className="section-text space-y-3">
                 <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> All model calls route through Gateway</li>
                 <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> Real request/response logged</li>
-                <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> Token usage verified from provider response</li>
+                <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> 3% tax auto-deducted</li>
                 <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> Gateway-signed receipt = reward eligible</li>
               </ul>
             </div>
@@ -74,9 +117,10 @@ export default function Install() {
               {step:'2', title:'Install into OpenClaw / ClawBox', desc:'Deploy Gateway to your local runtime environment'},
               {step:'3', title:'Configure Your Model Provider APIs', desc:'Add your API keys for OpenAI, Anthropic, Google, MiniMax, etc.'},
               {step:'4', title:'Set Gateway as Default Model Router', desc:'All model calls now route through Gateway'},
-              {step:'5', title:'Bind Wallet / Node Identity', desc:'Connect your wallet for receiving rewards'},
-              {step:'6', title:'Start Generating Verified Usage Receipts', desc:'Every model call creates a signed receipt'},
-              {step:'7', title:'Enter Settlement and Mining', desc:'Verified receipts enter the reward distribution'},
+              {step:'5', title:'Integrate Settlement API', desc:'Model provider must call Gateway settlement API to pay 3% tax per epoch'},
+              {step:'6', title:'Bind Wallet / Node Identity', desc:'Connect your wallet for receiving rewards'},
+              {step:'7', title:'Start Generating Verified Usage Receipts', desc:'Every model call creates a signed receipt'},
+              {step:'8', title:'Enter Settlement and Mining', desc:'Verified receipts enter the reward distribution'},
             ].map((f, i) => (
               <div key={i} className="seq-item">
                 <span className="seq-num">{f.step}</span>
@@ -180,7 +224,37 @@ export ANTHROPIC_API_BASE="http://localhost:18790/v1"
 
 # Now all model calls route through Gateway
 # Gateway logs the call, forwards to provider,
-# verifies response, generates signed receipt`}
+# verifies response, deducts 3% tax, generates signed receipt`}
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      {/* Step 5: Settlement - NEW */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">Step 5: Model Provider Settlement Integration</div>
+          <p className="section-text mt-4">
+            Model providers must integrate with Gateway's settlement API to pay 3% tax per epoch. This is automatic and built into Gateway.
+          </p>
+          <div className="panel mt-4">
+            <pre className="text-[13px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto">
+{`# Gateway settlement happens automatically every epoch (15 min)
+# The 3% tax is deducted from user payments
+# Treasury address is hardcoded in Gateway
+
+# Settlement API (called automatically by Gateway):
+POST /api/settlement
+{
+  "epoch_id": "epoch_20260314_10:30",
+  "total_billed": "100.00",
+  "tax_amount": "3.00",  # 3% automatically calculated
+  "treasury_address": "TreasuryWalletAddress...",
+  "signature": "ed25519_xxx"
+}
+
+# Model providers receive: 97% of billed amount
+# Treasury receives: 3% tax (auto-deducted by Gateway)`}
             </pre>
           </div>
         </div>
@@ -203,6 +277,7 @@ export ANTHROPIC_API_BASE="http://localhost:18790/v1"
   "output_tokens": 3400,
   "total_tokens": 4600,
   "billed_amount_usd": "0.92",
+  "tax_paid_usd": "0.0276",    // 3% tax already deducted
   "timestamp": "2026-03-14T10:30:00Z",
   "eligible": true,
   "eligibility_reason": "gateway_verified_billed_usage",
@@ -224,7 +299,7 @@ export ANTHROPIC_API_BASE="http://localhost:18790/v1"
               <ul className="section-text space-y-3">
                 <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> GitHub: rogerwu188/clawfarm-gateway</li>
                 <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> Inspect all gateway code</li>
-                <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> No hidden dependencies</li>
+                <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> Treasury address hardcoded & public</li>
                 <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> Pull requests welcome</li>
               </ul>
             </div>
@@ -233,7 +308,7 @@ export ANTHROPIC_API_BASE="http://localhost:18790/v1"
               <ul className="section-text space-y-3">
                 <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> Runs on your machine/box</li>
                 <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> API keys never leave your device</li>
-                <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> You control the Gateway</li>
+                <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> 3% tax automatic & transparent</li>
                 <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> Your wallet, your rewards</li>
               </ul>
             </div>
@@ -271,7 +346,8 @@ export ANTHROPIC_API_BASE="http://localhost:18790/v1"
           <div className="section-tag">Next Steps</div>
           <p className="section-text mt-4">
             After Gateway is running, all model calls generate verified receipts.<br/>
-            Every 15 minutes, verified receipts enter settlement. Rewards vest over 180 days.
+            Every 15 minutes, verified receipts enter settlement. 3% tax is auto-deducted.<br/>
+            Rewards vest over 180 days.
           </p>
           <div className="flex flex-wrap gap-3 mt-10">
             <Link href="/masterpool" className="btn-primary">View Network</Link>
