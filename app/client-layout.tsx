@@ -34,7 +34,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         <div className="header-row header-nav">
           <nav className="header-nav-inner">
             <Link href="/install" className="nav-item">Install</Link>
-            <Link href="/masterpool" className="nav-item">Pool</Link>
+            <Link href="/masterpool" className="nav-item">Explorer</Link>
             <Link href="/providers" className="nav-item">Providers</Link>
             <Link href="/whitepaper" className="nav-item">Protocol</Link>
             <Link href="/docs" className="nav-item">Docs</Link>

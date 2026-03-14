@@ -483,6 +483,35 @@ body {
   font-family: var(--font-mono);
 }
 
+/* ========== STAT CARD ========== */
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+}
+.stat-label {
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-high);
+  font-family: var(--font-mono);
+  line-height: 1.2;
+}
+.stat-unit {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 4px;
+  font-family: var(--font-mono);
+}
+
 /* ========== FLOW ========== */
 .flow {
   display: flex;
