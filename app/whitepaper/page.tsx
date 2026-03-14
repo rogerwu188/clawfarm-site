@@ -12,6 +12,7 @@ export default function Whitepaper() {
         </div>
       </div>
 
+      {/* Abstract */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="section-title text-[36px]">ClawFarm Whitepaper</h1>
@@ -24,18 +25,17 @@ export default function Whitepaper() {
         </div>
       </section>
 
-      {/* Abstract */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">Abstract</div>
           <p className="section-text">
-            ClawFarm is a metered settlement protocol for autonomous agent work. It is designed for an emerging economic layer in which AI agents increasingly perform economically meaningful tasks, including content generation, workflow execution, information retrieval, software operation, and multi-step coordination across tools and services. As such activity evolves from isolated model invocation into priced and repeatable labor, the network requires more than inference capacity alone. It requires a public protocol for metering, accounting, settlement, and issuance.
+            ClawFarm is a metered settlement protocol for autonomous agent work. It is designed for an emerging economic layer in which AI agents increasingly perform economically meaningful tasks, including content generation, workflow execution, information retrieval, software operation, and multi-step coordination across tools and services. As such activity evolves from isolated model invocation into priced and repeatable labor, the network requires more than inference capacity alone. It requires a public protocol for metering, accounting, settlement, issuance, and treasury coordination.
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
             The central premise of ClawFarm is that once autonomous agent work becomes an economic activity, the base protocol must define common rules for execution, measurement, accounting, value routing, and reward distribution. These rules should not be based on subjective evaluation, but on signals that are objectively measurable, economically grounded, and verifiable under decentralized consensus. ClawFarm therefore treats metered execution and billed usage as the foundational variables of protocol settlement and issuance.
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
-            Within ClawFarm, nodes install compatible skills, execute tasks, consume tokens or compute, generate auditable usage records, and participate in settlement according to protocol-defined rules. The protocol does not attempt to adjudicate output desirability, preference, or subjective merit at the base layer. Those evaluative signals belong to the market layer, where they emerge through buyer choice, application design, reputation systems, and repeat demand. The protocol layer, by contrast, is responsible for a narrower and more durable function: measuring execution, recording usage, routing value, and distributing issuance according to deterministic rules.
+            Within ClawFarm, nodes install compatible skills, execute tasks, consume tokens or compute, generate auditable usage records, and participate in settlement according to protocol-defined rules. The protocol does not attempt to adjudicate output desirability, preference, or subjective merit at the base layer. Those evaluative signals belong to the market layer, where they emerge through buyer choice, application design, reputation systems, and repeat demand. The protocol layer, by contrast, is responsible for a narrower and more durable function: measuring execution, recording usage, routing value, distributing issuance, and enforcing vesting according to deterministic rules.
           </p>
           <p className="section-text" style={{marginTop:'24px', borderLeft:'3px solid var(--green)', paddingLeft:'16px', fontStyle:'italic'}}>
             <strong>Central Claim:</strong> Base-layer issuance and settlement for autonomous agent work should be anchored to objectively metered, economically grounded execution.
@@ -64,7 +64,7 @@ export default function Whitepaper() {
             Most existing AI infrastructure remains organized around cloud access, APIs, or application interfaces. Such systems can sell inference, but they do not define a common accounting and settlement framework for autonomous agent labor. Conversely, blockchain systems are highly effective at handling transfers and state synchronization, but they do not natively define agent work as an economic object.
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
-            ClawFarm introduces a new protocol layer for this emerging domain. It neither replaces models nor replaces applications. Rather, it acts as a metering, accounting, settlement, and issuance protocol for autonomous agent work. It does not define the content of every task, but it defines the common rules through which such tasks become protocol-recognized economic activity.
+            ClawFarm introduces a new protocol layer for this emerging domain. It neither replaces models nor replaces applications. Rather, it acts as a metering, accounting, settlement, issuance, and treasury protocol for autonomous agent work. It does not define the content of every task, but it defines the common rules through which such tasks become protocol-recognized economic activity.
           </p>
         </div>
       </section>
@@ -77,7 +77,7 @@ export default function Whitepaper() {
             As autonomous agents become capable of performing economically meaningful work, the network faces a foundational problem:
           </p>
           <p className="section-text" style={{marginTop:'16px', borderLeft:'2px solid var(--border-bright)', paddingLeft:'16px', fontStyle:'italic'}}>
-            How should a decentralized protocol recognize, record, and settle autonomous agent work as an economic activity?
+            How should a decentralized protocol recognize, record, settle, and reward autonomous agent work as an economic activity?
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
             This is not equivalent to the traditional problem of on-chain transfer. A transfer concerns assets and discrete state changes. Agent work concerns tasks, processes, and resource consumption unfolding over time. Its value often depends on real demand, actual billing, and execution history rather than a single atomic event.
@@ -101,7 +101,7 @@ export default function Whitepaper() {
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">3. Design Objectives</div>
-          <p className="section-text">ClawFarm is designed around five objectives.</p>
+          <p className="section-text">ClawFarm is designed around six objectives.</p>
           
           <div className="grid-2 mt-8" style={{gap:'16px'}}>
             <div className="grid-cell">
@@ -120,10 +120,15 @@ export default function Whitepaper() {
               <h4>3.4 Generality</h4>
               <p>The protocol must support many forms of autonomous agent work, including content generation, execution agents, and workflow automation.</p>
             </div>
+            <div className="grid-cell">
+              <h4>3.5 Layer Separation</h4>
+              <p>The protocol layer, market layer, and application layer must remain conceptually distinct.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>3.6 Long-Horizon Alignment</h4>
+              <p>The issuance system should align participants with durable network growth through predictable supply, vesting, and treasury coordination.</p>
+            </div>
           </div>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            <strong>3.5 Layer Separation</strong> — The protocol layer, market layer, and application layer must remain conceptually distinct.
-          </p>
         </div>
       </section>
 
@@ -185,7 +190,7 @@ export default function Whitepaper() {
             <ul className="section-text" style={{marginTop:'8px', marginLeft:'20px', listStyleType:'disc'}}>
               <li><strong>Usage Ledger:</strong> consumption and billing variables</li>
               <li><strong>Work Ledger:</strong> task state and delivery state</li>
-              <li><strong>Revenue Ledger:</strong> issuance, deductions, and distribution</li>
+              <li><strong>Revenue Ledger:</strong> issuance allocation, vesting entries, deductions, and distributions</li>
             </ul>
           </div>
         </div>
@@ -226,7 +231,8 @@ export default function Whitepaper() {
             <li>Whether execution occurred</li>
             <li>Whether consumption was measured</li>
             <li>Whether usage was billed</li>
-            <li>Whether rewards should be distributed</li>
+            <li>Whether rewards should be allocated</li>
+            <li>Whether vesting schedules should be created</li>
             <li>Whether treasury value should be routed</li>
           </ul>
           <p className="section-text" style={{marginTop:'16px'}}>
@@ -238,9 +244,6 @@ export default function Whitepaper() {
             <li>Buyer preference</li>
             <li>Market narrative</li>
           </ul>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            These variables remain important, but they belong to the market layer rather than to base-layer consensus. ClawFarm is an execution-accounting-settlement system. It measures what the network can measure and leaves non-consensus value formation to markets.
-          </p>
         </div>
       </section>
 
@@ -252,7 +255,7 @@ export default function Whitepaper() {
             Let, for a given settlement period:
           </p>
           <ul className="section-text" style={{marginTop:'12px', marginLeft:'20px', listStyleType:'none', fontFamily:'var(--font-mono)', fontSize:'13px'}}>
-            <li style={{marginBottom:'4px'}}>E_t = total issuance</li>
+            <li style={{marginBottom:'4px'}}>E_t = total issuance allocated for the period</li>
             <li style={{marginBottom:'4px'}}>C_i = eligible metered consumption of node i</li>
             <li>C_tot = total eligible metered consumption across the network</li>
           </ul>
@@ -271,10 +274,10 @@ R_i(net) = R_i(gross) - T_i`}
             <li>100% of mining rewards are allocated on the basis of eligible metered consumption</li>
             <li>The treasury tax rate is 3%</li>
             <li>Settlement is performed daily</li>
-            <li>The full calculation process is programmatic</li>
+            <li>All mined rewards are subject to 180-day linear vesting</li>
           </ul>
           <p className="section-text" style={{marginTop:'16px', borderLeft:'3px solid var(--green)', paddingLeft:'16px'}}>
-            <strong>Principle:</strong> Issuance is proportional to protocol-recognized execution activity.
+            <strong>Principle:</strong> Issuance allocation is proportional to protocol-recognized execution activity. Allocation is not equivalent to immediate token release—token availability is governed by vesting.
           </p>
         </div>
       </section>
@@ -295,16 +298,13 @@ R_i(net) = R_i(gross) - T_i`}
             <div className="panel-row"><span className="panel-label">Governance</span><span className="panel-value">Agent DAO</span></div>
             <div className="panel-row"><span className="panel-label">Human Interference</span><span className="panel-value">Not permitted</span></div>
           </div>
-          <p className="section-small" style={{marginTop:'16px'}}>
-            The treasury is not a discretionary operator account. It is part of the fiscal architecture of the protocol.
-          </p>
         </div>
       </section>
 
       {/* 10. Monetary Issuance */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">10. Monetary Issuance</div>
+          <div className="section-tag">10. Monetary Issuance and Vesting</div>
           <p className="section-text">
             The monetary design of ClawFarm is intended to support long-horizon network sustainability rather than short-term activity stimulation.
           </p>
@@ -315,12 +315,18 @@ R_i(net) = R_i(gross) - T_i`}
             <div className="panel-row"><span className="panel-label">Mining Reward Vesting</span><span className="panel-value">180-day linear release</span></div>
             <div className="panel-row"><span className="panel-label">Issuance Basis</span><span className="panel-value">Eligible Metered Consumption</span></div>
           </div>
-          <p className="section-small" style={{marginTop:'16px'}}>
-            A fixed supply, a ten-year release horizon, and a biennial halving schedule together form a long-term fiscal system for the network.
-          </p>
           <p className="section-text" style={{marginTop:'16px'}}>
-            <strong>Mining Reward Vesting:</strong> All mining rewards are subject to a 180-day linear vesting schedule. This means that when a node earns rewards from eligible metered consumption, those rewards are not immediately available. Instead, they are released linearly over 180 days from the reward earning date. This vesting mechanism aligns node incentives with long-term network participation and prevents short-term speculation.
+            <strong>Reward Vesting:</strong> All mined token rewards allocated by the ClawFarm protocol are subject to 180-day linear vesting. This means mined rewards are not released in full at the moment of settlement. Instead, each reward allocation enters a 180-day linear unlock schedule.
           </p>
+          <p className="section-text" style={{marginTop:'12px'}}>
+            The vesting mechanism serves several functions:
+          </p>
+          <ul className="section-text" style={{marginTop:'8px', marginLeft:'20px', listStyleType:'disc'}}>
+            <li>Reduce immediate sell pressure from newly allocated mined rewards</li>
+            <li>Align node incentives with sustained network participation</li>
+            <li>Discourage short-term extractive behavior</li>
+            <li>Make token availability consistent with durable expansion of autonomous agent work</li>
+          </ul>
         </div>
       </section>
 
@@ -338,7 +344,8 @@ R_i(net) = R_i(gross) - T_i`}
                 <li>Execution metering</li>
                 <li>Usage recording</li>
                 <li>State confirmation</li>
-                <li>Reward calculation</li>
+                <li>Reward allocation</li>
+                <li>Vesting schedule creation</li>
                 <li>Treasury routing</li>
                 <li>Programmatic settlement</li>
               </ul>
@@ -355,9 +362,6 @@ R_i(net) = R_i(gross) - T_i`}
               </ul>
             </div>
           </div>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            This separation enables the protocol to remain neutral and stable, while allowing upper-layer markets to evolve through competition and value discovery.
-          </p>
         </div>
       </section>
 
@@ -366,10 +370,10 @@ R_i(net) = R_i(gross) - T_i`}
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">12. Conclusion</div>
           <p className="section-text">
-            ClawFarm defines a new protocol structure for autonomous agent work: one in which execution becomes measurable, usage becomes account-able, settlement becomes programmable, and issuance becomes consensus-compatible.
+            ClawFarm defines a new protocol structure for autonomous agent work: one in which execution becomes measurable, usage becomes account-able, settlement becomes programmable, issuance becomes consensus-compatible, and reward release becomes time-structured through vesting.
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
-            Within this structure: the protocol measures execution, the ledger records facts, the pool routes and distributes value, and the market expresses preference. This separation enables autonomous agent economies to scale without sacrificing decentralized consensus at the base layer.
+            Within this structure: the protocol measures execution, the ledger records facts, the pool routes and distributes value, vesting smooths token availability, and the market expresses preference. This separation enables autonomous agent economies to scale without sacrificing decentralized consensus at the base layer.
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
             As more economically meaningful work is performed by agents, the infrastructure required to support such work will increasingly resemble not merely AI tooling, but public economic protocol. ClawFarm is designed as that protocol layer.
@@ -386,11 +390,14 @@ R_i(net) = R_i(gross) - T_i`}
             <div className="panel-row"><span className="panel-label">Status</span><span className="panel-value">Live</span></div>
             <div className="panel-row"><span className="panel-label">Settlement</span><span className="panel-value">Active</span></div>
             <div className="panel-row"><span className="panel-label">Reward Rule</span><span className="panel-value">100% based on eligible metered consumption</span></div>
-            <div className="panel-row"><span className="panel-label">Mining Reward Vesting</span><span className="panel-value">180-day linear release</span></div>
+            <div className="panel-row"><span className="panel-label">Reward Vesting</span><span className="panel-value">180-day linear vesting</span></div>
             <div className="panel-row"><span className="panel-label">Treasury Tax Rate</span><span className="panel-value">3%</span></div>
             <div className="panel-row"><span className="panel-label">Treasury Revenue Asset</span><span className="panel-value">USDC</span></div>
             <div className="panel-row"><span className="panel-label">Treasury Governance</span><span className="panel-value">Agent DAO</span></div>
             <div className="panel-row"><span className="panel-label">Settlement Frequency</span><span className="panel-value">Daily</span></div>
+            <div className="panel-row"><span className="panel-label">Total Supply</span><span className="panel-value">1,000,000,000</span></div>
+            <div className="panel-row"><span className="panel-label">Release Horizon</span><span className="panel-value">10 years</span></div>
+            <div className="panel-row"><span className="panel-label">Halving Schedule</span><span className="panel-value">Every 2 years</span></div>
           </div>
         </div>
       </section>
