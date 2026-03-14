@@ -188,15 +188,21 @@ R_i(net) = R_i(gross) - T_i`}
         </div>
       </section>
 
-      {/* 7. Treasury & Governance */}
+      {/* 7. Treasury = Buyback & Burn Engine */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">7. Treasury & Governance</div>
+          <div className="section-tag">7. Treasury = Non-Discretionary Buyback & Burn Engine</div>
+          <p className="section-text" style={{marginTop:'16px'}}>
+            The Treasury is a <strong>non-discretionary buyback-and-burn engine</strong>. It has no governance, no allocation committee, and no human-controlled spending. Its only function is to receive 3% tax from Gateway and programmatically buy back and burn ClawFarm tokens.
+          </p>
           <div className="panel mt-4">
             <div className="panel-row"><span className="panel-label">Treasury Tax</span><span className="panel-value">3% of billed usage</span></div>
             <div className="panel-row"><span className="panel-label">Revenue Asset</span><span className="panel-value">USDC</span></div>
-            <div className="panel-row"><span className="panel-label">Governance</span><span className="panel-value">Agent DAO</span></div>
-            <div className="panel-row"><span className="panel-label">Human Interference</span><span className="panel-value">Not permitted</span></div>
+            <div className="panel-row"><span className="panel-label">Buyback Cycle</span><span className="panel-value">Every 24 hours</span></div>
+            <div className="panel-row"><span className="panel-label">Buyback Amount</span><span className="panel-value">80% of Treasury USDC</span></div>
+            <div className="panel-row"><span className="panel-label">Reserve</span><span className="panel-value">20% buffer</span></div>
+            <div className="panel-row"><span className="panel-label">Burn</span><span className="panel-value">All bought tokens → burn address</span></div>
+            <div className="panel-row"><span className="panel-label">Governance</span><span className="panel-value" style={{color:'var(--red)'}}>NONE</span></div>
           </div>
         </div>
       </section>
@@ -238,7 +244,7 @@ R_i(net) = R_i(gross) - T_i`}
             <div className="panel-row"><span className="panel-label">Reward Basis</span><span className="panel-value">Verified Usage Receipts</span></div>
             <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear</span></div>
             <div className="panel-row"><span className="panel-label">Treasury Tax</span><span className="panel-value">3%</span></div>
-            <div className="panel-row"><span className="panel-label">Governance</span><span className="panel-value">Agent DAO</span></div>
+            <div className="panel-row"><span className="panel-label">Treasury</span><span className="panel-value">Buyback & Burn Engine</span></div>
           </div>
         </div>
       </section>

@@ -37,34 +37,34 @@ export default function Install() {
         </div>
       </section>
 
-      {/* Treasury Tax Flow - NEW SECTION */}
+      {/* Treasury Tax Flow - Buyback & Burn */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag" style={{backgroundColor:'var(--green)'}}>3% Treasury Tax Flow</div>
+          <div className="section-tag" style={{backgroundColor:'var(--green)'}}>3% Treasury = Buyback & Burn Engine</div>
           <p className="section-text mt-4" style={{fontSize:'14px'}}>
-            The Protocol collects <strong>3% Treasury tax</strong> from every model call. This tax is built into the Gateway and deducted automatically from each transaction.
+            The Protocol collects <strong>3% Treasury tax</strong> from every model call. The Treasury is a <strong>non-discretionary buyback-and-burn engine</strong> — it has no governance, no allocation committee, and no human-controlled spending.
           </p>
           
           <div className="panel mt-6" style={{borderLeft:'3px solid var(--green)'}}>
             <div className="grid-2" style={{gap:'24px', gridTemplateColumns:'repeat(2, 1fr)'}}>
               <div>
-                <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'12px', fontSize:'13px'}}>PAYMENT FLOW</p>
+                <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'12px', fontSize:'13px'}}>TREASURY FLOW</p>
                 <ol style={{fontSize:'12px', color:'var(--text-dim)', paddingLeft:'16px', lineHeight:'1.8'}}>
                   <li>1. User pays for API calls via Gateway</li>
                   <li>2. Gateway forwards call to Model Provider</li>
                   <li>3. Model Provider receives payment</li>
-                  <li>4. <strong style={{color:'var(--green)'}}>3% tax deducted automatically</strong></li>
-                  <li>5. Tax sent to Treasury address</li>
+                  <li>4. <strong style={{color:'var(--green)'}}>3% tax → Treasury</strong></li>
+                  <li>5. Every 24h: Treasury buys back & burns tokens</li>
                 </ol>
               </div>
               <div>
-                <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'12px', fontSize:'13px'}}>TREASURY DETAILS</p>
+                <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'12px', fontSize:'13px'}}>BUYBACK MECHANICS</p>
                 <ul className="section-text space-y-2" style={{fontSize:'12px'}}>
-                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Tax Rate:</strong> 3% of billed amount</li>
-                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Deducted from:</strong> User payment</li>
-                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Frequency:</strong> Per epoch (15 min)</li>
-                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Address:</strong> Hardcoded in Gateway</li>
-                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Public:</strong> Known to all participants</li>
+                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Cycle:</strong> Every 24 hours</li>
+                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Buyback:</strong> 80% of Treasury USDC</li>
+                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Reserve:</strong> 20% stays as buffer</li>
+                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Randomization:</strong> Time + split randomization</li>
+                  <li style={{display:'flex', gap:'8px'}}><span style={{color:'var(--green)'}}>✓</span> <strong>Burn:</strong> All bought tokens → burn address</li>
                 </ul>
               </div>
             </div>
@@ -72,9 +72,15 @@ export default function Install() {
           
           <div className="panel mt-4" style={{backgroundColor:'rgba(0,255,0,0.05)'}}>
             <pre className="text-[11px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto">
-{`Example: User pays $100 for API calls
-├── Model Provider receives: $97
-└── Treasury (3% tax): $3 (auto-deducted by Gateway)`}
+{`Treasury = Non-Discretionary Buyback & Burn Engine
+┌────────────────────────────────────────────────────────────┐
+│  Every 24 hours:                                          │
+│  ├── 80% USDC → Programmatic buyback (randomized)       │
+│  ├── 20% USDC → Treasury reserve                         │
+│  └── Bought tokens → Burn address (destroyed)            │
+│                                                            │
+│  NO governance. NO allocation. NO human control.          │
+└────────────────────────────────────────────────────────────┘`}
             </pre>
           </div>
         </div>

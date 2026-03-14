@@ -122,7 +122,7 @@ export default function Home() {
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
           <div className="section-tag">Economics</div>
-          <h2 className="section-title">Funded by paid consumption. Distributed to consumption.</h2>
+          <h2 className="section-title">Funded by paid consumption. Burned by protocol.</h2>
           <div className="flow" style={{marginBottom:'32px'}}>
             <span className="flow-step">Paid usage</span>
             <span className="flow-arrow">→</span>
@@ -130,15 +130,15 @@ export default function Home() {
             <span className="flow-arrow">→</span>
             <span className="flow-step">Treasury</span>
             <span className="flow-arrow">→</span>
-            <span className="flow-step">Pool</span>
+            <span className="flow-step">Buyback & Burn</span>
             <span className="flow-arrow">→</span>
-            <span className="flow-step">Miners</span>
+            <span className="flow-step">Token Burned</span>
           </div>
           <div className="grid-2">
-            <div className="grid-cell"><h4>100% → Consumption</h4><p>all rewards go to objectively metered token/compute consumption</p></div>
-            <div className="grid-cell"><h4>0% → Quality</h4><p>market judges quality, not the protocol</p></div>
+            <div className="grid-cell"><h4>Treasury = Buyback & Burn</h4><p>Non-discretionary engine. No governance. No allocation. 80% of USDC used for buyback every 24h.</p></div>
+            <div className="grid-cell"><h4>Programmatic Burn</h4><p>All bought tokens are immediately burned. No human control. No treasury allocation.</p></div>
           </div>
-          <p className="section-small">The protocol rewards measurable consumption, not subjective outcomes. This keeps the network decentralized and the rules objective.</p>
+          <p className="section-small">The Treasury has one function: receive 3% tax and programmatically buy back and burn ClawFarm tokens.</p>
         </div>
       </section>
 

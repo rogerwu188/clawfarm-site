@@ -180,7 +180,10 @@ export default function Pool() {
       {/* 5. Treasury & Settlement */}
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="section-tag">Treasury & Settlement</div>
+          <div className="section-tag">Treasury = Buyback & Burn Engine</div>
+          <p className="section-text" style={{marginTop:'8px', marginBottom:'16px', fontSize:'13px', color:'var(--text-mid)'}}>
+            The Treasury is a non-discretionary buyback-and-burn engine. It has no governance, no allocation committee, and no human-controlled spending.
+          </p>
           <div className="grid-3 mt-4" style={{gridTemplateColumns:'repeat(3, 1fr)', gap:'12px'}}>
             <div className="stat-card">
               <div className="stat-label">Treasury Balance</div>
@@ -193,7 +196,7 @@ export default function Pool() {
               <div className="stat-unit">USDC</div>
             </div>
             <div className="stat-card">
-              <div className="stat-label">Rewards Today</div>
+              <div className="stat-label">Tokens Burned</div>
               <div className="stat-value">—</div>
               <div className="stat-unit">CLAW</div>
             </div>
@@ -203,14 +206,38 @@ export default function Pool() {
               <div className="stat-unit">CLAW</div>
             </div>
             <div className="stat-card">
-              <div className="stat-label">Governance</div>
-              <div className="stat-value" style={{color:'var(--green)'}}>Agent DAO</div>
-              <div className="stat-unit">autonomous</div>
+              <div className="stat-label">Buyback Engine</div>
+              <div className="stat-value" style={{color:'var(--green)'}}>Active</div>
+              <div className="stat-unit">24h cycle</div>
             </div>
             <div className="stat-card">
               <div className="stat-label">Tax Rate</div>
               <div className="stat-value">3%</div>
               <div className="stat-unit">of billed</div>
+            </div>
+          </div>
+          <div className="panel mt-6" style={{borderLeft:'3px solid var(--green)'}}>
+            <div className="grid-2" style={{gap:'24px', gridTemplateColumns:'repeat(2, 1fr)'}}>
+              <div>
+                <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'12px', fontSize:'13px'}}>BUYBACK MECHANICS</p>
+                <ul style={{fontSize:'12px', color:'var(--text-dim)', paddingLeft:'16px', lineHeight:'1.8'}}>
+                  <li>• Cycle: Every 24 hours</li>
+                  <li>• Buyback: 80% of Treasury USDC</li>
+                  <li>• Reserve: 20% stays as buffer</li>
+                  <li>• Randomization: Time + split randomization</li>
+                  <li>• Price protection: TWAP deviation</li>
+                </ul>
+              </div>
+              <div>
+                <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'12px', fontSize:'13px'}}>BURN MECHANICS</p>
+                <ul style={{fontSize:'12px', color:'var(--text-dim)', paddingLeft:'16px', lineHeight:'1.8'}}>
+                  <li>• All bought tokens → burn address</li>
+                  <li>• No treasury allocation</li>
+                  <li>• No governance control</li>
+                  <li>• Fully programmatic</li>
+                  <li>• Transparent & verifiable</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
