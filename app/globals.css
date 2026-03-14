@@ -57,6 +57,16 @@ body {
   letter-spacing: 2px;
   color: var(--text-high);
 }
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--text-high);
+  transition: opacity 0.15s;
+}
+.back-button:hover { opacity: 0.7; }
 .header-status {
   display: flex;
   align-items: center;

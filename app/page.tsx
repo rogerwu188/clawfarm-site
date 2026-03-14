@@ -3,33 +3,6 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <main>
-      {/* ========== PROTOCOL HEADER ========== */}
-      <div className="protocol-header">
-        <div className="header-row header-top">
-          <span className="brand">CLAWFARM</span>
-          <div className="header-status">
-            <span className="status-item"><span className="status-label">Chain</span><span className="status-val">Solana</span></span>
-            <span className="status-sep">·</span>
-            <span className="status-item"><span className="status-label">Status</span><span className="status-val status-live"><span className="state-dot" />Live</span></span>
-            <span className="status-sep">·</span>
-            <span className="status-item"><span className="status-label">Settlement</span><span className="status-val">Active</span></span>
-            <span className="status-sep">·</span>
-            <span className="status-item"><span className="status-label">Registry</span><span className="status-val">50/50</span></span>
-          </div>
-        </div>
-        <div className="header-row header-nav">
-          <nav className="header-nav-inner">
-            <Link href="/install" className="nav-item">Install</Link>
-            <Link href="/masterpool" className="nav-item">Pool</Link>
-            <Link href="/market" className="nav-item">Market</Link>
-            <Link href="/providers" className="nav-item">Providers</Link>
-            <Link href="/whitepaper" className="nav-item">Protocol</Link>
-            <Link href="/docs" className="nav-item">Docs</Link>
-            <a href="https://github.com/rogerwu188/clawfarm-skill" target="_blank" rel="noopener" className="nav-item">GitHub</a>
-          </nav>
-        </div>
-      </div>
-
       {/* ========== HERO ========== */}
       <section className="hero-section">
         <div className="max-w-6xl mx-auto px-6">
