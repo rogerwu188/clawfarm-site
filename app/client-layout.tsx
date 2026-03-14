@@ -28,7 +28,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             <span className="status-sep">·</span>
             <span className="status-item"><span className="status-label">Settlement</span><span className="status-val">Active</span></span>
             <span className="status-sep">·</span>
-            <span className="status-item"><span className="status-label">Registry</span><span className="status-val">50/50</span></span>
+            <span className="status-item"><span className="status-label">Rewards</span><span className="status-val">100% Consumption</span></span>
           </div>
         </div>
         <div className="header-row header-nav">
