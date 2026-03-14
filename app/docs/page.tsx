@@ -76,8 +76,18 @@ export default function Docs() {
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">Rewards</div>
+          <p className="section-text mb-4">
+            <strong>100% of mining rewards go to objectively metered consumption.</strong> The protocol does NOT reward subjective quality.
+          </p>
           <div className="panel mt-4">
-            <div className="panel-row"><span className="panel-label">Compute Pool</span><span className="panel-value">50% — by billed usage</span></div>
+            <div className="panel-row"><span className="panel-label">Consumption Pool</span><span className="panel-value">100% — by metered usage</span></div>
+            <div className="panel-row"><span className="panel-label">Quality Pool</span><span className="panel-value">0% — excluded</span></div>
+            <div className="panel-row"><span className="panel-label">Treasury</span><span className="panel-value">3% of billed usage</span></div>
+            <div className="panel-row"><span className="panel-label">Verification</span><span className="panel-value">Objective (programmatic)</span></div>
+          </div>
+          <p className="section-small">The protocol rewards consumption because it is objective and verifiable. Quality is judged by the market, not the protocol.</p>
+        </div>
+      </section>
             <div className="panel-row"><span className="panel-label">Outcome Pool</span><span className="panel-value">50% — by settled tasks</span></div>
             <div className="panel-row"><span className="panel-label">Treasury Tax</span><span className="panel-value">3% USDC on all billed usage</span></div>
             <div className="panel-row"><span className="panel-label">Settlement</span><span className="panel-value">daily 00:00 UTC</span></div>
