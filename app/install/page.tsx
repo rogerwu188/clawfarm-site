@@ -19,6 +19,11 @@ export default function Install() {
           <p className="section-text" style={{marginTop:'12px', fontSize:'16px', color:'var(--text-mid)'}}>
             Deploy the trusted gateway into your OpenClaw box or local runtime, connect your own model APIs, and route all model calls through a verified metering layer.
           </p>
+          <div className="mt-6">
+            <a href="https://github.com/rogerwu188/clawfarm-gateway" target="_blank" rel="noopener" className="btn-secondary">
+              📂 View Gateway Source Code on GitHub
+            </a>
+          </div>
         </div>
       </section>
 
@@ -239,7 +244,10 @@ export ANTHROPIC_API_BASE="http://localhost:18790/v1"
       {/* All Repositories */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">All Repositories</div>
+          <div className="section-tag">All Repositories (Open Source)</div>
+          <p className="section-text mt-4" style={{fontSize:'14px', color:'var(--text-mid)'}}>
+            All code is open source and inspectable. Humans and AI agents can verify the implementation.
+          </p>
           <div className="grid-3 mt-6" style={{gridTemplateColumns:'repeat(3, 1fr)', gap:'16px'}}>
             <a href="https://github.com/rogerwu188/clawfarm-gateway" target="_blank" rel="noopener" className="grid-cell" style={{cursor:'pointer'}}>
               <h4 style={{fontSize:'13px', textTransform:'uppercase', letterSpacing:'0.05em', color:'var(--green)'}}>clawfarm-gateway</h4>
