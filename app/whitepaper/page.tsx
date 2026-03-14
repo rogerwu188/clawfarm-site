@@ -29,16 +29,16 @@ export default function Whitepaper() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">Abstract</div>
           <p className="section-text">
-            ClawFarm is a metered settlement protocol for autonomous agent work. It is designed for an emerging economic layer in which AI agents increasingly perform economically meaningful tasks, including content generation, workflow execution, information retrieval, software operation, and multi-step coordination across tools and services. As such activity evolves from isolated model invocation into priced and repeatable labor, the network requires more than inference capacity alone. It requires a public protocol for metering, accounting, settlement, issuance, and treasury coordination.
+            ClawFarm is a metered settlement protocol for autonomous agent work. It is designed for an emerging economic layer in which AI agents perform economically meaningful tasks. The network requires a public protocol for metering, accounting, settlement, and issuance.
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
-            The central premise of ClawFarm is that once autonomous agent work becomes an economic activity, the base protocol must define common rules for execution, measurement, accounting, value routing, and reward distribution. These rules should not be based on subjective evaluation, but on signals that are objectively measurable, economically grounded, and verifiable under decentralized consensus. ClawFarm therefore treats metered execution and billed usage as the foundational variables of protocol settlement and issuance.
+            The central premise of ClawFarm is that once autonomous agent work becomes an economic activity, the base protocol must define common rules for execution, measurement, accounting, value routing, and reward distribution. These rules must be based on objectively verifiable signals.
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
-            Within ClawFarm, nodes install compatible skills, execute tasks, consume tokens or compute, generate auditable usage records, and participate in settlement according to protocol-defined rules. The protocol does not attempt to adjudicate output desirability, preference, or subjective merit at the base layer. Those evaluative signals belong to the market layer, where they emerge through buyer choice, application design, reputation systems, and repeat demand. The protocol layer, by contrast, is responsible for a narrower and more durable function: measuring execution, recording usage, routing value, distributing issuance, and enforcing vesting according to deterministic rules.
+            The critical innovation of ClawFarm is the Gateway. The Gateway is the only trusted usage meter in the network. All model calls must pass through it to generate verifiable settlement-ready receipts. Only Gateway-verified usage receipts can enter settlement and earn rewards. Client-reported usage, skill-reported usage, and any calls that bypass the Gateway are rejected at the protocol level.
           </p>
           <p className="section-text" style={{marginTop:'24px', borderLeft:'3px solid var(--green)', paddingLeft:'16px', fontStyle:'italic'}}>
-            <strong>Central Claim:</strong> Base-layer issuance and settlement for autonomous agent work should be anchored to objectively metered, economically grounded execution.
+            <strong>Central Claim:</strong> Base-layer issuance and settlement must be anchored to Gateway-verified billed usage—the only trusted source of truth in the protocol.
           </p>
         </div>
       </section>
@@ -48,356 +48,197 @@ export default function Whitepaper() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">1. Introduction</div>
           <p className="section-text">
-            AI systems are evolving from models that answer prompts into agents that perform work. Historically, the center of gravity in AI infrastructure has been reasoning and generation. Increasingly, however, the economically relevant unit is no longer a single inference call, but a persistent, task-oriented agent that can invoke tools, coordinate resources, and produce outputs through autonomous execution.
+            AI systems are evolving from models that answer prompts into agents that perform work. The economically relevant unit is no longer a single inference call, but a persistent, task-oriented agent that can invoke tools, coordinate resources, and produce outputs through autonomous execution.
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
-            This transition creates a new category of infrastructure problem. The central question is no longer only whether models are powerful enough, but whether autonomous work can be recognized, measured, accounted for, and settled at network scale.
-          </p>
-          <ul className="section-text" style={{marginTop:'16px', marginLeft:'20px', listStyleType:'disc'}}>
-            <li style={{marginBottom:'8px'}}>How should autonomous agent work be measured?</li>
-            <li style={{marginBottom:'8px'}}>How should node contribution be recorded?</li>
-            <li style={{marginBottom:'8px'}}>How should resource consumption be settled?</li>
-            <li style={{marginBottom:'8px'}}>How should value flow through the network?</li>
-            <li>How should issuance be linked to real execution activity?</li>
-          </ul>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            Most existing AI infrastructure remains organized around cloud access, APIs, or application interfaces. Such systems can sell inference, but they do not define a common accounting and settlement framework for autonomous agent labor. Conversely, blockchain systems are highly effective at handling transfers and state synchronization, but they do not natively define agent work as an economic object.
+            This transition creates a new category of infrastructure problem: how autonomous work can be recognized, measured, accounted for, and settled at network scale.
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
-            ClawFarm introduces a new protocol layer for this emerging domain. It neither replaces models nor replaces applications. Rather, it acts as a metering, accounting, settlement, issuance, and treasury protocol for autonomous agent work. It does not define the content of every task, but it defines the common rules through which such tasks become protocol-recognized economic activity.
+            ClawFarm introduces a protocol layer that acts as a metering, accounting, settlement, and issuance system. The key architectural decision is that usage metering is performed exclusively by the Gateway—a trusted router that sits between skills and model providers. The Gateway generates signed Verified Usage Receipts for every call, and only these receipts are accepted for settlement.
           </p>
         </div>
       </section>
 
-      {/* 2. Problem Definition */}
+      {/* 2. The Gateway Architecture */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">2. Problem Definition</div>
+          <div className="section-tag">2. The Gateway Architecture</div>
           <p className="section-text">
-            As autonomous agents become capable of performing economically meaningful work, the network faces a foundational problem:
-          </p>
-          <p className="section-text" style={{marginTop:'16px', borderLeft:'2px solid var(--border-bright)', paddingLeft:'16px', fontStyle:'italic'}}>
-            How should a decentralized protocol recognize, record, settle, and reward autonomous agent work as an economic activity?
+            The Gateway is the source of truth for all usage metering in ClawFarm. This is a fundamental architectural decision based on a simple observation: client-reported usage is not trustworthy.
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
-            This is not equivalent to the traditional problem of on-chain transfer. A transfer concerns assets and discrete state changes. Agent work concerns tasks, processes, and resource consumption unfolding over time. Its value often depends on real demand, actual billing, and execution history rather than a single atomic event.
+            Any system that relies on clients to honestly report their own usage can be gamed. A user can modify local code, fake payloads, or bypass reporting entirely. Therefore, ClawFarm does not trust clients. Instead, it trusts the Gateway.
           </p>
           <p className="section-text" style={{marginTop:'16px', fontWeight:600}}>
-            A protocol for autonomous agent work must answer four questions:
+            The Gateway architecture works as follows:
           </p>
           <ul className="section-text" style={{marginTop:'12px', marginLeft:'20px', listStyleType:'disc'}}>
-            <li style={{marginBottom:'8px'}}><strong>2.1</strong> What constitutes a protocol-recognized unit of work?</li>
-            <li style={{marginBottom:'8px'}}><strong>2.2</strong> What constitutes a protocol-recognized unit of consumption?</li>
-            <li style={{marginBottom:'8px'}}><strong>2.3</strong> What constitutes a valid basis for settlement?</li>
-            <li><strong>2.4</strong> What constitutes a valid basis for issuance?</li>
+            <li style={{marginBottom:'8px'}}><strong>2.1</strong> All model calls from skills must route through the Gateway</li>
+            <li style={{marginBottom:'8px'}}><strong>2.2</strong> The Gateway forwards calls to model providers and receives responses</li>
+            <li style={{marginBottom:'8px'}}><strong>2.3</strong> The Gateway extracts token usage and billed amounts from actual responses</li>
+            <li style={{marginBottom:'8px'}}><strong>2.4</strong> The Gateway generates a signed Verified Usage Receipt</li>
+            <li style={{marginBottom:'8px'}}><strong>2.5</strong> Receipts are aggregated per settlement epoch (15 minutes)</li>
+            <li><strong>2.6</strong> Only verified receipts enter settlement and reward distribution</li>
           </ul>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            ClawFarm answers these questions by anchoring the base protocol only to execution facts that can be objectively recorded. This does not deny the importance of higher-order variables such as value, reputation, preference, or brand. It simply places those variables in a different layer of the system.
+          <p className="section-text" style={{marginTop:'16px', borderLeft:'3px solid var(--green)', paddingLeft:'16px'}}>
+            <strong>Protocol Rule:</strong> Only Gateway-signed Verified Usage Receipts are settlement-valid. Client-reported usage, skill-reported usage, and any calls that bypass the Gateway are rejected.
           </p>
         </div>
       </section>
 
-      {/* 3. Design Objectives */}
+      {/* 3. Verified Usage Receipt */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">3. Design Objectives</div>
-          <p className="section-text">ClawFarm is designed around six objectives.</p>
-          
-          <div className="grid-2 mt-8" style={{gap:'16px'}}>
-            <div className="grid-cell">
-              <h4>3.1 Verifiability</h4>
-              <p>The fundamental variables of the protocol must be independently verifiable and must not depend on subjective interpretation or hidden scoring.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>3.2 Economic Grounding</h4>
-              <p>Reward-bearing activity must be linked to billed usage or otherwise economically meaningful execution, rather than synthetic activity.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>3.3 Decentralization Compatibility</h4>
-              <p>Base-layer issuance and settlement must remain compatible with decentralized operation and should not require privileged evaluators.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>3.4 Generality</h4>
-              <p>The protocol must support many forms of autonomous agent work, including content generation, execution agents, and workflow automation.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>3.5 Layer Separation</h4>
-              <p>The protocol layer, market layer, and application layer must remain conceptually distinct.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>3.6 Long-Horizon Alignment</h4>
-              <p>The issuance system should align participants with durable network growth through predictable supply, vesting, and treasury coordination.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Protocol Overview */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">4. Protocol Overview</div>
+          <div className="section-tag">3. Verified Usage Receipt</div>
           <p className="section-text">
-            ClawFarm is an execution-accounting-settlement protocol for autonomous agent work. The network can be understood as three coordinated layers:
-          </p>
-          <div className="grid-3 mt-6">
-            <div className="grid-cell">
-              <h4>Execution Layer</h4>
-              <p>Nodes and skills perform work</p>
-            </div>
-            <div className="grid-cell">
-              <h4>Accounting Layer</h4>
-              <p>Ledgers record usage, state, and distribution</p>
-            </div>
-            <div className="grid-cell">
-              <h4>Settlement Layer</h4>
-              <p>Protocol rules and pools distribute rewards</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. System Model */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">5. System Model</div>
-          
-          <div className="mt-6">
-            <div className="section-tag" style={{fontSize:'14px', color:'var(--text-mid)'}}>5.1 Nodes</div>
-            <p className="section-text" style={{marginTop:'8px'}}>
-              A node is any compatible AI runtime environment capable of installing ClawFarm-compatible skills, receiving and executing agent tasks, measuring token or compute consumption, reporting execution and delivery state, and participating in settlement. Nodes may run on cloud servers, edge infrastructure, local devices, or other compatible execution environments.
-            </p>
-          </div>
-
-          <div className="mt-8">
-            <div className="section-tag" style={{fontSize:'14px', color:'var(--text-mid)'}}>5.2 Skills</div>
-            <p className="section-text" style={{marginTop:'8px'}}>
-              A skill is the protocol execution unit. It is a protocol-compatible package that defines how a class of tasks is executed, connects model or tool invocation, records resource consumption, emits ledger-relevant events, and provides the data structures necessary for settlement.
-            </p>
-          </div>
-
-          <div className="mt-8">
-            <div className="section-tag" style={{fontSize:'14px', color:'var(--text-mid)'}}>5.3 Tasks</div>
-            <p className="section-text" style={{marginTop:'8px'}}>
-              A task is a protocol-recognized unit of work. The protocol does not decide whether a task is aesthetically or commercially superior. It decides whether execution occurred, consumption was recorded, and state became settle-able.
-            </p>
-          </div>
-
-          <div className="mt-8">
-            <div className="section-tag" style={{fontSize:'14px', color:'var(--text-mid)'}}>5.4 Ledgers</div>
-            <p className="section-text" style={{marginTop:'8px'}}>
-              ClawFarm maintains three append-only ledgers:
-            </p>
-            <ul className="section-text" style={{marginTop:'8px', marginLeft:'20px', listStyleType:'disc'}}>
-              <li><strong>Usage Ledger:</strong> consumption and billing variables</li>
-              <li><strong>Work Ledger:</strong> task state and delivery state</li>
-              <li><strong>Revenue Ledger:</strong> issuance allocation, vesting entries, deductions, and distributions</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Metered Execution as Base Unit */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">6. Metered Execution as the Base Unit</div>
-          <p className="section-text">
-            The central institutional choice of ClawFarm is to define metered execution as the primary base-layer unit.
-          </p>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            Many variables are important in an autonomous agent economy: preference, quality, reputation, repeat demand, brand value. But not every important variable is suitable as a consensus variable. The protocol layer should process the variable that is sufficiently objective, sufficiently general, and sufficiently verifiable.
-          </p>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            ClawFarm selects metered execution because it satisfies three conditions:
+            A Verified Usage Receipt is the fundamental settlement object in ClawFarm. It is generated exclusively by the Gateway and contains:
           </p>
           <ul className="section-text" style={{marginTop:'12px', marginLeft:'20px', listStyleType:'disc'}}>
-            <li style={{marginBottom:'8px'}}><strong>6.1 Measurable</strong> — Execution generates quantifiable variables such as token usage, model calls, compute units, and billed amounts.</li>
-            <li style={{marginBottom:'8px'}}><strong>6.2 Recordable</strong> — These variables can be standardized through skill interfaces and ledger structures.</li>
-            <li><strong>6.3 Settle-able</strong> — Once execution is recorded, the network can distribute issuance according to deterministic formulas.</li>
+            <li>receipt_id: unique identifier</li>
+            <li>gateway_id: Gateway that generated the receipt</li>
+            <li>provider_id, node_id, runtime_id, skill_id, task_id: execution context</li>
+            <li>model, input_tokens, output_tokens, total_tokens: usage data</li>
+            <li>billed_amount_usd: actual billing from provider</li>
+            <li>timestamp, nonce: temporal ordering</li>
+            <li>eligible, eligibility_reason: settlement qualification</li>
+            <li>epoch_id: settlement epoch reference</li>
+            <li>gateway_signature: cryptographic proof</li>
           </ul>
+          <p className="section-text" style={{marginTop:'16px'}}>
+            The gateway_signature proves that the receipt was generated by a legitimate Gateway and cannot be forged by clients.
+          </p>
         </div>
       </section>
 
-      {/* 7. Protocol Boundaries */}
+      {/* 4. Settlement Epoch */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">7. Protocol Boundaries</div>
+          <div className="section-tag">4. Settlement Epoch</div>
           <p className="section-text">
-            A defining property of ClawFarm is its clarity about protocol scope.
+            ClawFarm settles rewards every 15 minutes. Each 15-minute window is called a settlement epoch.
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
-            <strong>The protocol layer directly handles:</strong>
+            At the end of each epoch, the Gateway aggregates all Verified Usage Receipts generated during that window, calculates the total eligible consumption, and distributes rewards proportionally based on each participant's share of verified usage.
           </p>
-          <ul className="section-text" style={{marginTop:'8px', marginLeft:'20px', listStyleType:'disc'}}>
-            <li>Whether execution occurred</li>
-            <li>Whether consumption was measured</li>
-            <li>Whether usage was billed</li>
-            <li>Whether rewards should be allocated</li>
-            <li>Whether vesting schedules should be created</li>
-            <li>Whether treasury value should be routed</li>
-          </ul>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            <strong>By contrast, the following variables do not directly enter base-layer issuance logic:</strong>
-          </p>
-          <ul className="section-text" style={{marginTop:'8px', marginLeft:'20px', listStyleType:'disc'}}>
-            <li>Taste and aesthetic judgment</li>
-            <li>Reputation and brand value</li>
-            <li>Buyer preference</li>
-            <li>Market narrative</li>
-          </ul>
+          <div className="panel mt-6">
+            <div className="panel-row"><span className="panel-label">Epoch Duration</span><span className="panel-value">15 minutes</span></div>
+            <div className="panel-row"><span className="panel-label">Reward Basis</span><span className="panel-value">Verified Usage Receipts</span></div>
+            <div className="panel-row"><span className="panel-label">Distribution</span><span className="panel-value">Pro-rata by consumption</span></div>
+            <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear</span></div>
+          </div>
         </div>
       </section>
 
-      {/* 8. Reward Model */}
+      {/* 5. Reward Model */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">8. Reward Model</div>
+          <div className="section-tag">5. Reward Model</div>
           <p className="section-text">
-            Let, for a given settlement period:
+            Let, for a given settlement epoch:
           </p>
           <ul className="section-text" style={{marginTop:'12px', marginLeft:'20px', listStyleType:'none', fontFamily:'var(--font-mono)', fontSize:'13px'}}>
-            <li style={{marginBottom:'4px'}}>E_t = total issuance allocated for the period</li>
-            <li style={{marginBottom:'4px'}}>C_i = eligible metered consumption of node i</li>
-            <li>C_tot = total eligible metered consumption across the network</li>
+            <li style={{marginBottom:'4px'}}>E_t = total issuance for the epoch</li>
+            <li style={{marginBottom:'4px'}}>V_i = verified eligible usage of participant i</li>
+            <li>V_tot = total verified eligible usage across network</li>
           </ul>
           <div className="panel mt-6">
             <pre className="text-[13px] text-[#8a8f98] font-mono leading-loose">
-{`R_i(gross) = E_t × (C_i / C_tot)
+{`R_i(gross) = E_t × (V_i / V_tot)
 
 T_i = τ × R_i(gross)
 R_i(net) = R_i(gross) - T_i`}
             </pre>
           </div>
           <p className="section-text" style={{marginTop:'16px'}}>
-            Under the Genesis configuration:
+            Under Genesis configuration:
           </p>
           <ul className="section-text" style={{marginTop:'8px', marginLeft:'20px', listStyleType:'disc'}}>
-            <li>100% of mining rewards are allocated on the basis of eligible metered consumption</li>
-            <li>The treasury tax rate is 3%</li>
-            <li>Settlement is performed daily</li>
-            <li>All mined rewards are subject to 180-day linear vesting</li>
+            <li>100% of mining rewards based on verified Gateway usage</li>
+            <li>Treasury tax rate: 3%</li>
+            <li>Settlement frequency: every 15 minutes</li>
+            <li>Vesting: 180-day linear release</li>
           </ul>
-          <p className="section-text" style={{marginTop:'16px', borderLeft:'3px solid var(--green)', paddingLeft:'16px'}}>
-            <strong>Principle:</strong> Issuance allocation is proportional to protocol-recognized execution activity. Allocation is not equivalent to immediate token release—token availability is governed by vesting.
-          </p>
         </div>
       </section>
 
-      {/* 9. Treasury */}
+      {/* 6. Protocol Boundaries */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">9. Treasury and Value Routing</div>
+          <div className="section-tag">6. Protocol Boundaries</div>
           <p className="section-text">
-            The ClawFarm treasury connects real execution activity to long-term protocol support.
+            The protocol layer directly handles:
           </p>
+          <ul className="section-text" style={{marginTop:'8px', marginLeft:'20px', listStyleType:'disc'}}>
+            <li>Gateway-based usage metering</li>
+            <li>Verified Usage Receipt generation</li>
+            <li>Settlement epoch management</li>
+            <li>Reward allocation computation</li>
+            <li>Vesting schedule creation</li>
+            <li>Treasury routing</li>
+          </ul>
           <p className="section-text" style={{marginTop:'16px'}}>
-            For protocol-native model calls, a portion of billed token-consumption value is routed into treasury balances denominated in USDC.
+            The following are explicitly excluded from the base layer:
           </p>
-          <div className="panel mt-6">
-            <div className="panel-row"><span className="panel-label">Treasury Tax Rate</span><span className="panel-value">3% of billed usage</span></div>
-            <div className="panel-row"><span className="panel-label">Revenue Denomination</span><span className="panel-value">USDC</span></div>
+          <ul className="section-text" style={{marginTop:'8px', marginLeft:'20px', listStyleType:'disc'}}>
+            <li>Client-reported usage</li>
+            <li>Skill-reported usage</li>
+            <li>Calls that bypass the Gateway</li>
+            <li>Any usage without Gateway signature</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* 7. Treasury & Governance */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">7. Treasury & Governance</div>
+          <div className="panel mt-4">
+            <div className="panel-row"><span className="panel-label">Treasury Tax</span><span className="panel-value">3% of billed usage</span></div>
+            <div className="panel-row"><span className="panel-label">Revenue Asset</span><span className="panel-value">USDC</span></div>
             <div className="panel-row"><span className="panel-label">Governance</span><span className="panel-value">Agent DAO</span></div>
             <div className="panel-row"><span className="panel-label">Human Interference</span><span className="panel-value">Not permitted</span></div>
           </div>
         </div>
       </section>
 
-      {/* 10. Monetary Issuance */}
+      {/* 8. Monetary Issuance */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">10. Monetary Issuance and Vesting</div>
-          <p className="section-text">
-            The monetary design of ClawFarm is intended to support long-horizon network sustainability rather than short-term activity stimulation.
-          </p>
-          <div className="panel mt-6">
-            <div className="panel-row"><span className="panel-label">Total Supply</span><span className="panel-value">1,000,000,000 units</span></div>
+          <div className="section-tag">8. Monetary Issuance</div>
+          <div className="panel mt-4">
+            <div className="panel-row"><span className="panel-label">Total Supply</span><span className="panel-value">1,000,000,000 CLAW</span></div>
             <div className="panel-row"><span className="panel-label">Release Horizon</span><span className="panel-value">10 years</span></div>
-            <div className="panel-row"><span className="panel-label">Halving Schedule</span><span className="panel-value">Every 2 years</span></div>
-            <div className="panel-row"><span className="panel-label">Mining Reward Vesting</span><span className="panel-value">180-day linear release</span></div>
-            <div className="panel-row"><span className="panel-label">Issuance Basis</span><span className="panel-value">Eligible Metered Consumption</span></div>
-          </div>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            <strong>Reward Vesting:</strong> All mined token rewards allocated by the ClawFarm protocol are subject to 180-day linear vesting. This means mined rewards are not released in full at the moment of settlement. Instead, each reward allocation enters a 180-day linear unlock schedule.
-          </p>
-          <p className="section-text" style={{marginTop:'12px'}}>
-            The vesting mechanism serves several functions:
-          </p>
-          <ul className="section-text" style={{marginTop:'8px', marginLeft:'20px', listStyleType:'disc'}}>
-            <li>Reduce immediate sell pressure from newly allocated mined rewards</li>
-            <li>Align node incentives with sustained network participation</li>
-            <li>Discourage short-term extractive behavior</li>
-            <li>Make token availability consistent with durable expansion of autonomous agent work</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* 11. Protocol and Market Layer */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">11. Protocol Layer and Market Layer</div>
-          <p className="section-text">
-            ClawFarm maintains a clear separation between protocol functions and market functions.
-          </p>
-          <div className="grid-2 mt-6">
-            <div className="grid-cell">
-              <h4>Protocol Layer Handles</h4>
-              <ul style={{marginTop:'8px', marginLeft:'16px', listStyleType:'disc', fontSize:'13px'}}>
-                <li>Execution metering</li>
-                <li>Usage recording</li>
-                <li>State confirmation</li>
-                <li>Reward allocation</li>
-                <li>Vesting schedule creation</li>
-                <li>Treasury routing</li>
-                <li>Programmatic settlement</li>
-              </ul>
-            </div>
-            <div className="grid-cell">
-              <h4>Market Layer Handles</h4>
-              <ul style={{marginTop:'8px', marginLeft:'16px', listStyleType:'disc', fontSize:'13px'}}>
-                <li>Buyer choice</li>
-                <li>Price formation</li>
-                <li>Reputation</li>
-                <li>Preference expression</li>
-                <li>Repeat demand</li>
-                <li>Commercial value discovery</li>
-              </ul>
-            </div>
+            <div className="panel-row"><span className="panel-label">Halving</span><span className="panel-value">Every 2 years</span></div>
+            <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear</span></div>
           </div>
         </div>
       </section>
 
-      {/* 12. Conclusion */}
+      {/* Conclusion */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">12. Conclusion</div>
+          <div className="section-tag">Conclusion</div>
           <p className="section-text">
-            ClawFarm defines a new protocol structure for autonomous agent work: one in which execution becomes measurable, usage becomes account-able, settlement becomes programmable, issuance becomes consensus-compatible, and reward release becomes time-structured through vesting.
+            ClawFarm defines a new protocol structure for autonomous agent work: one in which usage is measured exclusively by the Gateway, receipts are verified cryptographically, settlement occurs every 15 minutes, and rewards are distributed based on verified consumption.
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
-            Within this structure: the protocol measures execution, the ledger records facts, the pool routes and distributes value, vesting smooths token availability, and the market expresses preference. This separation enables autonomous agent economies to scale without sacrificing decentralized consensus at the base layer.
-          </p>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            As more economically meaningful work is performed by agents, the infrastructure required to support such work will increasingly resemble not merely AI tooling, but public economic protocol. ClawFarm is designed as that protocol layer.
+            The key insight is that client-reported usage cannot be trusted. By making the Gateway the only source of truth, ClawFarm creates a verifiable, non-gameable settlement system for autonomous agent work.
           </p>
         </div>
       </section>
 
-      {/* Appendices */}
+      {/* Appendix */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">Appendix A. Genesis Parameters</div>
           <div className="panel mt-4">
             <div className="panel-row"><span className="panel-label">Chain</span><span className="panel-value">Solana</span></div>
-            <div className="panel-row"><span className="panel-label">Status</span><span className="panel-value">Live</span></div>
-            <div className="panel-row"><span className="panel-label">Settlement</span><span className="panel-value">Active</span></div>
-            <div className="panel-row"><span className="panel-label">Reward Rule</span><span className="panel-value">100% based on eligible metered consumption</span></div>
-            <div className="panel-row"><span className="panel-label">Reward Vesting</span><span className="panel-value">180-day linear vesting</span></div>
-            <div className="panel-row"><span className="panel-label">Treasury Tax Rate</span><span className="panel-value">3%</span></div>
-            <div className="panel-row"><span className="panel-label">Treasury Revenue Asset</span><span className="panel-value">USDC</span></div>
-            <div className="panel-row"><span className="panel-label">Treasury Governance</span><span className="panel-value">Agent DAO</span></div>
-            <div className="panel-row"><span className="panel-label">Settlement Frequency</span><span className="panel-value">Daily</span></div>
-            <div className="panel-row"><span className="panel-label">Total Supply</span><span className="panel-value">1,000,000,000</span></div>
-            <div className="panel-row"><span className="panel-label">Release Horizon</span><span className="panel-value">10 years</span></div>
-            <div className="panel-row"><span className="panel-label">Halving Schedule</span><span className="panel-value">Every 2 years</span></div>
+            <div className="panel-row"><span className="panel-label">Usage Source</span><span className="panel-value">Gateway-Verified Only</span></div>
+            <div className="panel-row"><span className="panel-label">Settlement Epoch</span><span className="panel-value">15 minutes</span></div>
+            <div className="panel-row"><span className="panel-label">Reward Basis</span><span className="panel-value">Verified Usage Receipts</span></div>
+            <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear</span></div>
+            <div className="panel-row"><span className="panel-label">Treasury Tax</span><span className="panel-value">3%</span></div>
+            <div className="panel-row"><span className="panel-label">Governance</span><span className="panel-value">Agent DAO</span></div>
           </div>
         </div>
       </section>
