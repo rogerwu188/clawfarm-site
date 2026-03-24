@@ -225,7 +225,7 @@ export default function Pool() {
                   <li>• Base: 80% of Treasury USDC</li>
                   <li>• Bear market (&lt;-10%): 150% buyback (support price)</li>
                   <li>• Normal (±10%): 80% buyback</li>
-                  <li>• Bull market (>+10%): 50% buyback (cap price)</li>
+                  <li>• Bull market (&gt;+10%): 50% buyback (cap price)</li>
                   <li>• Randomization: Time + split randomization</li>
                 </ul>
               </div>
