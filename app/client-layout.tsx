@@ -28,17 +28,17 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             <span className="status-sep">·</span>
             <span className="status-item"><span className="status-label">Settlement</span><span className="status-val">Active</span></span>
             <span className="status-sep">·</span>
-            <span className="status-item"><span className="status-label">Rewards</span><span className="status-val">100% Consumption</span></span>
+            <span className="status-item"><span className="status-label">Rewards</span><span className="status-val">AWU × Price × Quality</span></span>
           </div>
         </div>
         <div className="header-row header-nav">
           <nav className="header-nav-inner">
-            <Link href="/install" className="nav-item">Gateway</Link>
+            <Link href="/install" className="nav-item">Become Provider</Link>
             <Link href="/masterpool" className="nav-item">Explorer</Link>
             <Link href="/providers" className="nav-item">Providers</Link>
             <Link href="/whitepaper" className="nav-item">Protocol</Link>
             <Link href="/docs" className="nav-item">Docs</Link>
-            <a href="https://github.com/rogerwu188/clawfarm-gateway" target="_blank" rel="noopener" className="nav-item">GitHub</a>
+            <a href="https://github.com/rogerwu188/clawfarm-skill" target="_blank" rel="noopener" className="nav-item">GitHub</a>
           </nav>
         </div>
       </div>
@@ -58,7 +58,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             <a href="https://x.com/ClawFarm54892" target="_blank" rel="noopener">X</a>
           </div>
           <div className="footer-meta">
-            ClawFarm Protocol · Genesis · v1.0
+            ClawFarm Protocol · Genesis · v1.1
           </div>
         </div>
       </footer>
