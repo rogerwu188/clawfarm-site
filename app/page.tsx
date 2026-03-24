@@ -10,7 +10,7 @@ export default function Home() {
             {/* Left Column */}
             <div className="hero-left">
               <h1 className="hero-title">
-                The open AI compute network. Powered by Providers.
+                The truly open AI compute network. Powered by Providers.
               </h1>
               <p className="hero-subtitle">
                 Anyone can supply GPU compute, deploy open-source models, or resell third-party APIs as a Provider. Agents route work. Protocol meters consumption. Rewards go to those who actually serve.
