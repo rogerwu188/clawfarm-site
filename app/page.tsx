@@ -39,223 +39,183 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== SCREEN 1.5: MODEL PRICING ========== */}
+      {/* ========== PROVIDER MARKETPLACE ========== */}
       <section className="section" style={{borderTop:'1px solid var(--border)'}}>
         <div className="max-w-6xl mx-auto px-6">
-          <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>MODEL PRICING</p>
-          <h2 className="section-title" style={{fontSize:'28px'}}>Access every major model. Pay per token.</h2>
-          <p className="section-text" style={{maxWidth:'640px', marginTop:'8px', marginBottom:'28px'}}>Providers set their own prices — anyone can supply any model. Three routing modes pick the best offer for your workload.</p>
+          <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>PROVIDER MARKETPLACE</p>
+          <h2 className="section-title" style={{fontSize:'28px'}}>Every major model. Priced by competing providers.</h2>
+          <p className="section-text" style={{maxWidth:'680px', marginTop:'8px', marginBottom:'28px'}}>Showing the top provider per model by volume. Anyone can register as a provider for any model — prices are set by the market, not the platform.</p>
 
-          {/* --- Language Models --- */}
+          {/* LLM */}
           <div style={{marginBottom:'40px'}}>
             <h3 style={{fontFamily:'var(--font-mono)', fontSize:'14px', color:'var(--text)', marginBottom:'4px'}}>💬 Language Models</h3>
-            <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginBottom:'16px'}}>Per 1M tokens</p>
+            <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginBottom:'16px'}}>Per 1M tokens · Sorted by 30d volume</p>
             <div style={{overflowX:'auto'}}>
               <table style={{width:'100%', borderCollapse:'collapse', fontFamily:'var(--font-mono)', fontSize:'13px'}}>
-                <thead>
-                  <tr style={{borderBottom:'2px solid var(--border)'}}>
-                    <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px', letterSpacing:'0.5px'}} rowSpan={2}>MODEL</th>
-                    <th style={{textAlign:'center', padding:'6px 12px', color:'var(--green)', fontWeight:600, fontSize:'11px', borderBottom:'1px solid var(--border)'}} colSpan={2}>ECO</th>
-                    <th style={{textAlign:'center', padding:'6px 12px', color:'var(--accent)', fontWeight:600, fontSize:'11px', borderBottom:'1px solid var(--border)'}} colSpan={2}>AUTO</th>
-                    <th style={{textAlign:'center', padding:'6px 12px', color:'var(--amber)', fontWeight:600, fontSize:'11px', borderBottom:'1px solid var(--border)'}} colSpan={2}>PREMIUM</th>
-                    <th style={{textAlign:'center', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}} rowSpan={2}>CTX</th>
+                <thead><tr style={{borderBottom:'2px solid var(--border)'}}>
+                  <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px', width:'30px'}}>#</th>
+                  <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>MODEL</th>
+                  <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>TOP PROVIDER</th>
+                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>INPUT</th>
+                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>OUTPUT</th>
+                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>30D VOL</th>
+                  <th style={{textAlign:'center', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>CTX</th>
+                  <th style={{textAlign:'center', padding:'10px 12px'}}></th>
+                </tr></thead>
+                <tbody>{[
+                  {m:'GPT-4o',p:'NodeX Labs',i:'$2.50',o:'$10.00',v:'12.4M',c:'128K'},
+                  {m:'Claude Sonnet 4',p:'InferStack',i:'$3.00',o:'$15.00',v:'9.8M',c:'200K'},
+                  {m:'DeepSeek R1',p:'Dragon Compute',i:'$0.55',o:'$2.19',v:'8.2M',c:'128K'},
+                  {m:'GPT-4o Mini',p:'MiniGPU Pool',i:'$0.15',o:'$0.60',v:'7.6M',c:'128K'},
+                  {m:'Gemini 2.5 Pro',p:'GCloud Relay',i:'$1.25',o:'$7.00',v:'6.1M',c:'1M'},
+                  {m:'Claude Opus 4',p:'InferStack',i:'$10.00',o:'$50.00',v:'5.5M',c:'200K'},
+                  {m:'Llama 4 Maverick',p:'OpenPool DAO',i:'$0.20',o:'$0.50',v:'5.0M',c:'256K'},
+                  {m:'DeepSeek V3',p:'Dragon Compute',i:'$0.27',o:'$0.55',v:'4.8M',c:'128K'},
+                  {m:'Qwen 3 235B',p:'SinoNodes',i:'$0.25',o:'$0.60',v:'4.3M',c:'128K'},
+                  {m:'Gemini 2.5 Flash',p:'GCloud Relay',i:'$0.075',o:'$0.30',v:'4.1M',c:'1M'},
+                  {m:'Grok 3',p:'xRelay Network',i:'$3.00',o:'$15.00',v:'3.7M',c:'128K'},
+                  {m:'Claude 3.5 Haiku',p:'HaikuFarm',i:'$0.80',o:'$4.00',v:'3.5M',c:'200K'},
+                  {m:'MiniMax M2.7',p:'SinoNodes',i:'$0.30',o:'$1.20',v:'3.2M',c:'1M'},
+                  {m:'Mistral Large',p:'EU Compute Co',i:'$2.00',o:'$6.00',v:'2.9M',c:'128K'},
+                  {m:'Llama 4 Scout',p:'OpenPool DAO',i:'$0.11',o:'$0.25',v:'2.8M',c:'512K'},
+                  {m:'Kimi K2.5',p:'MoonRelay',i:'$0.10',o:'$3.00',v:'2.5M',c:'128K'},
+                  {m:'Seed 2.0 Pro',p:'ByteNodes',i:'$1.00',o:'$6.00',v:'2.1M',c:'128K'},
+                  {m:'Grok 3 Mini',p:'xRelay Network',i:'$0.30',o:'$0.60',v:'1.9M',c:'128K'},
+                  {m:'GPT-4.5 Preview',p:'NodeX Labs',i:'$45.00',o:'$90.00',v:'1.7M',c:'128K'},
+                  {m:'Seed 2.0 Mini',p:'ByteNodes',i:'$0.20',o:'$0.80',v:'1.4M',c:'128K'},
+                ].map((r, i) => (
+                  <tr key={i} style={{borderBottom:'1px solid var(--border)'}}>
+                    <td style={{padding:'10px 12px', color:'var(--text-dim)', fontSize:'12px'}}>{i+1}</td>
+                    <td style={{padding:'10px 12px', fontWeight:600, color:'var(--text)'}}>{r.m}</td>
+                    <td style={{padding:'10px 12px', color:'var(--green)', fontSize:'12px'}}>{r.p}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--text-mid)'}}>{r.i}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--text-mid)', opacity:0.7}}>{r.o}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)', fontSize:'12px'}}>{r.v}</td>
+                    <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.c}</td>
+                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Connect API</Link></td>
                   </tr>
-                  <tr style={{borderBottom:'1px solid var(--border)'}}>
-                    <th style={{textAlign:'right', padding:'4px 12px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px'}}>input</th>
-                    <th style={{textAlign:'right', padding:'4px 12px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px'}}>output</th>
-                    <th style={{textAlign:'right', padding:'4px 12px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px'}}>input</th>
-                    <th style={{textAlign:'right', padding:'4px 12px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px'}}>output</th>
-                    <th style={{textAlign:'right', padding:'4px 12px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px'}}>input</th>
-                    <th style={{textAlign:'right', padding:'4px 12px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px'}}>output</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { model:'GPT-4o',          eI:'$1.50', eO:'$6.00',  aI:'$2.50', aO:'$10.00', pI:'$3.50', pO:'$14.00', ctx:'128K' },
-                    { model:'GPT-4o Mini',      eI:'$0.07', eO:'$0.30',  aI:'$0.15', aO:'$0.60',  pI:'$0.25', pO:'$1.00',  ctx:'128K' },
-                    { model:'GPT-4.5 Preview',  eI:'$30.00',eO:'$60.00', aI:'$45.00',aO:'$90.00', pI:'$75.00',pO:'$150.00',ctx:'128K' },
-                    { model:'Claude Opus 4',     eI:'$5.00', eO:'$25.00', aI:'$10.00',aO:'$50.00', pI:'$15.00',pO:'$75.00', ctx:'200K' },
-                    { model:'Claude Sonnet 4',   eI:'$1.50', eO:'$8.00',  aI:'$3.00', aO:'$15.00', pI:'$4.50', pO:'$22.00', ctx:'200K' },
-                    { model:'Claude 3.5 Haiku',  eI:'$0.40', eO:'$2.00',  aI:'$0.80', aO:'$4.00',  pI:'$1.20', pO:'$6.00',  ctx:'200K' },
-                    { model:'Gemini 2.5 Pro',    eI:'$0.60', eO:'$3.50',  aI:'$1.25', aO:'$7.00',  pI:'$2.00', pO:'$10.00', ctx:'1M' },
-                    { model:'Gemini 2.5 Flash',  eI:'$0.03', eO:'$0.15',  aI:'$0.075',aO:'$0.30',  pI:'$0.15', pO:'$0.60',  ctx:'1M' },
-                    { model:'DeepSeek V3',       eI:'$0.14', eO:'$0.28',  aI:'$0.27', aO:'$0.55',  pI:'$0.50', pO:'$1.10',  ctx:'128K' },
-                    { model:'DeepSeek R1',       eI:'$0.28', eO:'$1.10',  aI:'$0.55', aO:'$2.19',  pI:'$1.00', pO:'$4.00',  ctx:'128K' },
-                    { model:'Llama 4 Maverick',  eI:'$0.10', eO:'$0.25',  aI:'$0.20', aO:'$0.50',  pI:'$0.40', pO:'$0.80',  ctx:'256K' },
-                    { model:'Llama 4 Scout',     eI:'$0.05', eO:'$0.12',  aI:'$0.11', aO:'$0.25',  pI:'$0.22', pO:'$0.50',  ctx:'512K' },
-                    { model:'Qwen 3 235B',       eI:'$0.12', eO:'$0.30',  aI:'$0.25', aO:'$0.60',  pI:'$0.50', pO:'$1.20',  ctx:'128K' },
-                    { model:'Mistral Large',     eI:'$1.00', eO:'$3.00',  aI:'$2.00', aO:'$6.00',  pI:'$3.00', pO:'$9.00',  ctx:'128K' },
-                    { model:'Grok 3',            eI:'$1.50', eO:'$7.50',  aI:'$3.00', aO:'$15.00', pI:'$5.00', pO:'$25.00', ctx:'128K' },
-                    { model:'Grok 3 Mini',       eI:'$0.15', eO:'$0.30',  aI:'$0.30', aO:'$0.60',  pI:'$0.50', pO:'$1.00',  ctx:'128K' },
-                    { model:'MiniMax M2.7',      eI:'$0.15', eO:'$0.60',  aI:'$0.30', aO:'$1.20',  pI:'$0.50', pO:'$2.00',  ctx:'1M' },
-                    { model:'Kimi K2.5',         eI:'$0.05', eO:'$1.50',  aI:'$0.10', aO:'$3.00',  pI:'$0.20', pO:'$5.00',  ctx:'128K' },
-                    { model:'Seed 2.0 Pro',      eI:'$0.50', eO:'$3.00',  aI:'$1.00', aO:'$6.00',  pI:'$2.00', pO:'$10.00', ctx:'128K' },
-                    { model:'Seed 2.0 Mini',     eI:'$0.10', eO:'$0.40',  aI:'$0.20', aO:'$0.80',  pI:'$0.40', pO:'$1.50',  ctx:'128K' },
-                  ].map((m, i) => (
-                    <tr key={i} style={{borderBottom:'1px solid var(--border)'}}>
-                      <td style={{padding:'10px 12px', fontWeight:600, color:'var(--text)'}}>{m.model}</td>
-                      <td style={{padding:'10px 12px', textAlign:'right', color:'var(--green)'}}>{m.eI}</td>
-                      <td style={{padding:'10px 12px', textAlign:'right', color:'var(--green)', opacity:0.7}}>{m.eO}</td>
-                      <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)'}}>{m.aI}</td>
-                      <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)', opacity:0.7}}>{m.aO}</td>
-                      <td style={{padding:'10px 12px', textAlign:'right', color:'var(--amber)'}}>{m.pI}</td>
-                      <td style={{padding:'10px 12px', textAlign:'right', color:'var(--amber)', opacity:0.7}}>{m.pO}</td>
-                      <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{m.ctx}</td>
-                    </tr>
-                  ))}
-                </tbody>
+                ))}</tbody>
               </table>
             </div>
           </div>
 
-          {/* --- Image Generation --- */}
+          {/* IMAGE */}
           <div style={{marginBottom:'40px'}}>
             <h3 style={{fontFamily:'var(--font-mono)', fontSize:'14px', color:'var(--text)', marginBottom:'4px'}}>🎨 Image Generation</h3>
-            <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginBottom:'16px'}}>Per image</p>
+            <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginBottom:'16px'}}>Per image · Sorted by 30d volume</p>
             <div style={{overflowX:'auto'}}>
               <table style={{width:'100%', borderCollapse:'collapse', fontFamily:'var(--font-mono)', fontSize:'13px'}}>
-                <thead>
-                  <tr style={{borderBottom:'2px solid var(--border)'}}>
-                    <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>MODEL</th>
-                    <th style={{textAlign:'center', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>RESOLUTION</th>
-                    <th style={{textAlign:'right', padding:'10px 12px', color:'var(--green)', fontWeight:600, fontSize:'11px'}}>ECO</th>
-                    <th style={{textAlign:'right', padding:'10px 12px', color:'var(--accent)', fontWeight:600, fontSize:'11px'}}>AUTO</th>
-                    <th style={{textAlign:'right', padding:'10px 12px', color:'var(--amber)', fontWeight:600, fontSize:'11px'}}>PREMIUM</th>
+                <thead><tr style={{borderBottom:'2px solid var(--border)'}}>
+                  <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px', width:'30px'}}>#</th>
+                  <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>MODEL</th>
+                  <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>TOP PROVIDER</th>
+                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>PRICE</th>
+                  <th style={{textAlign:'center', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>RES</th>
+                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>30D VOL</th>
+                  <th style={{textAlign:'center', padding:'10px 12px'}}></th>
+                </tr></thead>
+                <tbody>{[
+                  {m:'FLUX 1.1 Pro',p:'DiffusionDAO',pr:'$0.040',r:'1024×1024',v:'820K'},
+                  {m:'Midjourney v7',p:'MJ Relay',pr:'$0.050',r:'1024×1024',v:'680K'},
+                  {m:'DALL·E 3 HD',p:'NodeX Labs',pr:'$0.080',r:'1024×1792',v:'520K'},
+                  {m:'Stable Diffusion 3.5',p:'OpenPool DAO',pr:'$0.006',r:'1024×1024',v:'490K'},
+                  {m:'GPT-4o Image',p:'NodeX Labs',pr:'$0.040',r:'1024×1024',v:'430K'},
+                  {m:'Ideogram 3.0',p:'PixelRelay',pr:'$0.040',r:'1024×1024',v:'380K'},
+                  {m:'FLUX Schnell',p:'DiffusionDAO',pr:'$0.003',r:'1024×1024',v:'350K'},
+                  {m:'Seedream 3.0',p:'ByteNodes',pr:'$0.016',r:'1024×1024',v:'290K'},
+                  {m:'Recraft V3',p:'PixelRelay',pr:'$0.040',r:'1024×1024',v:'250K'},
+                  {m:'DALL·E 3',p:'NodeX Labs',pr:'$0.040',r:'1024×1024',v:'220K'},
+                  {m:'Kolors',p:'SinoNodes',pr:'$0.005',r:'1024×1024',v:'180K'},
+                  {m:'Kling Image',p:'SinoNodes',pr:'$0.010',r:'1024×1024',v:'150K'},
+                  {m:'SDXL Turbo',p:'OpenPool DAO',pr:'$0.002',r:'512×512',v:'130K'},
+                ].map((r, i) => (
+                  <tr key={i} style={{borderBottom:'1px solid var(--border)'}}>
+                    <td style={{padding:'10px 12px', color:'var(--text-dim)', fontSize:'12px'}}>{i+1}</td>
+                    <td style={{padding:'10px 12px', fontWeight:600, color:'var(--text)'}}>{r.m}</td>
+                    <td style={{padding:'10px 12px', color:'var(--green)', fontSize:'12px'}}>{r.p}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--text-mid)'}}>{r.pr}</td>
+                    <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.r}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)', fontSize:'12px'}}>{r.v}</td>
+                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Connect API</Link></td>
                   </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { model:'DALL\u00b7E 3',            res:'1024\u00d71024', eco:'$0.020', auto:'$0.040', premium:'$0.060' },
-                    { model:'DALL\u00b7E 3 HD',         res:'1024\u00d71792', eco:'$0.040', auto:'$0.080', premium:'$0.120' },
-                    { model:'GPT-4o Image',       res:'1024\u00d71024', eco:'$0.020', auto:'$0.040', premium:'$0.067' },
-                    { model:'Midjourney v7',       res:'1024\u00d71024', eco:'$0.030', auto:'$0.050', premium:'$0.080' },
-                    { model:'Stable Diffusion 3.5', res:'1024\u00d71024', eco:'$0.003', auto:'$0.006', premium:'$0.012' },
-                    { model:'SDXL Turbo',          res:'512\u00d7512',   eco:'$0.001', auto:'$0.002', premium:'$0.004' },
-                    { model:'FLUX 1.1 Pro',        res:'1024\u00d71024', eco:'$0.020', auto:'$0.040', premium:'$0.060' },
-                    { model:'FLUX Schnell',        res:'1024\u00d71024', eco:'$0.002', auto:'$0.003', premium:'$0.006' },
-                    { model:'Ideogram 3.0',        res:'1024\u00d71024', eco:'$0.020', auto:'$0.040', premium:'$0.080' },
-                    { model:'Recraft V3',          res:'1024\u00d71024', eco:'$0.020', auto:'$0.040', premium:'$0.060' },
-                    { model:'Seedream 3.0',        res:'1024\u00d71024', eco:'$0.008', auto:'$0.016', premium:'$0.030' },
-                    { model:'Kolors',              res:'1024\u00d71024', eco:'$0.003', auto:'$0.005', premium:'$0.010' },
-                    { model:'Kling Image',         res:'1024\u00d71024', eco:'$0.005', auto:'$0.010', premium:'$0.020' },
-                  ].map((m, i) => (
-                    <tr key={i} style={{borderBottom:'1px solid var(--border)'}}>
-                      <td style={{padding:'10px 12px', fontWeight:600, color:'var(--text)'}}>{m.model}</td>
-                      <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{m.res}</td>
-                      <td style={{padding:'10px 12px', textAlign:'right', color:'var(--green)'}}>{m.eco}</td>
-                      <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)'}}>{m.auto}</td>
-                      <td style={{padding:'10px 12px', textAlign:'right', color:'var(--amber)'}}>{m.premium}</td>
-                    </tr>
-                  ))}
-                </tbody>
+                ))}</tbody>
               </table>
             </div>
           </div>
 
-          {/* --- Video Generation --- */}
+          {/* VIDEO */}
           <div style={{marginBottom:'20px'}}>
             <h3 style={{fontFamily:'var(--font-mono)', fontSize:'14px', color:'var(--text)', marginBottom:'4px'}}>🎬 Video Generation</h3>
-            <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginBottom:'16px'}}>Per second of video</p>
+            <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginBottom:'16px'}}>Per second · Sorted by 30d volume</p>
             <div style={{overflowX:'auto'}}>
               <table style={{width:'100%', borderCollapse:'collapse', fontFamily:'var(--font-mono)', fontSize:'13px'}}>
-                <thead>
-                  <tr style={{borderBottom:'2px solid var(--border)'}}>
-                    <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>MODEL</th>
-                    <th style={{textAlign:'center', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>RESOLUTION</th>
-                    <th style={{textAlign:'center', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>DURATION</th>
-                    <th style={{textAlign:'right', padding:'10px 12px', color:'var(--green)', fontWeight:600, fontSize:'11px'}}>ECO</th>
-                    <th style={{textAlign:'right', padding:'10px 12px', color:'var(--accent)', fontWeight:600, fontSize:'11px'}}>AUTO</th>
-                    <th style={{textAlign:'right', padding:'10px 12px', color:'var(--amber)', fontWeight:600, fontSize:'11px'}}>PREMIUM</th>
+                <thead><tr style={{borderBottom:'2px solid var(--border)'}}>
+                  <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px', width:'30px'}}>#</th>
+                  <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>MODEL</th>
+                  <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>TOP PROVIDER</th>
+                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>PRICE/s</th>
+                  <th style={{textAlign:'center', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>RES</th>
+                  <th style={{textAlign:'center', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>DUR</th>
+                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>30D VOL</th>
+                  <th style={{textAlign:'center', padding:'10px 12px'}}></th>
+                </tr></thead>
+                <tbody>{[
+                  {m:'Kling 2.0',p:'SinoNodes',pr:'$0.10',r:'1080p',d:'5–10s',v:'45K'},
+                  {m:'Sora',p:'NodeX Labs',pr:'$0.40',r:'1080p',d:'5–20s',v:'38K'},
+                  {m:'MiniMax Video-02',p:'SinoNodes',pr:'$0.08',r:'1080p',d:'6s',v:'32K'},
+                  {m:'Runway Gen-4',p:'StudioRelay',pr:'$0.25',r:'1080p',d:'5–10s',v:'28K'},
+                  {m:'Veo 3',p:'GCloud Relay',pr:'$0.30',r:'1080p',d:'8s',v:'25K'},
+                  {m:'Wan 2.1 14B',p:'OpenPool DAO',pr:'$0.04',r:'720p',d:'5s',v:'22K'},
+                  {m:'Kling 2.0 Master',p:'SinoNodes',pr:'$0.20',r:'1080p',d:'5–10s',v:'19K'},
+                  {m:'Luma Dream Machine',p:'StudioRelay',pr:'$0.12',r:'1080p',d:'5s',v:'16K'},
+                  {m:'Pika 2.0',p:'StudioRelay',pr:'$0.15',r:'1080p',d:'3–5s',v:'14K'},
+                  {m:'HunyuanVideo',p:'Dragon Compute',pr:'$0.06',r:'720p',d:'5s',v:'11K'},
+                  {m:'CogVideoX-5B',p:'OpenPool DAO',pr:'$0.04',r:'720p',d:'6s',v:'8K'},
+                  {m:'Seaweed',p:'OpenPool DAO',pr:'$0.05',r:'720p',d:'5s',v:'5K'},
+                ].map((r, i) => (
+                  <tr key={i} style={{borderBottom:'1px solid var(--border)'}}>
+                    <td style={{padding:'10px 12px', color:'var(--text-dim)', fontSize:'12px'}}>{i+1}</td>
+                    <td style={{padding:'10px 12px', fontWeight:600, color:'var(--text)'}}>{r.m}</td>
+                    <td style={{padding:'10px 12px', color:'var(--green)', fontSize:'12px'}}>{r.p}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--text-mid)'}}>{r.pr}</td>
+                    <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.r}</td>
+                    <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.d}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)', fontSize:'12px'}}>{r.v}</td>
+                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Connect API</Link></td>
                   </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { model:'Sora',              res:'1080p', dur:'5\u201320s', eco:'$0.20/s',  auto:'$0.40/s',  premium:'$0.60/s' },
-                    { model:'Veo 3',             res:'1080p', dur:'8s',     eco:'$0.15/s',  auto:'$0.30/s',  premium:'$0.50/s' },
-                    { model:'Kling 2.0',         res:'1080p', dur:'5\u201310s', eco:'$0.05/s',  auto:'$0.10/s',  premium:'$0.20/s' },
-                    { model:'Kling 2.0 Master',  res:'1080p', dur:'5\u201310s', eco:'$0.10/s',  auto:'$0.20/s',  premium:'$0.35/s' },
-                    { model:'Runway Gen-4',      res:'1080p', dur:'5\u201310s', eco:'$0.10/s',  auto:'$0.25/s',  premium:'$0.50/s' },
-                    { model:'MiniMax Video-02',  res:'1080p', dur:'6s',     eco:'$0.04/s',  auto:'$0.08/s',  premium:'$0.15/s' },
-                    { model:'Pika 2.0',          res:'1080p', dur:'3\u20135s',  eco:'$0.08/s',  auto:'$0.15/s',  premium:'$0.30/s' },
-                    { model:'Luma Dream Machine', res:'1080p', dur:'5s',    eco:'$0.06/s',  auto:'$0.12/s',  premium:'$0.25/s' },
-                    { model:'Wan 2.1 14B',       res:'720p',  dur:'5s',     eco:'$0.02/s',  auto:'$0.04/s',  premium:'$0.08/s' },
-                    { model:'HunyuanVideo',      res:'720p',  dur:'5s',     eco:'$0.03/s',  auto:'$0.06/s',  premium:'$0.12/s' },
-                    { model:'CogVideoX-5B',      res:'720p',  dur:'6s',     eco:'$0.02/s',  auto:'$0.04/s',  premium:'$0.08/s' },
-                    { model:'Seaweed',           res:'720p',  dur:'5s',     eco:'$0.02/s',  auto:'$0.05/s',  premium:'$0.10/s' },
-                  ].map((m, i) => (
-                    <tr key={i} style={{borderBottom:'1px solid var(--border)'}}>
-                      <td style={{padding:'10px 12px', fontWeight:600, color:'var(--text)'}}>{m.model}</td>
-                      <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{m.res}</td>
-                      <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{m.dur}</td>
-                      <td style={{padding:'10px 12px', textAlign:'right', color:'var(--green)'}}>{m.eco}</td>
-                      <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)'}}>{m.auto}</td>
-                      <td style={{padding:'10px 12px', textAlign:'right', color:'var(--amber)'}}>{m.premium}</td>
-                    </tr>
-                  ))}
-                </tbody>
+                ))}</tbody>
               </table>
             </div>
           </div>
 
-          <div style={{marginTop:'20px', display:'flex', gap:'16px', alignItems:'center', flexWrap:'wrap'}}>
-            <div style={{display:'flex', alignItems:'center', gap:'6px'}}>
-              <span style={{width:'8px', height:'8px', borderRadius:'50%', background:'var(--green)', display:'inline-block'}} />
-              <span style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>ECO — Cheapest provider</span>
-            </div>
-            <div style={{display:'flex', alignItems:'center', gap:'6px'}}>
-              <span style={{width:'8px', height:'8px', borderRadius:'50%', background:'var(--accent)', display:'inline-block'}} />
-              <span style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>AUTO — Best balance of cost + quality</span>
-            </div>
-            <div style={{display:'flex', alignItems:'center', gap:'6px'}}>
-              <span style={{width:'8px', height:'8px', borderRadius:'50%', background:'var(--amber)', display:'inline-block'}} />
-              <span style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>PREMIUM — Fastest, highest quality</span>
-            </div>
+          <div style={{marginTop:'24px', display:'flex', gap:'16px', alignItems:'center', flexWrap:'wrap'}}>
+            <Link href="/providers" className="btn-primary" style={{fontSize:'13px', padding:'10px 20px'}}>Become a Provider</Link>
+            <Link href="/docs" className="btn-secondary" style={{fontSize:'13px', padding:'10px 20px'}}>Full API Docs</Link>
+            <span style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>Prices set by independent providers competing on-chain. Anyone can supply any model.</span>
           </div>
-
-          <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginTop:'16px'}}>Prices set by independent providers competing on the network. More providers = lower prices. Anyone can supply any model.</p>
         </div>
       </section>
 
-      {/* ========== SCREEN 2: HOW IT WORKS ========== */}
+      {/* ========== HOW IT WORKS ========== */}
       <section className="section" style={{borderTop:'1px solid var(--border)'}}>
         <div className="max-w-6xl mx-auto px-6">
           <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>HOW IT WORKS</p>
           <h2 className="section-title" style={{fontSize:'28px'}}>From request to settlement in one flow.</h2>
           <div className="exec-flow" style={{marginTop:'36px'}}>
-            <div className="flow-step">
-              <div className="flow-step-num">01</div>
-              <div className="flow-step-title">Provide</div>
-              <div className="flow-step-desc">Register your model, GPU, or API endpoint. Set your own price. Stake CLAW.</div>
-            </div>
+            <div className="flow-step"><div className="flow-step-num">01</div><div className="flow-step-title">Provide</div><div className="flow-step-desc">Register your model, GPU, or API endpoint. Set your own price. Stake CLAW.</div></div>
             <div className="flow-arrow">→</div>
-            <div className="flow-step">
-              <div className="flow-step-num">02</div>
-              <div className="flow-step-title">Route</div>
-              <div className="flow-step-desc">Requests are routed to the best Provider by eco, auto, or premium mode.</div>
-            </div>
+            <div className="flow-step"><div className="flow-step-num">02</div><div className="flow-step-title">Route</div><div className="flow-step-desc">Requests are routed to the best Provider by eco, auto, or premium mode.</div></div>
             <div className="flow-arrow">→</div>
-            <div className="flow-step">
-              <div className="flow-step-num">03</div>
-              <div className="flow-step-title">Meter</div>
-              <div className="flow-step-desc">Every token is counted client-side. Both parties sign a usage proof.</div>
-            </div>
+            <div className="flow-step"><div className="flow-step-num">03</div><div className="flow-step-title">Meter</div><div className="flow-step-desc">Every token is counted client-side. Both parties sign a usage proof.</div></div>
             <div className="flow-arrow">→</div>
-            <div className="flow-step">
-              <div className="flow-step-num">04</div>
-              <div className="flow-step-title">Settle</div>
-              <div className="flow-step-desc">Smart contract splits payment: 97% Provider, 3% Treasury. Automatic.</div>
-            </div>
+            <div className="flow-step"><div className="flow-step-num">04</div><div className="flow-step-title">Settle</div><div className="flow-step-desc">Smart contract splits payment: 97% Provider, 3% Treasury. Automatic.</div></div>
             <div className="flow-arrow">→</div>
-            <div className="flow-step">
-              <div className="flow-step-num">05</div>
-              <div className="flow-step-title">Earn</div>
-              <div className="flow-step-desc">CLAW tokens distributed every Epoch. More usage × better price × higher quality = more rewards.</div>
-            </div>
+            <div className="flow-step"><div className="flow-step-num">05</div><div className="flow-step-title">Earn</div><div className="flow-step-desc">CLAW tokens distributed every Epoch. More usage × better price × higher quality = more rewards.</div></div>
           </div>
         </div>
       </section>
 
-      {/* ========== SCREEN 3: WHO IS IT FOR ========== */}
+      {/* ========== WHO IS IT FOR ========== */}
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
           <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>WHO IS CLAWFARM FOR</p>
@@ -264,71 +224,45 @@ export default function Home() {
             <div className="grid-cell" style={{borderTop:'3px solid var(--green)', paddingTop:'24px'}}>
               <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', letterSpacing:'1px', marginBottom:'8px'}}>PROVIDER</p>
               <h4 style={{fontSize:'18px', marginBottom:'12px'}}>Sell compute. Earn USDC + CLAW.</h4>
-              <p style={{color:'var(--text-mid)', fontSize:'14px', lineHeight:1.7}}>
-                You have a GPU, a model endpoint, or an API key. Register on-chain, set your price, and start serving inference. No billing system needed — settlement goes directly to your wallet.
-              </p>
-              <div style={{marginTop:'20px'}}>
-                <Link href="/providers" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--green)'}}>→ Become a Provider</Link>
-              </div>
+              <p style={{color:'var(--text-mid)', fontSize:'14px', lineHeight:1.7}}>You have a GPU, a model endpoint, or an API key. Register on-chain, set your price, and start serving inference. Settlement goes directly to your wallet.</p>
+              <div style={{marginTop:'20px'}}><Link href="/providers" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--green)'}}>→ Become a Provider</Link></div>
             </div>
             <div className="grid-cell" style={{borderTop:'3px solid var(--accent)', paddingTop:'24px'}}>
               <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--accent)', letterSpacing:'1px', marginBottom:'8px'}}>BUILDER</p>
               <h4 style={{fontSize:'18px', marginBottom:'12px'}}>Build on decentralized AI infra.</h4>
-              <p style={{color:'var(--text-mid)', fontSize:'14px', lineHeight:1.7}}>
-                Use ClawFarm SDK to route AI requests across multiple providers with one integration. Auto-failover, cost optimization, and on-chain usage receipts built in.
-              </p>
-              <div style={{marginTop:'20px'}}>
-                <Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--accent)'}}>→ Read the Docs</Link>
-              </div>
+              <p style={{color:'var(--text-mid)', fontSize:'14px', lineHeight:1.7}}>Use ClawFarm SDK to route AI requests across multiple providers with one integration. Auto-failover, cost optimization, and on-chain usage receipts built in.</p>
+              <div style={{marginTop:'20px'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--accent)'}}>→ Read the Docs</Link></div>
             </div>
             <div className="grid-cell" style={{borderTop:'3px solid var(--amber)', paddingTop:'24px'}}>
               <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--amber)', letterSpacing:'1px', marginBottom:'8px'}}>NODE OPERATOR</p>
               <h4 style={{fontSize:'18px', marginBottom:'12px'}}>Run infrastructure. Power the network.</h4>
-              <p style={{color:'var(--text-mid)', fontSize:'14px', lineHeight:1.7}}>
-                Deploy GPU nodes, host open-source models, or run relay infrastructure. Earn CLAW rewards proportional to your verified contribution.
-              </p>
-              <div style={{marginTop:'20px'}}>
-                <Link href="/install" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--amber)'}}>→ Set Up a Node</Link>
-              </div>
+              <p style={{color:'var(--text-mid)', fontSize:'14px', lineHeight:1.7}}>Deploy GPU nodes, host open-source models, or run relay infrastructure. Earn CLAW rewards proportional to your verified contribution.</p>
+              <div style={{marginTop:'20px'}}><Link href="/install" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--amber)'}}>→ Set Up a Node</Link></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ========== SCREEN 4: WHY DIFFERENT ========== */}
+      {/* ========== WHY DIFFERENT ========== */}
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
           <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>WHY CLAWFARM</p>
           <h2 className="section-title" style={{fontSize:'28px'}}>Open supply. Unified metering. Automatic settlement.</h2>
           <div className="grid-2 mt-8">
-            <div className="grid-cell">
-              <h4>Open Supply</h4>
-              <p>Anyone can register as a Provider — GPU operators, cloud instances, API resellers, fine-tuned model hosts. No approval. No whitelist. The network grows without gatekeepers.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>Unified Metering</h4>
-              <p>Every request is metered with dual-signature verification. Client counts tokens independently. Both parties sign. No trust required.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>Automatic Settlement</h4>
-              <p>Smart contract splits every payment: 97% to Provider, 3% to Treasury. No invoices. No payment delays. Settlement is a contract execution.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>Non-Custodial</h4>
-              <p>User USDC sits in a program-owned escrow (PDA). No human holds the key. Withdraw anytime. The platform never touches your funds.</p>
-            </div>
+            <div className="grid-cell"><h4>Open Supply</h4><p>Anyone can register as a Provider — GPU operators, cloud instances, API resellers, fine-tuned model hosts. No approval. No whitelist.</p></div>
+            <div className="grid-cell"><h4>Unified Metering</h4><p>Every request is metered with dual-signature verification. Client counts tokens independently. Both parties sign. No trust required.</p></div>
+            <div className="grid-cell"><h4>Automatic Settlement</h4><p>Smart contract splits every payment: 97% to Provider, 3% to Treasury. No invoices. No payment delays.</p></div>
+            <div className="grid-cell"><h4>Non-Custodial</h4><p>User USDC sits in a program-owned escrow (PDA). No human holds the key. Withdraw anytime.</p></div>
           </div>
         </div>
       </section>
 
-      {/* ========== SCREEN 4.5: MINING REWARDS ========== */}
+      {/* ========== MINING REWARDS ========== */}
       <section className="section" style={{borderTop:'1px solid var(--border)'}}>
         <div className="max-w-6xl mx-auto px-6">
           <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>NETWORK MINING</p>
           <h2 className="section-title" style={{fontSize:'28px'}}>Serve AI. Mine CLAW.</h2>
-          <p className="section-text" style={{maxWidth:'640px', marginTop:'12px'}}>
-            Every AI request you serve earns you CLAW tokens. The more you serve, the cheaper your price, and the better your quality — the more you mine.
-          </p>
+          <p className="section-text" style={{maxWidth:'640px', marginTop:'12px'}}>Every AI request you serve earns you CLAW tokens. The more you serve, the cheaper your price, and the better your quality — the more you mine.</p>
           <div className="grid-3 mt-8" style={{gridTemplateColumns:'repeat(3, 1fr)', gap:'16px'}}>
             <div className="panel" style={{textAlign:'center', padding:'28px 20px'}}>
               <div style={{fontSize:'36px', fontWeight:700, color:'var(--green)'}}>97%</div>
@@ -347,23 +281,17 @@ export default function Home() {
             </div>
           </div>
           <div className="panel mt-6" style={{maxWidth:'560px'}}>
-            <div className="panel-header">
-              <span className="panel-tag">Provider Reward Formula</span>
-            </div>
+            <div className="panel-header"><span className="panel-tag">Provider Reward Formula</span></div>
             <pre style={{fontFamily:'var(--font-mono)', fontSize:'14px', color:'var(--green)', lineHeight:2, padding:'12px 22px'}}>
-{`Reward = Epoch_Pool × Your_Weight / Total_Weight
-
-Weight = Usage × (Avg_Price / Your_Price) × Quality`}
+{`Reward = Epoch_Pool × Your_Weight / Total_Weight\n\nWeight = Usage × (Avg_Price / Your_Price) × Quality`}
             </pre>
-            <p style={{fontSize:'12px', color:'var(--text-dim)', padding:'0 22px 16px'}}>Cheaper price + more usage + higher quality = larger share of the reward pool. Simple.</p>
+            <p style={{fontSize:'12px', color:'var(--text-dim)', padding:'0 22px 16px'}}>Cheaper price + more usage + higher quality = larger share of the reward pool.</p>
           </div>
-          <div style={{marginTop:'24px'}}>
-            <Link href="/whitepaper" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--green)'}}>→ Full economics in the Whitepaper</Link>
-          </div>
+          <div style={{marginTop:'24px'}}><Link href="/whitepaper" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--green)'}}>→ Full economics in the Whitepaper</Link></div>
         </div>
       </section>
 
-      {/* ========== SCREEN 5: QUICK LINKS ========== */}
+      {/* ========== QUICK LINKS ========== */}
       <section className="section" style={{borderTop:'1px solid var(--border)'}}>
         <div className="max-w-6xl mx-auto px-6">
           <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>EXPLORE</p>
