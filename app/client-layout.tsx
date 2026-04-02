@@ -24,21 +24,22 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           <div className="header-status">
             <span className="status-item"><span className="status-label">Chain</span><span className="status-val">Solana</span></span>
             <span className="status-sep">·</span>
-            <span className="status-item"><span className="status-label">Status</span><span className="status-val status-live"><span className="state-dot" />Live</span></span>
+            <span className="status-item"><span className="status-label">Custody</span><span className="status-val status-live"><span className="state-dot" />Non-Custodial</span></span>
             <span className="status-sep">·</span>
-            <span className="status-item"><span className="status-label">Settlement</span><span className="status-val">Active</span></span>
+            <span className="status-item"><span className="status-label">Settlement</span><span className="status-val">On-Chain</span></span>
             <span className="status-sep">·</span>
-            <span className="status-item"><span className="status-label">Rewards</span><span className="status-val">AWU × Price × Quality</span></span>
+            <span className="status-item"><span className="status-label">Routing</span><span className="status-val">eco · auto · premium</span></span>
           </div>
         </div>
         <div className="header-row header-nav">
           <nav className="header-nav-inner">
+            <Link href="/users" className="nav-item">For Users</Link>
             <Link href="/install" className="nav-item">Become Provider</Link>
             <Link href="/masterpool" className="nav-item">Explorer</Link>
             <Link href="/providers" className="nav-item">Providers</Link>
             <Link href="/whitepaper" className="nav-item">Protocol</Link>
             <Link href="/docs" className="nav-item">Docs</Link>
-            <a href="https://github.com/rogerwu188/clawfarm-skill" target="_blank" rel="noopener" className="nav-item">GitHub</a>
+            <a href="https://github.com/rogerwu188/clawfarm-site" target="_blank" rel="noopener" className="nav-item">GitHub</a>
           </nav>
         </div>
       </div>
@@ -51,14 +52,16 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <footer className="site-footer">
         <div className="max-w-6xl mx-auto px-6">
           <div className="footer-links">
+            <Link href="/users">For Users</Link>
+            <Link href="/providers">Providers</Link>
             <Link href="/docs">Docs</Link>
             <Link href="/whitepaper">Whitepaper</Link>
-            <Link href="/masterpool">Master Pool</Link>
-            <a href="https://github.com/rogerwu188/clawfarm-skill" target="_blank" rel="noopener">GitHub</a>
+            <Link href="/masterpool">Explorer</Link>
+            <a href="https://github.com/rogerwu188/clawfarm-site" target="_blank" rel="noopener">GitHub</a>
             <a href="https://x.com/ClawFarm54892" target="_blank" rel="noopener">X</a>
           </div>
           <div className="footer-meta">
-            ClawFarm Protocol · Genesis · v1.1
+            ClawFarm Protocol · v2.0 · Decentralized AI Compute Marketplace
           </div>
         </div>
       </footer>

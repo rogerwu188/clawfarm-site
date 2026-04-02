@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'ClawFarm — The truly open AI compute network',
-  description: 'Anyone can supply GPU compute, deploy open-source models, or resell AI APIs as a Provider. Protocol meters usage, settles on-chain, and distributes CLAW rewards automatically.',
+  title: 'ClawFarm — Decentralized AI Compute Marketplace',
+  description: 'Non-custodial AI compute marketplace on Solana. Deposit USDC, choose eco/auto/premium routing, consume AI inference from permissionless Providers. On-chain settlement. No platform holds your funds.',
 }
 
 import ClientLayout from './client-layout'

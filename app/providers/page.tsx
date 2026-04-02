@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export const metadata = { title: 'Providers — ClawFarm', description: 'Become a ClawFarm Provider — Open AI Compute Mining' }
+export const metadata = { title: 'Providers — ClawFarm', description: 'Register as a Provider on the decentralized AI compute marketplace' }
 
 export default function Providers() {
   return (
@@ -8,7 +8,7 @@ export default function Providers() {
       <div className="state-strip">
         <div className="max-w-6xl mx-auto px-6 flex gap-8">
           <span>Surface: <span className="text-[#8a8f98]">Provider Integration</span></span>
-          <span>Policy: <span className="text-[#8a8f98]">Open — No Whitelist</span></span>
+          <span>Policy: <span className="text-[#8a8f98]">Permissionless — On-Chain Registration</span></span>
         </div>
       </div>
 
@@ -16,12 +16,15 @@ export default function Providers() {
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="section-title text-[36px]">Anyone can be a Provider.</h1>
           <p className="section-text">
-            ClawFarm is an open compute network. No approval process. No whitelist. If you can serve AI inference — with your own GPU, a cloud node, or a third-party API — you can register as a Provider and start earning CLAW rewards and USDC service revenue.
+            ClawFarm is a decentralized AI compute marketplace. No approval process. No whitelist. Register on-chain with a model endpoint, a price table, and a CLAW stake. Start earning 97% USDC service revenue and CLAW token rewards — settlement goes directly from user escrow to your wallet.
+          </p>
+          <p className="section-text" style={{marginTop:'16px', borderLeft:'3px solid var(--green)', paddingLeft:'16px'}}>
+            <strong>No payment infrastructure needed.</strong> ClawFarm settles directly from user escrow to your wallet via smart contract. Focus on serving inference, not building billing systems.
           </p>
         </div>
       </section>
 
-      {/* What counts as a Provider */}
+      {/* Provider Types */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">Provider Types</div>
@@ -32,7 +35,7 @@ export default function Providers() {
             </div>
             <div className="grid-cell">
               <h4>Cloud GPU Node</h4>
-              <p>Spin up GPU instances on Lambda, RunPod, CoreWeave, or any cloud provider. Wrap them into a ClawFarm-compatible endpoint and register.</p>
+              <p>Spin up GPU instances on Lambda, RunPod, CoreWeave, or any cloud provider. Wrap them into a ClawFarm-compatible endpoint.</p>
             </div>
             <div className="grid-cell">
               <h4>Third-Party API Proxy</h4>
@@ -40,48 +43,67 @@ export default function Providers() {
             </div>
             <div className="grid-cell">
               <h4>Custom Model Service</h4>
-              <p>Fine-tuned models, domain-specific inference, proprietary runtimes — if it serves tokens and can be metered, it qualifies as a Provider.</p>
+              <p>Fine-tuned models, domain-specific inference, proprietary runtimes — if it serves tokens and can be metered, it qualifies.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How Providers are rewarded */}
+      {/* How rewards work */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">How Provider Rewards Work</div>
           <p className="section-text mb-4">
-            Rewards are computed by the public formula each Epoch. No human decides your reward.
+            Two revenue streams: direct USDC from users, and CLAW token rewards from the protocol.
           </p>
           <div className="panel">
-            <pre style={{fontFamily:'var(--font-mono)', fontSize:'14px', color:'var(--green)', lineHeight:2.2, padding:'8px 0'}}>
+            <pre style={{fontFamily:'var(--font-mono)', fontSize:'14px', color:'var(--green)', lineHeight:2.2, padding:'18px 22px'}}>
 {`W_i = AWU_i × (P_avg / P_i) × Q_i
 
 Reward_i = E_t × W_i / ΣW`}
             </pre>
-            <div className="panel-row"><span className="panel-label">AWU_i</span><span className="panel-value">Your true metered workload (AI Work Units)</span></div>
-            <div className="panel-row"><span className="panel-label">P_avg / P_i</span><span className="panel-value">Lower price than network average = higher weight</span></div>
-            <div className="panel-row"><span className="panel-label">Q_i</span><span className="panel-value">Your quality score: success rate × latency × uptime</span></div>
-            <div className="panel-row"><span className="panel-label">E_t</span><span className="panel-value">Total CLAW issued this Epoch (70% goes to Providers)</span></div>
+            <div className="panel-row"><span className="panel-label">USDC Revenue</span><span className="panel-value" style={{color:'var(--green)'}}>97% of every user payment (direct, on-chain)</span></div>
+            <div className="panel-row"><span className="panel-label">CLAW Rewards</span><span className="panel-value">70% of Epoch issuance, weighted by W_i</span></div>
+            <div className="panel-row"><span className="panel-label">Cold-Start Bonus</span><span className="panel-value">20% of Epoch issuance for new providers</span></div>
+            <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear release</span></div>
           </div>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            In addition to CLAW rewards, you receive <strong>97% of every USDC payment</strong> from Users in direct service revenue.
-          </p>
         </div>
       </section>
 
-      {/* Cold-start */}
+      {/* Staking */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Cold-Start Incentive</div>
-          <p className="section-text">
-            New Providers have no usage history. ClawFarm reserves 20% of each Epoch's issuance as a cold-start pool for Providers who are online but not yet fully utilized. You earn from the moment you're registered and serving — even before significant traffic arrives.
+          <div className="section-tag">Provider Staking</div>
+          <p className="section-text mb-4">
+            Providers must stake CLAW tokens to register. The stake acts as collateral — if you serve honestly, you keep it. If you cheat, it gets slashed.
           </p>
-          <div className="panel mt-4">
-            <div className="panel-row"><span className="panel-label">Cold-Start Pool</span><span className="panel-value">20% of Epoch issuance</span></div>
-            <div className="panel-row"><span className="panel-label">Eligibility</span><span className="panel-value">Online Provider with active endpoint</span></div>
-            <div className="panel-row"><span className="panel-label">Basis</span><span className="panel-value">Uptime × base weight (with per-Provider cap)</span></div>
-            <div className="panel-row"><span className="panel-label">Cap</span><span className="panel-value">Hard limit prevents idle-farming</span></div>
+          <div className="panel">
+            <div className="panel-row"><span className="panel-label">Minimum Stake</span><span className="panel-value">1,000 CLAW</span></div>
+            <div className="panel-row"><span className="panel-label">Slash Conditions</span><span className="panel-value">Token count fraud, sustained downtime, response manipulation</span></div>
+            <div className="panel-row"><span className="panel-label">Slash Amount</span><span className="panel-value">Up to 100% of stake</span></div>
+            <div className="panel-row"><span className="panel-label">Unstaking Period</span><span className="panel-value">7 days (allows pending disputes to resolve)</span></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Settlement */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">Settlement Flow</div>
+          <p className="section-text mb-4">
+            You don&#39;t need Stripe, payment processing, or your own billing system. Settlement is automatic:
+          </p>
+          <div className="panel">
+            <pre className="text-[13px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>
+{`User sends AI request
+  ↓ routed to your endpoint by eco/auto/premium
+You serve inference + sign usage proof
+  ↓ user SDK also signs (dual-signature)
+Settlement contract processes proof
+  ↓
+├── 97% USDC → your wallet (on-chain)
+└── 3% USDC → Treasury → buyback & burn`}
+            </pre>
           </div>
         </div>
       </section>
@@ -89,45 +111,45 @@ Reward_i = E_t × W_i / ΣW`}
       {/* Registration */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Registration Requirements</div>
-          <p className="section-text mb-4">To join as a Provider, register the following:</p>
+          <div className="section-tag">On-Chain Registration</div>
+          <p className="section-text mb-4">To register as a Provider, call the registry contract with:</p>
           <div className="panel">
-            <div className="panel-row"><span className="panel-label">public_key</span><span className="panel-value">Your Solana wallet address</span></div>
             <div className="panel-row"><span className="panel-label">endpoint</span><span className="panel-value">Your inference API endpoint (HTTPS)</span></div>
-            <div className="panel-row"><span className="panel-label">models</span><span className="panel-value">List of supported model IDs</span></div>
-            <div className="panel-row"><span className="panel-label">price</span><span className="panel-value">Your price per AWU (USDC, self-set)</span></div>
-            <div className="panel-row"><span className="panel-label">version</span><span className="panel-value">ClawFarm provider interface version</span></div>
+            <div className="panel-row"><span className="panel-label">models</span><span className="panel-value">List of supported model IDs + per-token pricing</span></div>
+            <div className="panel-row"><span className="panel-label">stake</span><span className="panel-value">CLAW tokens to lock (min 1,000)</span></div>
+            <div className="panel-row"><span className="panel-label">wallet</span><span className="panel-value">Your Solana wallet for settlement</span></div>
           </div>
-        </div>
-      </section>
-
-      {/* Required interface */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Required Response Format</div>
-          <p className="section-text mb-4">Every model call response must include:</p>
-          <div className="panel">
-            <div className="panel-row"><span className="panel-label">request_id</span><span className="panel-value">string</span></div>
-            <div className="panel-row"><span className="panel-label">awu_used</span><span className="panel-value">decimal — metered work units consumed</span></div>
-            <div className="panel-row"><span className="panel-label">token_usage</span><span className="panel-value">integer — input + output tokens</span></div>
-            <div className="panel-row"><span className="panel-label">billed_amount</span><span className="panel-value">decimal — USDC billed this call</span></div>
-            <div className="panel-row"><span className="panel-label">response_time_ms</span><span className="panel-value">integer — latency in milliseconds</span></div>
-            <div className="panel-row"><span className="panel-label">success</span><span className="panel-value">boolean</span></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Treasury rule */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Protocol Tax</div>
-          <p className="section-text">
-            For every billed call, 3% of the payment is automatically routed to the Treasury. The remaining 97% is yours. The Treasury runs a non-discretionary buyback-and-burn engine — no governance, no human allocation.
+          <p className="section-text" style={{marginTop:'16px'}}>
+            No approval. No human review. Your Provider account is active from the next block. Traffic can route to you immediately.
           </p>
-          <div className="panel mt-4">
-            <div className="panel-row"><span className="panel-label">Your Revenue</span><span className="panel-value" style={{color:'var(--green)'}}>97% of every payment</span></div>
-            <div className="panel-row"><span className="panel-label">Protocol Tax</span><span className="panel-value">3% → Treasury → Buyback & Burn</span></div>
+        </div>
+      </section>
+
+      {/* Verification */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">Verification Requirements</div>
+          <p className="section-text mb-4">
+            Every response from your endpoint must support dual-signature verification:
+          </p>
+          <div className="panel">
+            <pre className="text-[11px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>
+{`{
+  "request_id": "req_xxx",
+  "output": "...",
+  "token_usage": {
+    "input_tokens": 800,
+    "output_tokens": 1200
+  },
+  "response_time_ms": 312,
+  "success": true,
+  "provider_signature": "..."    // your signature on the usage proof
+}`}
+            </pre>
           </div>
+          <p className="section-text" style={{marginTop:'16px'}}>
+            The user SDK independently counts tokens and co-signs. Both signatures required for settlement. This protects both parties.
+          </p>
         </div>
       </section>
 
@@ -137,7 +159,7 @@ Reward_i = E_t × W_i / ΣW`}
             <Link href="/install" className="btn-primary">Register as Provider</Link>
             <Link href="/whitepaper" className="btn-secondary">Read Full Protocol</Link>
             <Link href="/docs" className="btn-secondary">Technical Docs</Link>
-            <Link href="/masterpool" className="btn-secondary">View Reward Pool</Link>
+            <Link href="/masterpool" className="btn-secondary">Network Explorer</Link>
           </div>
         </div>
       </section>

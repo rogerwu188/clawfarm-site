@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export const metadata = { title: 'Whitepaper — ClawFarm', description: 'Open AI Compute Network — Decentralized Economic Model v1' }
+export const metadata = { title: 'Whitepaper — ClawFarm', description: 'Decentralized AI Compute Marketplace — Protocol Architecture v2.0' }
 
 export default function Whitepaper() {
   return (
@@ -8,19 +8,19 @@ export default function Whitepaper() {
       <div className="state-strip">
         <div className="max-w-6xl mx-auto px-6 flex gap-8">
           <span>Surface: <span className="text-[#8a8f98]">Protocol Definition</span></span>
-          <span>Version: <span className="text-[#8a8f98]">Genesis v1.1</span></span>
+          <span>Version: <span className="text-[#8a8f98]">v2.0</span></span>
         </div>
       </div>
 
-      {/* Abstract */}
+      {/* Title */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="section-title text-[36px]">ClawFarm Whitepaper</h1>
           <p className="section-text" style={{fontSize:'18px', marginTop:'8px'}}>
-            Open AI Compute Network — Decentralized Economic Model
+            Decentralized AI Compute Marketplace — Protocol Architecture
           </p>
           <p className="section-text" style={{marginTop:'24px', color:'var(--green)'}}>
-            Genesis v1.1
+            v2.0 — April 2026
           </p>
         </div>
       </section>
@@ -30,333 +30,329 @@ export default function Whitepaper() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">Abstract</div>
           <p className="section-text">
-            ClawFarm is a fully open, fully transparent, fully decentralized AI compute and model supply-demand network. Any person can act as a Provider — deploying GPU hardware, self-hosted open-source models, or third-party API endpoints. Any agent, user, or application can call these capabilities through the ClawFarm routing layer.
+            ClawFarm is a permissionless, non-custodial AI compute marketplace built on Solana. Users deposit USDC into an on-chain escrow contract, choose an automatic routing mode (eco / auto / premium), and consume AI inference from any registered Provider — without signing up with individual providers, configuring API keys, or trusting a central platform with their funds.
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
-            The protocol's economic design is anchored in five principles: open supply, open demand, transparent rewards, on-chain verifiability, and zero human intervention in reward outcomes. Token rewards are computed automatically per Epoch using a public formula based on real consumption, competitive pricing, and service quality.
+            Providers register on-chain with a model endpoint, a public price table, and a CLAW stake. The protocol routes requests, meters consumption via dual-signature usage proofs, settles payments through smart contracts, and distributes rewards — all without admin override.
           </p>
           <p className="section-text" style={{marginTop:'24px', borderLeft:'3px solid var(--green)', paddingLeft:'16px', fontStyle:'italic'}}>
-            <strong>Central Claim:</strong> Provider rewards must be derived entirely from objectively verifiable on-chain signals — real usage (AWU), price competitiveness, and service quality. No human allocation. No whitelist. No discretion.
+            <strong>Central Claim:</strong> ClawFarm is Web3&#39;s OpenRouter — with one critical difference: the platform never holds user funds. Every USDC sits in a program-owned escrow. Every settlement is a contract execution. Every Provider payout is an on-chain transfer.
           </p>
         </div>
       </section>
 
-      {/* 1. Introduction */}
+      {/* 1. Problem */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">1. Introduction</div>
+          <div className="section-tag">1. Problem Statement</div>
+          <h3 className="text-[#e8e8e8] text-[16px] font-semibold mt-4 mb-3">1.1 Centralized AI Inference Market</h3>
           <p className="section-text">
-            AI inference is becoming an economic commodity. As autonomous agents proliferate, the demand for compute, models, and API capacity will grow at network scale. Today's supply of AI compute is controlled by a small number of centralized providers. Access is gated, pricing is opaque, and reward mechanisms for infrastructure operators are non-existent.
+            Today&#39;s AI inference market is dominated by centralized intermediaries. Users must register with each provider individually, manage multiple API keys and billing accounts, and trust each platform with payment credentials. Providers must build their own payment infrastructure and accept opaque revenue splits.
           </p>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            ClawFarm changes this. The protocol opens the supply side to anyone who can serve inference: independent GPU operators, cloud node runners, open-source model deployers, and API resellers all compete on equal footing under the same public reward formula.
-          </p>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            This creates a new economic layer: a permissionless AI compute market where supply is incentivized by protocol token rewards and demand is satisfied by transparent, programmatic routing.
-          </p>
-        </div>
-      </section>
-
-      {/* 2. Roles */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">2. Role Definitions</div>
-
-          <h3 className="text-[#e8e8e8] text-[16px] font-semibold mt-6 mb-3">2.1 User</h3>
-          <p className="section-text">Any agent, application, or person that calls AI services through ClawFarm.</p>
-          <ul className="section-text" style={{marginTop:'8px', marginLeft:'20px', listStyleType:'disc'}}>
-            <li>Pays in USDC / stablecoin</li>
-            <li>Receives AI service output</li>
-            <li>Receives a small CLAW cashback reward proportional to spend</li>
-          </ul>
-
-          <h3 className="text-[#e8e8e8] text-[16px] font-semibold mt-8 mb-3">2.2 Provider</h3>
-          <p className="section-text">Any entity that supplies AI model capacity, inference compute, or API access to the network. Providers are the miners of the ClawFarm network.</p>
-          <div className="grid-2 mt-4">
-            <div className="grid-cell">
-              <h4>Accepted Provider Types</h4>
-              <ul style={{fontSize:'13px', color:'var(--text-mid)', paddingLeft:'16px', lineHeight:'1.8', marginTop:'8px'}}>
-                <li>• Local GPU node (consumer or datacenter)</li>
-                <li>• Cloud GPU instance (Lambda, RunPod, CoreWeave…)</li>
-                <li>• Third-party API proxy (OpenAI, Anthropic, Gemini…)</li>
-                <li>• Self-deployed model service (LLaMA, Mistral, Qwen…)</li>
-              </ul>
-            </div>
-            <div className="grid-cell">
-              <h4>Provider Earns</h4>
-              <ul style={{fontSize:'13px', color:'var(--text-mid)', paddingLeft:'16px', lineHeight:'1.8', marginTop:'8px'}}>
-                <li>• 97% of user payment (service revenue)</li>
-                <li>• CLAW token rewards per Epoch (protocol issuance)</li>
-                <li>• Cold-start incentive during ramp-up (first Epochs)</li>
-              </ul>
-            </div>
-          </div>
-
-          <h3 className="text-[#e8e8e8] text-[16px] font-semibold mt-8 mb-3">2.3 Protocol</h3>
-          <p className="section-text">The protocol itself performs only three functions:</p>
-          <ul className="section-text" style={{marginTop:'8px', marginLeft:'20px', listStyleType:'disc'}}>
-            <li>Record all verified calls</li>
-            <li>Compute rewards by public formula</li>
-            <li>Extract 3% protocol tax into Treasury</li>
-          </ul>
-          <p className="section-text" style={{marginTop:'12px', borderLeft:'3px solid var(--green)', paddingLeft:'16px'}}>
-            The protocol never manually allocates rewards. No admin override. No whitelist approval.
-          </p>
-        </div>
-      </section>
-
-      {/* 3. Capital Flow */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">3. Capital Flow</div>
-          <p className="section-text">Every time a User calls an AI service:</p>
-          <div className="panel mt-4">
-            <pre style={{fontFamily:'var(--font-mono)', fontSize:'13px', color:'var(--text-mid)', lineHeight:2, padding:'8px 0'}}>
-{`Payment (USDC)
-  └─ 97%  → Provider (service revenue)
-  └─  3%  → Treasury (protocol tax)`}
-            </pre>
-          </div>
-          <p className="section-text" style={{marginTop:'16px'}}>Provider revenue is settled immediately per call. Protocol tax accumulates in Treasury and triggers the buyback engine every 24 hours.</p>
-        </div>
-      </section>
-
-      {/* 4. AWU Standard */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">4. AI Work Unit (AWU)</div>
+          <h3 className="text-[#e8e8e8] text-[16px] font-semibold mt-8 mb-3">1.2 Existing Decentralized AI Projects Fall Short</h3>
           <p className="section-text">
-            Providers differ in hardware, model size, and service type. To compute rewards fairly across heterogeneous supply, ClawFarm normalizes all work into a single unit: the <strong>AI Work Unit (AWU)</strong>.
+            Most decentralized AI compute networks suffer from subjective quality scoring, governance-controlled treasuries, verification theater, and high provider barriers.
           </p>
+          <h3 className="text-[#e8e8e8] text-[16px] font-semibold mt-8 mb-3">1.3 The Gap</h3>
+          <p className="section-text">
+            No AI compute marketplace is simultaneously permissionless, non-custodial, transparent, and practical. ClawFarm fills this gap.
+          </p>
+        </div>
+      </section>
+
+      {/* 2. Architecture */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">2. Architecture Overview</div>
           <div className="panel mt-4">
-            <div className="panel-row"><span className="panel-label">Definition</span><span className="panel-value">Standardized inference workload unit</span></div>
-            <div className="panel-row"><span className="panel-label">Reference</span><span className="panel-value">1000 normalized output tokens</span></div>
-            <div className="panel-row"><span className="panel-label">Alternatively</span><span className="panel-value">1 second effective inference on reference GPU</span></div>
-            <div className="panel-row"><span className="panel-label">Scope</span><span className="panel-value">All provider types (GPU / model / API)</span></div>
+            <pre className="text-[12px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>{`USER LAYER
+  Wallet + ClawFarm SDK
+  USDC Deposit/Withdraw · Route Selection
+  Client-Side Token Counting · Usage Proof Signing
+       │
+       ▼
+PROTOCOL LAYER (Solana Programs)
+  Escrow · Provider Registry · Settlement
+  Treasury · Reward Distribution
+       │
+       ▼
+PROVIDER LAYER
+  GPU Nodes · Cloud GPU · API Resellers · Custom Models`}</pre>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Smart Contracts */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">3. Smart Contracts (Solana Programs)</div>
+
+          <h3 className="text-[#e8e8e8] text-[16px] font-semibold mt-6 mb-3">3.1 Escrow Contract</h3>
+          <p className="section-text mb-4">Holds all user USDC in a Program Derived Address (PDA). No admin key can withdraw on behalf of a user.</p>
+          <div className="panel">
+            <pre className="text-[12px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>{`deposit(amount)  → USDC from wallet to PDA → update balance → emit event
+withdraw(amount) → verify signature → check available → PDA to wallet
+balance()        → available = deposited - settled - pending`}</pre>
+          </div>
+
+          <h3 className="text-[#e8e8e8] text-[16px] font-semibold mt-8 mb-3">3.2 Provider Registry</h3>
+          <p className="section-text mb-4">Permissionless registration. Requires CLAW stake as collateral.</p>
+          <div className="panel">
+            <pre className="text-[12px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>{`register_provider(endpoint, models[], pricing[], stake_amount)
+  → verify minimum stake (1,000 CLAW)
+  → lock CLAW in staking account
+  → create on-chain ProviderAccount
+  → status = Active`}</pre>
+          </div>
+
+          <h3 className="text-[#e8e8e8] text-[16px] font-semibold mt-8 mb-3">3.3 Settlement Contract</h3>
+          <p className="section-text mb-4">Processes dual-signed usage proofs. Both user and provider must sign — neither can fabricate usage.</p>
+          <div className="panel">
+            <pre className="text-[12px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>{`settle(usage_proofs[])
+  for each proof:
+    1. verify user_signature + provider_signature
+    2. cost = input_tokens × input_price + output_tokens × output_price
+    3. deduct from user escrow
+    4. transfer 97% → provider wallet
+    5. transfer 3% → treasury
+    6. record AWU for rewards`}</pre>
+          </div>
+
+          <h3 className="text-[#e8e8e8] text-[16px] font-semibold mt-8 mb-3">3.4 Treasury Contract</h3>
+          <p className="section-text mb-4">Non-discretionary buyback-and-burn engine. No governance.</p>
+          <div className="panel">
+            <div className="panel-row"><span className="panel-label">Tax</span><span className="panel-value">3% of every settlement</span></div>
+            <div className="panel-row"><span className="panel-label">Buyback Cycle</span><span className="panel-value">Every 24 hours (TWAP-adaptive)</span></div>
+            <div className="panel-row"><span className="panel-label">Burn</span><span className="panel-value">All bought tokens → burn address</span></div>
+            <div className="panel-row"><span className="panel-label">Governance</span><span className="panel-value" style={{color:'#ef4444'}}>NONE</span></div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Routing Engine */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">4. Routing Engine</div>
+          <p className="section-text">Off-chain but open-source. Runs client-side in the ClawFarm SDK. Reads on-chain Provider Registry.</p>
+          <div className="panel mt-4">
+            <div className="panel-row"><span className="panel-label">eco</span><span className="panel-value">Lowest cost — score = 1/price</span></div>
+            <div className="panel-row"><span className="panel-label">auto</span><span className="panel-value">Balanced — quality×0.4 + (1/price)×0.3 + (1/latency)×0.3</span></div>
+            <div className="panel-row"><span className="panel-label">premium</span><span className="panel-value">Best model — quality×0.7 + tier×0.3</span></div>
           </div>
           <p className="section-text" style={{marginTop:'16px'}}>
-            The AWU conversion table for each supported model and provider type is published in protocol parameters and is immutable between Epoch upgrades.
+            Routing signals: prompt length, tool calls, deep thinking flag, on-chain price table, historical quality scores, user preferences.
           </p>
         </div>
       </section>
 
-      {/* 5. Reward Formula */}
+      {/* 5. Verification */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">5. Provider Reward Formula</div>
-          <p className="section-text">
-            Each Epoch, the protocol releases a fixed CLAW reward pool <code style={{fontFamily:'var(--font-mono)', fontSize:'13px'}}>E_t</code>. Each Provider receives a share proportional to their <strong>weighted contribution</strong>.
-          </p>
-
-          <h3 className="text-[#e8e8e8] text-[15px] font-semibold mt-6 mb-3">5.1 Provider Weight</h3>
-          <div className="panel mt-2">
-            <pre style={{fontFamily:'var(--font-mono)', fontSize:'14px', color:'var(--green)', lineHeight:2, padding:'8px 0'}}>
-{`W_i = AWU_i × (P_avg / P_i) × Q_i`}
-            </pre>
-            <div className="panel-row"><span className="panel-label">AWU_i</span><span className="panel-value">Total AI Work Units delivered by Provider i</span></div>
-            <div className="panel-row"><span className="panel-label">P_avg / P_i</span><span className="panel-value">Price factor — cheaper than average = higher weight</span></div>
-            <div className="panel-row"><span className="panel-label">Q_i</span><span className="panel-value">Quality factor ∈ [0, 1]</span></div>
-          </div>
-
-          <h3 className="text-[#e8e8e8] text-[15px] font-semibold mt-6 mb-3">5.2 Provider Reward</h3>
-          <div className="panel mt-2">
-            <pre style={{fontFamily:'var(--font-mono)', fontSize:'14px', color:'var(--green)', lineHeight:2, padding:'8px 0'}}>
-{`Reward_i = E_t × W_i / ΣW`}
-            </pre>
-          </div>
-
-          <h3 className="text-[#e8e8e8] text-[15px] font-semibold mt-6 mb-3">5.3 Quality Factor</h3>
-          <div className="panel mt-2">
-            <pre style={{fontFamily:'var(--font-mono)', fontSize:'13px', color:'var(--text-mid)', lineHeight:2, padding:'8px 0'}}>
-{`Q_i = SuccessRate_i × LatencyScore_i × UptimeScore_i`}
-            </pre>
-            <div className="panel-row"><span className="panel-label">SuccessRate</span><span className="panel-value">Successful responses / total requests</span></div>
-            <div className="panel-row"><span className="panel-label">LatencyScore</span><span className="panel-value">Normalized score vs. network median latency</span></div>
-            <div className="panel-row"><span className="panel-label">UptimeScore</span><span className="panel-value">Online time / Epoch duration</span></div>
-          </div>
-
-          <h3 className="text-[#e8e8e8] text-[15px] font-semibold mt-6 mb-3">5.4 What the Formula Enforces</h3>
-          <div className="grid-2 mt-4">
-            <div className="grid-cell">
-              <h4>More real usage → more reward</h4>
-              <p>Higher AWU_i means more genuine contribution. Fake calls require real payment — making self-gaming economically irrational.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>Lower price → more reward</h4>
-              <p>P_avg / P_i rewards competitive pricing. Providers who undercut the average gain higher weight — driving down costs for Users.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>Higher quality → more reward</h4>
-              <p>Q_i punishes failures, slow responses, and downtime. Bad actors accumulate low Q scores and are automatically deprioritized.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>Gaming is self-defeating</h4>
-              <p>Ultra-low price with low quality gives W_i ≈ 0. Self-faking usage requires paying real USDC. All three factors must coexist.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Reward Distribution */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">6. Epoch Reward Distribution</div>
-          <p className="section-text">Each Epoch issuance pool <code style={{fontFamily:'var(--font-mono)', fontSize:'13px'}}>E_t</code> is split as follows:</p>
-          <div className="panel mt-4">
-            <div className="panel-row"><span className="panel-label">Provider Pool</span><span className="panel-value" style={{color:'var(--green)'}}>70% — weighted by W_i</span></div>
-            <div className="panel-row"><span className="panel-label">Cold-Start Pool</span><span className="panel-value">20% — new / under-utilized Providers</span></div>
-            <div className="panel-row"><span className="panel-label">User Cashback Pool</span><span className="panel-value">10% — proportional to Payment</span></div>
-          </div>
-
-          <h3 className="text-[#e8e8e8] text-[15px] font-semibold mt-6 mb-3">6.1 Cold-Start Incentive</h3>
-          <p className="section-text">
-            New Providers have no AWU history. Without a separate incentive, new nodes can never overcome early network effects. The Cold-Start Pool distributes 20% of issuance to Providers who are online but under-utilized, proportional to uptime, with a per-Provider cap to prevent idle farming.
-          </p>
-          <div className="panel mt-4">
-            <pre style={{fontFamily:'var(--font-mono)', fontSize:'13px', color:'var(--text-mid)', lineHeight:2, padding:'8px 0'}}>
-{`IdleReward_i = OnlineHours_i × BaseWeight × Cap`}
-            </pre>
-            <div className="panel-row"><span className="panel-label">Cap</span><span className="panel-value">Hard limit per Provider per Epoch</span></div>
-            <div className="panel-row"><span className="panel-label">Pool cap</span><span className="panel-value">20% of E_t — cannot be exceeded</span></div>
-          </div>
-
-          <h3 className="text-[#e8e8e8] text-[15px] font-semibold mt-6 mb-3">6.2 User Cashback</h3>
-          <div className="panel mt-2">
-            <pre style={{fontFamily:'var(--font-mono)', fontSize:'13px', color:'var(--text-mid)', lineHeight:2, padding:'8px 0'}}>
-{`UserReward = Payment × γ`}
-            </pre>
-            <div className="panel-row"><span className="panel-label">γ</span><span className="panel-value">Fixed cashback rate (3%–10% CLAW equivalent)</span></div>
-            <div className="panel-row"><span className="panel-label">Principle</span><span className="panel-value">Demand is not scarce early — supply is. User reward is secondary.</span></div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Treasury */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">7. Treasury = Non-Discretionary Buyback & Burn Engine</div>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            The Treasury is a <strong>non-discretionary TWAP-adaptive buyback-and-burn engine</strong>. It has no governance, no allocation committee, and no human-controlled spending. Its only function is to receive 3% protocol tax and programmatically buy back and burn CLAW tokens.
-          </p>
-          <div className="panel mt-4">
-            <div className="panel-row"><span className="panel-label">Treasury Tax</span><span className="panel-value">3% of every payment</span></div>
-            <div className="panel-row"><span className="panel-label">Revenue Asset</span><span className="panel-value">USDC</span></div>
-            <div className="panel-row"><span className="panel-label">Buyback Cycle</span><span className="panel-value">Every 24 hours</span></div>
-            <div className="panel-row"><span className="panel-label">Bear (&lt;-10% TWAP)</span><span className="panel-value">150% buyback</span></div>
-            <div className="panel-row"><span className="panel-label">Normal (±10%)</span><span className="panel-value">80% buyback</span></div>
-            <div className="panel-row"><span className="panel-label">Bull (&gt;+10% TWAP)</span><span className="panel-value">50% buyback</span></div>
-            <div className="panel-row"><span className="panel-label">Burn</span><span className="panel-value">All bought tokens → burn address immediately</span></div>
-            <div className="panel-row"><span className="panel-label">Governance</span><span className="panel-value" style={{color:'var(--red)'}}>NONE</span></div>
-          </div>
-        </div>
-      </section>
-
-      {/* 8. Anti-Gaming */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">8. Anti-Gaming Requirements</div>
-
-          <h3 className="text-[#e8e8e8] text-[15px] font-semibold mt-6 mb-2">8.1 Self-Flooding (Fake Usage)</h3>
-          <p className="section-text">A Provider acting as its own User to inflate AWU.</p>
-          <ul className="section-text" style={{marginTop:'8px', marginLeft:'20px', listStyleType:'disc'}}>
-            <li>All calls require real USDC payment — self-gaming has direct cost</li>
-            <li>Minimum payment thresholds applied per call</li>
-            <li>Circular address patterns flagged and excluded from settlement</li>
-          </ul>
-
-          <h3 className="text-[#e8e8e8] text-[15px] font-semibold mt-6 mb-2">8.2 Phantom Service (Accept but Not Execute)</h3>
-          <p className="section-text">A Provider accepting requests but returning empty or fake responses.</p>
-          <ul className="section-text" style={{marginTop:'8px', marginLeft:'20px', listStyleType:'disc'}}>
-            <li>Failed requests are not counted toward AWU</li>
-            <li>Repeated failures degrade Q_i toward 0</li>
-            <li>Random spot-verification sampling enforced by Gateway</li>
-          </ul>
-
-          <h3 className="text-[#e8e8e8] text-[15px] font-semibold mt-6 mb-2">8.3 Predatory Low Price (Race to Bottom)</h3>
-          <p className="section-text">A Provider setting extreme low prices to capture weight while delivering poor service.</p>
-          <ul className="section-text" style={{marginTop:'8px', marginLeft:'20px', listStyleType:'disc'}}>
-            <li>Price factor alone cannot determine reward — must be multiplied by Q_i</li>
-            <li>Low price + low quality → W_i ≈ 0</li>
-            <li>The formula naturally self-corrects against this attack</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* 9. Decentralization Requirements */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">9. Decentralization Guarantees</div>
+          <div className="section-tag">5. Usage Verification (4-Layer Hybrid)</div>
           <div className="grid-2 mt-6">
             <div className="grid-cell">
-              <h4>No manual reward override</h4>
-              <p>Reward outcomes are computed only by formula. No admin key, no special allocation, no human discretion.</p>
+              <h4>Layer 1: Client-Side Counting</h4>
+              <p>Input tokens: deterministic (tokenizer). Output tokens: stream counting. Independent of Provider.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>Layer 2: Dual Signature</h4>
+              <p>User SDK + Provider both sign usage proof. Mismatch → no settlement.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>Layer 3: Sampling Audit</h4>
+              <p>Random N% re-executed on different Provider. Deviation → dispute.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>Layer 4: Stake Slashing</h4>
+              <p>On-chain evidence resolves disputes. Guilty → CLAW stake slashed.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Roles */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">6. Role Definitions</div>
+          <div className="grid-3 mt-6" style={{gridTemplateColumns:'repeat(3, 1fr)', gap:'16px'}}>
+            <div className="grid-cell">
+              <h4>User</h4>
+              <p>Deposits USDC to escrow. Selects routing mode. Signs usage proofs. Earns CLAW cashback. Withdraws anytime.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>Provider</h4>
+              <p>Registers on-chain with stake. Serves inference. Sets own prices. Earns 97% revenue + CLAW rewards.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>Protocol</h4>
+              <p>Holds escrow (PDA). Settles payments. Computes rewards. Collects 3% tax. Burns CLAW. No admin override.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Capital Flow */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">7. Capital Flow</div>
+          <div className="panel mt-4">
+            <pre style={{fontFamily:'var(--font-mono)', fontSize:'13px', color:'var(--text-mid)', lineHeight:2, padding:'18px 22px'}}>{`User Escrow (PDA)
+  ├─ dual-signature usage proof verified
+  ├─ 97%  → Provider Wallet (on-chain transfer)
+  └─  3%  → Treasury Contract
+              ├─ 80% → TWAP buyback CLAW → burned
+              └─ 20% → Protocol dev fund (multi-sig, time-locked)`}</pre>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Reward Formula */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">8. Provider Reward Formula</div>
+          <div className="panel mt-4">
+            <pre style={{fontFamily:'var(--font-mono)', fontSize:'14px', color:'var(--green)', lineHeight:2, padding:'18px 22px'}}>{`W_i = AWU_i × (P_avg / P_i) × Q_i
+
+Reward_i = E_t × W_i / ΣW`}</pre>
+            <div className="panel-row"><span className="panel-label">AWU_i</span><span className="panel-value">AI Work Units delivered</span></div>
+            <div className="panel-row"><span className="panel-label">P_avg / P_i</span><span className="panel-value">Cheaper = higher weight</span></div>
+            <div className="panel-row"><span className="panel-label">Q_i</span><span className="panel-value">SuccessRate × LatencyScore × UptimeScore</span></div>
+            <div className="panel-row"><span className="panel-label">E_t</span><span className="panel-value">Epoch CLAW issuance pool</span></div>
+          </div>
+
+          <h3 className="text-[#e8e8e8] text-[15px] font-semibold mt-6 mb-3">Epoch Distribution</h3>
+          <div className="panel mt-2">
+            <div className="panel-row"><span className="panel-label">Provider Pool</span><span className="panel-value" style={{color:'var(--green)'}}>70% — weighted by W_i</span></div>
+            <div className="panel-row"><span className="panel-label">Cold-Start Pool</span><span className="panel-value">20% — new providers</span></div>
+            <div className="panel-row"><span className="panel-label">User Cashback</span><span className="panel-value">10% — proportional to spend</span></div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. Staking */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">9. Provider Staking</div>
+          <div className="panel mt-4">
+            <div className="panel-row"><span className="panel-label">Minimum Stake</span><span className="panel-value">1,000 CLAW</span></div>
+            <div className="panel-row"><span className="panel-label">Slash Conditions</span><span className="panel-value">Token count fraud, sustained downtime, response manipulation</span></div>
+            <div className="panel-row"><span className="panel-label">Slash Amount</span><span className="panel-value">Up to 100% of stake</span></div>
+            <div className="panel-row"><span className="panel-label">Unstaking Period</span><span className="panel-value">7 days (pending disputes)</span></div>
+            <div className="panel-row"><span className="panel-label">Reward Vesting</span><span className="panel-value">180-day linear</span></div>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. Anti-Gaming */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">10. Anti-Gaming</div>
+          <div className="grid-2 mt-6">
+            <div className="grid-cell">
+              <h4>Self-Flooding</h4>
+              <p>Requires real USDC payment. Circular patterns detected. Dual-sig adds coordination cost.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>Token Inflation</h4>
+              <p>Client-side counting + dual-sig + sampling audit + stake slashing.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>Phantom Service</h4>
+              <p>Q_i degrades to 0. Sampling audit detects garbage. Failed requests excluded from AWU.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>Predatory Pricing</h4>
+              <p>Low price × low quality = W_i ≈ 0. Formula self-corrects.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 11. Decentralization Guarantees */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">11. Decentralization Guarantees</div>
+          <div className="grid-2 mt-6">
+            <div className="grid-cell">
+              <h4>No fund custody</h4>
+              <p>User USDC in PDA escrow. No human holds private key. Withdraw anytime.</p>
             </div>
             <div className="grid-cell">
               <h4>No whitelist</h4>
-              <p>Any Provider meeting interface standards can join. Protocol cannot exclude a compliant Provider.</p>
+              <p>Providers register via contract call. Protocol cannot exclude a compliant Provider.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>No manual rewards</h4>
+              <p>Formula-only allocation. No admin key. No special allocation.</p>
             </div>
             <div className="grid-cell">
               <h4>No centralized pricing</h4>
-              <p>Each Provider sets their own price. The routing layer selects by market signal, not admin preference.</p>
+              <p>Each Provider sets own price on-chain. Routing by market signal.</p>
             </div>
             <div className="grid-cell">
               <h4>No subjective scoring</h4>
-              <p>Quality comes only from: success rate, latency, uptime. All three are machine-verifiable without human judgment.</p>
+              <p>Quality = success rate × latency × uptime. Machine-verifiable only.</p>
             </div>
             <div className="grid-cell">
-              <h4>All parameters public</h4>
-              <p>Tax rate, epoch duration, AWU standard, PriceFactor formula, QualityFactor formula — all published in protocol config.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>On-chain audit trail</h4>
-              <p>Every billing event, reward calculation, treasury inflow, and buyback transaction is verifiable on-chain.</p>
+              <h4>No governance treasury</h4>
+              <p>Buyback and burn is automatic. No allocation committee. No human spending.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 10. Monetary Issuance */}
+      {/* 12. Tokenomics */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">10. Monetary Issuance</div>
+          <div className="section-tag">12. Tokenomics</div>
           <div className="panel mt-4">
+            <div className="panel-row"><span className="panel-label">Token</span><span className="panel-value">CLAW (SPL on Solana)</span></div>
             <div className="panel-row"><span className="panel-label">Total Supply</span><span className="panel-value">1,000,000,000 CLAW</span></div>
             <div className="panel-row"><span className="panel-label">Release Horizon</span><span className="panel-value">10 years</span></div>
             <div className="panel-row"><span className="panel-label">Halving</span><span className="panel-value">Every 2 years</span></div>
-            <div className="panel-row"><span className="panel-label">Settlement Epoch</span><span className="panel-value">Configurable (default: 1 hour)</span></div>
+            <div className="panel-row"><span className="panel-label">Epoch Duration</span><span className="panel-value">Configurable (default: 1 hour)</span></div>
             <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear</span></div>
+            <div className="panel-row"><span className="panel-label">Inflation</span><span className="panel-value">Zero — distribution from fixed pool</span></div>
           </div>
         </div>
       </section>
 
-      {/* 11. V1 Implementation Modules */}
+      {/* 13. Comparison */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">11. V1 Implementation Modules</div>
+          <div className="section-tag">13. vs. Centralized Aggregators</div>
+          <div className="panel mt-4">
+            <div className="panel-row"><span className="panel-label">Fund Custody</span><span className="panel-value">Smart contract escrow (not platform)</span></div>
+            <div className="panel-row"><span className="panel-label">Provider Registration</span><span className="panel-value">Permissionless on-chain (not approval)</span></div>
+            <div className="panel-row"><span className="panel-label">Revenue Split</span><span className="panel-value">97/3 enforced by contract (not opaque)</span></div>
+            <div className="panel-row"><span className="panel-label">Routing</span><span className="panel-value">Open-source, client-side (not closed)</span></div>
+            <div className="panel-row"><span className="panel-label">Settlement</span><span className="panel-value">On-chain, verifiable (not off-chain)</span></div>
+            <div className="panel-row"><span className="panel-label">Token Counting</span><span className="panel-value">Dual-sign + client verify (not trust)</span></div>
+            <div className="panel-row"><span className="panel-label">Governance</span><span className="panel-value">None — code is law</span></div>
+          </div>
+        </div>
+      </section>
+
+      {/* 14. Roadmap */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">14. Roadmap</div>
           <div className="grid-2 mt-6">
-            <div className="grid-cell">
-              <h4>Module 1: Provider Registry</h4>
-              <p>Register public key, endpoint, supported models, and pricing. Open to any compliant provider.</p>
+            <div className="grid-cell" style={{borderTop:'2px solid var(--green)'}}>
+              <h4>Phase 1: Foundation (Q2 2026)</h4>
+              <p>Deploy Escrow, Registry, Settlement on devnet. Open-source SDK with routing. Testnet launch. Initial Provider onboarding.</p>
             </div>
-            <div className="grid-cell">
-              <h4>Module 2: Request Router</h4>
-              <p>Routes incoming requests to best Provider by price × quality signal. Records every call.</p>
+            <div className="grid-cell" style={{borderTop:'2px solid var(--accent)'}}>
+              <h4>Phase 2: Mainnet (Q3 2026)</h4>
+              <p>Mainnet deployment + audit. CLAW token launch. Provider staking + slashing. Sampling audit live. Public API + SDK.</p>
             </div>
-            <div className="grid-cell">
-              <h4>Module 3: Call Ledger</h4>
-              <p>Records: provider_id, user_id, model_id, payment, awu_used, response_time, success_flag, timestamp.</p>
+            <div className="grid-cell" style={{borderTop:'2px solid var(--amber)'}}>
+              <h4>Phase 3: Full Decentralization (Q4 2026)</h4>
+              <p>Client-side routing (no relay). Upgrade authority renounced. Cross-chain USDC deposits. Community relay nodes. Mobile SDK.</p>
             </div>
-            <div className="grid-cell">
-              <h4>Module 4: Epoch Settlement</h4>
-              <p>Per epoch: compute P_avg, W_i for all Providers, distribute 70% / 20% / 10% reward pools, settle User cashback.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>Module 5: Treasury Engine</h4>
-              <p>Collects 3% tax. Runs 24h buyback cycle. Burns all purchased CLAW. Logs everything on-chain.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>Module 6: Anti-Gaming Monitor</h4>
-              <p>Detects circular payments, phantom service, quality degradation. Excludes ineligible calls from settlement.</p>
+            <div className="grid-cell" style={{borderTop:'2px solid var(--text-dim)'}}>
+              <h4>Phase 4: Maturity (2027)</h4>
+              <p>ZK proofs for token counting. Multi-chain providers. Inference marketplace (jobs + bids). Protocol-level SLA enforcement.</p>
             </div>
           </div>
         </div>
@@ -367,13 +363,10 @@ export default function Whitepaper() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">Conclusion</div>
           <p className="section-text">
-            ClawFarm is a permissionless AI compute marketplace governed entirely by protocol. Providers compete on price and quality. Rewards are allocated by formula, not committee. Every USDC of protocol tax flows to a buyback engine that burns supply. No human approves, allocates, or intervenes.
+            ClawFarm is not &quot;OpenRouter on blockchain.&quot; It is a fundamentally different architecture: users own their funds, providers own their business, and the protocol owns nothing — it executes rules, collects 3%, and burns tokens.
           </p>
           <p className="section-text" style={{marginTop:'16px', fontFamily:'var(--font-mono)', fontSize:'13px', borderLeft:'3px solid var(--green)', paddingLeft:'16px'}}>
-            Users pay stablecoin to call AI.<br/>
-            Providers deliver the service and earn revenue + CLAW.<br/>
-            Protocol auto-extracts 3% and burns CLAW.<br/>
-            No one decides the reward. The formula does.
+            Compute is permissionless. Payment is trustless. Rewards follow contribution.
           </p>
         </div>
       </section>
@@ -384,15 +377,19 @@ export default function Whitepaper() {
           <div className="section-tag">Appendix A. Genesis Parameters</div>
           <div className="panel mt-4">
             <div className="panel-row"><span className="panel-label">Chain</span><span className="panel-value">Solana</span></div>
-            <div className="panel-row"><span className="panel-label">Protocol Tax</span><span className="panel-value">3% of payment</span></div>
+            <div className="panel-row"><span className="panel-label">Fund Custody</span><span className="panel-value">PDA Escrow (non-custodial)</span></div>
             <div className="panel-row"><span className="panel-label">Provider Revenue</span><span className="panel-value">97% of payment</span></div>
+            <div className="panel-row"><span className="panel-label">Protocol Tax</span><span className="panel-value">3% → Treasury</span></div>
             <div className="panel-row"><span className="panel-label">Provider Pool</span><span className="panel-value">70% of Epoch issuance</span></div>
             <div className="panel-row"><span className="panel-label">Cold-Start Pool</span><span className="panel-value">20% of Epoch issuance</span></div>
-            <div className="panel-row"><span className="panel-label">User Cashback Pool</span><span className="panel-value">10% of Epoch issuance</span></div>
+            <div className="panel-row"><span className="panel-label">User Cashback</span><span className="panel-value">10% of Epoch issuance</span></div>
+            <div className="panel-row"><span className="panel-label">Min Provider Stake</span><span className="panel-value">1,000 CLAW</span></div>
+            <div className="panel-row"><span className="panel-label">Unstaking Period</span><span className="panel-value">7 days</span></div>
             <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear</span></div>
-            <div className="panel-row"><span className="panel-label">Treasury</span><span className="panel-value">Buyback & Burn Engine (24h cycle)</span></div>
             <div className="panel-row"><span className="panel-label">Total Supply</span><span className="panel-value">1,000,000,000 CLAW</span></div>
             <div className="panel-row"><span className="panel-label">Halving</span><span className="panel-value">Every 2 years</span></div>
+            <div className="panel-row"><span className="panel-label">Routing Modes</span><span className="panel-value">eco / auto / premium</span></div>
+            <div className="panel-row"><span className="panel-label">Verification</span><span className="panel-value">Dual-signature + sampling audit</span></div>
           </div>
         </div>
       </section>
