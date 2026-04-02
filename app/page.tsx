@@ -44,46 +44,58 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>MODEL PRICING</p>
           <h2 className="section-title" style={{fontSize:'28px'}}>Access every major model. Pay per token.</h2>
-          <p className="section-text" style={{maxWidth:'600px', marginTop:'8px', marginBottom:'28px'}}>Prices shown per 1M tokens. Three routing modes — pick the one that fits your workload.</p>
+          <p className="section-text" style={{maxWidth:'640px', marginTop:'8px', marginBottom:'28px'}}>Prices per 1M tokens. Providers set their own prices — anyone can supply any model. Three routing modes pick the best offer for your workload.</p>
 
           <div style={{overflowX:'auto'}}>
             <table style={{width:'100%', borderCollapse:'collapse', fontFamily:'var(--font-mono)', fontSize:'13px'}}>
               <thead>
+                <tr style={{borderBottom:'2px solid var(--border)'}}>
+                  <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px', letterSpacing:'0.5px'}} rowSpan={2}>MODEL</th>
+                  <th style={{textAlign:'center', padding:'6px 12px', color:'var(--green)', fontWeight:600, fontSize:'11px', borderBottom:'1px solid var(--border)'}} colSpan={2}>ECO</th>
+                  <th style={{textAlign:'center', padding:'6px 12px', color:'var(--accent)', fontWeight:600, fontSize:'11px', borderBottom:'1px solid var(--border)'}} colSpan={2}>AUTO</th>
+                  <th style={{textAlign:'center', padding:'6px 12px', color:'var(--amber)', fontWeight:600, fontSize:'11px', borderBottom:'1px solid var(--border)'}} colSpan={2}>PREMIUM</th>
+                  <th style={{textAlign:'center', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}} rowSpan={2}>CTX</th>
+                </tr>
                 <tr style={{borderBottom:'1px solid var(--border)'}}>
-                  <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px', letterSpacing:'0.5px'}}>MODEL</th>
-                  <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>PROVIDER</th>
-                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--green)', fontWeight:500, fontSize:'11px'}}>ECO (INPUT)</th>
-                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--accent)', fontWeight:500, fontSize:'11px'}}>AUTO (INPUT)</th>
-                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--amber)', fontWeight:500, fontSize:'11px'}}>PREMIUM (INPUT)</th>
-                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>OUTPUT</th>
-                  <th style={{textAlign:'center', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>CONTEXT</th>
+                  <th style={{textAlign:'right', padding:'4px 12px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px'}}>input</th>
+                  <th style={{textAlign:'right', padding:'4px 12px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px'}}>output</th>
+                  <th style={{textAlign:'right', padding:'4px 12px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px'}}>input</th>
+                  <th style={{textAlign:'right', padding:'4px 12px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px'}}>output</th>
+                  <th style={{textAlign:'right', padding:'4px 12px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px'}}>input</th>
+                  <th style={{textAlign:'right', padding:'4px 12px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px'}}>output</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  { model:'GPT-4o', provider:'OpenAI', eco:'$1.50', auto:'$2.50', premium:'$3.50', output:'$10.00', ctx:'128K' },
-                  { model:'GPT-4o Mini', provider:'OpenAI', eco:'$0.07', auto:'$0.15', premium:'$0.25', output:'$0.60', ctx:'128K' },
-                  { model:'Claude 4 Opus', provider:'Anthropic', eco:'$8.00', auto:'$12.00', premium:'$15.00', output:'$60.00', ctx:'200K' },
-                  { model:'Claude 4 Sonnet', provider:'Anthropic', eco:'$1.50', auto:'$3.00', premium:'$4.50', output:'$15.00', ctx:'200K' },
-                  { model:'Claude 3.5 Haiku', provider:'Anthropic', eco:'$0.40', auto:'$0.80', premium:'$1.20', output:'$5.00', ctx:'200K' },
-                  { model:'Gemini 2.5 Pro', provider:'Google', eco:'$0.60', auto:'$1.25', premium:'$2.00', output:'$10.00', ctx:'1M' },
-                  { model:'Gemini 2.5 Flash', provider:'Google', eco:'$0.03', auto:'$0.075', premium:'$0.15', output:'$0.30', ctx:'1M' },
-                  { model:'DeepSeek V3', provider:'DeepSeek', eco:'$0.14', auto:'$0.27', premium:'$0.50', output:'$1.10', ctx:'128K' },
-                  { model:'DeepSeek R1', provider:'DeepSeek', eco:'$0.28', auto:'$0.55', premium:'$1.00', output:'$2.19', ctx:'128K' },
-                  { model:'Llama 4 Maverick', provider:'Meta', eco:'$0.10', auto:'$0.20', premium:'$0.40', output:'$0.50', ctx:'256K' },
-                  { model:'Llama 4 Scout', provider:'Meta', eco:'$0.05', auto:'$0.11', premium:'$0.22', output:'$0.25', ctx:'512K' },
-                  { model:'Qwen 3 235B', provider:'Alibaba', eco:'$0.12', auto:'$0.25', premium:'$0.50', output:'$0.60', ctx:'128K' },
-                  { model:'Mistral Large', provider:'Mistral', eco:'$1.00', auto:'$2.00', premium:'$3.00', output:'$6.00', ctx:'128K' },
-                  { model:'Grok 3', provider:'xAI', eco:'$1.50', auto:'$3.00', premium:'$5.00', output:'$15.00', ctx:'128K' },
-                  { model:'Grok 3 Mini', provider:'xAI', eco:'$0.15', auto:'$0.30', premium:'$0.50', output:'$0.60', ctx:'128K' },
+                  { model:'GPT-4o',          eI:'$1.50', eO:'$6.00',  aI:'$2.50', aO:'$10.00', pI:'$3.50', pO:'$14.00', ctx:'128K' },
+                  { model:'GPT-4o Mini',      eI:'$0.07', eO:'$0.30',  aI:'$0.15', aO:'$0.60',  pI:'$0.25', pO:'$1.00',  ctx:'128K' },
+                  { model:'GPT-4.5 Preview',  eI:'$30.00',eO:'$60.00', aI:'$45.00',aO:'$90.00', pI:'$75.00',pO:'$150.00',ctx:'128K' },
+                  { model:'Claude Opus 4',     eI:'$5.00', eO:'$25.00', aI:'$10.00',aO:'$50.00', pI:'$15.00',pO:'$75.00', ctx:'200K' },
+                  { model:'Claude Sonnet 4',   eI:'$1.50', eO:'$8.00',  aI:'$3.00', aO:'$15.00', pI:'$4.50', pO:'$22.00', ctx:'200K' },
+                  { model:'Claude 3.5 Haiku',  eI:'$0.40', eO:'$2.00',  aI:'$0.80', aO:'$4.00',  pI:'$1.20', pO:'$6.00',  ctx:'200K' },
+                  { model:'Gemini 2.5 Pro',    eI:'$0.60', eO:'$3.50',  aI:'$1.25', aO:'$7.00',  pI:'$2.00', pO:'$10.00', ctx:'1M' },
+                  { model:'Gemini 2.5 Flash',  eI:'$0.03', eO:'$0.15',  aI:'$0.075',aO:'$0.30',  pI:'$0.15', pO:'$0.60',  ctx:'1M' },
+                  { model:'DeepSeek V3',       eI:'$0.14', eO:'$0.28',  aI:'$0.27', aO:'$0.55',  pI:'$0.50', pO:'$1.10',  ctx:'128K' },
+                  { model:'DeepSeek R1',       eI:'$0.28', eO:'$1.10',  aI:'$0.55', aO:'$2.19',  pI:'$1.00', pO:'$4.00',  ctx:'128K' },
+                  { model:'Llama 4 Maverick',  eI:'$0.10', eO:'$0.25',  aI:'$0.20', aO:'$0.50',  pI:'$0.40', pO:'$0.80',  ctx:'256K' },
+                  { model:'Llama 4 Scout',     eI:'$0.05', eO:'$0.12',  aI:'$0.11', aO:'$0.25',  pI:'$0.22', pO:'$0.50',  ctx:'512K' },
+                  { model:'Qwen 3 235B',       eI:'$0.12', eO:'$0.30',  aI:'$0.25', aO:'$0.60',  pI:'$0.50', pO:'$1.20',  ctx:'128K' },
+                  { model:'Mistral Large',     eI:'$1.00', eO:'$3.00',  aI:'$2.00', aO:'$6.00',  pI:'$3.00', pO:'$9.00',  ctx:'128K' },
+                  { model:'Grok 3',            eI:'$1.50', eO:'$7.50',  aI:'$3.00', aO:'$15.00', pI:'$5.00', pO:'$25.00', ctx:'128K' },
+                  { model:'Grok 3 Mini',       eI:'$0.15', eO:'$0.30',  aI:'$0.30', aO:'$0.60',  pI:'$0.50', pO:'$1.00',  ctx:'128K' },
+                  { model:'MiniMax M2.7',      eI:'$0.15', eO:'$0.60',  aI:'$0.30', aO:'$1.20',  pI:'$0.50', pO:'$2.00',  ctx:'1M' },
+                  { model:'Kimi K2.5',         eI:'$0.05', eO:'$1.50',  aI:'$0.10', aO:'$3.00',  pI:'$0.20', pO:'$5.00',  ctx:'128K' },
+                  { model:'Seed 2.0 Pro',      eI:'$0.50', eO:'$3.00',  aI:'$1.00', aO:'$6.00',  pI:'$2.00', pO:'$10.00', ctx:'128K' },
+                  { model:'Seed 2.0 Mini',     eI:'$0.10', eO:'$0.40',  aI:'$0.20', aO:'$0.80',  pI:'$0.40', pO:'$1.50',  ctx:'128K' },
                 ].map((m, i) => (
                   <tr key={i} style={{borderBottom:'1px solid var(--border)'}}>
                     <td style={{padding:'10px 12px', fontWeight:600, color:'var(--text)'}}>{m.model}</td>
-                    <td style={{padding:'10px 12px', color:'var(--text-mid)', fontSize:'12px'}}>{m.provider}</td>
-                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--green)'}}>{m.eco}</td>
-                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)'}}>{m.auto}</td>
-                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--amber)'}}>{m.premium}</td>
-                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--text-mid)'}}>{m.output}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--green)'}}>{m.eI}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--green)', opacity:0.7}}>{m.eO}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)'}}>{m.aI}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)', opacity:0.7}}>{m.aO}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--amber)'}}>{m.pI}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--amber)', opacity:0.7}}>{m.pO}</td>
                     <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{m.ctx}</td>
                   </tr>
                 ))}
@@ -106,7 +118,7 @@ export default function Home() {
             </div>
           </div>
 
-          <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginTop:'16px'}}>Prices update dynamically based on provider competition. More providers = lower prices.</p>
+          <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginTop:'16px'}}>Prices set by independent providers competing on the network. More providers = lower prices. Anyone can supply any model.</p>
         </div>
       </section>
 
