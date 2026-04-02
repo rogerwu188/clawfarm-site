@@ -64,21 +64,24 @@ export default function Home() {
                   <th style={{textAlign:'center', padding:'10px 12px'}}></th>
                 </tr></thead>
                 <tbody>{[
-                  {m:'GPT-4o',p:'0x7a3f...e2c1',i:'$2.50',o:'$10.00',c:'128K',n:14},
-                  {m:'Claude Sonnet 4',p:'0xb91d...4f08',i:'$3.00',o:'$15.00',c:'200K',n:11},
-                  {m:'DeepSeek R1',p:'0x2e8c...a7b3',i:'$0.55',o:'$2.19',c:'128K',n:23},
-                  {m:'GPT-4o Mini',p:'0x5cf2...d914',i:'$0.15',o:'$0.60',c:'128K',n:18},
-                  {m:'Gemini 2.5 Pro',p:'0x41ae...8c5f',i:'$1.25',o:'$7.00',c:'1M',n:9},
-                  {m:'Claude Opus 4',p:'0xb91d...4f08',i:'$10.00',o:'$50.00',c:'200K',n:7},
-                  {m:'Llama 4 Maverick',p:'0x9d0f...31e7',i:'$0.20',o:'$0.50',c:'256K',n:31},
-                  {m:'DeepSeek V3',p:'0x2e8c...a7b3',i:'$0.27',o:'$0.55',c:'128K',n:26},
-                  {m:'Qwen 3 235B',p:'0x6b4a...f2d0',i:'$0.25',o:'$0.60',c:'128K',n:19},
-                  {m:'Gemini 2.5 Flash',p:'0x41ae...8c5f',i:'$0.075',o:'$0.30',c:'1M',n:12},
+                  {m:'GPT-4o',nm:'NodeX Labs',p:'0x7a3f...e2c1',i:'$2.50',o:'$10.00',c:'128K',n:14},
+                  {m:'Claude Sonnet 4',nm:'InferStack',p:'0xb91d...4f08',i:'$3.00',o:'$15.00',c:'200K',n:11},
+                  {m:'DeepSeek R1',nm:'Dragon Compute',p:'0x2e8c...a7b3',i:'$0.55',o:'$2.19',c:'128K',n:23},
+                  {m:'GPT-4o Mini',nm:'MiniGPU Pool',p:'0x5cf2...d914',i:'$0.15',o:'$0.60',c:'128K',n:18},
+                  {m:'Gemini 2.5 Pro',nm:'GCloud Relay',p:'0x41ae...8c5f',i:'$1.25',o:'$7.00',c:'1M',n:9},
+                  {m:'Claude Opus 4',nm:'InferStack',p:'0xb91d...4f08',i:'$10.00',o:'$50.00',c:'200K',n:7},
+                  {m:'Llama 4 Maverick',nm:'OpenPool DAO',p:'0x9d0f...31e7',i:'$0.20',o:'$0.50',c:'256K',n:31},
+                  {m:'DeepSeek V3',nm:'Dragon Compute',p:'0x2e8c...a7b3',i:'$0.27',o:'$0.55',c:'128K',n:26},
+                  {m:'Qwen 3 235B',nm:'SinoNodes',p:'0x6b4a...f2d0',i:'$0.25',o:'$0.60',c:'128K',n:19},
+                  {m:'Gemini 2.5 Flash',nm:'GCloud Relay',p:'0x41ae...8c5f',i:'$0.075',o:'$0.30',c:'1M',n:12},
                 ].map((r, i) => (
                   <tr key={i} style={{borderBottom:'1px solid var(--border)'}}>
                     <td style={{padding:'10px 12px', color:'var(--text-dim)', fontSize:'12px'}}>{i+1}</td>
                     <td style={{padding:'10px 12px', fontWeight:600, color:'var(--text)'}}>{r.m}</td>
-                    <td style={{padding:'10px 12px', color:'var(--green)', fontSize:'12px'}}>{r.p}</td>
+                    <td style={{padding:'10px 12px'}}>
+                      <div style={{fontWeight:600, color:'var(--green)', fontSize:'13px', marginBottom:'2px'}}>{r.nm}</div>
+                      <div style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>{r.p}</div>
+                    </td>
                     <td style={{padding:'10px 12px', textAlign:'right', color:'var(--text-mid)'}}>{r.i}</td>
                     <td style={{padding:'10px 12px', textAlign:'right', color:'var(--text-mid)', opacity:0.7}}>{r.o}</td>
                     <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.c}</td>
@@ -107,16 +110,19 @@ export default function Home() {
                   <th style={{textAlign:'center', padding:'10px 12px'}}></th>
                 </tr></thead>
                 <tbody>{[
-                  {m:'FLUX 1.1 Pro',p:'0xc3e7...b8a2',pr:'$0.040',r:'1024×1024',n:8},
-                  {m:'Midjourney v7',p:'0xf12b...6d4e',pr:'$0.050',r:'1024×1024',n:5},
-                  {m:'DALL·E 3 HD',p:'0x7a3f...e2c1',pr:'$0.080',r:'1024×1792',n:11},
-                  {m:'Stable Diffusion 3.5',p:'0x9d0f...31e7',pr:'$0.006',r:'1024×1024',n:27},
-                  {m:'Seedream 3.0',p:'0xa8d1...c3f9',pr:'$0.016',r:'1024×1024',n:6},
+                  {m:'FLUX 1.1 Pro',nm:'DiffusionDAO',p:'0xc3e7...b8a2',pr:'$0.040',r:'1024×1024',n:8},
+                  {m:'Midjourney v7',nm:'MJ Relay',p:'0xf12b...6d4e',pr:'$0.050',r:'1024×1024',n:5},
+                  {m:'DALL·E 3 HD',nm:'NodeX Labs',p:'0x7a3f...e2c1',pr:'$0.080',r:'1024×1792',n:11},
+                  {m:'Stable Diffusion 3.5',nm:'OpenPool DAO',p:'0x9d0f...31e7',pr:'$0.006',r:'1024×1024',n:27},
+                  {m:'Seedream 3.0',nm:'ByteNodes',p:'0xa8d1...c3f9',pr:'$0.016',r:'1024×1024',n:6},
                 ].map((r, i) => (
                   <tr key={i} style={{borderBottom:'1px solid var(--border)'}}>
                     <td style={{padding:'10px 12px', color:'var(--text-dim)', fontSize:'12px'}}>{i+1}</td>
                     <td style={{padding:'10px 12px', fontWeight:600, color:'var(--text)'}}>{r.m}</td>
-                    <td style={{padding:'10px 12px', color:'var(--green)', fontSize:'12px'}}>{r.p}</td>
+                    <td style={{padding:'10px 12px'}}>
+                      <div style={{fontWeight:600, color:'var(--green)', fontSize:'13px', marginBottom:'2px'}}>{r.nm}</div>
+                      <div style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>{r.p}</div>
+                    </td>
                     <td style={{padding:'10px 12px', textAlign:'right', color:'var(--text-mid)'}}>{r.pr}</td>
                     <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.r}</td>
                     <td style={{padding:'10px 12px', textAlign:'center'}}><Link href="/providers" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--accent)'}}>{r.n} providers</Link></td>
@@ -144,16 +150,19 @@ export default function Home() {
                   <th style={{textAlign:'center', padding:'10px 12px'}}></th>
                 </tr></thead>
                 <tbody>{[
-                  {m:'Kling 2.0',p:'0x6b4a...f2d0',pr:'$0.10',r:'1080p',n:9},
-                  {m:'Sora',p:'0x7a3f...e2c1',pr:'$0.40',r:'1080p',n:4},
-                  {m:'MiniMax Video-02',p:'0x6b4a...f2d0',pr:'$0.08',r:'1080p',n:6},
-                  {m:'Runway Gen-4',p:'0xd4c8...17ab',pr:'$0.25',r:'1080p',n:5},
-                  {m:'Wan 2.1 14B',p:'0x9d0f...31e7',pr:'$0.04',r:'720p',n:15},
+                  {m:'Kling 2.0',nm:'SinoNodes',p:'0x6b4a...f2d0',pr:'$0.10',r:'1080p',n:9},
+                  {m:'Sora',nm:'NodeX Labs',p:'0x7a3f...e2c1',pr:'$0.40',r:'1080p',n:4},
+                  {m:'MiniMax Video-02',nm:'SinoNodes',p:'0x6b4a...f2d0',pr:'$0.08',r:'1080p',n:6},
+                  {m:'Runway Gen-4',nm:'StudioRelay',p:'0xd4c8...17ab',pr:'$0.25',r:'1080p',n:5},
+                  {m:'Wan 2.1 14B',nm:'OpenPool DAO',p:'0x9d0f...31e7',pr:'$0.04',r:'720p',n:15},
                 ].map((r, i) => (
                   <tr key={i} style={{borderBottom:'1px solid var(--border)'}}>
                     <td style={{padding:'10px 12px', color:'var(--text-dim)', fontSize:'12px'}}>{i+1}</td>
                     <td style={{padding:'10px 12px', fontWeight:600, color:'var(--text)'}}>{r.m}</td>
-                    <td style={{padding:'10px 12px', color:'var(--green)', fontSize:'12px'}}>{r.p}</td>
+                    <td style={{padding:'10px 12px'}}>
+                      <div style={{fontWeight:600, color:'var(--green)', fontSize:'13px', marginBottom:'2px'}}>{r.nm}</div>
+                      <div style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>{r.p}</div>
+                    </td>
                     <td style={{padding:'10px 12px', textAlign:'right', color:'var(--text-mid)'}}>{r.pr}</td>
                     <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.r}</td>
                     <td style={{padding:'10px 12px', textAlign:'center'}}><Link href="/providers" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--accent)'}}>{r.n} providers</Link></td>
