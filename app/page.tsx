@@ -337,6 +337,7 @@ Reward_i = E_t × W_i / ΣW`}
             <Link href="/install" className="btn-primary">Become a Provider</Link>
             <Link href="/whitepaper" className="btn-secondary">WHITEPAPER</Link>
             <Link href="/docs" className="btn-secondary">DOCS</Link>
+            <a href="https://discord.gg/zxZmCFbzEn" target="_blank" rel="noopener" className="btn-secondary">DISCORD</a>
             <a href="https://github.com/rogerwu188/clawfarm-site" target="_blank" rel="noopener" className="btn-secondary">GITHUB</a>
             <a href="https://x.com/ClawFarm54892" target="_blank" rel="noopener" className="btn-secondary">X</a>
           </div>
