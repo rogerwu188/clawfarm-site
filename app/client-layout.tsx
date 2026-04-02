@@ -2,12 +2,17 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import dynamic from 'next/dynamic'
+
+const SolanaWalletProvider = dynamic(() => import('./components/SolanaWalletProvider'), { ssr: false })
+const ConnectWalletButton = dynamic(() => import('./components/ConnectWalletButton'), { ssr: false })
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const isHome = pathname === '/'
   
   return (
+    <SolanaWalletProvider>
     <>
       {/* Protocol Header */}
       <div className="protocol-header">
@@ -29,6 +34,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             <span className="status-item"><span className="status-label">Settlement</span><span className="status-val">On-Chain</span></span>
             <span className="status-sep">·</span>
             <span className="status-item"><span className="status-label">Routing</span><span className="status-val">eco · auto · premium</span></span>
+            <ConnectWalletButton />
           </div>
         </div>
         <div className="header-row header-nav">
@@ -67,5 +73,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         </div>
       </footer>
     </>
+    </SolanaWalletProvider>
   )
 }
