@@ -80,9 +80,9 @@ export default function Home() {
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
           <div className="section-tag">Why ClawFarm</div>
-          <h2 className="section-title">Web3's OpenRouter — but your funds stay yours.</h2>
+          <h2 className="section-title">The AI compute layer that belongs to no one.</h2>
           <p className="section-text">
-            ClawFarm is a fully decentralized AI compute marketplace. Unlike centralized aggregators, ClawFarm never holds user funds. Every USDC sits in a program-owned escrow on Solana. Every settlement is a contract execution. Every Provider payout is an on-chain transfer.
+            ClawFarm is a fully decentralized AI compute marketplace. No platform holds your funds. Every USDC sits in a program-owned escrow on Solana. Every settlement is a contract execution. Every Provider payout is an on-chain transfer. No middleman. No custody risk.
           </p>
           <div className="grid-2 mt-10">
             <div className="grid-cell">

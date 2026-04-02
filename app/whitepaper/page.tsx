@@ -36,7 +36,7 @@ export default function Whitepaper() {
             Providers register on-chain with a model endpoint, a public price table, and a CLAW stake. The protocol routes requests, meters consumption via dual-signature usage proofs, settles payments through smart contracts, and distributes rewards — all without admin override.
           </p>
           <p className="section-text" style={{marginTop:'24px', borderLeft:'3px solid var(--green)', paddingLeft:'16px', fontStyle:'italic'}}>
-            <strong>Central Claim:</strong> ClawFarm is Web3&#39;s OpenRouter — with one critical difference: the platform never holds user funds. Every USDC sits in a program-owned escrow. Every settlement is a contract execution. Every Provider payout is an on-chain transfer.
+            <strong>Central Claim:</strong> ClawFarm is the first truly non-custodial AI compute marketplace. The platform never holds user funds. Every USDC sits in a program-owned escrow. Every settlement is a contract execution. Every Provider payout is an on-chain transfer.
           </p>
         </div>
       </section>
@@ -363,7 +363,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">Conclusion</div>
           <p className="section-text">
-            ClawFarm is not &quot;OpenRouter on blockchain.&quot; It is a fundamentally different architecture: users own their funds, providers own their business, and the protocol owns nothing — it executes rules, collects 3%, and burns tokens.
+            ClawFarm is not another centralized aggregator on a blockchain. It is a fundamentally different architecture: users own their funds, providers own their business, and the protocol owns nothing — it executes rules, collects 3%, and burns tokens.
           </p>
           <p className="section-text" style={{marginTop:'16px', fontFamily:'var(--font-mono)', fontSize:'13px', borderLeft:'3px solid var(--green)', paddingLeft:'16px'}}>
             Compute is permissionless. Payment is trustless. Rewards follow contribution.
