@@ -34,8 +34,8 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             <span className="status-item"><span className="status-label">Settlement</span><span className="status-val">On-Chain</span></span>
             <span className="status-sep">·</span>
             <span className="status-item"><span className="status-label">Routing</span><span className="status-val">eco · auto · premium</span></span>
-            <ConnectWalletButton />
           </div>
+          <ConnectWalletButton />
         </div>
         <div className="header-row header-nav">
           <nav className="header-nav-inner">
