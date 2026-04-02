@@ -39,6 +39,77 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ========== SCREEN 1.5: MODEL PRICING ========== */}
+      <section className="section" style={{borderTop:'1px solid var(--border)'}}>
+        <div className="max-w-6xl mx-auto px-6">
+          <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>MODEL PRICING</p>
+          <h2 className="section-title" style={{fontSize:'28px'}}>Access every major model. Pay per token.</h2>
+          <p className="section-text" style={{maxWidth:'600px', marginTop:'8px', marginBottom:'28px'}}>Prices shown per 1M tokens. Three routing modes — pick the one that fits your workload.</p>
+
+          <div style={{overflowX:'auto'}}>
+            <table style={{width:'100%', borderCollapse:'collapse', fontFamily:'var(--font-mono)', fontSize:'13px'}}>
+              <thead>
+                <tr style={{borderBottom:'1px solid var(--border)'}}>
+                  <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px', letterSpacing:'0.5px'}}>MODEL</th>
+                  <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>PROVIDER</th>
+                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--green)', fontWeight:500, fontSize:'11px'}}>ECO (INPUT)</th>
+                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--accent)', fontWeight:500, fontSize:'11px'}}>AUTO (INPUT)</th>
+                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--amber)', fontWeight:500, fontSize:'11px'}}>PREMIUM (INPUT)</th>
+                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>OUTPUT</th>
+                  <th style={{textAlign:'center', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>CONTEXT</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { model:'GPT-4o', provider:'OpenAI', eco:'$1.50', auto:'$2.50', premium:'$3.50', output:'$10.00', ctx:'128K' },
+                  { model:'GPT-4o Mini', provider:'OpenAI', eco:'$0.07', auto:'$0.15', premium:'$0.25', output:'$0.60', ctx:'128K' },
+                  { model:'Claude 4 Opus', provider:'Anthropic', eco:'$8.00', auto:'$12.00', premium:'$15.00', output:'$60.00', ctx:'200K' },
+                  { model:'Claude 4 Sonnet', provider:'Anthropic', eco:'$1.50', auto:'$3.00', premium:'$4.50', output:'$15.00', ctx:'200K' },
+                  { model:'Claude 3.5 Haiku', provider:'Anthropic', eco:'$0.40', auto:'$0.80', premium:'$1.20', output:'$5.00', ctx:'200K' },
+                  { model:'Gemini 2.5 Pro', provider:'Google', eco:'$0.60', auto:'$1.25', premium:'$2.00', output:'$10.00', ctx:'1M' },
+                  { model:'Gemini 2.5 Flash', provider:'Google', eco:'$0.03', auto:'$0.075', premium:'$0.15', output:'$0.30', ctx:'1M' },
+                  { model:'DeepSeek V3', provider:'DeepSeek', eco:'$0.14', auto:'$0.27', premium:'$0.50', output:'$1.10', ctx:'128K' },
+                  { model:'DeepSeek R1', provider:'DeepSeek', eco:'$0.28', auto:'$0.55', premium:'$1.00', output:'$2.19', ctx:'128K' },
+                  { model:'Llama 4 Maverick', provider:'Meta', eco:'$0.10', auto:'$0.20', premium:'$0.40', output:'$0.50', ctx:'256K' },
+                  { model:'Llama 4 Scout', provider:'Meta', eco:'$0.05', auto:'$0.11', premium:'$0.22', output:'$0.25', ctx:'512K' },
+                  { model:'Qwen 3 235B', provider:'Alibaba', eco:'$0.12', auto:'$0.25', premium:'$0.50', output:'$0.60', ctx:'128K' },
+                  { model:'Mistral Large', provider:'Mistral', eco:'$1.00', auto:'$2.00', premium:'$3.00', output:'$6.00', ctx:'128K' },
+                  { model:'Grok 3', provider:'xAI', eco:'$1.50', auto:'$3.00', premium:'$5.00', output:'$15.00', ctx:'128K' },
+                  { model:'Grok 3 Mini', provider:'xAI', eco:'$0.15', auto:'$0.30', premium:'$0.50', output:'$0.60', ctx:'128K' },
+                ].map((m, i) => (
+                  <tr key={i} style={{borderBottom:'1px solid var(--border)'}}>
+                    <td style={{padding:'10px 12px', fontWeight:600, color:'var(--text)'}}>{m.model}</td>
+                    <td style={{padding:'10px 12px', color:'var(--text-mid)', fontSize:'12px'}}>{m.provider}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--green)'}}>{m.eco}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)'}}>{m.auto}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--amber)'}}>{m.premium}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--text-mid)'}}>{m.output}</td>
+                    <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{m.ctx}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div style={{marginTop:'20px', display:'flex', gap:'16px', alignItems:'center', flexWrap:'wrap'}}>
+            <div style={{display:'flex', alignItems:'center', gap:'6px'}}>
+              <span style={{width:'8px', height:'8px', borderRadius:'50%', background:'var(--green)', display:'inline-block'}} />
+              <span style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>ECO — Cheapest provider</span>
+            </div>
+            <div style={{display:'flex', alignItems:'center', gap:'6px'}}>
+              <span style={{width:'8px', height:'8px', borderRadius:'50%', background:'var(--accent)', display:'inline-block'}} />
+              <span style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>AUTO — Best balance of cost + quality</span>
+            </div>
+            <div style={{display:'flex', alignItems:'center', gap:'6px'}}>
+              <span style={{width:'8px', height:'8px', borderRadius:'50%', background:'var(--amber)', display:'inline-block'}} />
+              <span style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>PREMIUM — Fastest, highest quality</span>
+            </div>
+          </div>
+
+          <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginTop:'16px'}}>Prices update dynamically based on provider competition. More providers = lower prices.</p>
+        </div>
+      </section>
+
       {/* ========== SCREEN 2: HOW IT WORKS ========== */}
       <section className="section" style={{borderTop:'1px solid var(--border)'}}>
         <div className="max-w-6xl mx-auto px-6">
