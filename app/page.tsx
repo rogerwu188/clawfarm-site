@@ -93,7 +93,7 @@ export default function Home() {
                 ))}</tbody>
               </table>
             </div>
-            <div style={{marginTop:'12px'}}><Link href="/models" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--accent)'}}>→ View all language models</Link></div>
+            <div style={{marginTop:'12px'}}><Link href="/models?category=Language+Models" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--accent)'}}>→ View all language models</Link></div>
           </div>
 
           {/* IMAGE Top 5 */}
@@ -135,7 +135,7 @@ export default function Home() {
                 ))}</tbody>
               </table>
             </div>
-            <div style={{marginTop:'12px'}}><Link href="/models" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--accent)'}}>→ View all image models</Link></div>
+            <div style={{marginTop:'12px'}}><Link href="/models?category=Image+Generation" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--accent)'}}>→ View all image models</Link></div>
           </div>
 
           {/* VIDEO Top 5 */}
@@ -177,7 +177,7 @@ export default function Home() {
                 ))}</tbody>
               </table>
             </div>
-            <div style={{marginTop:'12px'}}><Link href="/models" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--accent)'}}>→ View all video models</Link></div>
+            <div style={{marginTop:'12px'}}><Link href="/models?category=Video+Generation" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--accent)'}}>→ View all video models</Link></div>
           </div>
 
           <div style={{marginTop:'24px', display:'flex', gap:'16px', alignItems:'center', flexWrap:'wrap'}}>
