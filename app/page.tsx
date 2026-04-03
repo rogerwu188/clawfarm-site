@@ -88,7 +88,7 @@ export default function Home() {
                     <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.c}</td>
                     <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)', fontSize:'12px', fontWeight:500}}>{r.u}</td>
                     <td style={{padding:'10px 12px', textAlign:'center'}}><Link href={`/providers?model=${encodeURIComponent(r.m)}`} style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--accent)'}}>{r.n} providers</Link></td>
-                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Connect API</Link></td>
+                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Start Integrating</Link></td>
                   </tr>
                 ))}</tbody>
               </table>
@@ -130,7 +130,7 @@ export default function Home() {
                     <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.r}</td>
                     <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)', fontSize:'12px', fontWeight:500}}>{r.u}</td>
                     <td style={{padding:'10px 12px', textAlign:'center'}}><Link href={`/providers?model=${encodeURIComponent(r.m)}`} style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--accent)'}}>{r.n} providers</Link></td>
-                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Connect API</Link></td>
+                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Start Integrating</Link></td>
                   </tr>
                 ))}</tbody>
               </table>
@@ -172,7 +172,7 @@ export default function Home() {
                     <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.r}</td>
                     <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)', fontSize:'12px', fontWeight:500}}>{r.u}</td>
                     <td style={{padding:'10px 12px', textAlign:'center'}}><Link href={`/providers?model=${encodeURIComponent(r.m)}`} style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--accent)'}}>{r.n} providers</Link></td>
-                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Connect API</Link></td>
+                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Start Integrating</Link></td>
                   </tr>
                 ))}</tbody>
               </table>
