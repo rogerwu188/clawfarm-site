@@ -40,10 +40,10 @@ export default function Users() {
         <div className="max-w-4xl mx-auto px-6">
           <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'12px'}}>FOR USERS</p>
           <h1 className="section-title" style={{fontSize:'38px', lineHeight:1.2}}>
-            One wallet. All AI models.<br />Zero platform risk.
+            The Decentralized Gateway<br />to All AI Models.
           </h1>
           <p style={{marginTop:'20px', fontSize:'17px', color:'var(--text-mid)', lineHeight:1.7, maxWidth:'680px'}}>
-            ClawFarm is a decentralized routing, metering, and settlement network for AI compute. Connect your Solana wallet, deposit USDC into a non-custodial escrow contract, and access any model from any Provider on the network. No individual sign-ups. No billing accounts. No platform counterparty risk.
+            Connect your Solana wallet to access every major AI model through non-custodial routing. No individual sign-ups. No billing accounts. No platform lock-in. Pay only for the tokens you use.
           </p>
           <div style={{marginTop:'24px', display:'flex', gap:'12px', flexWrap:'wrap'}}>
             <Link href="/docs" className="btn-primary">Start Integrating</Link>

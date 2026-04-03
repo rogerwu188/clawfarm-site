@@ -39,10 +39,11 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         </div>
         <div className="header-row header-nav">
           <nav className="header-nav-inner">
-            <Link href="/users" className="nav-item">For Users</Link>
+            <Link href="/users" className="nav-item">AI Users</Link>
+            <Link href="/builders" className="nav-item">Builders</Link>
+            <Link href="/providers" className="nav-item">Marketplace</Link>
             <Link href="/install" className="nav-item">Become Provider</Link>
             <Link href="/masterpool" className="nav-item">Explorer</Link>
-            <Link href="/providers" className="nav-item">Providers</Link>
             <Link href="/whitepaper" className="nav-item">Protocol</Link>
             <Link href="/docs" className="nav-item">Docs</Link>
             <a href="https://github.com/rogerwu188/clawfarm-site" target="_blank" rel="noopener" className="nav-item">GitHub</a>
@@ -58,11 +59,13 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <footer className="site-footer">
         <div className="max-w-6xl mx-auto px-6">
           <div className="footer-links">
-            <Link href="/users">For Users</Link>
-            <Link href="/providers">Providers</Link>
+            <Link href="/users">AI Users</Link>
+            <Link href="/builders">Builders</Link>
+            <Link href="/providers">Marketplace</Link>
+            <Link href="/install">Become Provider</Link>
+            <Link href="/masterpool">Explorer</Link>
             <Link href="/docs">Docs</Link>
             <Link href="/whitepaper">Whitepaper</Link>
-            <Link href="/masterpool">Explorer</Link>
             <a href="https://discord.gg/zxZmCFbzEn" target="_blank" rel="noopener">Discord</a>
             <a href="https://github.com/rogerwu188/clawfarm-site" target="_blank" rel="noopener">GitHub</a>
             <a href="https://x.com/ClawFarm54892" target="_blank" rel="noopener">X</a>
