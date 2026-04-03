@@ -51,7 +51,6 @@ function ProvidersContent() {
 
   return (
     <>
-      {/* Model selector strip */}
       <div className="state-strip">
         <div className="max-w-6xl mx-auto px-6 flex items-center gap-4 overflow-x-auto">
           <span className="shrink-0 text-[11px] text-[#8a8f98] font-mono">MODEL</span>
@@ -73,7 +72,6 @@ function ProvidersContent() {
         </div>
       </div>
 
-      {/* Page header */}
       <section className="section" style={{borderBottom:'1px solid var(--border)'}}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-between flex-wrap gap-4">
@@ -92,7 +90,6 @@ function ProvidersContent() {
         </div>
       </section>
 
-      {/* Provider table */}
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
           <div style={{overflowX:'auto'}}>
@@ -155,7 +152,9 @@ function ProvidersContent() {
             </p>
             <Link href="/providers/register" className="btn-primary text-[13px]">Register Provider</Link>
           </div>
-        </>
+        </div>
+      </section>
+    </>
   )
 }
 
@@ -166,7 +165,6 @@ export default function ProvidersPage() {
         <ProvidersContent />
       </Suspense>
 
-      {/* Column legend */}
       <section className="section" style={{borderTop:'1px solid var(--border)'}}>
         <div className="max-w-6xl mx-auto px-6">
           <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>

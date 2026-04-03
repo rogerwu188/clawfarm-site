@@ -134,7 +134,6 @@ function ModelsContent() {
 
   return (
     <>
-      {/* Category tabs */}
       <div style={{ borderBottom:'1px solid var(--border)', background:'var(--bg-secondary)' }}>
         <div className="max-w-6xl mx-auto px-6">
           <div style={{ display:'flex', gap:'0', overflowX:'auto' }}>
@@ -162,7 +161,6 @@ function ModelsContent() {
         </div>
       </div>
 
-      {/* Model list */}
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
           {models.map(model => (
@@ -177,7 +175,6 @@ function ModelsContent() {
 export default function ModelsPage() {
   return (
     <main>
-      {/* Page header */}
       <section className="section" style={{ borderBottom:'1px solid var(--border)' }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="font-mono text-[11px] text-[var(--text-dim)] mb-2 tracking-wider">MODEL DIRECTORY</div>
@@ -192,7 +189,6 @@ export default function ModelsPage() {
         <ModelsContent />
       </Suspense>
 
-      {/* Bottom CTA */}
       <section className="section" style={{ borderTop:'1px solid var(--border)' }}>
         <div className="max-w-6xl mx-auto px-6">
           <div style={{ padding:'24px', border:'1px solid var(--border)', borderRadius:'8px', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:'16px' }}>
