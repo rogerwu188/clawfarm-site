@@ -1,166 +1,174 @@
+'use client'
+
+import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import { useMemo } from 'react'
 
-export const metadata = { title: 'Providers — ClawFarm', description: 'Register as a Provider on the decentralized AI compute marketplace' }
+const MODELS = [
+  'GPT-4o','GPT-4o Mini','Claude Sonnet 4','Claude Opus 4','Claude 3.5 Haiku',
+  'DeepSeek R1','DeepSeek V3','Gemini 2.5 Pro','Gemini 2.5 Flash',
+  'Llama 4 Maverick','Llama 4 Scout','Qwen 3 235B','Mistral Large',
+  'Grok 3','Grok 3 Mini','MiniMax M2.7','Kimi K2.5','Seed 2.0 Pro','Seed 2.0 Mini',
+]
 
-export default function Providers() {
+const PROVIDERS: Record<string, Array<{
+  nm: string; addr: string;
+  eI: string; eO: string;
+  aI: string; aO: string;
+  pI: string; pO: string;
+  usage: string; tps: string; sr: string;
+}>> = {
+  'GPT-4o': [
+    {nm:'NodeX Labs',addr:'0x7a3f...e2c1',eI:'$1.80',eO:'$7.20',aI:'$2.50',aO:'$10.00',pI:'$3.50',pO:'$14.00',usage:'12.4M',tps:'89 t/s',sr:'99.7%'},
+    {nm:'InferStack',addr:'0xb91d...4f08',eI:'$2.20',eO:'$8.80',aI:'$3.00',aO:'$12.00',pI:'$4.20',pO:'$16.80',usage:'8.1M',tps:'72 t/s',sr:'99.4%'},
+    {nm:'GCloud Relay',addr:'0x41ae...8c5f',eI:'$1.50',eO:'$6.00',aI:'$2.10',aO:'$8.40',pI:'$3.00',pO:'$12.00',usage:'5.9M',tps:'95 t/s',sr:'99.8%'},
+    {nm:'Dragon Compute',addr:'0x2e8c...a7b3',eI:'$1.60',eO:'$6.40',aI:'$2.30',aO:'$9.20',pI:'$3.20',pO:'$12.80',usage:'3.2M',tps:'68 t/s',sr:'99.1%'},
+    {nm:'MiniGPU Pool',addr:'0x5cf2...d914',eI:'$1.40',eO:'$5.60',aI:'$1.90',aO:'$7.60',pI:'$2.80',pO:'$11.20',usage:'2.7M',tps:'61 t/s',sr:'98.8%'},
+  ],
+  'DeepSeek R1': [
+    {nm:'Dragon Compute',addr:'0x2e8c...a7b3',eI:'$0.38',eO:'$1.52',aI:'$0.55',aO:'$2.19',pI:'$0.78',pO:'$3.10',usage:'8.2M',tps:'124 t/s',sr:'99.9%'},
+    {nm:'OpenPool DAO',addr:'0x9d0f...31e7',eI:'$0.42',eO:'$1.68',aI:'$0.60',aO:'$2.40',pI:'$0.85',pO:'$3.40',usage:'5.6M',tps:'118 t/s',sr:'99.8%'},
+    {nm:'SinoNodes',addr:'0x6b4a...f2d0',eI:'$0.35',eO:'$1.40',aI:'$0.50',aO:'$2.00',pI:'$0.72',pO:'$2.88',usage:'4.1M',tps:'131 t/s',sr:'99.7%'},
+    {nm:'ByteNodes',addr:'0xa8d1...c3f9',eI:'$0.50',eO:'$2.00',aI:'$0.70',aO:'$2.80',pI:'$1.00',pO:'$4.00',usage:'2.3M',tps:'105 t/s',sr:'99.5%'},
+  ],
+  'Claude Sonnet 4': [
+    {nm:'InferStack',addr:'0xb91d...4f08',eI:'$2.20',eO:'$11.00',aI:'$3.00',aO:'$15.00',pI:'$4.50',pO:'$22.00',usage:'9.8M',tps:'78 t/s',sr:'99.6%'},
+    {nm:'NodeX Labs',addr:'0x7a3f...e2c1',eI:'$1.80',eO:'$9.00',aI:'$2.60',aO:'$13.00',pI:'$3.80',pO:'$19.00',usage:'6.4M',tps:'82 t/s',sr:'99.5%'},
+    {nm:'HaikuFarm',addr:'0xd4c8...17ab',eI:'$2.00',eO:'$10.00',aI:'$2.80',aO:'$14.00',pI:'$4.00',pO:'$20.00',usage:'3.9M',tps:'71 t/s',sr:'99.3%'},
+  ],
+}
+
+const FALLBACK_PROVIDERS = [
+  {nm:'OpenPool DAO',addr:'0x9d0f...31e7',eI:'$0.80',eO:'$3.20',aI:'$1.20',aO:'$4.80',pI:'$1.80',pO:'$7.20',usage:'4.2M',tps:'95 t/s',sr:'99.4%'},
+  {nm:'SinoNodes',addr:'0x6b4a...f2d0',eI:'$0.60',eO:'$2.40',aI:'$0.90',aO:'$3.60',pI:'$1.40',pO:'$5.60',usage:'3.1M',tps:'108 t/s',sr:'99.6%'},
+  {nm:'ByteNodes',addr:'0xa8d1...c3f9',eI:'$0.70',eO:'$2.80',aI:'$1.00',aO:'$4.00',pI:'$1.50',pO:'$6.00',usage:'2.0M',tps:'88 t/s',sr:'99.2%'},
+]
+
+export default function ProvidersPage() {
+  const searchParams = useSearchParams()
+  const model = searchParams.get('model') || 'GPT-4o'
+
+  const providers = useMemo(() => PROVIDERS[model] || FALLBACK_PROVIDERS, [model])
+
   return (
     <main>
+      {/* Model selector strip */}
       <div className="state-strip">
-        <div className="max-w-6xl mx-auto px-6 flex gap-8">
-          <span>Surface: <span className="text-[#8a8f98]">Provider Integration</span></span>
-          <span>Policy: <span className="text-[#8a8f98]">Permissionless — On-Chain Registration</span></span>
+        <div className="max-w-6xl mx-auto px-6 flex items-center gap-4 overflow-x-auto">
+          <span className="shrink-0 text-[11px] text-[#8a8f98] font-mono">MODEL</span>
+          <div className="flex gap-2 flex-wrap">
+            {MODELS.map(m => (
+              <Link
+                key={m}
+                href={`/providers?model=${encodeURIComponent(m)}`}
+                className={`shrink-0 text-[11px] font-mono px-3 py-1 rounded transition-colors ${
+                  m === model
+                    ? 'bg-[var(--green)] text-black'
+                    : 'text-[#8a8f98] hover:text-white border border-[var(--border)]'
+                }`}
+              >
+                {m}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <h1 className="section-title text-[36px]">Anyone can be a Provider.</h1>
-          <p className="section-text">
-            ClawFarm is a decentralized AI compute marketplace. No approval process. No whitelist. Register on-chain with a model endpoint, a price table, and a CLAW stake. Start earning 97% USDC service revenue and CLAW token rewards — settlement goes directly from user escrow to your wallet.
-          </p>
-          <p className="section-text" style={{marginTop:'16px', borderLeft:'3px solid var(--green)', paddingLeft:'16px'}}>
-            <strong>No payment infrastructure needed.</strong> ClawFarm settles directly from user escrow to your wallet via smart contract. Focus on serving inference, not building billing systems.
-          </p>
-        </div>
-      </section>
-
-      {/* Provider Types */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Provider Types</div>
-          <div className="grid-2 mt-4">
-            <div className="grid-cell">
-              <h4>GPU Node Operator</h4>
-              <p>Run consumer or datacenter GPU hardware. Deploy LLaMA, Mistral, Qwen, or any open-source model. Sell compute capacity to the network.</p>
+      {/* Page header */}
+      <section className="section" style={{borderBottom:'1px solid var(--border)'}}>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <div>
+              <div className="font-mono text-[11px] text-[var(--text-dim)] mb-2 tracking-wider">PROVIDER LIST</div>
+              <h1 className="text-[28px] font-bold">{model}</h1>
+              <p className="text-[var(--text-mid)] text-[14px] mt-1">
+                {providers.length} providers registered · Sorted by 30D usage
+              </p>
             </div>
-            <div className="grid-cell">
-              <h4>Cloud GPU Node</h4>
-              <p>Spin up GPU instances on Lambda, RunPod, CoreWeave, or any cloud provider. Wrap them into a ClawFarm-compatible endpoint.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>Third-Party API Proxy</h4>
-              <p>Proxy OpenAI, Anthropic, Gemini, or any model API through your registered endpoint. Every verified request earns you CLAW rewards.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>Custom Model Service</h4>
-              <p>Fine-tuned models, domain-specific inference, proprietary runtimes — if it serves tokens and can be metered, it qualifies.</p>
+            <div className="flex gap-3">
+              <Link href="/providers/register" className="btn-primary text-[13px]">Register as Provider</Link>
+              <Link href="/docs" className="btn-secondary text-[13px]">API Docs</Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How rewards work */}
+      {/* Provider table */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">How Provider Rewards Work</div>
-          <p className="section-text mb-4">
-            Two revenue streams: direct USDC from users, and CLAW token rewards from the protocol.
-          </p>
-          <div className="panel">
-            <pre style={{fontFamily:'var(--font-mono)', fontSize:'14px', color:'var(--green)', lineHeight:2.2, padding:'18px 22px'}}>
-{`W_i = AWU_i × (P_avg / P_i) × Q_i
+        <div className="max-w-6xl mx-auto px-6">
+          <div style={{overflowX:'auto'}}>
+            <table style={{width:'100%', borderCollapse:'collapse', fontFamily:'var(--font-mono)', fontSize:'13px'}}>
+              <thead>
+                <tr style={{borderBottom:'2px solid var(--border)'}}>
+                  <th style={{textAlign:'left', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px', letterSpacing:'0.5px', width:'220px'}}>PROVIDER</th>
+                  <th style={{textAlign:'center', padding:'6px 8px', color:'var(--green)', fontWeight:600, fontSize:'11px', borderBottom:'1px solid var(--border)'}} colSpan={2}>ECO</th>
+                  <th style={{textAlign:'center', padding:'6px 8px', color:'var(--accent)', fontWeight:600, fontSize:'11px', borderBottom:'1px solid var(--border)'}} colSpan={2}>AUTO</th>
+                  <th style={{textAlign:'center', padding:'6px 8px', color:'var(--amber)', fontWeight:600, fontSize:'11px', borderBottom:'1px solid var(--border)'}} colSpan={2}>PREMIUM</th>
+                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>30D USAGE</th>
+                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>SPEED</th>
+                  <th style={{textAlign:'right', padding:'10px 12px', color:'var(--text-dim)', fontWeight:500, fontSize:'11px'}}>SR</th>
+                  <th style={{textAlign:'center', padding:'10px 12px'}}></th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th style={{textAlign:'right', padding:'3px 8px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px', borderBottom:'1px solid var(--border)'}}>input</th>
+                  <th style={{textAlign:'right', padding:'3px 8px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px', borderBottom:'1px solid var(--border)'}}>output</th>
+                  <th style={{textAlign:'right', padding:'3px 8px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px', borderBottom:'1px solid var(--border)'}}>input</th>
+                  <th style={{textAlign:'right', padding:'3px 8px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px', borderBottom:'1px solid var(--border)'}}>output</th>
+                  <th style={{textAlign:'right', padding:'3px 8px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px', borderBottom:'1px solid var(--border)'}}>input</th>
+                  <th style={{textAlign:'right', padding:'3px 8px', color:'var(--text-dim)', fontWeight:400, fontSize:'10px', borderBottom:'1px solid var(--border)'}}>output</th>
+                  <th colSpan={4}></th>
+                </tr>
+              </thead>
+              <tbody>
+                {providers.map((p, i) => (
+                  <tr key={i} style={{borderBottom:'1px solid var(--border)'}}>
+                    <td style={{padding:'12px 12px'}}>
+                      <div style={{fontWeight:600, color:'var(--green)', fontSize:'13px'}}>{p.nm}</div>
+                      <div style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginTop:'2px'}}>{p.addr}</div>
+                    </td>
+                    <td style={{padding:'10px 8px', textAlign:'right', color:'var(--text-mid)'}}>{p.eI}</td>
+                    <td style={{padding:'10px 8px', textAlign:'right', color:'var(--text-mid)', opacity:0.7}}>{p.eO}</td>
+                    <td style={{padding:'10px 8px', textAlign:'right', color:'var(--text-mid)'}}>{p.aI}</td>
+                    <td style={{padding:'10px 8px', textAlign:'right', color:'var(--text-mid)', opacity:0.7}}>{p.aO}</td>
+                    <td style={{padding:'10px 8px', textAlign:'right', color:'var(--text-mid)'}}>{p.pI}</td>
+                    <td style={{padding:'10px 8px', textAlign:'right', color:'var(--text-mid)', opacity:0.7}}>{p.pO}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)', fontWeight:500}}>{p.usage}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--text-mid)', fontSize:'12px'}}>{p.tps}</td>
+                    <td style={{padding:'10px 12px', textAlign:'right', color:'var(--green)', fontSize:'12px'}}>{p.sr}</td>
+                    <td style={{padding:'10px 8px', textAlign:'center'}}>
+                      <Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Connect</Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
-Reward_i = E_t × W_i / ΣW`}
-            </pre>
-            <div className="panel-row"><span className="panel-label">USDC Revenue</span><span className="panel-value" style={{color:'var(--green)'}}>97% of every user payment (direct, on-chain)</span></div>
-            <div className="panel-row"><span className="panel-label">CLAW Rewards</span><span className="panel-value">70% of Epoch issuance, weighted by W_i</span></div>
-            <div className="panel-row"><span className="panel-label">Cold-Start Bonus</span><span className="panel-value">20% of Epoch issuance for new providers</span></div>
-            <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear release</span></div>
+          <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginTop:'20px'}}>
+            ⚠ Simulated data — live provider feed coming soon
+          </p>
+
+          <div style={{marginTop:'32px', padding:'20px', border:'1px solid var(--border)', borderRadius:'8px'}}>
+            <div style={{fontFamily:'var(--font-mono)', fontSize:'14px', fontWeight:600, marginBottom:'12px'}}>Are you a provider for {model}?</div>
+            <p style={{color:'var(--text-mid)', fontSize:'14px', marginBottom:'16px', lineHeight:1.7}}>
+              Register your endpoint on-chain. Set your own prices. Start earning 97% USDC revenue + CLAW rewards. No approval needed.
+            </p>
+            <Link href="/providers/register" className="btn-primary text-[13px]">Register Provider</Link>
           </div>
         </div>
       </section>
 
-      {/* Staking */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Provider Staking</div>
-          <p className="section-text mb-4">
-            Providers must stake CLAW tokens to register. The stake acts as collateral — if you serve honestly, you keep it. If you cheat, it gets slashed.
+      {/* Column legend */}
+      <section className="section" style={{borderTop:'1px solid var(--border)'}}>
+        <div className="max-w-6xl mx-auto px-6">
+          <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>
+            <span style={{color:'var(--green)'}}>ECO</span> — cheapest provider for cost-first workloads &nbsp;·&nbsp;
+            <span style={{color:'var(--accent)'}}>AUTO</span> — best balance of cost and quality &nbsp;·&nbsp;
+            <span style={{color:'var(--amber)'}}>PREMIUM</span> — fastest, highest quality &nbsp;·&nbsp;
+            <span>SR</span> — success rate &nbsp;·&nbsp;
+            <span>Speed</span> — tokens per second
           </p>
-          <div className="panel">
-            <div className="panel-row"><span className="panel-label">Minimum Stake</span><span className="panel-value">1,000 CLAW</span></div>
-            <div className="panel-row"><span className="panel-label">Slash Conditions</span><span className="panel-value">Token count fraud, sustained downtime, response manipulation</span></div>
-            <div className="panel-row"><span className="panel-label">Slash Amount</span><span className="panel-value">Up to 100% of stake</span></div>
-            <div className="panel-row"><span className="panel-label">Unstaking Period</span><span className="panel-value">7 days (allows pending disputes to resolve)</span></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Settlement */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Settlement Flow</div>
-          <p className="section-text mb-4">
-            You don&#39;t need Stripe, payment processing, or your own billing system. Settlement is automatic:
-          </p>
-          <div className="panel">
-            <pre className="text-[13px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>
-{`User sends AI request
-  ↓ routed to your endpoint by eco/auto/premium
-You serve inference + sign usage proof
-  ↓ user SDK also signs (dual-signature)
-Settlement contract processes proof
-  ↓
-├── 97% USDC → your wallet (on-chain)
-└── 3% USDC → Treasury → buyback & burn`}
-            </pre>
-          </div>
-        </div>
-      </section>
-
-      {/* Registration */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">On-Chain Registration</div>
-          <p className="section-text mb-4">To register as a Provider, call the registry contract with:</p>
-          <div className="panel">
-            <div className="panel-row"><span className="panel-label">endpoint</span><span className="panel-value">Your inference API endpoint (HTTPS)</span></div>
-            <div className="panel-row"><span className="panel-label">models</span><span className="panel-value">List of supported model IDs + per-token pricing</span></div>
-            <div className="panel-row"><span className="panel-label">stake</span><span className="panel-value">CLAW tokens to lock (min 1,000)</span></div>
-            <div className="panel-row"><span className="panel-label">wallet</span><span className="panel-value">Your Solana wallet for settlement</span></div>
-          </div>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            No approval. No human review. Your Provider account is active from the next block. Traffic can route to you immediately.
-          </p>
-        </div>
-      </section>
-
-      {/* Verification */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Verification Requirements</div>
-          <p className="section-text mb-4">
-            Every response from your endpoint must support dual-signature verification:
-          </p>
-          <div className="panel">
-            <pre className="text-[11px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>
-{`{
-  "request_id": "req_xxx",
-  "output": "...",
-  "token_usage": {
-    "input_tokens": 800,
-    "output_tokens": 1200
-  },
-  "response_time_ms": 312,
-  "success": true,
-  "provider_signature": "..."    // your signature on the usage proof
-}`}
-            </pre>
-          </div>
-          <p className="section-text" style={{marginTop:'16px'}}>
-            The user SDK independently counts tokens and co-signs. Both signatures required for settlement. This protects both parties.
-          </p>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="flex flex-wrap gap-3">
-            <Link href="/install" className="btn-primary">Register as Provider</Link>
-            <Link href="/whitepaper" className="btn-secondary">Read Full Protocol</Link>
-            <Link href="/docs" className="btn-secondary">Technical Docs</Link>
-            <Link href="/masterpool" className="btn-secondary">Network Explorer</Link>
-          </div>
         </div>
       </section>
     </main>
