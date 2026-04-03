@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import dynamic from 'next/dynamic'
 
-const SolanaWalletProvider = dynamic(() => import('./components/SolanaWalletProvider'), { ssr: false })
+import SolanaWalletProvider from './components/SolanaWalletProvider'
 const ConnectWalletButton = dynamic(() => import('./components/ConnectWalletButton'), { ssr: false })
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {

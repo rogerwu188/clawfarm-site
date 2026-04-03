@@ -88,7 +88,7 @@ export default function Home() {
                     <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.c}</td>
                     <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)', fontSize:'12px', fontWeight:500}}>{r.u}</td>
                     <td style={{padding:'10px 12px', textAlign:'center'}}><Link href={`/providers?model=${encodeURIComponent(r.m)}`} style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--accent)'}}>{r.n} providers</Link></td>
-                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Start Integrating</Link></td>
+                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Start Integrating</Link></td>
                   </tr>
                 ))}</tbody>
               </table>
@@ -130,7 +130,7 @@ export default function Home() {
                     <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.r}</td>
                     <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)', fontSize:'12px', fontWeight:500}}>{r.u}</td>
                     <td style={{padding:'10px 12px', textAlign:'center'}}><Link href={`/providers?model=${encodeURIComponent(r.m)}`} style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--accent)'}}>{r.n} providers</Link></td>
-                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Start Integrating</Link></td>
+                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Start Integrating</Link></td>
                   </tr>
                 ))}</tbody>
               </table>
@@ -172,7 +172,7 @@ export default function Home() {
                     <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.r}</td>
                     <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)', fontSize:'12px', fontWeight:500}}>{r.u}</td>
                     <td style={{padding:'10px 12px', textAlign:'center'}}><Link href={`/providers?model=${encodeURIComponent(r.m)}`} style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--accent)'}}>{r.n} providers</Link></td>
-                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Start Integrating</Link></td>
+                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Start Integrating</Link></td>
                   </tr>
                 ))}</tbody>
               </table>
@@ -217,19 +217,19 @@ export default function Home() {
               <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', letterSpacing:'1px', marginBottom:'8px'}}>PROVIDER</p>
               <h4 style={{fontSize:'18px', marginBottom:'12px'}}>Sell compute. Earn USDC + CLAW.</h4>
               <p style={{color:'var(--text-mid)', fontSize:'14px', lineHeight:1.7}}>You have a GPU, a model endpoint, or an API key. Register on-chain, set your price, and start serving inference. Settlement goes directly to your wallet.</p>
-              <div style={{marginTop:'20px'}}><Link href="/providers" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--green)'}}>→ Become a Provider</Link></div>
+              <div style={{marginTop:'20px', display:'flex', flexDirection:'column', gap:'8px'}}><Link href="/providers" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'8px 14px', textAlign:'center' as const}}>Become a Provider</Link></div>
             </div>
             <div className="grid-cell" style={{borderTop:'3px solid var(--accent)', paddingTop:'24px'}}>
               <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--accent)', letterSpacing:'1px', marginBottom:'8px'}}>BUILDER</p>
               <h4 style={{fontSize:'18px', marginBottom:'12px'}}>Build on decentralized AI infra.</h4>
               <p style={{color:'var(--text-mid)', fontSize:'14px', lineHeight:1.7}}>Use ClawFarm SDK to route AI requests across multiple providers with one integration. Auto-failover, cost optimization, and on-chain usage receipts built in.</p>
-              <div style={{marginTop:'20px'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--accent)'}}>→ Read the Docs</Link></div>
+              <div style={{marginTop:'20px', display:'flex', flexDirection:'column', gap:'8px'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'#ffffff', border:'1px solid #3b82f6', background:'rgba(59,130,246,0.1)', borderRadius:'4px', padding:'8px 14px', textAlign:'center' as const}}>Build with SDK</Link></div>
             </div>
             <div className="grid-cell" style={{borderTop:'3px solid var(--amber)', paddingTop:'24px'}}>
               <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--amber)', letterSpacing:'1px', marginBottom:'8px'}}>NODE OPERATOR</p>
               <h4 style={{fontSize:'18px', marginBottom:'12px'}}>Run infrastructure. Power the network.</h4>
               <p style={{color:'var(--text-mid)', fontSize:'14px', lineHeight:1.7}}>Deploy GPU nodes, host open-source models, or run relay infrastructure. Earn CLAW rewards proportional to your verified contribution.</p>
-              <div style={{marginTop:'20px'}}><Link href="/install" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--amber)'}}>→ Set Up a Node</Link></div>
+              <div style={{marginTop:'20px', display:'flex', flexDirection:'column', gap:'8px'}}><Link href="/install" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'#1a1a1a', border:'1px solid #fbbf24', background:'rgba(251,191,36,0.15)', borderRadius:'4px', padding:'8px 14px', textAlign:'center' as const}}>Set Up a Node</Link></div>
             </div>
           </div>
         </div>

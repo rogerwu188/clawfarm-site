@@ -2,7 +2,7 @@
 
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { useMemo } from 'react'
+import { useMemo, Suspense } from 'react'
 
 const MODELS = [
   'GPT-4o','GPT-4o Mini','Claude Sonnet 4','Claude Opus 4','Claude 3.5 Haiku',
@@ -44,14 +44,13 @@ const FALLBACK_PROVIDERS = [
   {nm:'ByteNodes',addr:'0xa8d1...c3f9',eI:'$0.70',eO:'$2.80',aI:'$1.00',aO:'$4.00',pI:'$1.50',pO:'$6.00',usage:'2.0M',tps:'88 t/s',sr:'99.2%'},
 ]
 
-export default function ProvidersPage() {
+function ProvidersContent() {
   const searchParams = useSearchParams()
   const model = searchParams.get('model') || 'GPT-4o'
-
   const providers = useMemo(() => PROVIDERS[model] || FALLBACK_PROVIDERS, [model])
 
   return (
-    <main>
+    <>
       {/* Model selector strip */}
       <div className="state-strip">
         <div className="max-w-6xl mx-auto px-6 flex items-center gap-4 overflow-x-auto">
@@ -156,8 +155,16 @@ export default function ProvidersPage() {
             </p>
             <Link href="/providers/register" className="btn-primary text-[13px]">Register Provider</Link>
           </div>
-        </div>
-      </section>
+        </>
+  )
+}
+
+export default function ProvidersPage() {
+  return (
+    <main>
+      <Suspense fallback={<div className="section p-10 text-center font-mono text-dim">Loading providers...</div>}>
+        <ProvidersContent />
+      </Suspense>
 
       {/* Column legend */}
       <section className="section" style={{borderTop:'1px solid var(--border)'}}>

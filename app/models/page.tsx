@@ -2,7 +2,7 @@
 
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { useMemo, useState } from 'react'
+import { useMemo, useState, Suspense } from 'react'
 
 const MODEL_CATEGORIES = {
   'Language Models': [
@@ -127,24 +127,13 @@ function ModelCard({ model, category }: { model: string; category: string }) {
   )
 }
 
-export default function ModelsPage() {
+function ModelsContent() {
   const searchParams = useSearchParams()
   const activeCategory = searchParams.get('category') || 'Language Models'
   const models = MODEL_CATEGORIES[activeCategory as keyof typeof MODEL_CATEGORIES] || []
 
   return (
-    <main>
-      {/* Page header */}
-      <section className="section" style={{ borderBottom:'1px solid var(--border)' }}>
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="font-mono text-[11px] text-[var(--text-dim)] mb-2 tracking-wider">MODEL DIRECTORY</div>
-          <h1 className="text-[28px] font-bold">All models & providers</h1>
-          <p className="text-[var(--text-mid)] text-[14px] mt-2 max-w-2xl">
-            Every model on ClawFarm and the providers serving it. Click any model to see all providers, prices, and performance data.
-          </p>
-        </div>
-      </section>
-
+    <>
       {/* Category tabs */}
       <div style={{ borderBottom:'1px solid var(--border)', background:'var(--bg-secondary)' }}>
         <div className="max-w-6xl mx-auto px-6">
@@ -181,6 +170,27 @@ export default function ModelsPage() {
           ))}
         </div>
       </section>
+    </>
+  )
+}
+
+export default function ModelsPage() {
+  return (
+    <main>
+      {/* Page header */}
+      <section className="section" style={{ borderBottom:'1px solid var(--border)' }}>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="font-mono text-[11px] text-[var(--text-dim)] mb-2 tracking-wider">MODEL DIRECTORY</div>
+          <h1 className="text-[28px] font-bold">All models & providers</h1>
+          <p className="text-[var(--text-mid)] text-[14px] mt-2 max-w-2xl">
+            Every model on ClawFarm and the providers serving it. Click any model to see all providers, prices, and performance data.
+          </p>
+        </div>
+      </section>
+
+      <Suspense fallback={<div className="section p-10 text-center font-mono text-dim">Loading models...</div>}>
+        <ModelsContent />
+      </Suspense>
 
       {/* Bottom CTA */}
       <section className="section" style={{ borderTop:'1px solid var(--border)' }}>
@@ -197,4 +207,3 @@ export default function ModelsPage() {
     </main>
   )
 }
-

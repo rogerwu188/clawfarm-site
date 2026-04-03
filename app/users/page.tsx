@@ -1,45 +1,78 @@
 import Link from 'next/link'
 
-export const metadata = { title: 'For Users — ClawFarm', description: 'Deposit USDC, choose a routing mode, consume AI inference. Non-custodial. No signups with providers.' }
+export const metadata = {
+  title: 'For Users — ClawFarm | Decentralized AI Compute',
+  description: 'Connect your Solana wallet, deposit USDC, and access any AI model through decentralized routing. Non-custodial escrow. eco / auto / premium modes. Start integrating in minutes.',
+  keywords: 'decentralized AI inference, Solana AI, non-custodial AI, AI compute marketplace, GPU compute, DePIN, AI routing, USDC escrow, Solana DeFi',
+  openGraph: {
+    title: 'ClawFarm — Decentralized AI Compute Network',
+    description: 'One wallet. All AI models. Zero platform risk. Route AI requests through eco, auto, or premium mode. Settlement is automatic and on-chain.',
+    url: 'https://www.clawfarm.network/users',
+    siteName: 'ClawFarm',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.clawfarm.network/og-users.png',
+        width: 1200,
+        height: 630,
+        alt: 'ClawFarm — Decentralized AI Compute for Users',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ClawFarm — Decentralized AI Compute Network',
+    description: 'One wallet. All AI models. Zero platform risk. Non-custodial USDC escrow. eco / auto / premium routing.',
+    site: '@ClawFarm54892',
+    creator: '@ClawFarm54892',
+  },
+  alternates: {
+    canonical: 'https://www.clawfarm.network/users',
+  },
+}
 
 export default function Users() {
   return (
     <main>
-      <div className="state-strip">
-        <div className="max-w-6xl mx-auto px-6 flex gap-8">
-          <span>Surface: <span className="text-[#8a8f98]">User Guide</span></span>
-          <span>Custody: <span className="text-[#8a8f98]">Non-Custodial Escrow</span></span>
-        </div>
-      </div>
-
-      <section className="section">
+      {/* Page header — SSR H1 */}
+      <section className="section" style={{borderBottom:'1px solid var(--border)'}}>
         <div className="max-w-4xl mx-auto px-6">
-          <h1 className="section-title text-[36px]">One wallet. All AI models. Zero platform risk.</h1>
-          <p className="section-text" style={{marginTop:'12px', fontSize:'16px', color:'var(--text-mid)'}}>
-            Connect your Solana wallet, deposit USDC into the on-chain escrow, and access every Provider on the ClawFarm network. No more signing up with individual API providers. No more managing multiple billing accounts.
+          <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'12px'}}>FOR USERS</p>
+          <h1 className="section-title" style={{fontSize:'38px', lineHeight:1.2}}>
+            One wallet. All AI models.<br />Zero platform risk.
+          </h1>
+          <p style={{marginTop:'20px', fontSize:'17px', color:'var(--text-mid)', lineHeight:1.7, maxWidth:'680px'}}>
+            ClawFarm is a decentralized routing, metering, and settlement network for AI compute. Connect your Solana wallet, deposit USDC into a non-custodial escrow contract, and access any model from any Provider on the network. No individual sign-ups. No billing accounts. No platform counterparty risk.
           </p>
+          <div style={{marginTop:'24px', display:'flex', gap:'12px', flexWrap:'wrap'}}>
+            <Link href="/docs" className="btn-primary">Start Integrating</Link>
+            <Link href="/providers" className="btn-secondary">Browse Providers</Link>
+            <Link href="/whitepaper" className="btn-secondary">Read the Whitepaper</Link>
+          </div>
         </div>
       </section>
 
       {/* How it works */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">How It Works</div>
-          <div className="space-y-0 mt-6">
+          <h2 style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>HOW IT WORKS</h2>
+          <p style={{fontSize:'14px', color:'var(--text-mid)', marginBottom:'24px'}}>Seven steps from wallet connection to automatic settlement — all on-chain.</p>
+          <div style={{display:'flex', flexDirection:'column', gap:'0'}}>
             {[
-              {step:'1', title:'Connect your Solana wallet', desc:'Phantom, Backpack, or any Solana wallet'},
-              {step:'2', title:'Deposit USDC into Escrow Contract', desc:'Your funds go to a program-owned account (PDA) — no human holds the key'},
-              {step:'3', title:'Select routing mode: eco / auto / premium', desc:'Or specify a model directly'},
-              {step:'4', title:'Send AI requests', desc:'The SDK routes to the best Provider based on your mode'},
-              {step:'5', title:'Usage proof auto-generated', desc:'Client-side token counting + dual signature (you + Provider)'},
-              {step:'6', title:'Contract settles automatically', desc:'97% to Provider wallet, 3% to Treasury — all on-chain'},
-              {step:'7', title:'Withdraw remaining USDC anytime', desc:'No lock-up, no approval needed — your funds, your control'},
+              {n:'01', t:'Connect your Solana wallet', d:'Use Phantom, Solflare, Backpack, or any Solana wallet. No email, no sign-up form.'},
+              {n:'02', t:'Deposit USDC into the Escrow Contract', d:'Your USDC goes to a Program Derived Address (PDA) controlled by the ClawFarm smart contract. No human holds your private key.'},
+              {n:'03', t:'Select a routing mode', d:'eco — cheapest. auto — best balance. premium — highest quality. Or specify a model directly.'},
+              {n:'04', t:'Send your AI request', d:'The ClawFarm SDK routes your request to the optimal Provider based on real-time on-chain data.'},
+              {n:'05', t:'Usage proof is generated and signed', d:'Token counting happens client-side. Both you and the Provider sign the usage receipt independently.'},
+              {n:'06', t:'Contract settles automatically', d:'97% of the USDC goes directly to the Provider wallet. 3% to Treasury. All in one on-chain transaction.'},
+              {n:'07', t:'Withdraw your balance anytime', d:'Your available USDC balance (total minus pending settlements) can be withdrawn at any moment. No lock-up. No approval.'},
             ].map((f, i) => (
-              <div key={i} className="seq-item">
-                <span className="seq-num">{f.step}</span>
+              <div key={i} style={{display:'flex', gap:'16px', padding:'16px 0', borderBottom: i < 6 ? '1px solid var(--border)' : 'none'}}>
+                <span style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--green)', fontWeight:700, width:'28px', flexShrink:0}}>{f.n}</span>
                 <div>
-                  <span className="seq-text">{f.title}</span>
-                  <span className="block text-[11px] text-[#505560] mt-1">{f.desc}</span>
+                  <p style={{fontWeight:600, fontSize:'15px', color:'var(--text)'}}>{f.t}</p>
+                  <p style={{fontSize:'13px', color:'var(--text-mid)', marginTop:'4px', lineHeight:1.6}}>{f.d}</p>
                 </div>
               </div>
             ))}
@@ -48,140 +81,216 @@ export default function Users() {
       </section>
 
       {/* Routing modes */}
-      <section className="section">
+      <section className="section" style={{borderTop:'1px solid var(--border)'}}>
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Routing Modes</div>
-          <h2 className="section-title">Three modes. Automatic. Open-source.</h2>
-          <p className="section-text mb-6">
-            The routing engine is open-source and runs client-side in the ClawFarm SDK. It reads the on-chain Provider Registry (prices + quality scores) and selects the optimal Provider for each request.
+          <h2 style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>ROUTING MODES</h2>
+          <h3 className="section-title" style={{fontSize:'24px'}}>Three modes. Automatic. Transparent.</h3>
+          <p style={{marginTop:'12px', fontSize:'14px', color:'var(--text-mid)', lineHeight:1.7, marginBottom:'28px'}}>
+            The routing engine is open-source and runs client-side in the ClawFarm SDK. It reads the on-chain Provider Registry — real-time prices and quality scores — then selects the optimal Provider for each request. No black box.
           </p>
-          <div className="grid-3 mt-6" style={{gridTemplateColumns:'repeat(3, 1fr)', gap:'16px'}}>
-            <div className="grid-cell" style={{borderTop:'2px solid var(--green)'}}>
-              <h4 style={{color:'var(--green)'}}>eco</h4>
-              <p style={{marginTop:'8px'}}>Lowest cost per token. Routes to the cheapest qualified Provider.</p>
-              <p style={{marginTop:'12px', fontSize:'11px', color:'var(--text-dim)'}}>Best for: bulk processing, summarization, non-critical tasks</p>
+          <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:'16px'}}>
+            <div style={{borderTop:'3px solid var(--green)', padding:'20px 0 0'}}>
+              <h4 style={{fontSize:'16px', fontWeight:700, color:'var(--green)', marginBottom:'8px'}}>eco</h4>
+              <p style={{fontSize:'14px', color:'var(--text-mid)', lineHeight:1.6}}>Routes to the cheapest qualified Provider. Best for bulk processing, background tasks, and non-critical inference.</p>
+              <p style={{marginTop:'12px', fontSize:'12px', color:'var(--text-dim)'}}>Best for: summarization, classification, batch processing, cost-sensitive workloads</p>
             </div>
-            <div className="grid-cell" style={{borderTop:'2px solid var(--accent)'}}>
-              <h4 style={{color:'var(--accent)'}}>auto</h4>
-              <p style={{marginTop:'8px'}}>Balanced — optimizes across cost, quality, and latency.</p>
-              <p style={{marginTop:'12px', fontSize:'11px', color:'var(--text-dim)'}}>Best for: general-purpose usage, default mode</p>
+            <div style={{borderTop:'3px solid var(--accent)', padding:'20px 0 0'}}>
+              <h4 style={{fontSize:'16px', fontWeight:700, color:'var(--accent)', marginBottom:'8px'}}>auto</h4>
+              <p style={{fontSize:'14px', color:'var(--text-mid)', lineHeight:1.6}}>Balanced routing across cost, quality, and latency. The default mode for most use cases.</p>
+              <p style={{marginTop:'12px', fontSize:'12px', color:'var(--text-dim)'}}>Best for: general-purpose usage, chatbots, coding assistants, content generation</p>
             </div>
-            <div className="grid-cell" style={{borderTop:'2px solid var(--amber)'}}>
-              <h4 style={{color:'var(--amber)'}}>premium</h4>
-              <p style={{marginTop:'8px'}}>Routes to the highest-tier model available. Maximum quality.</p>
-              <p style={{marginTop:'12px', fontSize:'11px', color:'var(--text-dim)'}}>Best for: complex reasoning, code gen, deep thinking</p>
+            <div style={{borderTop:'3px solid var(--amber)', padding:'20px 0 0'}}>
+              <h4 style={{fontSize:'16px', fontWeight:700, color:'var(--amber)', marginBottom:'8px'}}>premium</h4>
+              <p style={{fontSize:'14px', color:'var(--text-mid)', lineHeight:1.6}}>Routes to the highest-tier model available. Maximum quality for complex reasoning and deep analysis.</p>
+              <p style={{marginTop:'12px', fontSize:'12px', color:'var(--text-dim)'}}>Best for: complex reasoning, code generation, deep research, agentic workflows</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Routing signals */}
-      <section className="section">
+      <section className="section" style={{borderTop:'1px solid var(--border)'}}>
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Routing Signals</div>
-          <p className="section-text mb-4">
-            The router automatically analyzes your request and selects the best Provider:
+          <h2 style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>ROUTING SIGNALS</h2>
+          <h3 className="section-title" style={{fontSize:'24px'}}>The router reads these signals from on-chain data.</h3>
+          <div style={{marginTop:'24px', border:'1px solid var(--border)', borderRadius:'8px', overflow:'hidden'}}>
+            {[
+              {l:'Prompt length', v:'Filters Providers that support the required context window'},
+              {l:'Tool calls', v:'Routes to Providers with function-calling enabled models'},
+              {l:'Deep thinking flag', v:'Routes to reasoning models (o1, Claude with thinking, R1 series)'},
+              {l:'Real-time price table', v:'On-chain Provider Registry, updated at each settlement'},
+              {l:'Quality score', v:'Historical success rate, latency, and uptime from on-chain metrics'},
+              {l:'User preference', v:'Optional model whitelist or blacklist via SDK configuration'},
+            ].map((r, i) => (
+              <div key={i} style={{display:'flex', justifyContent:'space-between', alignItems:'center', padding:'14px 20px', borderBottom: i < 5 ? '1px solid var(--border)' : 'none', gap:'24px'}}>
+                <span style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--text)', fontWeight:500, flexShrink:0}}>{r.l}</span>
+                <span style={{fontSize:'13px', color:'var(--text-mid)', textAlign:'right'}}>{r.v}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Non-custodial */}
+      <section className="section" style={{borderTop:'1px solid var(--border)'}}>
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>NON-CUSTODIAL GUARANTEE</h2>
+          <h3 className="section-title" style={{fontSize:'24px'}}>Your USDC. Your control. Always.</h3>
+          <p style={{marginTop:'12px', fontSize:'14px', color:'var(--text-mid)', lineHeight:1.7, marginBottom:'28px'}}>
+            Unlike centralized AI API platforms, ClawFarm never holds your funds. Your USDC lives in a smart contract. The contract logic — not any human or company — moves your money.
           </p>
-          <div className="panel mt-4">
-            <div className="panel-row"><span className="panel-label">Prompt length</span><span className="panel-value">Filters by context window support</span></div>
-            <div className="panel-row"><span className="panel-label">Tool calls</span><span className="panel-value">Filters providers with function-calling models</span></div>
-            <div className="panel-row"><span className="panel-label">Deep thinking</span><span className="panel-value">Routes to reasoning models (o1, Claude thinking, etc.)</span></div>
-            <div className="panel-row"><span className="panel-label">Price table</span><span className="panel-value">On-chain Registry, real-time prices</span></div>
-            <div className="panel-row"><span className="panel-label">Quality score</span><span className="panel-value">Historical success rate, latency, uptime</span></div>
-            <div className="panel-row"><span className="panel-label">Your preference</span><span className="panel-value">Model whitelist/blacklist (optional)</span></div>
+          <div style={{display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:'16px'}}>
+            {[
+              {t:'Program-Owned Account (PDA)', p:'Your USDC is held in a Solana PDA. Only the ClawFarm program can authorize transfers — and only for valid settlements. No back door.'},
+              {t:'Withdraw Anytime', p:'Your available balance (total minus pending settlements) is always withdrawable. No lock-up. No KYC. No approval queue.'},
+              {t:'On-Chain Balance', p:'Your balance is a real Solana token account. Verify it on Solscan or any block explorer. Not a number in a company database.'},
+              {t:'Transparent Billing', p:'Every inference call generates a full paper trail: Provider, model, token counts, price, USDC deducted, settlement transaction hash.'},
+            ].map((b, i) => (
+              <div key={i} style={{border:'1px solid var(--border)', borderRadius:'8px', padding:'20px'}}>
+                <h4 style={{fontSize:'14px', fontWeight:700, marginBottom:'10px'}}>{b.t}</h4>
+                <p style={{fontSize:'13px', color:'var(--text-mid)', lineHeight:1.6}}>{b.p}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Non-custodial guarantee */}
-      <section className="section">
+      {/* User Cashback */}
+      <section className="section" style={{borderTop:'1px solid var(--border)'}}>
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Non-Custodial Guarantee</div>
-          <h2 className="section-title">Your USDC. Your control. Always.</h2>
-          <div className="grid-2 mt-6">
-            <div className="grid-cell">
-              <h4>Program-Owned Account</h4>
-              <p>Your USDC is held in a Solana Program Derived Address (PDA). No human — not even ClawFarm — holds the private key. Only the smart contract logic can move funds.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>Withdraw Anytime</h4>
-              <p>Your available balance (total - pending settlements) can be withdrawn at any time. No approval, no lock-up, no waiting period.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>On-Chain Balance</h4>
-              <p>Your balance is a Solana token account, not a number in a database. Verify it on any block explorer.</p>
-            </div>
-            <div className="grid-cell">
-              <h4>Transparent Billing</h4>
-              <p>Every call shows: which Provider served it, how many tokens, what price, how much USDC was deducted. All on-chain.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* User cashback */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">User Cashback</div>
-          <p className="section-text">
-            10% of each Epoch's CLAW issuance goes to the User Cashback Pool. You earn CLAW proportional to how much USDC you spend on inference. It's automatic — no staking, no claiming, no action required.
+          <h2 style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>USER CASHBACK</h2>
+          <h3 className="section-title" style={{fontSize:'24px'}}>Earn CLAW while you spend on inference.</h3>
+          <p style={{marginTop:'12px', fontSize:'14px', color:'var(--text-mid)', lineHeight:1.7}}>
+            10% of each Epoch's CLAW token issuance goes into the User Cashback Pool. Your share is proportional to how much USDC you've spent on inference. No staking required. No claiming step. It accrues automatically.
           </p>
-          <div className="panel mt-4">
-            <div className="panel-row"><span className="panel-label">Pool size</span><span className="panel-value">10% of Epoch issuance</span></div>
-            <div className="panel-row"><span className="panel-label">Basis</span><span className="panel-value">Proportional to USDC spent</span></div>
-            <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear</span></div>
-            <div className="panel-row"><span className="panel-label">Action required</span><span className="panel-value">None — automatic</span></div>
+          <div style={{marginTop:'20px', border:'1px solid var(--border)', borderRadius:'8px', overflow:'hidden', maxWidth:'520px'}}>
+            {[
+              {l:'Pool size', v:'10% of Epoch CLAW issuance'},
+              {l:'Distribution basis', v:'Proportional to USDC spent on inference'},
+              {l:'Vesting', v:'180-day linear from accrual'},
+              {l:'Claim required', v:'No — automatic accrual'},
+            ].map((r, i) => (
+              <div key={i} style={{display:'flex', justifyContent:'space-between', padding:'12px 20px', borderBottom: i < 3 ? '1px solid var(--border)' : 'none', gap:'24px'}}>
+                <span style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--text-dim)'}}>{r.l}</span>
+                <span style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--green)', fontWeight:500}}>{r.v}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Quick start */}
-      <section className="section">
+      {/* Quick start code */}
+      <section className="section" style={{borderTop:'1px solid var(--border)'}}>
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Quick Start</div>
-          <div className="panel mt-4">
-            <pre className="text-[13px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>
-{`import { ClawFarm } from '@clawfarm/sdk'
+          <h2 style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>QUICK START</h2>
+          <h3 className="section-title" style={{fontSize:'24px'}}>Integrate in under five minutes.</h3>
+          <div style={{marginTop:'24px', background:'var(--surface)', border:'1px solid var(--border)', borderRadius:'8px', overflow:'hidden'}}>
+            <div style={{padding:'12px 20px', borderBottom:'1px solid var(--border)', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+              <span style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--text-dim)'}}>TypeScript / JavaScript</span>
+              <span style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>npm install @clawfarm/sdk</span>
+            </div>
+            <pre style={{padding:'20px 24px', fontFamily:'var(--font-mono)', fontSize:'13px', color:'#9ca3af', lineHeight:1.8, overflowX:'auto', margin:'0'}}>{`import { ClawFarm } from '@clawfarm/sdk'
 
-// Connect wallet
+// 1. Connect wallet
 const cf = new ClawFarm({ wallet: yourSolanaWallet })
 
-// Deposit USDC
+// 2. Deposit USDC into escrow
 await cf.deposit({ amount: 100 })  // 100 USDC
 
-// Send AI request with auto routing
+// 3. Send a request — auto routing
 const response = await cf.chat({
-  mode: 'auto',                     // eco | auto | premium
+  mode: 'auto',
   messages: [
-    { role: 'user', content: 'Explain ZK proofs in simple terms' }
+    { role: 'user', content: 'Explain ZK proofs simply' }
   ],
 })
 
-// Response includes full transparency
-console.log(response.provider)       // which Provider served this
-console.log(response.model)          // which model was used
-console.log(response.tokens)         // input + output token counts
-console.log(response.cost)           // USDC deducted
-console.log(response.txHash)         // on-chain settlement tx
+// Full transparency after each call:
+response.provider    // '0x7a3f...e2c1'
+response.model      // 'GPT-4o'
+response.tokens     // { input: 42, output: 318 }
+response.cost       // 0.000031 USDC
+response.txHash     // on-chain settlement tx
 
-// Check balance
+// 4. Check balance anytime
 const balance = await cf.balance()
 
-// Withdraw anytime
-await cf.withdraw({ amount: 50 })   // 50 USDC back to your wallet`}
-            </pre>
+// 5. Withdraw — no lock-up
+await cf.withdraw({ amount: 50 })  // back to your wallet`}</pre>
           </div>
         </div>
       </section>
 
-      {/* Links */}
-      <section className="section">
+      {/* FAQ */}
+      <section className="section" style={{borderTop:'1px solid var(--border)'}}>
         <div className="max-w-4xl mx-auto px-6">
-          <div className="flex flex-wrap gap-3">
-            <Link href="/docs" className="btn-primary">Full Documentation</Link>
-            <Link href="/whitepaper" className="btn-secondary">Read Protocol</Link>
-            <Link href="/masterpool" className="btn-secondary">Network Explorer</Link>
-            <Link href="/providers" className="btn-secondary">Browse Providers</Link>
+          <h2 style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>FREQUENTLY ASKED</h2>
+          <h3 className="section-title" style={{fontSize:'24px'}}>Common questions from users.</h3>
+          <div style={{marginTop:'28px', display:'flex', flexDirection:'column', gap:'0'}}>
+            {[
+              {
+                q:'Do I need a crypto wallet to use ClawFarm?',
+                a:'Yes. Any Solana wallet works — Phantom, Solflare, Backpack, Glow, or hardware wallets. You need a small amount of SOL for transaction fees. Your AI inference budget is in USDC, which you deposit into the escrow contract.'
+              },
+              {
+                q:'Is my USDC safe? Can the platform take it?',
+                a:"Your USDC is held in a Program Derived Address (PDA) controlled by the ClawFarm Solana program. The program can only move your USDC to settle valid inference requests. It cannot freeze your funds, transfer them to the team, or do anything outside its defined logic. You can verify the contract code on-chain."
+              },
+              {
+                q:'How is ClawFarm different from buying API keys directly from OpenAI or Anthropic?',
+                a:'With centralized providers, you sign up, give them your credit card, and they can rate-limit or ban you at any time. On ClawFarm, your funds are in a smart contract you control. Multiple Providers compete for your traffic — lowering prices. And settlement is automatic: no invoices, no payment delays.'
+              },
+              {
+                q:'What is the eco / auto / premium routing?',
+                a:"eco routes to the cheapest Provider that meets your request requirements. auto balances cost, quality, and latency. premium routes to the highest-capability model. You can also bypass routing and specify a model or Provider directly via the SDK."
+              },
+              {
+                q:'How does billing work?',
+                a:"You're billed per token — input tokens and output tokens at the Provider's published rate. Each settlement transaction deducts USDC from your escrow balance and sends 97% to the Provider and 3% to the Treasury contract in one atomic on-chain transaction."
+              },
+              {
+                q:'What is the CLAW token and do I need it?',
+                a:"CLAW is the protocol token. You don't need CLAW to use the network — inference is paid in USDC. CLAW is earned by Providers as staking rewards and by users as cashback. It accrues automatically; no claiming step required."
+              },
+              {
+                q:'Can I see my usage history?',
+                a:'Yes. Every inference call produces an on-chain settlement record with: Provider address, model, token counts, cost, and transaction hash. You can query the smart contract directly or use the ClawFarm block explorer at masterpool.clawfarm.network.'
+              },
+              {
+                q:'What happens if a Provider goes offline mid-request?',
+                a:'The ClawFarm SDK has built-in failover. If a Provider times out or returns an error, the request is automatically retried with the next best Provider based on your routing mode. You only pay for successful settlements.'
+              },
+              {
+                q:'Is there a minimum deposit?',
+                a:'There is no minimum deposit. However, each inference call requires a small USDC balance in escrow. We recommend at least $5–10 for initial usage to account for settlement fees.'
+              },
+              {
+                q:'How do I stop using ClawFarm?',
+                a:"You can withdraw your entire available USDC balance at any time — there is no lock-up and no penalty. Your funds are always yours. Simply call the withdraw function from your connected wallet."
+              },
+            ].map((faq, i) => (
+              <div key={i} style={{borderBottom: i < 9 ? '1px solid var(--border)' : 'none', padding:'20px 0'}}>
+                <h4 style={{fontSize:'15px', fontWeight:600, marginBottom:'10px', lineHeight:1.4}}>{faq.q}</h4>
+                <p style={{fontSize:'14px', color:'var(--text-mid)', lineHeight:1.7}}>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section" style={{borderTop:'1px solid var(--border)'}}>
+        <div className="max-w-4xl mx-auto px-6">
+          <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:'20px', padding:'28px', border:'1px solid var(--border)', borderRadius:'8px'}}>
+            <div>
+              <h4 style={{fontSize:'18px', fontWeight:700, marginBottom:'6px'}}>Ready to start?</h4>
+              <p style={{fontSize:'13px', color:'var(--text-mid)'}}>Browse the full provider list, read the SDK docs, or connect your wallet.</p>
+            </div>
+            <div style={{display:'flex', gap:'10px', flexWrap:'wrap'}}>
+              <Link href="/providers" className="btn-primary">Browse Providers</Link>
+              <Link href="/docs" className="btn-secondary">Read Docs</Link>
+              <Link href="/whitepaper" className="btn-secondary">Whitepaper</Link>
+            </div>
           </div>
         </div>
       </section>
