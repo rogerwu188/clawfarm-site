@@ -15,10 +15,37 @@ export default function Home() {
               <p className="hero-subtitle" style={{fontSize:'17px', marginTop:'20px', maxWidth:'520px'}}>
                 ClawFarm connects AI consumers with compute providers through decentralized routing, verifiable metering, and automatic settlement. No middleman. No custody. No permission needed.
               </p>
+              <div style={{
+                marginTop: '24px',
+                padding: '12px 16px',
+                background: 'rgba(52, 211, 153, 0.05)',
+                border: '1px solid var(--green)',
+                borderRadius: '8px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontFamily: 'var(--font-mono)',
+                fontSize: '12px',
+                color: 'var(--text-mid)'
+              }}>
+                🌾 Early Access Network · X Providers · X Models · X Requests Settled On-Chain · Non-Custodial · Solana
+              </div>
               <div className="hero-actions" style={{marginTop:'32px', gap:'12px'}}>
                 <Link href="/providers" className="btn-primary" style={{fontSize:'15px', padding:'12px 28px'}}>Become a Provider</Link>
                 <Link href="/docs" className="btn-primary" style={{fontSize:'15px', padding:'12px 28px', background:'transparent', border:'1px solid var(--border)'}}>Build on ClawFarm</Link>
                 <Link href="/masterpool" className="btn-secondary" style={{fontSize:'15px', padding:'12px 28px'}}>Explore the Network</Link>
+                <a href="https://x.com/ClawFarm54892" target="_blank" rel="noopener" style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  fontSize: '15px',
+                  padding: '12px 20px',
+                  color: 'var(--text-mid)',
+                  border: '1px solid var(--border)',
+                  borderRadius: '8px',
+                  textDecoration: 'none'
+                }}>
+                  𝕏 @ClawFarm54892
+                </a>
               </div>
             </div>
             <div className="hero-right">
@@ -44,11 +71,11 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>PROVIDER MARKETPLACE</p>
           <h2 className="section-title" style={{fontSize:'28px'}}>Every major model. Priced by competing providers.</h2>
-          <p className="section-text" style={{maxWidth:'680px', marginTop:'8px', marginBottom:'4px'}}>Showing the top provider per model by volume. Anyone can register as a provider for any model — prices are set by the market.</p>
-          <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--amber)', marginBottom:'28px'}}>⚠ Simulated data — live provider feed coming soon</p>
+          <p className="section-text" style={{maxWidth:'680px', marginTop:'8px', marginBottom:'24px'}}>Showing the top provider per model by volume. Anyone can register as a provider for any model — prices are set by the market.</p>
 
           {/* LLM Top 10 */}
           <div style={{marginBottom:'40px'}}>
+            <p style={{fontFamily:'var(--font-mono)', fontSize:'10px', color:'var(--text-dim)', opacity:0.6, marginBottom:'8px'}}>* Provider and pricing data shown for illustration. Network stats update in real time.</p>
             <h3 style={{fontFamily:'var(--font-mono)', fontSize:'14px', color:'var(--text)', marginBottom:'4px'}}>💬 Language Models</h3>
             <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginBottom:'16px'}}>Per 1M tokens · Top 10 by 30d volume</p>
             <div style={{overflowX:'auto'}}>

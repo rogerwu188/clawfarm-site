@@ -77,7 +77,7 @@ export default function Builders() {
       <section className="section" style={{borderTop:'1px solid var(--border)'}}>
         <div className="max-w-4xl mx-auto px-6">
           <h2 style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>SDK INTEGRATION</h2>
-          <h3 class="section-title" style={{fontSize:'24px'}}>One interface for every model.</h3>
+          <h3 className="section-title" style={{fontSize:'24px'}}>One interface for every model.</h3>
           <div style={{marginTop:'24px', background:'var(--surface)', border:'1px solid var(--border)', borderRadius:'8px', overflow:'hidden'}}>
             <div style={{padding:'12px 20px', borderBottom:'1px solid var(--border)', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
               <span style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--text-dim)'}}>ClawFarm Builder SDK</span>
