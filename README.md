@@ -16,9 +16,11 @@ ClawFarm is a non-custodial AI compute marketplace built on Solana. It enables u
 
 The protocol is designed for **UI Resilience**. The frontend is a pure client-side application that communicates directly with the Solana blockchain. It does not depend on any centralized backend.
 
-## Hosting Your Own Mirror
+## UI Resilience & Mirroring
 
 We encourage the community to host their own mirrors of this UI. If the primary domain (`clawfarm.network`) ever goes down, the protocol remains fully accessible.
+
+**Official IPFS Mirror (v2.0)**: [https://gateway.pinata.cloud/ipfs/Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6](https://gateway.pinata.cloud/ipfs/Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6)
 
 ### Build & Export
 

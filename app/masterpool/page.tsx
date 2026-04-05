@@ -311,6 +311,25 @@ export default function Pool() {
             </div>
           </div>
 
+          <div className="panel" id="mirror">
+            <div className="panel-header" style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+              <span className="panel-tag">Protocol Mirroring (Anti-Censorship)</span>
+              <span style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>Status: DEPLOYED</span>
+            </div>
+            <div style={{padding:'24px 22px'}}>
+              <p style={{fontSize:'14px', color:'var(--text-mid)', marginBottom:'16px', lineHeight:1.6}}>
+                To ensure the ClawFarm UI remains accessible regardless of centralized domain availability, we deploy a static version of the protocol to IPFS. Anyone can access this mirror directly.
+              </p>
+              <div style={{background:'rgba(52, 211, 153, 0.05)', border:'1px solid var(--green)', borderRadius:'8px', padding:'16px', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+                <div style={{fontFamily:'var(--font-mono)', fontSize:'12px'}}>
+                  <div style={{color:'var(--text-dim)', marginBottom:'4px'}}>Current IPFS CID (v2.0)</div>
+                  <div style={{color:'var(--green)'}}>Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6</div>
+                </div>
+                <a href="https://gateway.pinata.cloud/ipfs/Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6" target="_blank" rel="noopener" className="btn-primary" style={{fontSize:'12px', padding:'8px 16px'}}>Open Mirror</a>
+              </div>
+            </div>
+          </div>
+
           <div style={{marginTop:'24px', textAlign:'center'}}>
             <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>
               Treasury PDA: <code style={{background:'var(--surface)', padding:'2px 6px', borderRadius:'4px', color:'var(--text-mid)'}}>C1awTreasuryPDA1111111111111111111111111111</code>
