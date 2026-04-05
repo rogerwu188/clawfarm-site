@@ -292,27 +292,31 @@ export default function Home() {
             <div className="panel" style={{textAlign:'center', padding:'28px 20px'}}>
               <div style={{fontSize:'36px', fontWeight:700, color:'var(--green)'}}>30%</div>
               <div style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginTop:'8px'}}>DEMAND-SIDE REWARDS</div>
-              <p style={{fontSize:'13px', color:'var(--text-mid)', marginTop:'12px'}}>Usage mining: Earn CLAW proportional to the AI tokens you consume.</p>
+              <p style={{fontSize:'13px', color:'var(--text-mid)', marginTop:'12px'}}>Usage mining: Earn $CLAF proportional to the AI tokens you consume.</p>
             </div>
             <div className="panel" style={{textAlign:'center', padding:'28px 20px'}}>
               <div style={{fontSize:'36px', fontWeight:700, color:'var(--green)'}}>3%</div>
               <div style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginTop:'8px'}}>AUTONOMOUS TREASURY</div>
-              <p style={{fontSize:'13px', color:'var(--text-mid)', marginTop:'12px'}}>Protocol fees are used for automated $CLAF buybacks and mirror nodes.</p>
+              <p style={{fontSize:'13px', color:'var(--text-mid)', marginTop:'12px'}}>70% Buyback · 20% Core · 10% Infra Resilience</p>
             </div>
           </div>
           <div className="panel mt-6" style={{maxWidth:'560px'}}>
-            <div className="panel-header"><span className="panel-tag">Protocol Fee Mandate</span></div>
+            <div className="panel-header"><span className="panel-tag">Treasury Allocation Mandate</span></div>
             <p style={{fontSize:'14px', color:'var(--text-mid)', padding:'20px 22px 10px', lineHeight:1.6}}>
-              Every settlement transaction collects a 3% fee into the Treasury PDA. An autonomous on-chain AI agent manages these funds with zero human intervention.
+              Every settlement transaction collects a 3% fee into the Treasury PDA. An autonomous on-chain AI agent manages these funds:
             </p>
             <div style={{padding:'0 22px 20px', display:'flex', flexDirection:'column', gap:'12px'}}>
               <div style={{display:'flex', gap:'12px', alignItems:'flex-start'}}>
                 <span style={{color:'var(--green)', fontSize:'14px'}}>↪</span>
-                <p style={{fontSize:'13px', color:'var(--text-mid)'}}><b>Market Buyback:</b> Constant buy pressure and burn mechanism for $CLAF.</p>
+                <p style={{fontSize:'13px', color:'var(--text-mid)'}}><b>70% Buyback & Burn:</b> Constant deflationary pressure for $CLAF.</p>
               </div>
               <div style={{display:'flex', gap:'12px', alignItems:'flex-start'}}>
                 <span style={{color:'var(--green)', fontSize:'14px'}}>↪</span>
-                <p style={{fontSize:'13px', color:'var(--text-mid)'}}><b>Mirror Nodes:</b> Autonomous purchase of GPU resources for network redundancy.</p>
+                <p style={{fontSize:'13px', color:'var(--text-mid)'}}><b>20% Core Maintenance:</b> Security audits and protocol development.</p>
+              </div>
+              <div style={{display:'flex', gap:'12px', alignItems:'flex-start'}}>
+                <span style={{color:'var(--green)', fontSize:'14px'}}>↪</span>
+                <p style={{fontSize:'13px', color:'var(--text-mid)'}}><b>10% Infra Resilience:</b> Funding Mirror Nodes and IPFS/Arweave storage.</p>
               </div>
             </div>
           </div>
