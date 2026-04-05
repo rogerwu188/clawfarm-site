@@ -202,7 +202,11 @@ console.log('Accumulated $CLAF:', rewards.total)`}
 {`# 1. Clone the repository
 git clone https://github.com/rogerwu188/clawfarm-site
 
-# 2. Install dependencies
+# 2. Official IPFS Mirror (v2.0)
+# CID: Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6
+# https://ipfs.io/ipfs/Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6/
+
+# 3. Install dependencies
 npm install
 
 # 3. Build & Export (Pure Static)

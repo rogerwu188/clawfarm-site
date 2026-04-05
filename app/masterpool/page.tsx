@@ -325,7 +325,7 @@ export default function Pool() {
                   <div style={{color:'var(--text-dim)', marginBottom:'4px'}}>Current IPFS CID (v2.0)</div>
                   <div style={{color:'var(--green)'}}>Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6</div>
                 </div>
-                <a href="https://gateway.pinata.cloud/ipfs/Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6" target="_blank" rel="noopener" className="btn-primary" style={{fontSize:'12px', padding:'8px 16px'}}>Open Mirror</a>
+                <a href="https://ipfs.io/ipfs/Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6/" target="_blank" rel="noopener" className="btn-primary" style={{fontSize:'12px', padding:'8px 16px'}}>Open Mirror</a>
               </div>
             </div>
           </div>

@@ -20,7 +20,7 @@ The protocol is designed for **UI Resilience**. The frontend is a pure client-si
 
 We encourage the community to host their own mirrors of this UI. If the primary domain (`clawfarm.network`) ever goes down, the protocol remains fully accessible.
 
-**Official IPFS Mirror (v2.0)**: [https://gateway.pinata.cloud/ipfs/Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6](https://gateway.pinata.cloud/ipfs/Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6)
+**Official IPFS Mirror (v2.0)**: [https://ipfs.io/ipfs/Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6/](https://ipfs.io/ipfs/Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6/)
 
 ### Build & Export
 
