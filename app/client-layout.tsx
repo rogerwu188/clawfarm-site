@@ -66,6 +66,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             <Link href="/masterpool">Explorer</Link>
             <Link href="/docs">Docs</Link>
             <Link href="/whitepaper">Whitepaper</Link>
+            <a href="/docs#mirror" className="text-[#34d399]">Mirror this UI</a>
             <a href="https://discord.gg/zxZmCFbzEn" target="_blank" rel="noopener">Discord</a>
             <a href="https://github.com/rogerwu188/clawfarm-site" target="_blank" rel="noopener">GitHub</a>
             <a href="https://x.com/ClawFarm54892" target="_blank" rel="noopener">X</a>

@@ -183,6 +183,37 @@ const prices = await cf.prices()        // current price table`}
         </div>
       </section>
 
+      {/* UI Resilience & Mirroring */}
+      <section className="section" id="mirror">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">UI Resilience</div>
+          <h3 className="text-[#e8e8e8] text-[16px] font-semibold mb-4">Mirroring the Interface</h3>
+          <p className="section-text mb-4">
+            ClawFarm is a decentralized protocol. The interface is a pure client-side application that communicates directly with the Solana blockchain. It does not depend on any centralized backend.
+          </p>
+          <div className="panel">
+            <div className="text-xs text-[#505560] tracking-widest uppercase mb-3" style={{padding:'12px 22px 0'}}>Host your own mirror</div>
+            <p className="px-5 pb-4 text-[14px] text-var(--text-mid) leading-relaxed">
+              In the spirit of true decentralization, we encourage the community to host their own mirrors of this UI. If the primary domain ever goes down, the protocol remains fully accessible through community mirrors or local instances.
+            </p>
+            <pre className="text-[12px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto mx-5 mb-5 p-4 bg-black/20 rounded border border-white/5">
+{`# 1. Clone the repository
+git clone https://github.com/rogerwu188/clawfarm-site
+
+# 2. Install dependencies
+npm install
+
+# 3. Build & Export (Pure Static)
+npm run build
+
+# 4. Deploy anywhere
+# The 'out/' directory contains the full standalone UI.
+# Upload to IPFS, Arweave, GitHub Pages, or your own server.`}
+            </pre>
+          </div>
+        </div>
+      </section>
+
       {/* Protocol Ledgers */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
