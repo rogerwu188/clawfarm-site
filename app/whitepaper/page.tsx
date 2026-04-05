@@ -199,9 +199,10 @@ balance()        → available = deposited - settled - pending`}</pre>
             <pre style={{fontFamily:'var(--font-mono)', fontSize:'13px', color:'var(--text-mid)', lineHeight:2, padding:'18px 22px'}}>{`User Escrow (PDA)
   ├─ dual-signature usage proof verified
   ├─ 97%  → Provider Wallet (on-chain transfer)
-  └─  3%  → Treasury Contract
-              ├─ 80% → TWAP buyback CLAW → burned
-              └─ 20% → Protocol dev fund (multi-sig, time-locked)`}</pre>
+  └─  3%  → Treasury Contract (AI Agent Controlled)
+              ├─ 70% → TWAP buyback $CLAF → burned
+              ├─ 20% → Core development & Maintenance
+              └─ 10% → Infrastructure Resilience (Mirror Nodes)`}</pre>
           </div>
         </div>
       </section>
@@ -222,9 +223,8 @@ Reward_i = E_t × W_i / ΣW`}</pre>
 
           <h3 className="text-[#e8e8e8] text-[15px] font-semibold mt-6 mb-3">Epoch Distribution</h3>
           <div className="panel mt-2">
-            <div className="panel-row"><span className="panel-label">Provider Pool</span><span className="panel-value" style={{color:'var(--green)'}}>70% — weighted by W_i</span></div>
-            <div className="panel-row"><span className="panel-label">Cold-Start Pool</span><span className="panel-value">20% — new providers</span></div>
-            <div className="panel-row"><span className="panel-label">User Cashback</span><span className="panel-value">10% — proportional to spend</span></div>
+            <div className="panel-row"><span className="panel-label">Supply-Side Pool (Providers)</span><span className="panel-value" style={{color:'var(--green)'}}>70% — weighted by W_i</span></div>
+            <div className="panel-row"><span className="panel-label">Demand-Side Pool (Consumers)</span><span className="panel-value" style={{color:'var(--green)'}}>30% — Usage Mining</span></div>
           </div>
         </div>
       </section>
@@ -380,9 +380,8 @@ Reward_i = E_t × W_i / ΣW`}</pre>
             <div className="panel-row"><span className="panel-label">Fund Custody</span><span className="panel-value">PDA Escrow (non-custodial)</span></div>
             <div className="panel-row"><span className="panel-label">Provider Revenue</span><span className="panel-value">97% of payment</span></div>
             <div className="panel-row"><span className="panel-label">Protocol Tax</span><span className="panel-value">3% → Treasury</span></div>
-            <div className="panel-row"><span className="panel-label">Provider Pool</span><span className="panel-value">70% of Epoch issuance</span></div>
-            <div className="panel-row"><span className="panel-label">Cold-Start Pool</span><span className="panel-value">20% of Epoch issuance</span></div>
-            <div className="panel-row"><span className="panel-label">User Cashback</span><span className="panel-value">10% of Epoch issuance</span></div>
+            <div className="panel-row"><span className="panel-label">Supply-Side Pool</span><span className="panel-value">70% of Epoch issuance</span></div>
+            <div className="panel-row"><span className="panel-label">Demand-Side Pool</span><span className="panel-value">30% of Epoch issuance (Usage Mining)</span></div>
             <div className="panel-row"><span className="panel-label">Min Provider Stake</span><span className="panel-value">1,000 CLAW</span></div>
             <div className="panel-row"><span className="panel-label">Unstaking Period</span><span className="panel-value">7 days</span></div>
             <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear</span></div>
