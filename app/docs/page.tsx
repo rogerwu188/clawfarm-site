@@ -65,37 +65,39 @@ export default function Docs() {
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">SDK Reference</div>
+          <h3 className="text-[#e8e8e8] text-[16px] font-semibold mb-4">Integrate decentralized AI in minutes.</h3>
+          <p className="section-text mb-4">
+            The ClawFarm SDK handles routing, token counting, and dual-signature verification. By using the SDK, your app automatically participates in **Usage Mining**, earning $CLAF rewards proportional to your token consumption.
+          </p>
           <div className="panel mt-4">
+            <div className="text-xs text-[#505560] tracking-widest uppercase mb-3" style={{padding:'12px 22px 0'}}>Node.js / Bun / Deno</div>
             <pre className="text-[12px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>
 {`import { ClawFarm } from '@clawfarm/sdk'
 
-const cf = new ClawFarm({ wallet })
-
-// Deposit / Withdraw
-await cf.deposit({ amount: 100 })      // 100 USDC to escrow
-await cf.withdraw({ amount: 50 })      // 50 USDC back to wallet
-const bal = await cf.balance()          // available balance
-
-// AI Inference
-const res = await cf.chat({
-  mode: 'auto',                         // eco | auto | premium
-  messages: [{ role: 'user', content: '...' }],
-  // Optional overrides:
-  model: 'claude-3.5-sonnet',           // force specific model
-  tools: [...],                          // function calling
-  thinking: true,                        // enable deep thinking
+// 1. Initialize with your Solana wallet
+const cf = new ClawFarm({ 
+  wallet: process.env.SOLANA_PRIVATE_KEY,
+  rpc: 'https://api.mainnet-beta.solana.com' 
 })
 
-// Response transparency
-res.provider    // which Provider served this
-res.model       // which model was used
-res.tokens      // { input, output, total }
-res.cost        // USDC deducted
-res.txHash      // on-chain settlement tx
+// 2. Deposit USDC into the Escrow PDA (One-time or periodic)
+await cf.deposit({ amount: 100 }) // 100 USDC
 
-// Provider Registry (read-only)
-const providers = await cf.providers()  // all active providers
-const prices = await cf.prices()        // current price table`}
+// 3. Perform Inference (Protocol handles routing and settlement)
+const response = await cf.chat({
+  mode: 'auto',                         // eco | auto | premium
+  messages: [{ role: 'user', content: 'Design a DePIN protocol' }],
+  model: 'gpt-4o'                       // Optional: force specific model
+})
+
+// 4. Access usage details and proof
+console.log('Provider:', response.provider)
+console.log('Cost:', response.cost, 'USDC')
+console.log('Tx:', response.txHash)     // On-chain settlement record
+
+// 5. Check your accumulated Usage Mining rewards
+const rewards = await cf.getRewards()
+console.log('Accumulated $CLAF:', rewards.total)`}
             </pre>
           </div>
         </div>

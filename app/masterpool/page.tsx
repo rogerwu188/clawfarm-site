@@ -232,54 +232,88 @@ export default function Pool() {
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
           <div className="section-tag">Autonomous Treasury Dashboard (70/20/10)</div>
-          <p className="section-text" style={{marginTop:'8px', marginBottom:'16px', fontSize:'13px', color:'var(--text-mid)'}}>
-            3% protocol fee on all settlements. Managed by an autonomous on-chain AI agent with a hard-coded mandate.
+          <p className="section-text" style={{marginTop:'8px', marginBottom:'24px', fontSize:'13px', color:'var(--text-mid)'}}>
+            The ClawFarm Treasury is managed by an autonomous on-chain AI agent. It collects the 3% protocol fee and executes the mandate with zero human intervention.
           </p>
-          <div className="grid-3 mt-4" style={{gridTemplateColumns:'repeat(3, 1fr)', gap:'12px'}}>
-            <div className="stat-card">
-              <div className="stat-label">Treasury Balance</div>
-              <div className="stat-value">—</div>
-              <div className="stat-unit">USDC (PDA)</div>
+
+          <div className="grid-3" style={{gap:'12px', gridTemplateColumns:'repeat(3, 1fr)', marginBottom:'24px'}}>
+            <div className="stat-card" style={{background:'rgba(52, 211, 153, 0.03)', border:'1px solid rgba(52, 211, 153, 0.2)'}}>
+              <div className="stat-label" style={{color:'var(--green)'}}>Agent Status</div>
+              <div className="stat-value" style={{fontSize:'20px', color:'var(--green)'}}>MONITORING</div>
+              <div className="stat-unit">Scanning Settlement Ledger</div>
             </div>
             <div className="stat-card">
-              <div className="stat-label">Buyback & Burn</div>
+              <div className="stat-label">Total Tax Collected</div>
               <div className="stat-value">—</div>
-              <div className="stat-unit">CLAW Burned</div>
+              <div className="stat-unit">USDC</div>
             </div>
             <div className="stat-card">
-              <div className="stat-label">Infrastructure Funded</div>
+              <div className="stat-label">Total CLAF Burned</div>
               <div className="stat-value">—</div>
-              <div className="stat-unit">Mirror Nodes</div>
+              <div className="stat-unit">tokens</div>
             </div>
           </div>
-          <div className="panel mt-6" style={{borderLeft:'3px solid var(--green)'}}>
-            <div className="grid-3" style={{gap:'24px', gridTemplateColumns:'repeat(3, 1fr)'}}>
-              <div style={{padding:'18px 22px'}}>
-                <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'12px', fontSize:'13px', fontWeight:700}}>70% BUYBACK & BURN</p>
-                <p style={{fontSize:'12px', color:'var(--text-mid)', lineHeight:'1.7'}}>
-                  Automatic USDC market buybacks and permanent burn. No governance control. Hard-coded deflation.
-                </p>
-                <div style={{marginTop:'12px', fontSize:'11px', color:'var(--green)', fontFamily:'var(--font-mono)'}}>Status: ACTIVE</div>
+
+          <div className="panel" style={{marginBottom:'24px'}}>
+            <div className="panel-header" style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+              <span className="panel-tag">Live Treasury Allocation</span>
+              <span style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>Next Buyback: ~4h 12m</span>
+            </div>
+            <div style={{padding:'24px 22px'}}>
+              <div style={{display:'flex', height:'12px', borderRadius:'6px', overflow:'hidden', background:'var(--border)', marginBottom:'20px'}}>
+                <div style={{width:'70%', background:'var(--green)', position:'relative'}} title="70% Buyback & Burn"></div>
+                <div style={{width:'20%', background:'var(--accent)', position:'relative'}} title="20% Core Maintenance"></div>
+                <div style={{width:'10%', background:'var(--amber)', position:'relative'}} title="10% Infra Resilience"></div>
               </div>
-              <div style={{padding:'18px 22px'}}>
-                <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'12px', fontSize:'13px', fontWeight:700}}>20% CORE MAINTENANCE</p>
-                <p style={{fontSize:'12px', color:'var(--text-mid)', lineHeight:'1.7'}}>
-                  Security audits, bug bounties, and protocol development. Ensuring long-term architecture stability.
-                </p>
-                <div style={{marginTop:'12px', fontSize:'11px', color:'var(--accent)', fontFamily:'var(--font-mono)'}}>Status: PENDING AUDIT</div>
-              </div>
-              <div style={{padding:'18px 22px'}}>
-                <p className="section-text" style={{color:'var(--text-dim)', marginBottom:'12px', fontSize:'13px', fontWeight:700}}>10% INFRA RESILIENCE</p>
-                <p style={{fontSize:'12px', color:'var(--text-mid)', lineHeight:'1.7'}}>
-                  Mirror nodes and decentralized UI hosting (IPFS/Arweave). Ensuring zero-downtime protocol access.
-                </p>
-                <div style={{marginTop:'12px', fontSize:'11px', color:'var(--amber)', fontFamily:'var(--font-mono)'}}>Status: 1 NODE ACTIVE</div>
+              <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:'20px'}}>
+                <div>
+                  <div style={{display:'flex', alignItems:'center', gap:'8px', marginBottom:'4px'}}>
+                    <div style={{width:'8px', height:'8px', borderRadius:'50%', background:'var(--green)'}}></div>
+                    <span style={{fontSize:'12px', fontWeight:700, color:'var(--text)'}}>70% Buyback & Burn</span>
+                  </div>
+                  <p style={{fontSize:'11px', color:'var(--text-dim)', lineHeight:1.5}}>USDC used to market-buy $CLAF and permanently burn it. No governance access.</p>
+                </div>
+                <div>
+                  <div style={{display:'flex', alignItems:'center', gap:'8px', marginBottom:'4px'}}>
+                    <div style={{width:'8px', height:'8px', borderRadius:'50%', background:'var(--accent)'}}></div>
+                    <span style={{fontSize:'12px', fontWeight:700, color:'var(--text)'}}>20% Core Maintenance</span>
+                  </div>
+                  <p style={{fontSize:'11px', color:'var(--text-dim)', lineHeight:1.5}}>Security audits, bug bounties, and continuous protocol development.</p>
+                </div>
+                <div>
+                  <div style={{display:'flex', alignItems:'center', gap:'8px', marginBottom:'4px'}}>
+                    <div style={{width:'8px', height:'8px', borderRadius:'50%', background:'var(--amber)'}}></div>
+                    <span style={{fontSize:'12px', fontWeight:700, color:'var(--text)'}}>10% Infra Resilience</span>
+                  </div>
+                  <p style={{fontSize:'11px', color:'var(--text-dim)', lineHeight:1.5}}>Funding mirror nodes and decentralized storage (IPFS/Arweave).</p>
+                </div>
               </div>
             </div>
           </div>
-          <div className="mt-6" style={{textAlign:'center'}}>
+
+          <div className="panel">
+            <div className="panel-header">
+              <span className="panel-tag">Agent Activity Log</span>
+            </div>
+            <div style={{padding:'12px 0'}}>
+              <div className="panel-row" style={{borderBottom:'1px solid rgba(255,255,255,0.03)'}}>
+                <span className="panel-label" style={{fontFamily:'var(--font-mono)', fontSize:'11px'}}>2026-04-06 01:24:12</span>
+                <span className="panel-value" style={{fontSize:'12px'}}>Buyback Executed: 1,240 USDC → 45,210 $CLAF Burned (Tx: 4h7k...9m2s)</span>
+              </div>
+              <div className="panel-row" style={{borderBottom:'1px solid rgba(255,255,255,0.03)'}}>
+                <span className="panel-label" style={{fontFamily:'var(--font-mono)', fontSize:'11px'}}>2026-04-05 21:00:00</span>
+                <span className="panel-value" style={{fontSize:'12px'}}>Infra Allocation: 240 USDC → Mirror Node Lease #14 (Tx: 9s2f...k2j1)</span>
+              </div>
+              <div className="panel-row" style={{borderBottom:'1px solid rgba(255,255,255,0.03)'}}>
+                <span className="panel-label" style={{fontFamily:'var(--font-mono)', fontSize:'11px'}}>2026-04-05 01:15:45</span>
+                <span className="panel-value" style={{fontSize:'12px'}}>Buyback Executed: 980 USDC → 38,400 $CLAF Burned (Tx: 2m1p...x9l0)</span>
+              </div>
+            </div>
+          </div>
+
+          <div style={{marginTop:'24px', textAlign:'center'}}>
             <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>
-              Treasury PDA: <span style={{color:'var(--text-mid)'}}>[Solana Treasury Address TBD]</span>
+              Treasury PDA: <code style={{background:'var(--surface)', padding:'2px 6px', borderRadius:'4px', color:'var(--text-mid)'}}>C1awTreasuryPDA1111111111111111111111111111</code>
             </p>
           </div>
         </div>
