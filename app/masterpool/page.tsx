@@ -26,27 +26,27 @@ export default function Pool() {
       {/* 1. Network Overview */}
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="section-tag">Network Overview</div>
+          <div className="section-tag" style={{color:'var(--text)', fontWeight:700}}>Network Overview</div>
           <div className="grid-4 mt-4" style={{gridTemplateColumns:'repeat(4, 1fr)', gap:'12px'}}>
-            <div className="stat-card">
-              <div className="stat-label">Total Supply</div>
-              <div className="stat-value">1B</div>
-              <div className="stat-unit">CLAW</div>
+            <div className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
+              <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>Total Supply</div>
+              <div className="stat-value" style={{color:'var(--text)'}}>1B</div>
+              <div className="stat-unit" style={{color:'var(--text-dim)'}}>$CLAF</div>
             </div>
-            <div className="stat-card">
-              <div className="stat-label">Active Providers</div>
-              <div className="stat-value">—</div>
-              <div className="stat-unit">registered</div>
+            <div className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
+              <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>Active Providers</div>
+              <div className="stat-value" style={{color:'var(--text)'}}>—</div>
+              <div className="stat-unit" style={{color:'var(--text-dim)'}}>registered</div>
             </div>
-            <div className="stat-card">
-              <div className="stat-label">Active Users</div>
-              <div className="stat-value">—</div>
-              <div className="stat-unit">with escrow balance</div>
+            <div className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
+              <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>Active Users</div>
+              <div className="stat-value" style={{color:'var(--text)'}}>—</div>
+              <div className="stat-unit" style={{color:'var(--text-dim)'}}>with escrow balance</div>
             </div>
-            <div className="stat-card">
-              <div className="stat-label">Settlement</div>
+            <div className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
+              <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>Settlement</div>
               <div className="stat-value" style={{color:'var(--green)'}}>Active</div>
-              <div className="stat-unit">on-chain</div>
+              <div className="stat-unit" style={{color:'var(--text-dim)'}}>on-chain</div>
             </div>
           </div>
         </div>
@@ -55,30 +55,30 @@ export default function Pool() {
       {/* 2. Escrow State */}
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="section-tag">Escrow State (Non-Custodial)</div>
-          <p className="section-text" style={{marginTop:'8px', marginBottom:'16px', fontSize:'13px', color:'var(--text-mid)'}}>
+          <div className="section-tag" style={{color:'var(--text)', fontWeight:700}}>Escrow State (Non-Custodial)</div>
+          <p className="section-text" style={{marginTop:'8px', marginBottom:'16px', fontSize:'13px', color:'var(--text)'}}>
             All user funds held in Program Derived Address (PDA). No admin access. Users withdraw anytime.
           </p>
           <div className="grid-4 mt-4" style={{gridTemplateColumns:'repeat(4, 1fr)', gap:'12px'}}>
-            <div className="stat-card" style={{borderColor:'var(--green)'}}>
-              <div className="stat-label">Total Escrowed</div>
+            <div className="stat-card" style={{borderColor:'var(--green)', background:'rgba(255,255,255,0.03)'}}>
+              <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>Total Escrowed</div>
               <div className="stat-value" style={{color:'var(--green)'}}>—</div>
-              <div className="stat-unit">USDC</div>
+              <div className="stat-unit" style={{color:'var(--text-dim)'}}>USDC</div>
             </div>
-            <div className="stat-card">
-              <div className="stat-label">Deposits (24h)</div>
-              <div className="stat-value">—</div>
-              <div className="stat-unit">USDC</div>
+            <div className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
+              <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>Deposits (24h)</div>
+              <div className="stat-value" style={{color:'var(--text)'}}>—</div>
+              <div className="stat-unit" style={{color:'var(--text-dim)'}}>USDC</div>
             </div>
-            <div className="stat-card">
-              <div className="stat-label">Withdrawals (24h)</div>
-              <div className="stat-value">—</div>
-              <div className="stat-unit">USDC</div>
+            <div className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
+              <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>Withdrawals (24h)</div>
+              <div className="stat-value" style={{color:'var(--text)'}}>—</div>
+              <div className="stat-unit" style={{color:'var(--text-dim)'}}>USDC</div>
             </div>
-            <div className="stat-card">
-              <div className="stat-label">Unique Users</div>
-              <div className="stat-value">—</div>
-              <div className="stat-unit">wallets</div>
+            <div className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
+              <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>Unique Users</div>
+              <div className="stat-value" style={{color:'var(--text)'}}>—</div>
+              <div className="stat-unit" style={{color:'var(--text-dim)'}}>wallets</div>
             </div>
           </div>
         </div>
@@ -87,30 +87,30 @@ export default function Pool() {
       {/* 3. Settlement Activity */}
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="section-tag">Settlement Activity</div>
-          <p className="section-text" style={{marginTop:'8px', marginBottom:'16px', fontSize:'13px', color:'var(--text-mid)'}}>
+          <div className="section-tag" style={{color:'var(--text)', fontWeight:700}}>Settlement Activity</div>
+          <p className="section-text" style={{marginTop:'8px', marginBottom:'16px', fontSize:'13px', color:'var(--text)'}}>
             Dual-signed usage proofs settled on-chain. 97% to Provider, 3% to Treasury.
           </p>
           <div className="grid-4 mt-4" style={{gridTemplateColumns:'repeat(4, 1fr)', gap:'12px'}}>
-            <div className="stat-card">
-              <div className="stat-label">Settled (24h)</div>
-              <div className="stat-value">—</div>
-              <div className="stat-unit">USDC</div>
+            <div className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
+              <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>Settled (24h)</div>
+              <div className="stat-value" style={{color:'var(--text)'}}>—</div>
+              <div className="stat-unit" style={{color:'var(--text-dim)'}}>USDC</div>
             </div>
-            <div className="stat-card">
-              <div className="stat-label">Settlements (24h)</div>
-              <div className="stat-value">—</div>
-              <div className="stat-unit">transactions</div>
+            <div className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
+              <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>Settlements (24h)</div>
+              <div className="stat-value" style={{color:'var(--text)'}}>—</div>
+              <div className="stat-unit" style={{color:'var(--text-dim)'}}>transactions</div>
             </div>
-            <div className="stat-card">
-              <div className="stat-label">Provider Payouts (24h)</div>
-              <div className="stat-value">—</div>
-              <div className="stat-unit">USDC (97%)</div>
+            <div className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
+              <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>Provider Payouts (24h)</div>
+              <div className="stat-value" style={{color:'var(--text)'}}>—</div>
+              <div className="stat-unit" style={{color:'var(--text-dim)'}}>USDC (97%)</div>
             </div>
-            <div className="stat-card">
-              <div className="stat-label">Treasury Inflow (24h)</div>
-              <div className="stat-value">—</div>
-              <div className="stat-unit">USDC (3%)</div>
+            <div className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
+              <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>Treasury Inflow (24h)</div>
+              <div className="stat-value" style={{color:'var(--text)'}}>—</div>
+              <div className="stat-unit" style={{color:'var(--text-dim)'}}>USDC (3%)</div>
             </div>
           </div>
         </div>
@@ -231,82 +231,82 @@ export default function Pool() {
       {/* 8. Treasury */}
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="section-tag">Autonomous Treasury Dashboard (70/20/10)</div>
-          <p className="section-text" style={{marginTop:'8px', marginBottom:'24px', fontSize:'13px', color:'var(--text-mid)'}}>
+          <div className="section-tag" style={{color:'var(--text)', fontWeight:700}}>Autonomous Treasury Dashboard (70/20/10)</div>
+          <p className="section-text" style={{marginTop:'8px', marginBottom:'24px', fontSize:'13px', color:'var(--text)'}}>
             The ClawFarm Treasury is managed by an autonomous on-chain AI agent. It collects the 3% protocol fee and executes the mandate with zero human intervention.
           </p>
 
           <div className="grid-3" style={{gap:'12px', gridTemplateColumns:'repeat(3, 1fr)', marginBottom:'24px'}}>
-            <div className="stat-card" style={{background:'rgba(52, 211, 153, 0.03)', border:'1px solid rgba(52, 211, 153, 0.2)'}}>
-              <div className="stat-label" style={{color:'var(--green)'}}>Agent Status</div>
+            <div className="stat-card" style={{background:'rgba(52, 211, 153, 0.05)', border:'1px solid rgba(52, 211, 153, 0.3)'}}>
+              <div className="stat-label" style={{color:'var(--green)', fontWeight:600}}>Agent Status</div>
               <div className="stat-value" style={{fontSize:'20px', color:'var(--green)'}}>MONITORING</div>
-              <div className="stat-unit">Scanning Settlement Ledger</div>
+              <div className="stat-unit" style={{color:'var(--text-mid)'}}>Scanning Settlement Ledger</div>
             </div>
-            <div className="stat-card">
-              <div className="stat-label">Total Tax Collected</div>
-              <div className="stat-value">—</div>
-              <div className="stat-unit">USDC</div>
+            <div className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
+              <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>Total Tax Collected</div>
+              <div className="stat-value" style={{color:'var(--text)'}}>—</div>
+              <div className="stat-unit" style={{color:'var(--text-dim)'}}>USDC</div>
             </div>
-            <div className="stat-card">
-              <div className="stat-label">Total CLAF Burned</div>
-              <div className="stat-value">—</div>
-              <div className="stat-unit">tokens</div>
+            <div className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
+              <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>Total $CLAF Burned</div>
+              <div className="stat-value" style={{color:'var(--text)'}}>—</div>
+              <div className="stat-unit" style={{color:'var(--text-dim)'}}>tokens</div>
             </div>
           </div>
 
-          <div className="panel" style={{marginBottom:'24px'}}>
-            <div className="panel-header" style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-              <span className="panel-tag">Live Treasury Allocation</span>
-              <span style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)'}}>Next Buyback: ~4h 12m</span>
+          <div className="panel" style={{marginBottom:'24px', border:'1px solid rgba(255,255,255,0.1)'}}>
+            <div className="panel-header" style={{display:'flex', justifyContent:'space-between', alignItems:'center', borderBottom:'1px solid rgba(255,255,255,0.1)'}}>
+              <span className="panel-tag" style={{color:'var(--text)', fontWeight:700}}>Live Treasury Allocation</span>
+              <span style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text)'}}>Next Buyback: ~4h 12m</span>
             </div>
             <div style={{padding:'24px 22px'}}>
-              <div style={{display:'flex', height:'12px', borderRadius:'6px', overflow:'hidden', background:'var(--border)', marginBottom:'20px'}}>
+              <div style={{display:'flex', height:'12px', borderRadius:'6px', overflow:'hidden', background:'rgba(255,255,255,0.05)', marginBottom:'20px'}}>
                 <div style={{width:'70%', background:'var(--green)', position:'relative'}} title="70% Buyback & Burn"></div>
                 <div style={{width:'20%', background:'var(--accent)', position:'relative'}} title="20% Core Maintenance"></div>
                 <div style={{width:'10%', background:'var(--amber)', position:'relative'}} title="10% Infra Resilience"></div>
               </div>
               <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:'20px'}}>
                 <div>
-                  <div style={{display:'flex', alignItems:'center', gap:'8px', marginBottom:'4px'}}>
+                  <div style={{display:'flex', alignItems:'center', gap:'8px', marginBottom:'6px'}}>
                     <div style={{width:'8px', height:'8px', borderRadius:'50%', background:'var(--green)'}}></div>
                     <span style={{fontSize:'12px', fontWeight:700, color:'var(--text)'}}>70% Buyback & Burn</span>
                   </div>
-                  <p style={{fontSize:'11px', color:'var(--text-dim)', lineHeight:1.5}}>USDC used to market-buy $CLAF and permanently burn it. No governance access.</p>
+                  <p style={{fontSize:'11px', color:'var(--text)', lineHeight:1.5, opacity:0.9}}>USDC used to market-buy $CLAF and permanently burn it. No governance access.</p>
                 </div>
                 <div>
-                  <div style={{display:'flex', alignItems:'center', gap:'8px', marginBottom:'4px'}}>
+                  <div style={{display:'flex', alignItems:'center', gap:'8px', marginBottom:'6px'}}>
                     <div style={{width:'8px', height:'8px', borderRadius:'50%', background:'var(--accent)'}}></div>
                     <span style={{fontSize:'12px', fontWeight:700, color:'var(--text)'}}>20% Core Maintenance</span>
                   </div>
-                  <p style={{fontSize:'11px', color:'var(--text-dim)', lineHeight:1.5}}>Security audits, bug bounties, and continuous protocol development.</p>
+                  <p style={{fontSize:'11px', color:'var(--text)', lineHeight:1.5, opacity:0.9}}>Security audits, bug bounties, and continuous protocol development.</p>
                 </div>
                 <div>
-                  <div style={{display:'flex', alignItems:'center', gap:'8px', marginBottom:'4px'}}>
+                  <div style={{display:'flex', alignItems:'center', gap:'8px', marginBottom:'6px'}}>
                     <div style={{width:'8px', height:'8px', borderRadius:'50%', background:'var(--amber)'}}></div>
                     <span style={{fontSize:'12px', fontWeight:700, color:'var(--text)'}}>10% Infra Resilience</span>
                   </div>
-                  <p style={{fontSize:'11px', color:'var(--text-dim)', lineHeight:1.5}}>Funding mirror nodes and decentralized storage (IPFS/Arweave).</p>
+                  <p style={{fontSize:'11px', color:'var(--text)', lineHeight:1.5, opacity:0.9}}>Funding mirror nodes and decentralized storage (IPFS/Arweave).</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="panel">
-            <div className="panel-header">
-              <span className="panel-tag">Agent Activity Log</span>
+          <div className="panel" style={{border:'1px solid rgba(255,255,255,0.1)'}}>
+            <div className="panel-header" style={{borderBottom:'1px solid rgba(255,255,255,0.1)'}}>
+              <span className="panel-tag" style={{color:'var(--text)', fontWeight:700}}>Agent Activity Log</span>
             </div>
             <div style={{padding:'12px 0'}}>
-              <div className="panel-row" style={{borderBottom:'1px solid rgba(255,255,255,0.03)'}}>
-                <span className="panel-label" style={{fontFamily:'var(--font-mono)', fontSize:'11px'}}>2026-04-06 01:24:12</span>
-                <span className="panel-value" style={{fontSize:'12px'}}>Buyback Executed: 1,240 USDC → 45,210 $CLAF Burned (Tx: 4h7k...9m2s)</span>
+              <div className="panel-row" style={{borderBottom:'1px solid rgba(255,255,255,0.05)'}}>
+                <span className="panel-label" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-mid)'}}>2026-04-06 01:24:12</span>
+                <span className="panel-value" style={{fontSize:'12px', color:'var(--text)'}}>Buyback Executed: 1,240 USDC → 45,210 $CLAF Burned (Tx: 4h7k...9m2s)</span>
               </div>
-              <div className="panel-row" style={{borderBottom:'1px solid rgba(255,255,255,0.03)'}}>
-                <span className="panel-label" style={{fontFamily:'var(--font-mono)', fontSize:'11px'}}>2026-04-05 21:00:00</span>
-                <span className="panel-value" style={{fontSize:'12px'}}>Infra Allocation: 240 USDC → Mirror Node Lease #14 (Tx: 9s2f...k2j1)</span>
+              <div className="panel-row" style={{borderBottom:'1px solid rgba(255,255,255,0.05)'}}>
+                <span className="panel-label" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-mid)'}}>2026-04-05 21:00:00</span>
+                <span className="panel-value" style={{fontSize:'12px', color:'var(--text)'}}>Infra Allocation: 240 USDC → Mirror Node Lease #14 (Tx: 9s2f...k2j1)</span>
               </div>
-              <div className="panel-row" style={{borderBottom:'1px solid rgba(255,255,255,0.03)'}}>
-                <span className="panel-label" style={{fontFamily:'var(--font-mono)', fontSize:'11px'}}>2026-04-05 01:15:45</span>
-                <span className="panel-value" style={{fontSize:'12px'}}>Buyback Executed: 980 USDC → 38,400 $CLAF Burned (Tx: 2m1p...x9l0)</span>
+              <div className="panel-row" style={{borderBottom:'1px solid rgba(255,255,255,0.05)'}}>
+                <span className="panel-label" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-mid)'}}>2026-04-05 01:15:45</span>
+                <span className="panel-value" style={{fontSize:'12px', color:'var(--text)'}}>Buyback Executed: 980 USDC → 38,400 $CLAF Burned (Tx: 2m1p...x9l0)</span>
               </div>
             </div>
           </div>
