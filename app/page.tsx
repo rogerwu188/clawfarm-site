@@ -280,36 +280,43 @@ export default function Home() {
       {/* ========== MINING REWARDS ========== */}
       <section className="section" style={{borderTop:'1px solid var(--border)'}}>
         <div className="max-w-6xl mx-auto px-6">
-          <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>NETWORK MINING</p>
-          <h2 className="section-title" style={{fontSize:'28px'}}>Serve AI. Mine CLAW.</h2>
-          <p className="section-text" style={{maxWidth:'640px', marginTop:'12px'}}>Every AI request you serve earns you CLAW tokens. The more you serve, the cheaper your price, and the better your quality — the more you mine.</p>
+          <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>DUAL-SIDED MINING</p>
+          <h2 className="section-title" style={{fontSize:'28px'}}>Earn CLAW by serving or consuming AI.</h2>
+          <p className="section-text" style={{maxWidth:'640px', marginTop:'12px'}}>The $CLAF token is distributed daily to both sides of the marketplace. Supply compute to earn 70%, or build and consume to earn 30%.</p>
           <div className="grid-3 mt-8" style={{gridTemplateColumns:'repeat(3, 1fr)', gap:'16px'}}>
             <div className="panel" style={{textAlign:'center', padding:'28px 20px'}}>
-              <div style={{fontSize:'36px', fontWeight:700, color:'var(--green)'}}>97%</div>
-              <div style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginTop:'8px'}}>USDC REVENUE TO YOU</div>
-              <p style={{fontSize:'13px', color:'var(--text-mid)', marginTop:'12px'}}>Direct on-chain payment for every request served.</p>
+              <div style={{fontSize:'36px', fontWeight:700, color:'var(--green)'}}>70%</div>
+              <div style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginTop:'8px'}}>SUPPLY-SIDE REWARDS</div>
+              <p style={{fontSize:'13px', color:'var(--text-mid)', marginTop:'12px'}}>Distributed to Providers based on usage, price, and quality scores.</p>
             </div>
             <div className="panel" style={{textAlign:'center', padding:'28px 20px'}}>
-              <div style={{fontSize:'36px', fontWeight:700, color:'var(--green)'}}>CLAW</div>
-              <div style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginTop:'8px'}}>TOKEN REWARDS PER EPOCH</div>
-              <p style={{fontSize:'13px', color:'var(--text-mid)', marginTop:'12px'}}>70% of Epoch issuance to Providers.</p>
+              <div style={{fontSize:'36px', fontWeight:700, color:'var(--green)'}}>30%</div>
+              <div style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginTop:'8px'}}>DEMAND-SIDE REWARDS</div>
+              <p style={{fontSize:'13px', color:'var(--text-mid)', marginTop:'12px'}}>Usage mining: Earn CLAW proportional to the AI tokens you consume.</p>
             </div>
             <div className="panel" style={{textAlign:'center', padding:'28px 20px'}}>
-              <div style={{fontSize:'36px', fontWeight:700, color:'var(--green)'}}>20%</div>
-              <div style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginTop:'8px'}}>COLD-START BONUS</div>
-              <p style={{fontSize:'13px', color:'var(--text-mid)', marginTop:'12px'}}>Extra rewards in your first 30 days.</p>
+              <div style={{fontSize:'36px', fontWeight:700, color:'var(--green)'}}>3%</div>
+              <div style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginTop:'8px'}}>AUTONOMOUS TREASURY</div>
+              <p style={{fontSize:'13px', color:'var(--text-mid)', marginTop:'12px'}}>Protocol fees are used for automated $CLAF buybacks and mirror nodes.</p>
             </div>
           </div>
           <div className="panel mt-6" style={{maxWidth:'560px'}}>
-            <div className="panel-header"><span className="panel-tag">Provider Reward Formula</span></div>
-            <pre style={{fontFamily:'var(--font-mono)', fontSize:'14px', color:'var(--green)', lineHeight:2, padding:'12px 22px'}}>
-{`Reward = Epoch_Pool × Your_Weight / Total_Weight
-
-Weight = Usage × (Avg_Price / Your_Price) × Quality`}
-            </pre>
-            <p style={{fontSize:'12px', color:'var(--text-dim)', padding:'0 22px 16px'}}>Cheaper price + more usage + higher quality = larger share of the pool.</p>
+            <div className="panel-header"><span className="panel-tag">Protocol Fee Mandate</span></div>
+            <p style={{fontSize:'14px', color:'var(--text-mid)', padding:'20px 22px 10px', lineHeight:1.6}}>
+              Every settlement transaction collects a 3% fee into the Treasury PDA. An autonomous on-chain AI agent manages these funds with zero human intervention.
+            </p>
+            <div style={{padding:'0 22px 20px', display:'flex', flexDirection:'column', gap:'12px'}}>
+              <div style={{display:'flex', gap:'12px', alignItems:'flex-start'}}>
+                <span style={{color:'var(--green)', fontSize:'14px'}}>↪</span>
+                <p style={{fontSize:'13px', color:'var(--text-mid)'}}><b>Market Buyback:</b> Constant buy pressure and burn mechanism for $CLAF.</p>
+              </div>
+              <div style={{display:'flex', gap:'12px', alignItems:'flex-start'}}>
+                <span style={{color:'var(--green)', fontSize:'14px'}}>↪</span>
+                <p style={{fontSize:'13px', color:'var(--text-mid)'}}><b>Mirror Nodes:</b> Autonomous purchase of GPU resources for network redundancy.</p>
+              </div>
+            </div>
           </div>
-          <div style={{marginTop:'24px'}}><Link href="/whitepaper" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--green)'}}>→ Full economics in the Whitepaper</Link></div>
+          <div style={{marginTop:'24px'}}><Link href="/whitepaper" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--green)'}}>→ Detailed Economics in the Whitepaper</Link></div>
         </div>
       </section>
 
