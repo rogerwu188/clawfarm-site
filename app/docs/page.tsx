@@ -144,18 +144,41 @@ const prices = await cf.prices()        // current price table`}
         </div>
       </section>
 
+      {/* Usage Mining (New Section for Builders) */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">Usage Mining</div>
+          <h3 className="text-[#e8e8e8] text-[16px] font-semibold mb-4">Earn 30% of Daily Emissions</h3>
+          <p className="section-text mb-4">
+            ClawFarm rewards demand. Every time you or your users consume AI tokens through the protocol, you earn **Usage Mining** rewards in $CLAF. This effectively lowers your compute costs to near-zero as the network grows.
+          </p>
+          <div className="panel">
+            <div className="text-xs text-[#505560] tracking-widest uppercase mb-3" style={{padding:'12px 22px 0'}}>How it works</div>
+            <div className="panel-row"><span className="panel-label">Distribution</span><span className="panel-value">30% of daily $CLAF emission</span></div>
+            <div className="panel-row"><span className="panel-label">Eligibility</span><span className="panel-value">Proportional to verified USDC tokens spent</span></div>
+            <div className="panel-row"><span className="panel-label">Tracking</span><span className="panel-value">Calculated per Epoch based on Settlement Ledger</span></div>
+            <div className="panel-row"><span className="panel-label">Claiming</span><span className="panel-value">Automatic release to your protocol wallet</span></div>
+          </div>
+        </div>
+      </section>
+
       {/* Reward Mechanics */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">Reward Mechanics</div>
+          <p className="section-text mb-4">
+            ClawFarm emissions are driven by verified network activity, not by inflation-based speculation.
+          </p>
+          <div className="panel">
+            <div className="text-xs text-[#505560] tracking-widest uppercase mb-3" style={{padding:'12px 22px 0'}}>Daily $CLAF Distribution</div>
+            <div className="panel-row"><span className="panel-label">Supply-Side (70%)</span><span className="panel-value" style={{color:'var(--green)'}}>Earned by Providers based on Usage, Price, and Quality</span></div>
+            <div className="panel-row"><span className="panel-label">Demand-Side (30%)</span><span className="panel-value" style={{color:'var(--green)'}}>Earned by Consumers (Builders/Users) based on Token Consumption</span></div>
+          </div>
           <div className="panel mt-4">
-            <div className="text-xs text-[#505560] tracking-widest uppercase mb-3" style={{padding:'12px 22px 0'}}>Epoch distribution</div>
-            <div className="panel-row"><span className="panel-label">Provider Pool</span><span className="panel-value" style={{color:'var(--green)'}}>70% — W_i = AWU × Price × Quality</span></div>
-            <div className="panel-row"><span className="panel-label">Cold-Start Pool</span><span className="panel-value">20% — new providers with low utilization</span></div>
-            <div className="panel-row"><span className="panel-label">User Cashback</span><span className="panel-value">10% — proportional to USDC spent</span></div>
-            <div className="panel-row"><span className="panel-label">Treasury</span><span className="panel-value">3% of payments → Buyback & Burn</span></div>
-            <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear release</span></div>
-            <div className="panel-row"><span className="panel-label">Verification</span><span className="panel-value">Objective — no human scoring</span></div>
+            <div className="text-xs text-[#505560] tracking-widest uppercase mb-3" style={{padding:'12px 22px 0'}}>Treasury Mandate (3% Fee)</div>
+            <div className="panel-row"><span className="panel-label">70% Buyback & Burn</span><span className="panel-value">Periodic USDC market buybacks to deflate $CLAF supply</span></div>
+            <div className="panel-row"><span className="panel-label">20% Core Maintenance</span><span className="panel-value">Security audits, bug bounties, and protocol R&D</span></div>
+            <div className="panel-row"><span className="panel-label">10% Infra Resilience</span><span className="panel-value">Mirror nodes and decentralized UI hosting (IPFS/Arweave)</span></div>
           </div>
         </div>
       </section>
