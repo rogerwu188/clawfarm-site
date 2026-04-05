@@ -15,6 +15,7 @@ export default function Home() {
               <p className="hero-subtitle" style={{fontSize:'17px', marginTop:'20px', maxWidth:'520px'}}>
                 ClawFarm connects AI consumers with compute providers through decentralized routing, verifiable metering, and automatic settlement. No middleman. No custody. No permission needed.
               </p>
+              {/* Deployment Trigger Comment: 2026-04-06 01:05 */}
               <div style={{
                 marginTop: '24px',
                 padding: '12px 16px',
