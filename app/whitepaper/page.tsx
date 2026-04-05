@@ -177,15 +177,15 @@ balance()        → available = deposited - settled - pending`}</pre>
           <div className="grid-3 mt-6" style={{gridTemplateColumns:'repeat(3, 1fr)', gap:'16px'}}>
             <div className="grid-cell">
               <h4>User</h4>
-              <p>Deposits USDC to escrow. Selects routing mode. Signs usage proofs. Earns CLAW cashback. Withdraws anytime.</p>
+              <p>Deposits USDC to escrow. Selects routing mode. Signs usage proofs. Earns $CLAF via Usage Mining. Withdraws anytime.</p>
             </div>
             <div className="grid-cell">
               <h4>Provider</h4>
-              <p>Registers on-chain with stake. Serves inference. Sets own prices. Earns 97% revenue + CLAW rewards.</p>
+              <p>Registers on-chain with stake. Serves inference. Sets own prices. Earns 97% revenue + $CLAF rewards.</p>
             </div>
             <div className="grid-cell">
               <h4>Protocol</h4>
-              <p>Holds escrow (PDA). Settles payments. Computes rewards. Collects 3% tax. Burns CLAW. No admin override.</p>
+              <p>Holds escrow (PDA). Settles payments. Computes rewards. Collects 3% tax. Burns $CLAF. No admin override.</p>
             </div>
           </div>
         </div>
@@ -306,8 +306,8 @@ Reward_i = E_t × W_i / ΣW`}</pre>
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">12. Tokenomics</div>
           <div className="panel mt-4">
-            <div className="panel-row"><span className="panel-label">Token</span><span className="panel-value">CLAW (SPL on Solana)</span></div>
-            <div className="panel-row"><span className="panel-label">Total Supply</span><span className="panel-value">1,000,000,000 CLAW</span></div>
+            <div className="panel-row"><span className="panel-label">Token</span><span className="panel-value">$CLAF (SPL on Solana)</span></div>
+            <div className="panel-row"><span className="panel-label">Total Supply</span><span className="panel-value">1,000,000,000 $CLAF</span></div>
             <div className="panel-row"><span className="panel-label">Release Horizon</span><span className="panel-value">10 years</span></div>
             <div className="panel-row"><span className="panel-label">Halving</span><span className="panel-value">Every 2 years</span></div>
             <div className="panel-row"><span className="panel-label">Epoch Duration</span><span className="panel-value">Configurable (default: 1 hour)</span></div>
@@ -368,6 +368,9 @@ Reward_i = E_t × W_i / ΣW`}</pre>
           <p className="section-text" style={{marginTop:'16px', fontFamily:'var(--font-mono)', fontSize:'13px', borderLeft:'3px solid var(--green)', paddingLeft:'16px'}}>
             Compute is permissionless. Payment is trustless. Rewards follow contribution.
           </p>
+          <p className="section-text" style={{marginTop:'16px', fontSize:'12px', color:'var(--text-dim)'}}>
+            Official $CLAF Token Mirror: [https://ipfs.io/ipfs/Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6/](https://ipfs.io/ipfs/Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6/)
+          </p>
         </div>
       </section>
 
@@ -382,7 +385,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
             <div className="panel-row"><span className="panel-label">Protocol Tax</span><span className="panel-value">3% → Treasury</span></div>
             <div className="panel-row"><span className="panel-label">Supply-Side Pool</span><span className="panel-value">70% of Epoch issuance</span></div>
             <div className="panel-row"><span className="panel-label">Demand-Side Pool</span><span className="panel-value">30% of Epoch issuance (Usage Mining)</span></div>
-            <div className="panel-row"><span className="panel-label">Min Provider Stake</span><span className="panel-value">1,000 CLAW</span></div>
+            <div className="panel-row"><span className="panel-label">Min Provider Stake</span><span className="panel-value">1,000 $CLAF</span></div>
             <div className="panel-row"><span className="panel-label">Unstaking Period</span><span className="panel-value">7 days</span></div>
             <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear</span></div>
             <div className="panel-row"><span className="panel-label">Total Supply</span><span className="panel-value">1,000,000,000 CLAW</span></div>

@@ -38,9 +38,8 @@ export default function Install() {
           </div>
           <div className="panel mt-4">
             <div className="panel-row"><span className="panel-label">Service Revenue</span><span className="panel-value" style={{color:'var(--green)'}}>97% of every user payment (USDC, on-chain)</span></div>
-            <div className="panel-row"><span className="panel-label">CLAW Rewards</span><span className="panel-value" style={{color:'var(--green)'}}>70% of Epoch issuance, weighted by W_i</span></div>
-            <div className="panel-row"><span className="panel-label">Cold-Start Bonus</span><span className="panel-value">20% of Epoch issuance for new / under-utilized nodes</span></div>
-            <div className="panel-row"><span className="panel-label">Staking Requirement</span><span className="panel-value">Minimum 1,000 CLAW</span></div>
+            <div className="panel-row"><span className="panel-label">$CLAF Rewards</span><span className="panel-value" style={{color:'var(--green)'}}>70% of Epoch issuance, weighted by W_i</span></div>
+            <div className="panel-row"><span className="panel-label">Staking Requirement</span><span className="panel-value">Minimum 1,000 $CLAF</span></div>
             <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear release</span></div>
           </div>
         </div>
@@ -79,10 +78,10 @@ export default function Install() {
             {[
               {step:'1', title:'Get the Provider SDK', desc:'Clone from GitHub — includes registration script and dual-sig support'},
               {step:'2', title:'Configure endpoint and pricing', desc:'Set your inference endpoint URL, supported models, and per-token pricing (on-chain)'},
-              {step:'3', title:'Stake CLAW tokens', desc:'Minimum 1,000 CLAW locked as collateral against misbehavior'},
+              {step:'3', title:'Stake $CLAF tokens', desc:'Minimum 1,000 $CLAF locked as collateral against misbehavior'},
               {step:'4', title:'Register on-chain', desc:'Call the registry contract — no approval, instant activation'},
               {step:'5', title:'Implement dual-signature', desc:'Your endpoint must sign usage proofs per response (SDK handles this)'},
-              {step:'6', title:'Go live', desc:'Traffic routes to you immediately. Cold-start rewards from first Epoch.'},
+              {step:'6', title:'Go live', desc:'Traffic routes to you immediately. $CLAF rewards from first Epoch.'},
             ].map((f, i) => (
               <div key={i} className="seq-item">
                 <span className="seq-num">{f.step}</span>
@@ -146,13 +145,13 @@ npm install`}
           <div className="section-tag">Step 3: Register and Go Live</div>
           <div className="panel mt-4">
             <pre className="text-[13px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>
-{`# Register on-chain (stakes CLAW + creates Provider account)
+{`# Register on-chain (stakes $CLAF + creates Provider account)
 npx clawfarm register
 
 # Check status
 npx clawfarm status
 
-# View earnings (USDC revenue + CLAW rewards)
+# View earnings (USDC revenue + $CLAF rewards)
 npx clawfarm earnings
 
 # Update pricing

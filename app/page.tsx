@@ -60,7 +60,7 @@ export default function Home() {
                 <div className="panel-row"><span className="panel-label">Custody</span><span className="panel-value" style={{color:'var(--green)'}}>Non-Custodial</span></div>
                 <div className="panel-row"><span className="panel-label">Provider Revenue</span><span className="panel-value">97%</span></div>
                 <div className="panel-row"><span className="panel-label">Provider Gate</span><span className="panel-value">Open — No Approval</span></div>
-                <div className="panel-row"><span className="panel-label">CLAW Rewards</span><span className="panel-value" style={{color:'var(--green)'}}>Active</span></div>
+                <div className="panel-row"><span className="panel-label">$CLAF Rewards</span><span className="panel-value" style={{color:'var(--green)'}}>Active</span></div>
               </div>
             </div>
           </div>
@@ -222,7 +222,7 @@ export default function Home() {
           <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>HOW IT WORKS</p>
           <h2 className="section-title" style={{fontSize:'28px'}}>From request to settlement in one flow.</h2>
           <div className="exec-flow" style={{marginTop:'36px'}}>
-            <div className="flow-step"><div className="flow-step-num">01</div><div className="flow-step-title">Provide</div><div className="flow-step-desc">Register your model, GPU, or API endpoint. Set your own price. Stake CLAW.</div></div>
+            <div className="flow-step"><div className="flow-step-num">01</div><div className="flow-step-title">Provide</div><div className="flow-step-desc">Register your model, GPU, or API endpoint. Set your own price. Stake $CLAF.</div></div>
             <div className="flow-arrow">→</div>
             <div className="flow-step"><div className="flow-step-num">02</div><div className="flow-step-title">Route</div><div className="flow-step-desc">Requests are routed to the best Provider by eco, auto, or premium mode.</div></div>
             <div className="flow-arrow">→</div>
@@ -230,7 +230,7 @@ export default function Home() {
             <div className="flow-arrow">→</div>
             <div className="flow-step"><div className="flow-step-num">04</div><div className="flow-step-title">Settle</div><div className="flow-step-desc">Smart contract splits payment: 97% Provider, 3% Treasury. Automatic.</div></div>
             <div className="flow-arrow">→</div>
-            <div className="flow-step"><div className="flow-step-num">05</div><div className="flow-step-title">Earn</div><div className="flow-step-desc">CLAW tokens distributed every Epoch. More usage × better price × higher quality = more rewards.</div></div>
+            <div className="flow-step"><div className="flow-step-num">05</div><div className="flow-step-title">Earn</div><div className="flow-step-desc">$CLAF tokens distributed every Epoch. More usage × better price × higher quality = more rewards.</div></div>
           </div>
         </div>
       </section>
@@ -243,7 +243,7 @@ export default function Home() {
           <div className="grid-3 mt-8" style={{gridTemplateColumns:'repeat(3, 1fr)', gap:'20px'}}>
             <div className="grid-cell" style={{borderTop:'3px solid var(--green)', paddingTop:'24px'}}>
               <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', letterSpacing:'1px', marginBottom:'8px'}}>PROVIDER</p>
-              <h4 style={{fontSize:'18px', marginBottom:'12px'}}>Sell compute. Earn USDC + CLAW.</h4>
+              <h4 style={{fontSize:'18px', marginBottom:'12px'}}>Sell compute. Earn USDC + $CLAF.</h4>
               <p style={{color:'var(--text-mid)', fontSize:'14px', lineHeight:1.7}}>You have a GPU, a model endpoint, or an API key. Register on-chain, set your price, and start serving inference. Settlement goes directly to your wallet.</p>
               <div style={{marginTop:'20px', display:'flex', flexDirection:'column', gap:'8px'}}><Link href="/providers" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'8px 14px', textAlign:'center' as const}}>Become a Provider</Link></div>
             </div>
@@ -256,7 +256,7 @@ export default function Home() {
             <div className="grid-cell" style={{borderTop:'3px solid var(--amber)', paddingTop:'24px'}}>
               <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--amber)', letterSpacing:'1px', marginBottom:'8px'}}>NODE OPERATOR</p>
               <h4 style={{fontSize:'18px', marginBottom:'12px'}}>Run infrastructure. Power the network.</h4>
-              <p style={{color:'var(--text-mid)', fontSize:'14px', lineHeight:1.7}}>Deploy GPU nodes, host open-source models, or run relay infrastructure. Earn CLAW rewards proportional to your verified contribution.</p>
+              <p style={{color:'var(--text-mid)', fontSize:'14px', lineHeight:1.7}}>Deploy GPU nodes, host open-source models, or run relay infrastructure. Earn $CLAF rewards proportional to your verified contribution.</p>
               <div style={{marginTop:'20px', display:'flex', flexDirection:'column', gap:'8px'}}><Link href="/install" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'#1a1a1a', border:'1px solid #fbbf24', background:'rgba(251,191,36,0.15)', borderRadius:'4px', padding:'8px 14px', textAlign:'center' as const}}>Set Up a Node</Link></div>
             </div>
           </div>
@@ -281,7 +281,7 @@ export default function Home() {
       <section className="section" style={{borderTop:'1px solid var(--border)'}}>
         <div className="max-w-6xl mx-auto px-6">
           <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>DUAL-SIDED MINING</p>
-          <h2 className="section-title" style={{fontSize:'28px'}}>Earn CLAW by serving or consuming AI.</h2>
+          <h2 className="section-title" style={{fontSize:'28px'}}>Earn $CLAF by serving or consuming AI.</h2>
           <p className="section-text" style={{maxWidth:'640px', marginTop:'12px'}}>The $CLAF token is distributed daily to both sides of the marketplace. Supply compute to earn 70%, or build and consume to earn 30%.</p>
           <div className="grid-3 mt-8" style={{gridTemplateColumns:'repeat(3, 1fr)', gap:'16px'}}>
             <div className="panel" style={{textAlign:'center', padding:'28px 20px'}}>

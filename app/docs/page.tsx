@@ -115,7 +115,7 @@ console.log('Accumulated $CLAF:', rewards.total)`}
             <div className="text-xs text-[#505560] tracking-widest uppercase mb-3" style={{padding:'12px 22px 0'}}>Registration requirements</div>
             <div className="panel-row"><span className="panel-label">Endpoint</span><span className="panel-value">HTTPS inference API</span></div>
             <div className="panel-row"><span className="panel-label">Models</span><span className="panel-value">Supported model IDs + per-token pricing</span></div>
-            <div className="panel-row"><span className="panel-label">Stake</span><span className="panel-value">Minimum 1,000 CLAW</span></div>
+            <div className="panel-row"><span className="panel-label">Stake</span><span className="panel-value">Minimum 1,000 $CLAF</span></div>
             <div className="panel-row"><span className="panel-label">Wallet</span><span className="panel-value">Solana address for settlement</span></div>
             <div className="panel-row"><span className="panel-label">Dual-sig</span><span className="panel-value">Must sign usage proofs per response</span></div>
           </div>
@@ -124,7 +124,7 @@ console.log('Accumulated $CLAF:', rewards.total)`}
             <div className="panel-row"><span className="panel-label">register</span><span className="panel-value">Register on-chain (instant, no approval)</span></div>
             <div className="panel-row"><span className="panel-label">status</span><span className="panel-value">View node state, uptime, Q score</span></div>
             <div className="panel-row"><span className="panel-label">update-pricing</span><span className="panel-value">Update your price table on-chain</span></div>
-            <div className="panel-row"><span className="panel-label">earnings</span><span className="panel-value">View USDC revenue + CLAW rewards + vesting</span></div>
+            <div className="panel-row"><span className="panel-label">earnings</span><span className="panel-value">View USDC revenue + $CLAF rewards + vesting</span></div>
             <div className="panel-row"><span className="panel-label">unstake</span><span className="panel-value">Begin unstaking (7-day period)</span></div>
           </div>
         </div>
@@ -231,11 +231,11 @@ npm run build
             </div>
             <div className="grid-cell">
               <h4>Reward Ledger</h4>
-              <p>provider, epoch, W_i, reward_claw, cashback_claw, vesting_start</p>
+              <p>provider, epoch, W_i, reward_claf, cashback_claf, vesting_start</p>
             </div>
             <div className="grid-cell">
               <h4>Treasury Ledger</h4>
-              <p>epoch, tax_usdc, buyback_usdc, claw_burned, tx_hash</p>
+              <p>epoch, tax_usdc, buyback_usdc, claf_burned, tx_hash</p>
             </div>
           </div>
           <p className="section-small">All ledger entries are on-chain and append-only. Settlement derived exclusively from dual-signed usage proofs.</p>

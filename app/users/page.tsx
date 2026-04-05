@@ -155,17 +155,17 @@ export default function Users() {
         </div>
       </section>
 
-      {/* User Cashback */}
+      {/* Demand-Side Rewards (Usage Mining) */}
       <section className="section" style={{borderTop:'1px solid var(--border)'}}>
         <div className="max-w-4xl mx-auto px-6">
-          <h2 style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', letterSpacing:'1px', marginBottom:'8px'}}>USER CASHBACK</h2>
-          <h3 className="section-title" style={{fontSize:'24px'}}>Earn CLAW while you spend on inference.</h3>
+          <div className="section-tag">USAGE MINING</div>
+          <h3 className="section-title" style={{fontSize:'24px'}}>Earn $CLAF while you spend on inference.</h3>
           <p style={{marginTop:'12px', fontSize:'14px', color:'var(--text-mid)', lineHeight:1.7}}>
-            10% of each Epoch's CLAW token issuance goes into the User Cashback Pool. Your share is proportional to how much USDC you've spent on inference. No staking required. No claiming step. It accrues automatically.
+            30% of each Epoch's $CLAF token issuance is distributed to the Demand-Side Pool. Your share is proportional to your verified token consumption. This "Usage Mining" effectively lowers your compute costs as the network grows. No staking required. No claiming step. It accrues automatically.
           </p>
           <div style={{marginTop:'20px', border:'1px solid var(--border)', borderRadius:'8px', overflow:'hidden', maxWidth:'520px'}}>
             {[
-              {l:'Pool size', v:'10% of Epoch CLAW issuance'},
+              {l:'Pool size', v:'30% of Epoch $CLAF issuance'},
               {l:'Distribution basis', v:'Proportional to USDC spent on inference'},
               {l:'Vesting', v:'180-day linear from accrual'},
               {l:'Claim required', v:'No — automatic accrual'},
@@ -249,8 +249,8 @@ await cf.withdraw({ amount: 50 })  // back to your wallet`}</pre>
                 a:"You're billed per token — input tokens and output tokens at the Provider's published rate. Each settlement transaction deducts USDC from your escrow balance and sends 97% to the Provider and 3% to the Treasury contract in one atomic on-chain transaction."
               },
               {
-                q:'What is the CLAW token and do I need it?',
-                a:"CLAW is the protocol token. You don't need CLAW to use the network — inference is paid in USDC. CLAW is earned by Providers as staking rewards and by users as cashback. It accrues automatically; no claiming step required."
+                q:'What is the $CLAF token and do I need it?',
+                a:"$CLAF is the protocol token. You don't need $CLAF to use the network — inference is paid in USDC. $CLAF is earned by Providers as staking rewards and by users as Usage Mining rewards. It accrues automatically; no claiming step required."
               },
               {
                 q:'Can I see my usage history?',
