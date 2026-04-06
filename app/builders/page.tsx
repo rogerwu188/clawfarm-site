@@ -61,7 +61,7 @@ export default function Builders() {
             <div style={{border:'1px solid var(--border)', borderRadius:'8px', padding:'24px'}}>
               <h3 style={{fontSize:'16px', fontWeight:700, marginBottom:'12px'}}>Provider Registry</h3>
               <h4 style={{fontSize:'14px', fontWeight:700, marginBottom:'12px'}}>Provider Nodes</h4>
-              <p style={{fontSize:'14px', color:'var(--text-mid)', lineHeight:1.6}}>Permissionless nodes serving inference. Any GPU node can join the registry by staking CLAW and publishing a price table. Performance metrics are recorded on-chain.</p>
+              <p style={{fontSize:'14px', color:'var(--text-mid)', lineHeight:1.6}}>Permissionless nodes serving inference. Any GPU node can join the registry by staking $CLAF and publishing a price table. Performance metrics are recorded on-chain.</p>
               <div style={{marginTop:'16px', fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--amber)'}}>permissionless · staked · competitive</div>
             </div>
             <div style={{border:'1px solid var(--border)', borderRadius:'8px', padding:'24px'}}>

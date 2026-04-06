@@ -33,7 +33,7 @@ export default function Whitepaper() {
             ClawFarm is a permissionless, non-custodial AI compute marketplace built on Solana. Users deposit USDC into an on-chain escrow contract, choose an automatic routing mode (eco / auto / premium), and consume AI inference from any registered Provider — without signing up with individual providers, configuring API keys, or trusting a central platform with their funds.
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
-            Providers register on-chain with a model endpoint, a public price table, and a CLAW stake. The protocol routes requests, meters consumption via dual-signature usage proofs, settles payments through smart contracts, and distributes rewards — all without admin override.
+            Providers register on-chain with a model endpoint, a public price table, and a $CLAF stake. The protocol routes requests, meters consumption via dual-signature usage proofs, settles payments through smart contracts, and distributes rewards — all without admin override.
           </p>
           <p className="section-text" style={{marginTop:'24px', borderLeft:'3px solid var(--green)', paddingLeft:'16px', fontStyle:'italic'}}>
             <strong>Central Claim:</strong> ClawFarm is the first truly non-custodial AI compute marketplace. The platform never holds user funds. Every USDC sits in a program-owned escrow. Every settlement is a contract execution. Every Provider payout is an on-chain transfer.
@@ -96,11 +96,11 @@ balance()        → available = deposited - settled - pending`}</pre>
           </div>
 
           <h3 className="text-[#e8e8e8] text-[16px] font-semibold mt-8 mb-3">3.2 Provider Registry</h3>
-          <p className="section-text mb-4">Permissionless registration. Requires CLAW stake as collateral.</p>
+          <p className="section-text mb-4">Permissionless registration. Requires $CLAF stake as collateral.</p>
           <div className="panel">
             <pre className="text-[12px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>{`register_provider(endpoint, models[], pricing[], stake_amount)
-  → verify minimum stake (1,000 CLAW)
-  → lock CLAW in staking account
+  → verify minimum stake (1,000 $CLAF)
+  → lock $CLAF in staking account
   → create on-chain ProviderAccount
   → status = Active`}</pre>
           </div>
@@ -164,7 +164,7 @@ balance()        → available = deposited - settled - pending`}</pre>
             </div>
             <div className="grid-cell">
               <h4>Layer 4: Stake Slashing</h4>
-              <p>On-chain evidence resolves disputes. Guilty → CLAW stake slashed.</p>
+              <p>On-chain evidence resolves disputes. Guilty → $CLAF stake slashed.</p>
             </div>
           </div>
         </div>
@@ -218,7 +218,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
             <div className="panel-row"><span className="panel-label">AWU_i</span><span className="panel-value">AI Work Units delivered</span></div>
             <div className="panel-row"><span className="panel-label">P_avg / P_i</span><span className="panel-value">Cheaper = higher weight</span></div>
             <div className="panel-row"><span className="panel-label">Q_i</span><span className="panel-value">SuccessRate × LatencyScore × UptimeScore</span></div>
-            <div className="panel-row"><span className="panel-label">E_t</span><span className="panel-value">Epoch CLAW issuance pool</span></div>
+            <div className="panel-row"><span className="panel-label">E_t</span><span className="panel-value">Epoch $CLAF issuance pool</span></div>
           </div>
 
           <h3 className="text-[#e8e8e8] text-[15px] font-semibold mt-6 mb-3">Epoch Distribution</h3>
@@ -234,7 +234,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">9. Provider Staking</div>
           <div className="panel mt-4">
-            <div className="panel-row"><span className="panel-label">Minimum Stake</span><span className="panel-value">1,000 CLAW</span></div>
+            <div className="panel-row"><span className="panel-label">Minimum Stake</span><span className="panel-value">1,000 $CLAF</span></div>
             <div className="panel-row"><span className="panel-label">Slash Conditions</span><span className="panel-value">Token count fraud, sustained downtime, response manipulation</span></div>
             <div className="panel-row"><span className="panel-label">Slash Amount</span><span className="panel-value">Up to 100% of stake</span></div>
             <div className="panel-row"><span className="panel-label">Unstaking Period</span><span className="panel-value">7 days (pending disputes)</span></div>
@@ -344,7 +344,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
             </div>
             <div className="grid-cell" style={{borderTop:'2px solid var(--accent)'}}>
               <h4>Phase 2: Mainnet (Q3 2026)</h4>
-              <p>Mainnet deployment + audit. CLAW token launch. Provider staking + slashing. Sampling audit live. Public API + SDK.</p>
+              <p>Mainnet deployment + audit. $CLAF token launch. Provider staking + slashing. Sampling audit live. Public API + SDK.</p>
             </div>
             <div className="grid-cell" style={{borderTop:'2px solid var(--amber)'}}>
               <h4>Phase 3: Full Decentralization (Q4 2026)</h4>
@@ -388,7 +388,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
             <div className="panel-row"><span className="panel-label">Min Provider Stake</span><span className="panel-value">1,000 $CLAF</span></div>
             <div className="panel-row"><span className="panel-label">Unstaking Period</span><span className="panel-value">7 days</span></div>
             <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear</span></div>
-            <div className="panel-row"><span className="panel-label">Total Supply</span><span className="panel-value">1,000,000,000 CLAW</span></div>
+            <div className="panel-row"><span className="panel-label">Total Supply</span><span className="panel-value">1,000,000,000 $CLAF</span></div>
             <div className="panel-row"><span className="panel-label">Halving</span><span className="panel-value">Every 2 years</span></div>
             <div className="panel-row"><span className="panel-label">Routing Modes</span><span className="panel-value">eco / auto / premium</span></div>
             <div className="panel-row"><span className="panel-label">Verification</span><span className="panel-value">Dual-signature + sampling audit</span></div>

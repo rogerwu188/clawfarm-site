@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export const metadata = { title: 'Become a Provider — ClawFarm', description: 'Register on-chain with a model endpoint, pricing, and CLAW stake. Start earning immediately.' }
+export const metadata = { title: 'Become a Provider — ClawFarm', description: 'Register on-chain with a model endpoint, pricing, and $CLAF stake. Start earning immediately.' }
 
 export default function Install() {
   return (
@@ -17,7 +17,7 @@ export default function Install() {
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="section-title text-[36px]">Become a Provider</h1>
           <p className="section-text" style={{marginTop:'12px', fontSize:'16px', color:'var(--text-mid)'}}>
-            Register on-chain with a model endpoint, a price table, and a CLAW stake. No approval. No billing infrastructure. Settlement goes directly from user escrow to your wallet via smart contract.
+            Register on-chain with a model endpoint, a price table, and a $CLAF stake. No approval. No billing infrastructure. Settlement goes directly from user escrow to your wallet via smart contract.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href="https://github.com/rogerwu188/clawfarm-skill" target="_blank" rel="noopener" className="btn-primary">
@@ -33,7 +33,7 @@ export default function Install() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="panel" style={{borderLeft:'3px solid var(--green)'}}>
             <p className="section-text" style={{fontSize:'15px', padding:'18px 22px'}}>
-              <strong>Two revenue streams: 97% of every USDC payment (direct, on-chain) + CLAW token rewards per Epoch.</strong>
+              <strong>Two revenue streams: 97% of every USDC payment (direct, on-chain) + $CLAF token rewards per Epoch.</strong>
             </p>
           </div>
           <div className="panel mt-4">

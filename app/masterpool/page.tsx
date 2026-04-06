@@ -250,7 +250,7 @@ export default function Pool() {
             <div className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
               <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>Total $CLAF Burned</div>
               <div className="stat-value" style={{color:'var(--text)'}}>—</div>
-              <div className="stat-unit" style={{color:'var(--text-dim)'}}>tokens</div>
+              <div className="stat-unit" style={{color:'var(--text-dim)'}}>$CLAF</div>
             </div>
           </div>
 

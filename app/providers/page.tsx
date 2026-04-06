@@ -148,7 +148,7 @@ function ProvidersContent() {
           <div style={{marginTop:'32px', padding:'20px', border:'1px solid var(--border)', borderRadius:'8px'}}>
             <div style={{fontFamily:'var(--font-mono)', fontSize:'14px', fontWeight:600, marginBottom:'12px'}}>Are you a provider for {model}?</div>
             <p style={{color:'var(--text-mid)', fontSize:'14px', marginBottom:'16px', lineHeight:1.7}}>
-              Register your endpoint on-chain. Set your own prices. Start earning 97% USDC revenue + CLAW rewards. No approval needed.
+              Register your endpoint on-chain. Set your own prices. Start earning 97% USDC revenue + $CLAF rewards. No approval needed.
             </p>
             <Link href="/providers/register" className="btn-primary text-[13px]">Register Provider</Link>
           </div>
