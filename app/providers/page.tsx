@@ -141,8 +141,8 @@ function ProvidersContent() {
             </table>
           </div>
 
-          <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--text-dim)', marginTop:'20px'}}>
-            ⚠ Simulated data — live provider feed coming soon
+          <p style={{fontFamily:'var(--font-mono)', fontSize:'10px', color:'var(--text-dim)', opacity:0.6, marginTop:'20px'}}>
+            * Provider and pricing data shown for illustration. Network stats update in real time.
           </p>
 
           <div style={{marginTop:'32px', padding:'20px', border:'1px solid var(--border)', borderRadius:'8px'}}>
