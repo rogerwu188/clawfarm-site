@@ -129,7 +129,7 @@ export default function Pool() {
             <div className="stat-card">
               <div className="stat-label">Total Staked</div>
               <div className="stat-value">—</div>
-              <div className="stat-unit">CLAW</div>
+              <div className="stat-unit">$CLAF</div>
             </div>
             <div className="stat-card">
               <div className="stat-label">Models Available</div>
@@ -217,7 +217,7 @@ export default function Pool() {
             <div className="stat-card">
               <div className="stat-label">Remaining Supply</div>
               <div className="stat-value">1B</div>
-              <div className="stat-unit">CLAW</div>
+              <div className="stat-unit">$CLAF</div>
             </div>
             <div className="stat-card">
               <div className="stat-label">Emission Rate</div>
