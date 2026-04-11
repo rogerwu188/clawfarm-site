@@ -413,12 +413,18 @@ body {
   transition: opacity 0.15s;
   display: inline-block;
   border-radius: 6px;
+  border: 1px solid transparent;
 }
 .btn-primary:hover { opacity: 0.85; }
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
 
 .btn-secondary {
   border: 1px solid var(--border-bright);
   color: var(--text-high);
+  background: transparent;
   padding: 12px 24px;
   font-size: 13px;
   font-weight: 500;
