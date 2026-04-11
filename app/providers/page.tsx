@@ -133,7 +133,7 @@ function ProvidersContent() {
                     <td style={{padding:'10px 12px', textAlign:'right', color:'var(--text-mid)', fontSize:'12px'}}>{p.tps}</td>
                     <td style={{padding:'10px 12px', textAlign:'right', color:'var(--green)', fontSize:'12px'}}>{p.sr}</td>
                     <td style={{padding:'10px 8px', textAlign:'center'}}>
-                      <Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Connect</Link>
+                      <Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'#1a1a1a', background:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap', display:'inline-block', fontWeight:600}}>Connect</Link>
                     </td>
                   </tr>
                 ))}

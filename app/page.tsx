@@ -116,7 +116,7 @@ export default function Home() {
                     <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.c}</td>
                     <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)', fontSize:'12px', fontWeight:500}}>{r.u}</td>
                     <td style={{padding:'10px 12px', textAlign:'center'}}><Link href={`/providers?model=${encodeURIComponent(r.m)}`} style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--accent)'}}>{r.n} providers</Link></td>
-                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Start Integrating</Link></td>
+                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'#1a1a1a', background:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap', display:'inline-block', fontWeight:600}}>Start Integrating</Link></td>
                   </tr>
                 ))}</tbody>
               </table>
@@ -158,7 +158,7 @@ export default function Home() {
                     <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.r}</td>
                     <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)', fontSize:'12px', fontWeight:500}}>{r.u}</td>
                     <td style={{padding:'10px 12px', textAlign:'center'}}><Link href={`/providers?model=${encodeURIComponent(r.m)}`} style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--accent)'}}>{r.n} providers</Link></td>
-                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Start Integrating</Link></td>
+                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'#1a1a1a', background:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap', display:'inline-block', fontWeight:600}}>Start Integrating</Link></td>
                   </tr>
                 ))}</tbody>
               </table>
@@ -200,7 +200,7 @@ export default function Home() {
                     <td style={{padding:'10px 12px', textAlign:'center', color:'var(--text-dim)', fontSize:'12px'}}>{r.r}</td>
                     <td style={{padding:'10px 12px', textAlign:'right', color:'var(--accent)', fontSize:'12px', fontWeight:500}}>{r.u}</td>
                     <td style={{padding:'10px 12px', textAlign:'center'}}><Link href={`/providers?model=${encodeURIComponent(r.m)}`} style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--accent)'}}>{r.n} providers</Link></td>
-                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap'}}>Start Integrating</Link></td>
+                    <td style={{padding:'10px 8px', textAlign:'center'}}><Link href="/docs" style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'#1a1a1a', background:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'4px 10px', whiteSpace:'nowrap', display:'inline-block', fontWeight:600}}>Start Integrating</Link></td>
                   </tr>
                 ))}</tbody>
               </table>
@@ -245,7 +245,7 @@ export default function Home() {
               <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', letterSpacing:'1px', marginBottom:'8px'}}>PROVIDER</p>
               <h4 style={{fontSize:'18px', marginBottom:'12px'}}>Sell compute. Earn USDC + $CLAF.</h4>
               <p style={{color:'var(--text-mid)', fontSize:'14px', lineHeight:1.7}}>You have a GPU, a model endpoint, or an API key. Register on-chain, set your price, and start serving inference. Settlement goes directly to your wallet.</p>
-              <div style={{marginTop:'20px', display:'flex', flexDirection:'column', gap:'8px'}}><Link href="/providers" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'8px 14px', textAlign:'center' as const}}>Become a Provider</Link></div>
+              <div style={{marginTop:'20px', display:'flex', flexDirection:'column', gap:'8px'}}><Link href="/providers" style={{fontFamily:'var(--font-mono)', fontSize:'12px', color:'#1a1a1a', background:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'8px 14px', textAlign:'center', display:'block', fontWeight:600}}>Become a Provider</Link></div>
             </div>
             <div className="grid-cell" style={{borderTop:'3px solid var(--accent)', paddingTop:'24px'}}>
               <p style={{fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--accent)', letterSpacing:'1px', marginBottom:'8px'}}>BUILDER</p>

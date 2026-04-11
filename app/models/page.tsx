@@ -74,7 +74,7 @@ function ModelCard({ model, category }: { model: string; category: string }) {
         </div>
         <Link
           href={`/providers?model=${encodeURIComponent(model)}`}
-          style={{ fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'6px 14px', whiteSpace:'nowrap' }}
+          style={{ fontFamily:'var(--font-mono)', fontSize:'11px', color:'#1a1a1a', background:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'6px 14px', whiteSpace:'nowrap', display:'inline-block', fontWeight:600 }}
         >
           View all providers →
         </Link>
@@ -107,7 +107,7 @@ function ModelCard({ model, category }: { model: string; category: string }) {
                 <td style={{ padding:'10px 6px', textAlign:'right', color:'var(--text-mid)', fontSize:'11px', opacity:0.7 }}>{p.pO}</td>
                 <td style={{ padding:'10px 10px', textAlign:'right', color:'var(--accent)', fontSize:'11px', fontWeight:500 }}>{p.usage}</td>
                 <td style={{ padding:'10px 8px', textAlign:'center' }}>
-                  <Link href="/docs" style={{ fontFamily:'var(--font-mono)', fontSize:'10px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'3px', padding:'3px 8px', whiteSpace:'nowrap' }}>Connect</Link>
+                  <Link href="/docs" style={{ fontFamily:'var(--font-mono)', fontSize:'10px', color:'#1a1a1a', background:'#34d399', border:'1px solid #34d399', borderRadius:'3px', padding:'3px 8px', whiteSpace:'nowrap', display:'inline-block', fontWeight:600 }}>Connect</Link>
                 </td>
               </tr>
             ))}
@@ -196,7 +196,7 @@ export default function ModelsPage() {
               <div style={{ fontFamily:'var(--font-mono)', fontSize:'14px', fontWeight:600, marginBottom:'6px' }}>Don&apos;t see your model?</div>
               <p style={{ color:'var(--text-mid)', fontSize:'13px' }}>ClawFarm is open — any provider can register any model. Missing a model? Become a provider.</p>
             </div>
-            <Link href="/providers" style={{ fontFamily:'var(--font-mono)', fontSize:'12px', color:'var(--green)', border:'1px solid var(--green)', borderRadius:'4px', padding:'10px 20px', whiteSpace:'nowrap' }}>Register as Provider →</Link>
+            <Link href="/providers" style={{ fontFamily:'var(--font-mono)', fontSize:'12px', color:'#1a1a1a', background:'#34d399', border:'1px solid #34d399', borderRadius:'4px', padding:'10px 20px', whiteSpace:'nowrap', display:'inline-block', fontWeight:600 }}>Register as Provider →</Link>
           </div>
         </div>
       </section>
