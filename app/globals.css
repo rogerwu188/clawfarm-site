@@ -658,6 +658,9 @@ body {
   .flow { flex-wrap: wrap; }
   .section { padding: 36px 0; }
   .section-title { font-size: 26px; }
-  .header-top { flex-direction: column; gap: 10px; height: auto; padding: 12px 24px; }
+  .header-top { flex-direction: column; gap: 10px; height: auto; padding: 12px 16px; }
   .header-status { flex-wrap: wrap; justify-content: center; }
+  .header-row { padding: 0 16px; }
+  .header-nav-inner { flex-wrap: wrap; justify-content: center; gap: 6px; }
+  .nav-item { padding: 6px 10px; }
 }
