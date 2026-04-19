@@ -12,8 +12,12 @@ import Script from 'next/script'
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Search Console verification */}
+        <meta name="google-site-verification" content="sWzolxtvpTdcaBJhwCLzAcDoQ-bq3IiQt4cxLYeh0m0" />
+      </head>
       <body className="antialiased min-h-screen flex flex-col">
-        {/* Google Analytics */}
+        {/* Google tag (gtag.js) */}
         <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-PVC8GVRX6H" />
         <Script id="gtag-init" strategy="afterInteractive">
           {`
