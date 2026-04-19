@@ -7,11 +7,23 @@ export const metadata: Metadata = {
 }
 
 import ClientLayout from './client-layout'
+import Script from 'next/script'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className="antialiased min-h-screen flex flex-col">
+        {/* Google Analytics */}
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-PVC8GVRX6H" />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PVC8GVRX6H');
+          `}
+        </Script>
+
         <ClientLayout>
           {children}
         </ClientLayout>
