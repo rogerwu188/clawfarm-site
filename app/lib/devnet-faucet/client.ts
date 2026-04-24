@@ -1,5 +1,6 @@
 import { Program, type Idl, type Provider } from '@coral-xyz/anchor'
 import BN from 'bn.js'
+import { Buffer } from 'buffer'
 import {
   ASSOCIATED_TOKEN_PROGRAM_ID,
   TOKEN_PROGRAM_ID,
