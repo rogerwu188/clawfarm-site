@@ -1,6 +1,8 @@
 # Network Switch Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+**Implementation Status (2026-04-25):** Completed on `update-site-for-devnet-contract` and reconciled with `main` Gateway faucet changes. The faucet now uses the global network state for Devnet gating and wallet context, while claim submission remains Gateway-sponsored and does not request wallet signatures.
+
 
 **Goal:** Add a Solscan-style Mainnet/Devnet switch beside the wallet button, centralize wallet RPC selection, and remove faucet-local RPC configuration.
 

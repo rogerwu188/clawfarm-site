@@ -1,6 +1,8 @@
 # Devnet Faucet Gateway Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+**Merge Status (2026-04-25):** Integrated into `update-site-for-devnet-contract` together with the network switch work. The public Gateway endpoint remains `POST /clawfarm/v1/devnet/faucet/claim`; no `/v1/devnet/faucet/claim` alias is required.
+
 
 **Goal:** Convert the `/devnet` faucet from a browser wallet-signed transaction into a static-site UI that requests Gateway-sponsored devnet claims for a recipient public key.
 

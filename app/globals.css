@@ -1310,8 +1310,7 @@ body {
 }
 
 .devnet-faucet-hint,
-.devnet-faucet-error,
-.devnet-faucet-rpc-message {
+.devnet-faucet-error {
   margin: 0;
   color: var(--text-low);
   font-size: 12px;
@@ -1323,16 +1322,7 @@ body {
   color: var(--amber);
 }
 
-.devnet-faucet-rpc-message {
-  color: var(--text-mid);
-}
 
-.devnet-faucet-rpc-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-}
 
 @container (max-width: 780px) {
   .devnet-faucet-header,
@@ -1361,4 +1351,22 @@ body {
   .devnet-faucet-collapsible {
     transition: none;
   }
+}
+
+.devnet-faucet-recipient {
+  margin-top: 0;
+}
+
+.devnet-faucet-recipient-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.devnet-faucet-fieldset code {
+  color: var(--green-bright);
+  font-family: var(--font-mono);
+  font-size: 0.95em;
 }

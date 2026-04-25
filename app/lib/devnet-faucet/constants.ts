@@ -3,6 +3,7 @@ import { PublicKey } from '@solana/web3.js'
 export const DEVNET_FAUCET_DECIMALS = 6
 export const DEVNET_FAUCET_BASE_UNITS = BigInt(10 ** DEVNET_FAUCET_DECIMALS)
 
+export const DEVNET_FAUCET_API_URL = process.env.NEXT_PUBLIC_DEVNET_FAUCET_API_URL || ''
 
 export const DEVNET_MASTERPOOL_PROGRAM_ID = new PublicKey(
   'AP5gMEh6yHjvZBjh7Xg5fgs4EnBiCbVUoDyXxMi1omux'

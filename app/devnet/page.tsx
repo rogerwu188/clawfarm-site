@@ -141,8 +141,8 @@ export default function DevnetPage() {
           <div className="section-tag">Program addresses</div>
           <p className="section-text" style={{ maxWidth: 760, marginBottom: 24 }}>
             Static values copied from the local devnet deployment file. They are shown for verification and
-            integration context; the faucet card above uses the active Devnet wallet/read RPC selected from the
-            global network switch.
+            integration context; the faucet card above requests Gateway-sponsored devnet claims where the
+            recipient receives tokens, while the global network switch controls wallet/read context.
           </p>
           <div className="panel">
             {DEPLOYMENT.map(([label, value]) => (
