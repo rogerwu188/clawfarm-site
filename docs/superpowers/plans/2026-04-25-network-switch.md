@@ -380,7 +380,10 @@ export default function NetworkProvider({ children }: { children: React.ReactNod
 
   useEffect(() => {
     const normalizedHref = getNormalizedNetworkHref(pathname, searchParams)
-    if (normalizedHref && normalizedHref !== pathname) {
+    const currentQuery = searchParams?.toString() || ''
+    const currentHref = currentQuery ? `${pathname}?${currentQuery}` : pathname
+
+    if (normalizedHref && normalizedHref !== currentHref) {
       router.replace(normalizedHref)
     }
   }, [pathname, router, searchParams])
