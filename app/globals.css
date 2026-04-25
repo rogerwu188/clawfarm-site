@@ -751,3 +751,389 @@ body {
   .stat-value { font-size: 56px; }
   .exec-flow { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   DEVNET FAUCET CARD
+   ============================================================ */
+
+.devnet-faucet-card {
+  container-type: inline-size;
+  position: relative;
+  display: grid;
+  gap: 24px;
+  overflow: hidden;
+  padding: clamp(20px, 3vw, 32px);
+  border: 1px solid color-mix(in oklch, var(--green) 28%, var(--border));
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 88% 12%, rgba(16, 185, 129, 0.12), transparent 32%),
+    linear-gradient(180deg, rgba(20, 21, 24, 0.96), rgba(9, 11, 12, 0.98));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.devnet-faucet-card::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  border-radius: calc(var(--radius-lg) - 4px);
+}
+
+.devnet-faucet-header,
+.devnet-faucet-body,
+.devnet-faucet-tools {
+  position: relative;
+  z-index: 1;
+}
+
+.devnet-faucet-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: start;
+}
+
+.devnet-faucet-kicker,
+.devnet-faucet-network,
+.devnet-faucet-wallet span,
+.devnet-faucet-default span,
+.devnet-faucet-status span,
+.devnet-faucet-fieldset-title,
+.devnet-faucet-fieldset label span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.devnet-faucet-kicker {
+  margin-bottom: 10px;
+  color: var(--green-bright);
+}
+
+.devnet-faucet-header h2 {
+  margin: 0;
+  max-width: 680px;
+  color: var(--text-high);
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+}
+
+.devnet-faucet-header p {
+  max-width: 72ch;
+  margin: 16px 0 0;
+  color: var(--text-mid);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.devnet-faucet-network {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid rgba(52, 211, 153, 0.24);
+  border-radius: var(--radius-pill);
+  background: rgba(16, 185, 129, 0.08);
+  color: var(--green-bright);
+  white-space: nowrap;
+}
+
+.devnet-faucet-led {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green-bright);
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.65);
+}
+
+.devnet-faucet-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.devnet-faucet-primary,
+.devnet-faucet-status,
+.devnet-faucet-fieldset {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-md);
+  background: rgba(6, 7, 8, 0.54);
+}
+
+.devnet-faucet-primary {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) minmax(260px, 1.1fr);
+  gap: 1px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.devnet-faucet-wallet,
+.devnet-faucet-default {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  min-height: 148px;
+  padding: 20px;
+  background: rgba(6, 7, 8, 0.78);
+}
+
+.devnet-faucet-wallet span,
+.devnet-faucet-default span,
+.devnet-faucet-status span,
+.devnet-faucet-fieldset-title,
+.devnet-faucet-fieldset label span {
+  color: var(--text-low);
+}
+
+.devnet-faucet-wallet strong,
+.devnet-faucet-default strong {
+  color: var(--text-high);
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2cqi, 24px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.devnet-faucet-wallet[data-connected='true'] strong {
+  color: var(--green-bright);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+.devnet-faucet-wallet small {
+  max-width: 38ch;
+  color: var(--text-low);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.devnet-faucet-default {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.devnet-faucet-claim,
+.devnet-faucet-secondary,
+.devnet-faucet-link-button,
+.devnet-faucet-toggle {
+  border: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  cursor: pointer;
+  transition: transform 0.16s var(--ease), border-color 0.16s var(--ease), background 0.16s var(--ease), color 0.16s var(--ease), opacity 0.16s var(--ease);
+}
+
+.devnet-faucet-claim {
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: var(--radius-sm);
+  background: var(--green-bright);
+  color: #04100b;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.devnet-faucet-secondary {
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid rgba(52, 211, 153, 0.34);
+  border-radius: var(--radius-sm);
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--green-bright);
+}
+
+.devnet-faucet-link-button {
+  min-height: 40px;
+  padding: 0 10px;
+  background: transparent;
+  color: var(--text-low);
+}
+
+.devnet-faucet-claim:hover:not(:disabled),
+.devnet-faucet-secondary:hover:not(:disabled),
+.devnet-faucet-link-button:hover:not(:disabled),
+.devnet-faucet-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.devnet-faucet-claim:disabled,
+.devnet-faucet-secondary:disabled,
+.devnet-faucet-link-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.46;
+  transform: none;
+}
+
+.devnet-faucet-claim:focus-visible,
+.devnet-faucet-secondary:focus-visible,
+.devnet-faucet-link-button:focus-visible,
+.devnet-faucet-toggle:focus-visible,
+.devnet-faucet-fieldset input:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+}
+
+.devnet-faucet-status {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  min-height: 148px;
+  padding: 20px;
+}
+
+.devnet-faucet-status[data-phase='success'] {
+  border-color: rgba(52, 211, 153, 0.34);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.devnet-faucet-status[data-phase='error'] {
+  border-color: rgba(251, 191, 36, 0.38);
+  background: rgba(251, 191, 36, 0.08);
+}
+
+.devnet-faucet-status p {
+  margin: 0;
+  color: var(--text-mid);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.devnet-faucet-status a {
+  width: fit-content;
+  color: var(--green-bright);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.devnet-faucet-tools {
+  display: grid;
+  gap: 0;
+}
+
+.devnet-faucet-toggle {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  color: var(--text-mid);
+  text-align: left;
+}
+
+.devnet-faucet-collapsible {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.28s var(--ease), opacity 0.2s var(--ease);
+}
+
+.devnet-faucet-collapsible[data-open='true'] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.devnet-faucet-custom-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  overflow: hidden;
+}
+
+.devnet-faucet-fieldset {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+  padding: 18px;
+}
+
+.devnet-faucet-fieldset-title {
+  color: var(--text-mid);
+}
+
+.devnet-faucet-fieldset label {
+  display: grid;
+  gap: 8px;
+}
+
+.devnet-faucet-fieldset input {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.22);
+  color: var(--text-high);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 0 12px;
+}
+
+.devnet-faucet-fieldset input[aria-invalid='true'] {
+  border-color: rgba(251, 191, 36, 0.72);
+}
+
+.devnet-faucet-hint,
+.devnet-faucet-error,
+.devnet-faucet-rpc-message {
+  margin: 0;
+  color: var(--text-low);
+  font-size: 12px;
+  line-height: 1.55;
+  word-break: break-word;
+}
+
+.devnet-faucet-error {
+  color: var(--amber);
+}
+
+.devnet-faucet-rpc-message {
+  color: var(--text-mid);
+}
+
+.devnet-faucet-rpc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+@container (max-width: 780px) {
+  .devnet-faucet-header,
+  .devnet-faucet-body,
+  .devnet-faucet-primary,
+  .devnet-faucet-default,
+  .devnet-faucet-custom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .devnet-faucet-network {
+    justify-self: start;
+  }
+
+  .devnet-faucet-claim,
+  .devnet-faucet-secondary {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .devnet-faucet-claim,
+  .devnet-faucet-secondary,
+  .devnet-faucet-link-button,
+  .devnet-faucet-toggle,
+  .devnet-faucet-collapsible {
+    transition: none;
+  }
+}

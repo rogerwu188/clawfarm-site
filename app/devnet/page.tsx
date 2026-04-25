@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import DevnetFaucetCard from '../components/devnet/DevnetFaucetCard'
 
 export const metadata = {
   title: 'Devnet Phase 1 — ClawFarm Current Implementation',
@@ -128,6 +129,10 @@ export default function DevnetPage() {
               <div className="stat-unit">not represented by this page</div>
             </div>
           </div>
+
+          <div style={{ marginTop: 36 }}>
+            <DevnetFaucetCard />
+          </div>
         </div>
       </section>
 
@@ -136,7 +141,8 @@ export default function DevnetPage() {
           <div className="section-tag">Program addresses</div>
           <p className="section-text" style={{ maxWidth: 760, marginBottom: 24 }}>
             Static values copied from the local devnet deployment file. They are shown for verification and
-            integration context; this page does not query chain state in real time.
+            integration context; the faucet card above uses a devnet-only RPC connection for live wallet claims,
+            with optional custom RPC URL support.
           </p>
           <div className="panel">
             {DEPLOYMENT.map(([label, value]) => (
