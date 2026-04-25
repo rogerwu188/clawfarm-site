@@ -3,7 +3,7 @@
 import { useWallet } from '@solana/wallet-adapter-react'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
-import { claimDevnetFaucetViaGateway, normalizeRecipientAddress } from '@/app/lib/devnet-faucet/api'
+import { requestGatewayFaucetClaim, normalizeRecipientAddress } from '@/app/lib/devnet-faucet/api'
 import { validateFaucetClaimInput } from '@/app/lib/devnet-faucet/amounts'
 import {
   DEVNET_FAUCET_API_URL,
@@ -121,7 +121,7 @@ export default function DevnetFaucetCard() {
       try {
         const recipient = normalizeRecipientAddress(recipientDraft)
         setStatus({ phase: 'requesting', message: 'Requesting a Gateway-sponsored devnet claim.', signature: null })
-        const result = await claimDevnetFaucetViaGateway({
+        const result = await requestGatewayFaucetClaim({
           recipient,
           clawAmount: input.clawAmount,
           usdcAmount: input.usdcAmount,

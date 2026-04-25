@@ -113,7 +113,7 @@ function parseGatewayResponse(payload: FaucetGatewayResponse): FaucetGatewayClai
   }
 }
 
-export async function claimDevnetFaucetViaGateway(
+export async function requestGatewayFaucetClaim(
   input: FaucetGatewayClaimInput
 ): Promise<FaucetGatewayClaimResult> {
   const endpoint = assertGatewayConfigured()
