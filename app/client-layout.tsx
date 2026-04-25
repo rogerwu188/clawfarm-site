@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic'
 import NetworkProvider from './components/NetworkProvider'
 import SolanaWalletProvider from './components/SolanaWalletProvider'
 const ConnectWalletButton = dynamic(() => import('./components/ConnectWalletButton'), { ssr: false })
+const NetworkSwitchButton = dynamic(() => import('./components/NetworkSwitchButton'), { ssr: false })
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
@@ -39,10 +40,11 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
               <Link href="/docs" className="nav-item">Docs</Link>
             </nav>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <div className="header-actions">
               <span className="cmdk-hint" aria-hidden>
                 <kbd>⌘</kbd><kbd>K</kbd>
               </span>
+              <NetworkSwitchButton />
               <ConnectWalletButton />
             </div>
           </div>
