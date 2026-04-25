@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
+import { usePathname } from 'next/navigation'
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react'
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui'
 import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets'
@@ -9,7 +10,11 @@ import { clusterApiUrl } from '@solana/web3.js'
 import '@solana/wallet-adapter-react-ui/styles.css'
 
 export default function SolanaWalletProvider({ children }: { children: React.ReactNode }) {
-  const endpoint = useMemo(() => clusterApiUrl('mainnet-beta'), [])
+  const pathname = usePathname()
+  const endpoint = useMemo(
+    () => clusterApiUrl(pathname === '/devnet' ? 'devnet' : 'mainnet-beta'),
+    [pathname]
+  )
   const wallets = useMemo(() => [
     new PhantomWalletAdapter(),
     new SolflareWalletAdapter(),
