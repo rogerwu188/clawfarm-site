@@ -1,12 +1,9 @@
-import { PublicKey, clusterApiUrl } from '@solana/web3.js'
+import { PublicKey } from '@solana/web3.js'
 
 export const DEVNET_FAUCET_DECIMALS = 6
 export const DEVNET_FAUCET_BASE_UNITS = BigInt(10 ** DEVNET_FAUCET_DECIMALS)
 
-export const DEVNET_DEFAULT_RPC_URL =
-  process.env.NEXT_PUBLIC_SOLANA_DEVNET_RPC_URL || clusterApiUrl('devnet')
-
-export const DEVNET_RPC_STORAGE_KEY = 'clawfarm.devnet.rpcUrl'
+export const DEVNET_FAUCET_API_URL = process.env.NEXT_PUBLIC_DEVNET_FAUCET_API_URL || ''
 
 export const DEVNET_MASTERPOOL_PROGRAM_ID = new PublicKey(
   'AP5gMEh6yHjvZBjh7Xg5fgs4EnBiCbVUoDyXxMi1omux'
