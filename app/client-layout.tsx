@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import dynamic from 'next/dynamic'
 
+import NetworkProvider from './components/NetworkProvider'
 import SolanaWalletProvider from './components/SolanaWalletProvider'
 const ConnectWalletButton = dynamic(() => import('./components/ConnectWalletButton'), { ssr: false })
 
@@ -12,8 +13,9 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   const isHome = pathname === '/'
 
   return (
-    <SolanaWalletProvider>
-      <>
+    <NetworkProvider>
+      <SolanaWalletProvider>
+        <>
         {/* Protocol Header */}
         <header className="protocol-header">
           <div className="header-row header-top">
@@ -85,7 +87,8 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             </div>
           </div>
         </footer>
-      </>
-    </SolanaWalletProvider>
+        </>
+      </SolanaWalletProvider>
+    </NetworkProvider>
   )
 }

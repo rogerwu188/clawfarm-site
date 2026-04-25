@@ -1,12 +1,12 @@
 'use client'
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 
 import {
   SOLANA_NETWORKS,
   getCanonicalRouteForNetwork,
-  getNetworkIdFromPathAndQuery,
+  getNetworkIdFromPathname,
   getNormalizedNetworkHref,
   type SolanaNetworkConfig,
   type SolanaNetworkId,
@@ -42,11 +42,10 @@ function loadWalletRpcOverrides(): WalletRpcOverrides {
 
 export default function NetworkProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  const searchParams = useSearchParams()
   const router = useRouter()
   const [walletRpcOverrides, setWalletRpcOverrides] = useState<WalletRpcOverrides>({})
 
-  const networkId = getNetworkIdFromPathAndQuery(pathname, searchParams)
+  const networkId = getNetworkIdFromPathname(pathname)
   const network = SOLANA_NETWORKS[networkId]
   const customWalletRpcUrl = walletRpcOverrides[networkId]
   const walletRpcUrl = customWalletRpcUrl || getDefaultWalletRpcUrl(networkId)
@@ -57,14 +56,15 @@ export default function NetworkProvider({ children }: { children: React.ReactNod
   }, [])
 
   useEffect(() => {
+    const currentQuery = window.location.search.replace(/^\?/, '')
+    const searchParams = new URLSearchParams(currentQuery)
     const normalizedHref = getNormalizedNetworkHref(pathname, searchParams)
-    const currentQuery = searchParams?.toString() || ''
     const currentHref = currentQuery ? `${pathname}?${currentQuery}` : pathname
 
     if (normalizedHref && normalizedHref !== currentHref) {
       router.replace(normalizedHref)
     }
-  }, [pathname, router, searchParams])
+  }, [pathname, router])
 
   const setWalletRpcUrl = useCallback((targetNetworkId: SolanaNetworkId, rpcUrl: string) => {
     const savedRpcUrl = writeStoredWalletRpcUrl(targetNetworkId, rpcUrl)
