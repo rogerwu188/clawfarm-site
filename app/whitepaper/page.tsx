@@ -1,6 +1,25 @@
 import Link from 'next/link'
 
-export const metadata = { title: 'Whitepaper — ClawFarm', description: 'Decentralized AI Compute Marketplace — Protocol Architecture v2.0' }
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Whitepaper — ClawFarm Protocol v2.0 | Architecture export const metadata = { title: 'Whitepaper — ClawFarm', description: 'Decentralized AI Compute Marketplace — Protocol Architecture v2.0' } Economics',
+  description: 'Decentralized AI Compute Marketplace — Protocol Architecture, routing, metering, settlement, and token economics.',
+  metadataBase: new URL('https://www.clawfarm.network'),
+  alternates: { canonical: '/whitepaper' },
+  openGraph: {
+    title: 'ClawFarm Whitepaper v2.0',
+    description: 'Protocol architecture, routing, metering, settlement, and token economics.',
+    url: 'https://www.clawfarm.network/whitepaper',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'ClawFarm Whitepaper' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ClawFarm Whitepaper v2.0',
+    description: 'Protocol architecture and token economics.',
+    images: ['/og-image.png'],
+  },
+}
 
 export default function Whitepaper() {
   return (

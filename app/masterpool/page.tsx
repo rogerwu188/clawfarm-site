@@ -1,6 +1,25 @@
 import Link from 'next/link'
 
-export const metadata = { title: 'Network Explorer — ClawFarm', description: 'Real-time network state: escrow, providers, settlement, treasury' }
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Network Explorer — ClawFarm | Real-time On-chain State',
+  description: 'Real-time view of escrow state, provider registry, settlement activity, and treasury operations. All data on-chain and verifiable.',
+  metadataBase: new URL('https://www.clawfarm.network'),
+  alternates: { canonical: '/masterpool' },
+  openGraph: {
+    title: 'ClawFarm Network Explorer',
+    description: 'Real-time on-chain state: escrow, providers, settlement, treasury.',
+    url: 'https://www.clawfarm.network/masterpool',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'ClawFarm Network Explorer' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ClawFarm Network Explorer',
+    description: 'Real-time on-chain state.',
+    images: ['/og-image.png'],
+  },
+}
 
 export default function Pool() {
   return (
