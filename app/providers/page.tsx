@@ -74,10 +74,16 @@ function ProvidersContent() {
 
       <section className="section" style={{borderBottom:'1px solid var(--border)'}}>
         <div className="max-w-6xl mx-auto px-6">
+          <div className="mb-6">
+            <h1 className="text-[28px] font-bold">AI Compute Marketplace</h1>
+            <p className="text-[var(--text-mid)] text-[14px] mt-1">
+              Browse real-time provider pricing for GPT-4o, Claude, DeepSeek and more. On-chain settlement.
+            </p>
+          </div>
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div>
               <div className="font-mono text-[11px] text-[var(--text-dim)] mb-2 tracking-wider">PROVIDER LIST</div>
-              <h1 className="text-[28px] font-bold">{model}</h1>
+              <h2 className="text-[24px] font-bold">{model}</h2>
               <p className="text-[var(--text-mid)] text-[14px] mt-1">
                 {providers.length} providers registered · Sorted by 30D usage
               </p>
