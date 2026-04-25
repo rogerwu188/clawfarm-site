@@ -174,7 +174,7 @@ export default function DevnetFaucetCard() {
           <div className="devnet-faucet-kicker">Devnet faucet</div>
           <h2 id="devnet-faucet-title">Fund a test recipient through the Gateway.</h2>
           <p>
-            Claim disposable CLAW and Test USDC on Solana devnet. The Gateway sponsors the transaction, so your wallet only supplies a recipient public key and never signs the faucet claim.
+            Claim disposable CLAW and Test USDC on Solana devnet. The Gateway sponsors the transaction, so your wallet only supplies a recipient public key and never authorizes the faucet transfer.
           </p>
         </div>
         <div className="devnet-faucet-network" aria-label="Network selection">
