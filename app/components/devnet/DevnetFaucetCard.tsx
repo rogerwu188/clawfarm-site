@@ -1,23 +1,17 @@
 'use client'
 
 import { useWallet } from '@solana/wallet-adapter-react'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 
+import { useNetwork } from '@/app/components/NetworkProvider'
 import { validateFaucetClaimInput } from '@/app/lib/devnet-faucet/amounts'
 import { claimDevnetFaucet } from '@/app/lib/devnet-faucet/client'
 import {
-  DEVNET_DEFAULT_RPC_URL,
   DEVNET_FAUCET_LIMITS,
   solscanDevnetTxUrl,
 } from '@/app/lib/devnet-faucet/constants'
 import { normalizeFaucetError } from '@/app/lib/devnet-faucet/errors'
-import {
-  assertDevnetRpcHealthy,
-  clearStoredDevnetRpcUrl,
-  createDevnetConnection,
-  getInitialDevnetRpcUrl,
-  writeStoredDevnetRpcUrl,
-} from '@/app/lib/devnet-faucet/rpc'
+import { assertRpcHealthy, createNetworkConnection } from '@/app/lib/network/rpc'
 
 type ClaimPhase = 'idle' | 'preparing' | 'signing' | 'confirming' | 'success' | 'error'
 
@@ -62,27 +56,14 @@ function getStatusLabel(phase: ClaimPhase): string {
 
 export default function DevnetFaucetCard() {
   const wallet = useWallet()
+  const { networkId, walletRpcUrl } = useNetwork()
   const [customOpen, setCustomOpen] = useState(false)
-  const [rpcDraft, setRpcDraft] = useState(DEVNET_DEFAULT_RPC_URL)
-  const [selectedRpcUrl, setSelectedRpcUrl] = useState(DEVNET_DEFAULT_RPC_URL)
-  const [rpcMessage, setRpcMessage] = useState('Using the default Solana devnet RPC.')
-  const [rpcChecking, setRpcChecking] = useState(false)
   const [clawAmount, setClawAmount] = useState<string>(DEVNET_FAUCET_LIMITS.defaultClaw)
   const [usdcAmount, setUsdcAmount] = useState<string>(DEVNET_FAUCET_LIMITS.defaultUsdc)
   const [status, setStatus] = useState<ClaimStatus>(DEFAULT_STATUS)
 
-  useEffect(() => {
-    const initialRpcUrl = getInitialDevnetRpcUrl()
-    setSelectedRpcUrl(initialRpcUrl)
-    setRpcDraft(initialRpcUrl)
-    setRpcMessage(
-      initialRpcUrl === DEVNET_DEFAULT_RPC_URL
-        ? 'Using the default Solana devnet RPC.'
-        : 'Using your saved devnet RPC endpoint.'
-    )
-  }, [])
-
   const walletAddress = wallet.publicKey?.toBase58() ?? null
+  const isDevnet = networkId === 'devnet'
   const validation = useMemo(
     () =>
       validateFaucetClaimInput({
@@ -94,7 +75,7 @@ export default function DevnetFaucetCard() {
     [clawAmount, usdcAmount]
   )
   const busy = status.phase === 'preparing' || status.phase === 'signing' || status.phase === 'confirming'
-  const canClaim = Boolean(wallet.publicKey) && !busy && validation.ok
+  const canClaim = isDevnet && Boolean(wallet.publicKey) && !busy && validation.ok
 
   const handleDefaultClaim = useCallback(async () => {
     setClawAmount(DEVNET_FAUCET_LIMITS.defaultClaw)
@@ -111,10 +92,15 @@ export default function DevnetFaucetCard() {
       return
     }
 
-    setStatus({ phase: 'preparing', message: 'Checking the selected devnet RPC and assembling token accounts.', signature: null })
+    if (!isDevnet) {
+      setStatus({ phase: 'error', message: 'Switch to Devnet before claiming faucet tokens.', signature: null })
+      return
+    }
+
+    setStatus({ phase: 'preparing', message: 'Checking the active Devnet wallet RPC and assembling token accounts.', signature: null })
     try {
-      await assertDevnetRpcHealthy(selectedRpcUrl)
-      const connection = createDevnetConnection(selectedRpcUrl)
+      await assertRpcHealthy(walletRpcUrl)
+      const connection = createNetworkConnection(walletRpcUrl)
       setStatus({ phase: 'signing', message: 'Open your wallet to sign the devnet faucet transaction.', signature: null })
       const signature = await claimDevnetFaucet({
         connection,
@@ -128,18 +114,23 @@ export default function DevnetFaucetCard() {
     } catch (error) {
       setStatus({ phase: 'error', message: normalizeFaucetError(error), signature: null })
     }
-  }, [selectedRpcUrl, wallet])
+  }, [isDevnet, wallet, walletRpcUrl])
 
   const handleCustomClaim = useCallback(async () => {
+    if (!isDevnet) {
+      setStatus({ phase: 'error', message: 'Switch to Devnet before claiming faucet tokens.', signature: null })
+      return
+    }
+
     if (!validation.ok) {
       setStatus({ phase: 'error', message: validation.message, signature: null })
       return
     }
 
-    setStatus({ phase: 'preparing', message: 'Validating amounts, RPC health, and faucet account setup.', signature: null })
+    setStatus({ phase: 'preparing', message: 'Validating amounts, active Devnet wallet RPC, and faucet account setup.', signature: null })
     try {
-      await assertDevnetRpcHealthy(selectedRpcUrl)
-      const connection = createDevnetConnection(selectedRpcUrl)
+      await assertRpcHealthy(walletRpcUrl)
+      const connection = createNetworkConnection(walletRpcUrl)
       setStatus({ phase: 'signing', message: 'Approve the custom devnet claim in your wallet.', signature: null })
       const signature = await claimDevnetFaucet({
         connection,
@@ -153,31 +144,7 @@ export default function DevnetFaucetCard() {
     } catch (error) {
       setStatus({ phase: 'error', message: normalizeFaucetError(error), signature: null })
     }
-  }, [selectedRpcUrl, validation, wallet])
-
-  const handleSaveRpc = useCallback(async () => {
-    setRpcChecking(true)
-    setRpcMessage('Checking devnet RPC health…')
-    try {
-      await assertDevnetRpcHealthy(rpcDraft)
-      const trimmedRpcUrl = rpcDraft.trim()
-      writeStoredDevnetRpcUrl(trimmedRpcUrl)
-      setSelectedRpcUrl(trimmedRpcUrl)
-      setRpcDraft(trimmedRpcUrl)
-      setRpcMessage('Saved. Faucet claims now use this component-local devnet connection.')
-    } catch (error) {
-      setRpcMessage(normalizeFaucetError(error))
-    } finally {
-      setRpcChecking(false)
-    }
-  }, [rpcDraft])
-
-  const handleResetRpc = useCallback(() => {
-    clearStoredDevnetRpcUrl()
-    setSelectedRpcUrl(DEVNET_DEFAULT_RPC_URL)
-    setRpcDraft(DEVNET_DEFAULT_RPC_URL)
-    setRpcMessage('Reset to the default Solana devnet RPC.')
-  }, [])
+  }, [isDevnet, validation, wallet, walletRpcUrl])
 
   return (
     <section className="devnet-faucet-card" aria-labelledby="devnet-faucet-title">
@@ -186,7 +153,7 @@ export default function DevnetFaucetCard() {
           <div className="devnet-faucet-kicker">Devnet faucet</div>
           <h2 id="devnet-faucet-title">Prime a wallet for settlement tests.</h2>
           <p>
-            Claim disposable CLAW and Test USDC on Solana devnet. The transaction is wallet-signed and verified against the RPC endpoint selected here.
+            Claim disposable CLAW and Test USDC on Solana devnet. The active wallet/read RPC is controlled by the global network switch in the header.
           </p>
         </div>
         <div className="devnet-faucet-network" aria-label="Network selection">
@@ -202,8 +169,8 @@ export default function DevnetFaucetCard() {
             <strong>{walletAddress ? shortenAddress(walletAddress) : 'Connect before claiming'}</strong>
             <small>
               {walletAddress
-                ? 'This wallet signs the faucet claim and receives both token accounts.'
-                : 'Use the header wallet control, then return here for a one-click devnet claim.'}
+                ? 'This wallet signs the devnet faucet claim and receives both token accounts.'
+                : 'Use the header wallet control and Devnet network switch, then return here for a one-click claim.'}
             </small>
           </div>
 
@@ -212,7 +179,7 @@ export default function DevnetFaucetCard() {
               <span>Default allocation</span>
               <strong>{DEVNET_FAUCET_LIMITS.defaultClaw} CLAW + {DEVNET_FAUCET_LIMITS.defaultUsdc} Test USDC</strong>
             </div>
-            <button className="devnet-faucet-claim" type="button" onClick={handleDefaultClaim} disabled={!wallet.publicKey || busy}>
+            <button className="devnet-faucet-claim" type="button" onClick={handleDefaultClaim} disabled={!isDevnet || !wallet.publicKey || busy}>
               {busy ? 'Claim in progress' : 'Claim default tokens'}
             </button>
           </div>
@@ -237,7 +204,7 @@ export default function DevnetFaucetCard() {
           aria-controls="devnet-faucet-custom"
           onClick={() => setCustomOpen((open) => !open)}
         >
-          <span>{customOpen ? 'Hide custom controls' : 'Custom amounts and RPC'}</span>
+          <span>{customOpen ? 'Hide custom controls' : 'Custom amounts'}</span>
           <span aria-hidden="true">{customOpen ? '−' : '+'}</span>
         </button>
 
@@ -273,30 +240,6 @@ export default function DevnetFaucetCard() {
               <button className="devnet-faucet-secondary" type="button" onClick={handleCustomClaim} disabled={!canClaim}>
                 Claim custom amounts
               </button>
-            </div>
-
-            <div className="devnet-faucet-fieldset" aria-labelledby="devnet-faucet-rpc-label">
-              <div id="devnet-faucet-rpc-label" className="devnet-faucet-fieldset-title">Component RPC</div>
-              <label>
-                <span>Devnet endpoint</span>
-                <input
-                  type="url"
-                  value={rpcDraft}
-                  onChange={(event) => setRpcDraft(event.target.value)}
-                  placeholder={DEVNET_DEFAULT_RPC_URL}
-                  spellCheck={false}
-                />
-              </label>
-              <p className="devnet-faucet-hint">Active: {selectedRpcUrl}</p>
-              <p className="devnet-faucet-rpc-message">{rpcMessage}</p>
-              <div className="devnet-faucet-rpc-actions">
-                <button className="devnet-faucet-secondary" type="button" onClick={handleSaveRpc} disabled={rpcChecking || busy}>
-                  {rpcChecking ? 'Checking RPC' : 'Save RPC'}
-                </button>
-                <button className="devnet-faucet-link-button" type="button" onClick={handleResetRpc} disabled={rpcChecking || busy}>
-                  Reset default
-                </button>
-              </div>
             </div>
           </div>
         </div>
