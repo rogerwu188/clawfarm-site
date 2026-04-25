@@ -208,7 +208,12 @@ export default function DevnetFaucetCard() {
           <span aria-hidden="true">{customOpen ? '−' : '+'}</span>
         </button>
 
-        <div id="devnet-faucet-custom" className="devnet-faucet-collapsible" data-open={customOpen} inert={!customOpen}>
+        <div
+          id="devnet-faucet-custom"
+          className="devnet-faucet-collapsible"
+          data-open={customOpen}
+          aria-hidden={!customOpen}
+        >
           <div className="devnet-faucet-custom-grid">
             <div className="devnet-faucet-fieldset" aria-labelledby="devnet-faucet-amounts-label">
               <div id="devnet-faucet-amounts-label" className="devnet-faucet-fieldset-title">Claim amounts</div>

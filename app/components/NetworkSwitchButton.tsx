@@ -1,7 +1,7 @@
 'use client'
 
 import { useWallet } from '@solana/wallet-adapter-react'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { KeyboardEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { useNetwork } from './NetworkProvider'
 import { SOLANA_NETWORK_ORDER, SOLANA_NETWORKS, type SolanaNetworkId } from '@/app/lib/network/config'
@@ -34,11 +34,18 @@ export default function NetworkSwitchButton() {
   const [rpcDraft, setRpcDraft] = useState(walletRpcUrl)
   const [rpcMessage, setRpcMessage] = useState('')
   const [switchError, setSwitchError] = useState('')
+  const dialogRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     setRpcDraft(walletRpcUrl)
     setRpcMessage('')
   }, [networkId, walletRpcUrl])
+
+  useEffect(() => {
+    if (!pendingNetwork) return
+    const firstButton = dialogRef.current?.querySelector<HTMLButtonElement>('button')
+    firstButton?.focus()
+  }, [pendingNetwork])
 
   const rpcStatus = useMemo(() => {
     const source = isCustomWalletRpc ? 'Custom' : 'Default'
@@ -105,6 +112,30 @@ export default function NetworkSwitchButton() {
     setRpcMessage(`Reset ${network.label} wallet RPC to the default endpoint.`)
   }, [network.label, networkId, resetWalletRpcUrl])
 
+  const handleDialogKeyDown = useCallback((event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Escape') {
+      handleCancelSwitch()
+      return
+    }
+
+    if (event.key !== 'Tab') return
+
+    const focusable = Array.from(
+      dialogRef.current?.querySelectorAll<HTMLButtonElement>('button:not(:disabled)') || []
+    )
+    if (!focusable.length) return
+
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault()
+      last.focus()
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault()
+      first.focus()
+    }
+  }, [handleCancelSwitch])
+
   return (
     <div className="network-switch">
       <button
@@ -167,10 +198,12 @@ export default function NetworkSwitchButton() {
       {pendingNetwork ? (
         <div className="network-switch-dialog-backdrop" role="presentation">
           <div
+            ref={dialogRef}
             className="network-switch-dialog"
             role="dialog"
             aria-modal="true"
             aria-labelledby="network-switch-dialog-title"
+            onKeyDown={handleDialogKeyDown}
           >
             <h2 id="network-switch-dialog-title">Switch to {SOLANA_NETWORKS[pendingNetwork].label}?</h2>
             <p>

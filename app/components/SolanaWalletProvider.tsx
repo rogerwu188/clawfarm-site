@@ -17,7 +17,7 @@ export default function SolanaWalletProvider({ children }: { children: React.Rea
   ], [])
 
   return (
-    <ConnectionProvider endpoint={walletRpcUrl} key={walletRpcUrl}>
+    <ConnectionProvider endpoint={walletRpcUrl}>
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
           {children}
