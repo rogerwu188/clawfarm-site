@@ -3,7 +3,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Whitepaper — ClawFarm Protocol v2.0 | Architecture export const metadata = { title: 'Whitepaper — ClawFarm', description: 'Decentralized AI Compute Marketplace — Protocol Architecture v2.0' } Economics',
+  title: 'Whitepaper — ClawFarm Protocol v2.0 | Architecture & Economics',
   description: 'Decentralized AI Compute Marketplace — Protocol Architecture, routing, metering, settlement, and token economics.',
   metadataBase: new URL('https://www.clawfarm.network'),
   alternates: { canonical: '/whitepaper' },
