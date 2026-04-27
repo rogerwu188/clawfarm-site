@@ -13,7 +13,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://www.clawfarm.network/og-users.png',
+        url: 'https://www.clawfarm.network/og-image.png',
         width: 1200,
         height: 630,
         alt: 'ClawFarm — Decentralized AI Compute for Users',

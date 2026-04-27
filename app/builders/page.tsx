@@ -11,6 +11,7 @@ export const metadata = {
     siteName: 'ClawFarm',
     locale: 'en_US',
     type: 'website',
+    images: [{ url: 'https://www.clawfarm.network/og-image.png', width: 1200, height: 630, alt: 'ClawFarm for Builders' }],
   },
   twitter: {
     card: 'summary_large_image',
