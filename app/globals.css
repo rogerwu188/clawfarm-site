@@ -1117,8 +1117,7 @@ body {
   color: var(--text-low);
 }
 
-.devnet-faucet-wallet strong,
-.devnet-faucet-default strong {
+.devnet-faucet-wallet strong {
   color: var(--text-high);
   font-family: var(--font-display);
   font-size: clamp(18px, 2cqi, 24px);
@@ -1141,8 +1140,38 @@ body {
 }
 
 .devnet-faucet-default {
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: center;
+  align-items: start;
+  gap: 16px;
+}
+
+.devnet-faucet-default > div {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+}
+
+.devnet-faucet-allocation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
+  color: var(--text-high);
+  font-family: var(--font-display);
+  font-size: clamp(18px, 1.65cqi, 21px);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+}
+
+.devnet-faucet-allocation span {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  text-transform: none;
+  white-space: nowrap;
 }
 
 .devnet-faucet-claim,

@@ -206,7 +206,11 @@ export default function DevnetFaucetCard() {
           <div className="devnet-faucet-default">
             <div>
               <span>Default allocation</span>
-              <strong>{DEVNET_FAUCET_LIMITS.defaultClaw} CLAW + {DEVNET_FAUCET_LIMITS.defaultUsdc} Test USDC</strong>
+              <strong className="devnet-faucet-allocation">
+                <span>{DEVNET_FAUCET_LIMITS.defaultClaw} CLAW</span>
+                <span aria-hidden="true">+</span>
+                <span>{DEVNET_FAUCET_LIMITS.defaultUsdc} Test USDC</span>
+              </strong>
             </div>
             <button className="devnet-faucet-claim" type="button" onClick={handleDefaultClaim} disabled={!canClaim}>
               {busy ? 'Claim in progress' : 'Request sponsored claim'}
