@@ -1,9 +1,13 @@
 import { PublicKey } from '@solana/web3.js'
 
+import { buildGatewayUrl, CLAWFARM_GATEWAY_URL } from '../wallet-chat/api'
+
 export const DEVNET_FAUCET_DECIMALS = 6
 export const DEVNET_FAUCET_BASE_UNITS = BigInt(10 ** DEVNET_FAUCET_DECIMALS)
 
-export const DEVNET_FAUCET_API_URL = process.env.NEXT_PUBLIC_DEVNET_FAUCET_API_URL || ''
+export const DEVNET_FAUCET_API_URL = CLAWFARM_GATEWAY_URL.trim()
+  ? buildGatewayUrl(CLAWFARM_GATEWAY_URL, '/clawfarm/v1/devnet/faucet/claim')
+  : ''
 
 export const DEVNET_MASTERPOOL_PROGRAM_ID = new PublicKey(
   'AP5gMEh6yHjvZBjh7Xg5fgs4EnBiCbVUoDyXxMi1omux'

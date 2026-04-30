@@ -75,7 +75,7 @@ function assertGatewayConfigured(): string {
   if (!endpoint) {
     throw new FaucetGatewayError(
       'FAUCET_API_NOT_CONFIGURED',
-      'Devnet faucet API is not configured for this build.'
+      'NEXT_PUBLIC_CLAWFARM_GATEWAY_URL is not configured for this build.'
     )
   }
   return endpoint

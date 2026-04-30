@@ -10,7 +10,6 @@ export type SolanaNetworkConfig = {
   clusterParam: SolanaNetworkId
   solscanClusterParam: 'devnet' | null
   defaultWalletRpcUrl: string
-  apiBaseUrl: string
 }
 
 const MAINNET_RPC_URL = process.env.NEXT_PUBLIC_SOLANA_MAINNET_RPC_URL || clusterApiUrl('mainnet-beta')
@@ -25,7 +24,6 @@ export const SOLANA_NETWORKS: Record<SolanaNetworkId, SolanaNetworkConfig> = {
     clusterParam: 'mainnet',
     solscanClusterParam: null,
     defaultWalletRpcUrl: MAINNET_RPC_URL,
-    apiBaseUrl: process.env.NEXT_PUBLIC_MAINNET_API_URL || '',
   },
   devnet: {
     id: 'devnet',
@@ -35,7 +33,6 @@ export const SOLANA_NETWORKS: Record<SolanaNetworkId, SolanaNetworkConfig> = {
     clusterParam: 'devnet',
     solscanClusterParam: 'devnet',
     defaultWalletRpcUrl: DEVNET_RPC_URL,
-    apiBaseUrl: process.env.NEXT_PUBLIC_DEVNET_API_URL || '',
   },
 }
 
@@ -61,8 +58,12 @@ export function getNetworkIdFromPathAndQuery(
   const pathNetworkId = getNetworkIdFromPathname(pathname)
   const clusterNetworkId = getClusterParam(searchParams)
 
-  if (pathname === '/' && clusterNetworkId === 'devnet') {
-    return 'devnet'
+  if (pathNetworkId === 'devnet') {
+    return pathNetworkId
+  }
+
+  if (clusterNetworkId) {
+    return clusterNetworkId
   }
 
   return pathNetworkId

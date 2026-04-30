@@ -34,6 +34,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
               <Link href="/users" className="nav-item">AI Users</Link>
               <Link href="/builders" className="nav-item">Builders</Link>
               <Link href="/providers" className="nav-item">Marketplace</Link>
+              <Link href="/chat" className="nav-item">Chat</Link>
               <Link href="/install" className="nav-item">Become Provider</Link>
               <Link href="/masterpool" className="nav-item">Explorer</Link>
               <Link href="/whitepaper" className="nav-item">Protocol</Link>
@@ -74,6 +75,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
               <Link href="/users">AI Users</Link>
               <Link href="/builders">Builders</Link>
               <Link href="/providers">Marketplace</Link>
+              <Link href="/chat">Chat</Link>
               <Link href="/install">Become Provider</Link>
               <Link href="/masterpool">Explorer</Link>
               <Link href="/docs">Docs</Link>

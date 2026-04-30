@@ -4,5 +4,6 @@ node_modules
 out
 .env*
 .superpowers
-
+docs/superpowers
 .worktrees
+.DS_Store

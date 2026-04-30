@@ -39,6 +39,33 @@ npm run build
 # You can deploy to IPFS, Arweave, GitHub Pages, or any static host.
 ```
 
+
+### ClawFarm Gateway
+
+The static site calls the AIRouter Gateway directly from the browser. Configure one public Gateway base URL at build time; leave it empty to surface the missing configuration state in the UI.
+
+```bash
+NEXT_PUBLIC_CLAWFARM_GATEWAY_URL=http://127.0.0.1:8383
+NEXT_PUBLIC_WALLET_CHAT_MAX_OUTPUT_TOKENS=512
+```
+
+The site derives these routes from that base URL:
+
+- `/clawfarm/v1/devnet/faucet/claim`
+- `/clawfarm/v1/wallet/config`
+- `/clawfarm/v1/wallet/sessions`
+- `/clawfarm/v1/models`
+- `/clawfarm/chat/completions`
+
+Do not configure a public ClawFarm API key. Wallet chat uses Solana wallet authorization and SPL Token delegate allowance instead of a site API key.
+
+Wallet chat now starts a bounded payment session after allowance is ready:
+
+- Delegate approval is still a separate SPL Token transaction and remains required before paid chat.
+- Starting a chat session signs one `clawfarm.payment.session.v1` message through the connected wallet.
+- Each message then sends `X-ClawFarm-Session-ID` to the Gateway, so active sessions do not prompt another wallet signature.
+- Session expiry, missing sessions, or budget/request exhaustion clears local session state and asks the user to renew.
+
 ## Developer SDK
 
 Integrate ClawFarm into your own applications:

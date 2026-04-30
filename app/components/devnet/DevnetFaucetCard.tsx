@@ -1,6 +1,7 @@
 'use client'
 
 import { useWallet } from '@solana/wallet-adapter-react'
+import Link from 'next/link'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { useNetwork } from '@/app/components/NetworkProvider'
@@ -230,6 +231,27 @@ export default function DevnetFaucetCard() {
       </div>
 
       <div className="devnet-faucet-tools">
+        <div className="devnet-faucet-chat-cta" data-connected={Boolean(walletAddress)}>
+          <div>
+            <span>Wallet-native chat</span>
+            <strong>Try ClawFarm inference through the Gateway.</strong>
+            <p>
+              {walletAddress
+                ? 'Your connected wallet can sign chat payment intents on the next page.'
+                : 'Connect a wallet first to enable the chat workspace.'}
+            </p>
+          </div>
+          {walletAddress ? (
+            <Link className="devnet-faucet-chat-link" href="/chat?cluster=devnet">
+              Try it!
+            </Link>
+          ) : (
+            <button className="devnet-faucet-chat-link" type="button" disabled>
+              Connect wallet first
+            </button>
+          )}
+        </div>
+
         <div className="devnet-faucet-fieldset devnet-faucet-recipient" aria-labelledby="devnet-faucet-recipient-label">
           <div id="devnet-faucet-recipient-label" className="devnet-faucet-fieldset-title">Recipient</div>
           <label>
