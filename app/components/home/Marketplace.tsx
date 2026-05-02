@@ -35,7 +35,7 @@ const VID: VidRow[] = [
 
 function ProviderCell({ nm, p }: { nm: string; p: string }) {
   return (
-    <td>
+    <td data-label="Top Provider">
       <div className="td-provider-name">{nm}</div>
       <div className="td-provider-addr">{p}</div>
     </td>
@@ -46,14 +46,13 @@ export default function Marketplace() {
   return (
     <section className="section">
       <div className="section-inner">
-        <p className="section-eyebrow">Provider Marketplace</p>
+        <p className="section-eyebrow">Provider Registry</p>
         <h2 className="section-title">
-          Every major model.<br />
-          Priced by <span className="accent">competing</span> providers.
+          Open supply for <span className="accent">AI work.</span>
         </h2>
         <p className="section-text">
-          Showing the top provider per model by volume. Anyone can register as a provider
-          for any model — prices are set by the market.
+          Model routing is the first live surface. The same registry can price and route
+          data services, agent services, evaluators, API proxies, GPU nodes, and custom endpoints.
         </p>
 
         {/* LLM */}
@@ -65,7 +64,7 @@ export default function Marketplace() {
             </div>
             <Link href="/models?category=Language+Models" className="mkt-category-link">→ View all language models</Link>
           </div>
-          <div style={{ overflowX: 'auto' }}>
+          <div className="mkt-table-wrap">
             <table className="mkt-table">
               <thead><tr>
                 <th style={{ width: 40 }}>#</th>
@@ -81,14 +80,14 @@ export default function Marketplace() {
               <tbody>
                 {LLM.map((r, i) => (
                   <tr key={i}>
-                    <td className="td-num">{i + 1}</td>
-                    <td className="td-model">{r.m}</td>
+                    <td className="td-num" data-label="Rank">{i + 1}</td>
+                    <td className="td-model" data-label="Model">{r.m}</td>
                     <ProviderCell nm={r.nm} p={r.p} />
-                    <td className="td-right">{r.i}</td>
-                    <td className="td-muted">{r.o}</td>
-                    <td className="td-ctx">{r.c}</td>
-                    <td className="td-usage">{r.u}</td>
-                    <td className="td-providers-link">
+                    <td className="td-right" data-label="Input">{r.i}</td>
+                    <td className="td-muted" data-label="Output">{r.o}</td>
+                    <td className="td-ctx" data-label="Ctx">{r.c}</td>
+                    <td className="td-usage" data-label="30d Usage">{r.u}</td>
+                    <td className="td-providers-link" data-label="Providers">
                       <Link href={`/providers?model=${encodeURIComponent(r.m)}`}>{r.n} providers</Link>
                     </td>
                     <td className="td-cta">
@@ -110,7 +109,7 @@ export default function Marketplace() {
             </div>
             <Link href="/models?category=Image+Generation" className="mkt-category-link">→ View all image models</Link>
           </div>
-          <div style={{ overflowX: 'auto' }}>
+          <div className="mkt-table-wrap">
             <table className="mkt-table">
               <thead><tr>
                 <th style={{ width: 40 }}>#</th>
@@ -125,13 +124,13 @@ export default function Marketplace() {
               <tbody>
                 {IMG.map((r, i) => (
                   <tr key={i}>
-                    <td className="td-num">{i + 1}</td>
-                    <td className="td-model">{r.m}</td>
+                    <td className="td-num" data-label="Rank">{i + 1}</td>
+                    <td className="td-model" data-label="Model">{r.m}</td>
                     <ProviderCell nm={r.nm} p={r.p} />
-                    <td className="td-right">{r.pr}</td>
-                    <td className="td-ctx">{r.r}</td>
-                    <td className="td-usage">{r.u}</td>
-                    <td className="td-providers-link">
+                    <td className="td-right" data-label="Price">{r.pr}</td>
+                    <td className="td-ctx" data-label="Res">{r.r}</td>
+                    <td className="td-usage" data-label="30d Usage">{r.u}</td>
+                    <td className="td-providers-link" data-label="Providers">
                       <Link href={`/providers?model=${encodeURIComponent(r.m)}`}>{r.n} providers</Link>
                     </td>
                     <td className="td-cta">
@@ -153,7 +152,7 @@ export default function Marketplace() {
             </div>
             <Link href="/models?category=Video+Generation" className="mkt-category-link">→ View all video models</Link>
           </div>
-          <div style={{ overflowX: 'auto' }}>
+          <div className="mkt-table-wrap">
             <table className="mkt-table">
               <thead><tr>
                 <th style={{ width: 40 }}>#</th>
@@ -168,13 +167,13 @@ export default function Marketplace() {
               <tbody>
                 {VID.map((r, i) => (
                   <tr key={i}>
-                    <td className="td-num">{i + 1}</td>
-                    <td className="td-model">{r.m}</td>
+                    <td className="td-num" data-label="Rank">{i + 1}</td>
+                    <td className="td-model" data-label="Model">{r.m}</td>
                     <ProviderCell nm={r.nm} p={r.p} />
-                    <td className="td-right">{r.pr}</td>
-                    <td className="td-ctx">{r.r}</td>
-                    <td className="td-usage">{r.u}</td>
-                    <td className="td-providers-link">
+                    <td className="td-right" data-label="Price/s">{r.pr}</td>
+                    <td className="td-ctx" data-label="Res">{r.r}</td>
+                    <td className="td-usage" data-label="30d Usage">{r.u}</td>
+                    <td className="td-providers-link" data-label="Providers">
                       <Link href={`/providers?model=${encodeURIComponent(r.m)}`}>{r.n} providers</Link>
                     </td>
                     <td className="td-cta">

@@ -36,7 +36,7 @@ export default function Install() {
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="section-title text-[36px]">Become a Provider</h1>
           <p className="section-text" style={{marginTop:'12px', fontSize:'16px', color:'var(--text-mid)'}}>
-            Register on-chain with a model endpoint, a price table, and a $CLAF stake. No approval. No billing infrastructure. Settlement goes directly from user escrow to your wallet via smart contract.
+            Register on-chain with a service endpoint, a price table, and a $CLAF stake. No approval. No billing infrastructure. Settlement goes directly from user escrow to your wallet via smart contract.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href="https://github.com/rogerwu188/clawfarm-skill" target="_blank" rel="noopener" className="btn-primary">
@@ -52,7 +52,7 @@ export default function Install() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="panel" style={{borderLeft:'3px solid var(--green)'}}>
             <p className="section-text" style={{fontSize:'15px', padding:'18px 22px'}}>
-              <strong>Two revenue streams: 97% of every USDC payment (direct, on-chain) + $CLAF token rewards per Epoch.</strong>
+              <strong>Two revenue streams: 97% of every USDC payment for verified work + protocol rewards per Epoch, weighted by verified usage, price efficiency, and quality.</strong>
             </p>
           </div>
           <div className="panel mt-4">
@@ -84,6 +84,18 @@ export default function Install() {
             <div className="grid-cell">
               <h4>Multi-Model Router</h4>
               <p>Register a single endpoint that routes to multiple models. The protocol meters each call individually.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>Agent Service Provider</h4>
+              <p>Register an autonomous service agent that performs research, translation, code review, domain analysis, data enrichment, or other machine-consumable work.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>Data Provider</h4>
+              <p>Publish fresh, domain-specific datasets or API feeds that agents can purchase programmatically.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>Evaluator Provider</h4>
+              <p>Provide task evaluation services that verify whether agent outputs meet specification before settlement.</p>
             </div>
           </div>
         </div>

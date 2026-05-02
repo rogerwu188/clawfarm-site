@@ -4,26 +4,27 @@ export default function Mining() {
   return (
     <section className="section">
       <div className="section-inner">
-        <p className="section-eyebrow">Dual-sided mining</p>
+        <p className="section-eyebrow">Rewards and economics</p>
         <h2 className="section-title">
-          Earn $CLAF by <span className="accent">serving</span><br />
-          or <span className="accent">consuming</span> AI.
+          Rewards support <span className="accent">verified work</span><br />
+          after settlement.
         </h2>
         <p className="section-text">
-          The $CLAF token is distributed daily to both sides of the marketplace. Supply
-          compute to earn 70%, or build and consume to earn 30%.
+          $CLAF rewards reinforce useful protocol activity. Providers earn for verified
+          AI Work Units, demand apps earn for real usage, and the treasury receives a
+          small settlement fee for buyback, maintenance, and resilience.
         </p>
 
         <div className="grid-3" style={{ marginTop: 56 }}>
           <div className="stat-card">
             <div className="stat-value"><span className="accent">70</span>%</div>
             <div className="stat-label">Supply-side Rewards</div>
-            <p className="stat-desc">Distributed to Providers based on usage, price, and quality scores.</p>
+            <p className="stat-desc">Distributed to providers based on verified work, price efficiency, and quality scores.</p>
           </div>
           <div className="stat-card">
             <div className="stat-value"><span className="accent">30</span>%</div>
             <div className="stat-label">Demand-side Rewards</div>
-            <p className="stat-desc">Usage mining: earn $CLAF proportional to the AI tokens you consume.</p>
+            <p className="stat-desc">Earned by protocol users and demand apps proportional to verified AI work consumption.</p>
           </div>
           <div className="stat-card">
             <div className="stat-value"><span className="accent">3</span>%</div>
