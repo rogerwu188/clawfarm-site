@@ -71,6 +71,58 @@ export default function Pool() {
         </div>
       </section>
 
+      {/* Autonomous Work */}
+      <section className="section">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="section-tag" style={{color:'var(--text)', fontWeight:700}}>Autonomous Work</div>
+          <p className="section-text" style={{marginTop:'8px', marginBottom:'16px', fontSize:'13px', color:'var(--text-mid)'}}>
+            AI Work Units include token inference, image/video generation, data retrieval, tool execution, and evaluator-verified task output.
+          </p>
+          <div className="grid-4 mt-4" style={{gridTemplateColumns:'repeat(4, 1fr)', gap:'12px'}}>
+            {[
+              ['Agent-to-Agent Tasks 24h', '—'],
+              ['Verified AI Work Units', '—'],
+              ['Active Demand Apps', '—'],
+              ['Active Service Agents', '—'],
+              ['Evaluator Pass Rate', '—'],
+              ['Disputed Tasks', '—'],
+              ['Settlement Success Rate', '—'],
+              ['Open Categories', '8'],
+            ].map(([label, value]) => (
+              <div key={label} className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
+                <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>{label}</div>
+                <div className="stat-value" style={{color:value === '8' ? 'var(--green)' : 'var(--text)'}}>{value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Demand Apps */}
+      <section className="section">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="section-tag">Demand Apps</div>
+          <div className="panel mt-4">
+            <div className="panel-row"><span className="panel-label">StoryClaw</span><span className="panel-value">AI Compute Market — routing/metering powered by ClawFarm</span></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Categories */}
+      <section className="section">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="section-tag">Service Categories</div>
+          <div className="grid-4 mt-4" style={{gridTemplateColumns:'repeat(4, 1fr)', gap:'12px'}}>
+            {['Models', 'GPU', 'API Proxy', 'Data', 'Research', 'Translation', 'Code Review', 'Evaluation'].map((label) => (
+              <div key={label} className="grid-cell">
+                <h4>{label}</h4>
+                <p>Registry category for routable AI work.</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 2. Escrow State */}
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">

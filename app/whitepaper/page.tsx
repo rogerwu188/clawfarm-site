@@ -3,8 +3,8 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Whitepaper — ClawFarm Protocol v2.0 | Architecture & Economics',
-  description: 'Decentralized AI Compute Marketplace — Protocol Architecture, routing, metering, settlement, and token economics.',
+  title: 'Whitepaper — ClawFarm Protocol v2.0 | Autonomous AI Work Settlement',
+  description: 'ClawFarm protocol architecture for autonomous AI work settlement, agent-to-agent commerce, routing, metering, verification, and token economics.',
   metadataBase: new URL('https://www.clawfarm.network'),
   alternates: { canonical: '/whitepaper' },
   openGraph: {
@@ -36,7 +36,7 @@ export default function Whitepaper() {
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="section-title text-[36px]">ClawFarm Whitepaper</h1>
           <p className="section-text" style={{fontSize:'18px', marginTop:'8px'}}>
-            Decentralized AI Compute Marketplace — Protocol Architecture
+            Autonomous AI Work Settlement Protocol
           </p>
           <p className="section-text" style={{marginTop:'24px', color:'var(--green)'}}>
             v2.0 — April 2026
@@ -49,13 +49,13 @@ export default function Whitepaper() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="section-tag">Abstract</div>
           <p className="section-text">
-            ClawFarm is a permissionless, non-custodial AI compute marketplace built on Solana. Users deposit USDC into an on-chain escrow contract, choose an automatic routing mode (eco / auto / premium), and consume AI inference from any registered Provider — without signing up with individual providers, configuring API keys, or trusting a central platform with their funds.
+            ClawFarm is a permissionless, non-custodial settlement protocol for autonomous AI work. Users, apps, and agents deposit USDC into on-chain escrow, choose an automatic routing mode (eco / auto / premium), and consume verified work from registered providers — without signing provider contracts, configuring many billing accounts, or trusting a central platform with their funds.
           </p>
           <p className="section-text" style={{marginTop:'16px'}}>
-            Providers register on-chain with a model endpoint, a public price table, and a $CLAF stake. The protocol routes requests, meters consumption via dual-signature usage proofs, settles payments through smart contracts, and distributes rewards — all without admin override.
+            Providers register on-chain with service endpoints, public pricing, and a $CLAF stake. The protocol routes requests, meters consumption via proofs, verifies completion, settles payments through smart contracts, and distributes rewards — all without admin override.
           </p>
           <p className="section-text" style={{marginTop:'24px', borderLeft:'3px solid var(--green)', paddingLeft:'16px', fontStyle:'italic'}}>
-            <strong>Central Claim:</strong> ClawFarm is the first truly non-custodial AI compute marketplace. The platform never holds user funds. Every USDC sits in a program-owned escrow. Every settlement is a contract execution. Every Provider payout is an on-chain transfer.
+            <strong>Central Claim:</strong> ClawFarm generalizes AI inference settlement into autonomous AI work settlement. Model routing is one use case; data retrieval, research, translation, code review, evaluation, and agent-to-agent services use the same escrow, metering, proof, and settlement primitives.
           </p>
         </div>
       </section>
@@ -74,7 +74,7 @@ export default function Whitepaper() {
           </p>
           <h3 className="text-[#e8e8e8] text-[16px] font-semibold mt-8 mb-3">1.3 The Gap</h3>
           <p className="section-text">
-            No AI compute marketplace is simultaneously permissionless, non-custodial, transparent, and practical. ClawFarm fills this gap.
+            No AI work settlement network is simultaneously permissionless, non-custodial, transparent, and practical. ClawFarm fills this gap.
           </p>
         </div>
       </section>
@@ -97,6 +97,49 @@ PROTOCOL LAYER (Solana Programs)
        ▼
 PROVIDER LAYER
   GPU Nodes · Cloud GPU · API Resellers · Custom Models`}</pre>
+          </div>
+        </div>
+      </section>
+
+      {/* 2b. Agent Commerce */}
+      <section className="section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-tag">Agent-to-Agent Commerce Layer</div>
+          <p className="section-text">
+            ClawFarm generalizes AI inference settlement into autonomous AI work settlement. The same escrow, routing, metering, and settlement primitives can support agent-to-agent services beyond model calls, including data retrieval, research, translation, code review, evaluation, and domain-specific workflows.
+          </p>
+          <div className="panel mt-4">
+            <pre className="text-[12px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>{`AGENT / APP LAYER
+  Agents · Demand Apps · Enterprise Frontends · StoryClaw
+       │
+       ▼
+SERVICE REGISTRY
+  Models · GPUs · APIs · Data Agents · Research Agents · Evaluators
+       │
+       ▼
+PROTOCOL LAYER
+  Escrow · Registry · Metering · Proofs · Settlement · Rewards
+       │
+       ▼
+PROVIDER LAYER
+  Compute Providers · Model Providers · Agent Service Providers · Data Providers`}</pre>
+          </div>
+          <div className="grid-2 mt-6">
+            {[
+              ['1. Task specification', 'Agent or app defines expected work, price constraints, and verification requirements.'],
+              ['2. Provider discovery', 'The registry returns matching model, tool, data, service, or evaluator providers.'],
+              ['3. Escrow authorization', 'USDC escrow authorizes spend without giving custody to a platform.'],
+              ['4. Execution', 'The selected provider executes the request or task.'],
+              ['5. Usage / delivery proof', 'Metered usage or delivery artifacts are signed and recorded.'],
+              ['6. Optional evaluator verification', 'Evaluator agents can verify output quality before settlement.'],
+              ['7. Settlement', 'Smart contracts pay providers from escrow after proof validation.'],
+              ['8. Reward accounting', 'AI Work Units feed supply-side and demand-side reward ledgers.'],
+            ].map(([title, desc]) => (
+              <div key={title} className="grid-cell">
+                <h4>{title}</h4>
+                <p>{desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -196,7 +239,7 @@ balance()        → available = deposited - settled - pending`}</pre>
           <div className="grid-3 mt-6" style={{gridTemplateColumns:'repeat(3, 1fr)', gap:'16px'}}>
             <div className="grid-cell">
               <h4>User</h4>
-              <p>Deposits USDC to escrow. Selects routing mode. Signs usage proofs. Earns $CLAF via Usage Mining. Withdraws anytime.</p>
+              <p>Deposits USDC to escrow. Selects routing mode. Signs usage proofs. Earns $CLAF demand-side rewards below the core settlement flow. Withdraws anytime.</p>
             </div>
             <div className="grid-cell">
               <h4>Provider</h4>
@@ -243,7 +286,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
           <h3 className="text-[#e8e8e8] text-[15px] font-semibold mt-6 mb-3">Epoch Distribution</h3>
           <div className="panel mt-2">
             <div className="panel-row"><span className="panel-label">Supply-Side Pool (Providers)</span><span className="panel-value" style={{color:'var(--green)'}}>70% — weighted by W_i</span></div>
-            <div className="panel-row"><span className="panel-label">Demand-Side Pool (Consumers)</span><span className="panel-value" style={{color:'var(--green)'}}>30% — Usage Mining</span></div>
+            <div className="panel-row"><span className="panel-label">Demand-Side Pool (Consumers)</span><span className="panel-value" style={{color:'var(--green)'}}>30% — verified AI work consumption</span></div>
           </div>
         </div>
       </section>
@@ -403,7 +446,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
             <div className="panel-row"><span className="panel-label">Provider Revenue</span><span className="panel-value">97% of payment</span></div>
             <div className="panel-row"><span className="panel-label">Protocol Tax</span><span className="panel-value">3% → Treasury</span></div>
             <div className="panel-row"><span className="panel-label">Supply-Side Pool</span><span className="panel-value">70% of Epoch issuance</span></div>
-            <div className="panel-row"><span className="panel-label">Demand-Side Pool</span><span className="panel-value">30% of Epoch issuance (Usage Mining)</span></div>
+            <div className="panel-row"><span className="panel-label">Demand-Side Pool</span><span className="panel-value">30% of Epoch issuance for verified demand</span></div>
             <div className="panel-row"><span className="panel-label">Min Provider Stake</span><span className="panel-value">1,000 $CLAF</span></div>
             <div className="panel-row"><span className="panel-label">Unstaking Period</span><span className="panel-value">7 days</span></div>
             <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear</span></div>

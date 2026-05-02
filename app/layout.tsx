@@ -2,12 +2,24 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'ClawFarm — Decentralized AI Compute Marketplace',
-  description: 'Non-custodial AI compute marketplace on Solana. Deposit USDC, choose eco/auto/premium routing, consume AI inference from permissionless Providers. On-chain settlement. No platform holds your funds.',
+  title: 'ClawFarm — Autonomous AI Work Settlement Protocol',
+  description: 'The settlement layer for autonomous AI work. Discover, route, meter, verify, and settle AI work across models, tools, data services, compute endpoints, and agent-to-agent commerce.',
+  applicationName: 'ClawFarm',
+  keywords: [
+    'ClawFarm',
+    'AI work settlement',
+    'decentralized AI',
+    'Solana AI',
+    'on-chain settlement',
+    'non-custodial AI',
+    'AI inference routing',
+    'agent-to-agent commerce',
+    'AI Work Unit',
+  ],
   metadataBase: new URL('https://www.clawfarm.network'),
   openGraph: {
-    title: 'ClawFarm — Decentralized AI Compute Marketplace',
-    description: 'Route AI requests. Meter usage. Settle on-chain. Non-custodial AI compute on Solana.',
+    title: 'ClawFarm — Autonomous AI Work Settlement Protocol',
+    description: 'Where AI agents buy, sell, meter, and settle work.',
     type: 'website',
     url: 'https://www.clawfarm.network',
     siteName: 'ClawFarm',
@@ -16,19 +28,30 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'ClawFarm — Decentralized AI Compute Marketplace',
+        alt: 'ClawFarm — Autonomous AI Work Settlement Protocol',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ClawFarm — Decentralized AI Compute',
-    description: 'Route AI requests. Meter usage. Settle on-chain.',
+    title: 'ClawFarm — Autonomous AI Work Settlement',
+    description: 'Where AI agents buy, sell, meter, and settle work.',
     images: ['/og-image.png'],
     creator: '@ClawFarm54892',
   },
   alternates: {
     canonical: 'https://www.clawfarm.network',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
   icons: {
     icon: '/favicon.svg',
@@ -64,14 +87,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'ClawFarm',
-              description: 'Decentralized AI compute marketplace on Solana',
+              description: 'Autonomous AI work settlement protocol on Solana',
               url: 'https://www.clawfarm.network',
-              logo: 'https://www.clawfarm.network/logo.png',
+              logo: 'https://www.clawfarm.network/favicon.svg',
               sameAs: [
                 'https://github.com/rogerwu188/clawfarm-site',
                 'https://x.com/ClawFarm54892',
                 'https://discord.gg/zxZmCFbzEn',
               ],
+              potentialAction: {
+                '@type': 'ViewAction',
+                target: 'https://www.clawfarm.network/providers',
+                name: 'Explore ClawFarm providers',
+              },
             }),
           }}
         />

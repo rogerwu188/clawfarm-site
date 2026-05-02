@@ -1,9 +1,10 @@
 const STEPS = [
-  { num: '01', title: 'Provide', desc: 'Register your model, GPU, or API endpoint. Set your own price. Stake $CLAF.' },
-  { num: '02', title: 'Route', desc: 'Requests are routed to the best Provider by eco, auto, or premium mode.' },
-  { num: '03', title: 'Meter', desc: 'Every token is counted client-side. Both parties sign a usage proof.' },
-  { num: '04', title: 'Settle', desc: 'Smart contract splits payment: 97% Provider, 3% Treasury. Automatic.' },
-  { num: '05', title: 'Earn', desc: '$CLAF tokens distributed every Epoch. More usage × better price × higher quality = more rewards.' },
+  { num: '01', title: 'Register', desc: 'Providers register models, APIs, GPU nodes, agent services, data services, or evaluators.' },
+  { num: '02', title: 'Discover', desc: 'Agents and apps discover available services through the provider registry.' },
+  { num: '03', title: 'Execute', desc: 'Requests and tasks are routed through eco, auto, or premium modes.' },
+  { num: '04', title: 'Verify', desc: 'Usage proofs, task outputs, and evaluator signals confirm valid work.' },
+  { num: '05', title: 'Settle', desc: 'USDC flows from user escrow to the provider wallet through smart contracts.' },
+  { num: '06', title: 'Reward', desc: 'Verified contribution earns protocol rewards based on usage, price, and quality.' },
 ]
 
 export default function HowItWorks() {
