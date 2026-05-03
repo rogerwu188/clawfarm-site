@@ -12,37 +12,37 @@ type Role = {
 
 const ROLES: Role[] = [
   {
-    tag: 'PROVIDER',
-    title: 'Sell verified',
-    titleAccent: 'AI work.',
-    desc: 'Sell models, API endpoints, GPU compute, data services, or agent capabilities. Earn USDC and protocol rewards for verified work.',
-    ctaLabel: 'Become a Provider',
-    ctaHref: '/install',
+    tag: 'PROTOCOL USERS',
+    title: 'Route AI',
+    titleAccent: 'requests.',
+    desc: 'Connect a wallet, deposit USDC into escrow, and route model calls through eco, auto, or premium modes without centralized billing.',
+    ctaLabel: 'Start Routing',
+    ctaHref: '/users',
     accent: 'var(--green-bright)',
   },
   {
-    tag: 'BUILDER',
-    title: 'Build autonomous',
-    titleAccent: 'AI apps.',
-    desc: 'Build AI apps and autonomous agents that route work through ClawFarm without managing billing, provider contracts, or usage ledgers.',
+    tag: 'BUILDERS',
+    title: 'Add model',
+    titleAccent: 'routing.',
+    desc: 'Use the SDK to add provider choice, token metering, escrow, and on-chain settlement to AI apps and agent products.',
     ctaLabel: 'Build with SDK',
     ctaHref: '/builders',
     accent: 'var(--accent)',
   },
   {
-    tag: 'DEMAND APP',
-    title: 'Bring demand',
-    titleAccent: 'into the protocol.',
-    desc: 'Bring human or enterprise demand into the protocol through apps like StoryClaw. Let users consume AI work while ClawFarm handles routing, metering, and settlement.',
-    ctaLabel: 'Protocol Users',
-    ctaHref: '/users',
+    tag: 'PROVIDERS',
+    title: 'Sell compute',
+    titleAccent: 'capacity.',
+    desc: 'Register model endpoints, API proxies, GPU nodes, multi-model routers, or custom model services. Earn USDC and protocol rewards for verified usage.',
+    ctaLabel: 'Become a Provider',
+    ctaHref: '/install',
     accent: 'var(--amber)',
   },
   {
-    tag: 'EVALUATOR',
-    title: 'Verify outputs',
-    titleAccent: 'before settlement.',
-    desc: 'Verify task quality, output validity, and service completion for agent-to-agent transactions.',
+    tag: 'NODE OPERATORS',
+    title: 'Compete on',
+    titleAccent: 'price and latency.',
+    desc: 'Operate GPU or model infrastructure, publish route pricing, and let demand flow through the open provider registry.',
     ctaLabel: 'Explore Registry',
     ctaHref: '/providers',
     accent: 'var(--green-bright)',
@@ -55,7 +55,7 @@ export default function Roles() {
       <div className="section-inner">
         <p className="section-eyebrow">Who is ClawFarm for</p>
         <h2 className="section-title">
-          Four roles. <span className="accent">One settlement layer.</span>
+          Four entry points. <span className="accent">One AI compute router.</span>
         </h2>
         <div className="grid-4" style={{ marginTop: 48 }}>
           {ROLES.map((r) => (

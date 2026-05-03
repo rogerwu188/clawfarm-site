@@ -38,7 +38,7 @@ const FAQS = [
   },
   {
     q: 'How does settlement work?',
-    a: 'Smart contracts split every USDC payment automatically: 97% to the provider, 3% to the autonomous treasury. No invoices, no payment delays, no manual reconciliation. Settlement completes on Solana in under 400ms.',
+    a: 'Smart contracts split every USDC payment automatically: 97% to the provider, 3% to the protocol treasury. No invoices, no payment delays, no manual reconciliation. Settlement completes on Solana in under 400ms.',
   },
   {
     q: 'How much do providers earn?',
@@ -46,7 +46,7 @@ const FAQS = [
   },
   {
     q: 'Do I need to stake tokens to become a provider?',
-    a: 'No. ClawFarm uses reputation-based routing, not staking requirements. Anyone can register as a provider by submitting a model endpoint and pricing. No approval, no whitelist, no lock-in.',
+    a: 'Yes. Providers stake $CLAF as accountability collateral, then register a model endpoint and pricing on-chain. There is still no approval, no whitelist, and no platform-controlled lock-in.',
   },
   {
     q: 'What is $CLAF?',

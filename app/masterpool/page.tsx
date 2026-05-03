@@ -71,27 +71,27 @@ export default function Pool() {
         </div>
       </section>
 
-      {/* Autonomous Work */}
+      {/* Routing and Metering */}
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="section-tag" style={{color:'var(--text)', fontWeight:700}}>Autonomous Work</div>
+          <div className="section-tag" style={{color:'var(--text)', fontWeight:700}}>AI Token Routing</div>
           <p className="section-text" style={{marginTop:'8px', marginBottom:'16px', fontSize:'13px', color:'var(--text-mid)'}}>
-            AI Work Units include token inference, image/video generation, data retrieval, tool execution, and evaluator-verified task output.
+            Token-level usage metrics for routed AI compute. Only dual-signed usage proofs count toward settlement and rewards.
           </p>
           <div className="grid-4 mt-4" style={{gridTemplateColumns:'repeat(4, 1fr)', gap:'12px'}}>
             {[
-              ['Agent-to-Agent Tasks 24h', '—'],
-              ['Verified AI Work Units', '—'],
+              ['AI Requests 24h', '—'],
+              ['Verified Model Tokens', '—'],
               ['Active Demand Apps', '—'],
-              ['Active Service Agents', '—'],
-              ['Evaluator Pass Rate', '—'],
-              ['Disputed Tasks', '—'],
+              ['Active Providers', '—'],
+              ['Avg Route Latency', '—'],
+              ['Disputed Usage Proofs', '—'],
               ['Settlement Success Rate', '—'],
-              ['Open Categories', '8'],
+              ['Route Modes', '3'],
             ].map(([label, value]) => (
               <div key={label} className="stat-card" style={{background:'rgba(255,255,255,0.03)'}}>
                 <div className="stat-label" style={{color:'var(--text-mid)', fontWeight:500}}>{label}</div>
-                <div className="stat-value" style={{color:value === '8' ? 'var(--green)' : 'var(--text)'}}>{value}</div>
+                <div className="stat-value" style={{color:value === '3' ? 'var(--green)' : 'var(--text)'}}>{value}</div>
               </div>
             ))}
           </div>
@@ -108,15 +108,15 @@ export default function Pool() {
         </div>
       </section>
 
-      {/* Service Categories */}
+      {/* Provider Categories */}
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="section-tag">Service Categories</div>
+          <div className="section-tag">Provider Categories</div>
           <div className="grid-4 mt-4" style={{gridTemplateColumns:'repeat(4, 1fr)', gap:'12px'}}>
-            {['Models', 'GPU', 'API Proxy', 'Data', 'Research', 'Translation', 'Code Review', 'Evaluation'].map((label) => (
+            {['Language Models', 'Image Models', 'Video Models', 'GPU Nodes', 'API Proxies', 'Multi-Model Routers', 'Custom Endpoints', 'Embeddings'].map((label) => (
               <div key={label} className="grid-cell">
                 <h4>{label}</h4>
-                <p>Registry category for routable AI work.</p>
+                <p>Registry category for routable AI compute.</p>
               </div>
             ))}
           </div>
@@ -302,14 +302,14 @@ export default function Pool() {
       {/* 8. Treasury */}
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="section-tag" style={{color:'var(--text)', fontWeight:700}}>Autonomous Treasury Dashboard (70/20/10)</div>
+          <div className="section-tag" style={{color:'var(--text)', fontWeight:700}}>Treasury Dashboard (70/20/10)</div>
           <p className="section-text" style={{marginTop:'8px', marginBottom:'24px', fontSize:'13px', color:'var(--text)'}}>
-            The ClawFarm Treasury is managed by an autonomous on-chain AI agent. It collects the 3% protocol fee and executes the mandate with zero human intervention.
+            The ClawFarm Treasury collects the 3% protocol fee and follows the published allocation mandate with no platform custody.
           </p>
 
           <div className="grid-3" style={{gap:'12px', gridTemplateColumns:'repeat(3, 1fr)', marginBottom:'24px'}}>
             <div className="stat-card" style={{background:'rgba(52, 211, 153, 0.05)', border:'1px solid rgba(52, 211, 153, 0.3)'}}>
-              <div className="stat-label" style={{color:'var(--green)', fontWeight:600}}>Agent Status</div>
+              <div className="stat-label" style={{color:'var(--green)', fontWeight:600}}>Treasury Status</div>
               <div className="stat-value" style={{fontSize:'20px', color:'var(--green)'}}>MONITORING</div>
               <div className="stat-unit" style={{color:'var(--text-mid)'}}>Scanning Settlement Ledger</div>
             </div>
@@ -364,7 +364,7 @@ export default function Pool() {
 
           <div className="panel" style={{border:'1px solid rgba(255,255,255,0.1)'}}>
             <div className="panel-header" style={{borderBottom:'1px solid rgba(255,255,255,0.1)'}}>
-              <span className="panel-tag" style={{color:'var(--text)', fontWeight:700}}>Agent Activity Log</span>
+              <span className="panel-tag" style={{color:'var(--text)', fontWeight:700}}>Treasury Activity Log</span>
             </div>
             <div style={{padding:'12px 0'}}>
               <div className="panel-row" style={{borderBottom:'1px solid rgba(255,255,255,0.05)'}}>

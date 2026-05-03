@@ -48,11 +48,12 @@ export default function Marketplace() {
       <div className="section-inner">
         <p className="section-eyebrow">Provider Registry</p>
         <h2 className="section-title">
-          Open supply for <span className="accent">AI work.</span>
+          Every major model. <span className="accent">Priced by competing providers.</span>
         </h2>
         <p className="section-text">
-          Model routing is the first live surface. The same registry can price and route
-          data services, agent services, evaluators, API proxies, GPU nodes, and custom endpoints.
+          ClawFarm keeps the marketplace centered on language models, image generation,
+          video generation, provider pricing, and verified 30d usage across registered
+          model, API, and GPU providers.
         </p>
 
         {/* LLM */}

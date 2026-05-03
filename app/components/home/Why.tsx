@@ -1,6 +1,6 @@
 const PILLARS = [
-  { title: 'Open Supply', desc: 'Anyone can register as a Provider — GPU operators, cloud instances, API resellers, fine-tuned model hosts, data agents, service agents, and evaluators.' },
-  { title: 'Unified Metering', desc: 'Every AI Work Unit is metered with proofs. Tokens, tool calls, data retrieval, evaluator checks, and task outputs can all enter the ledger.' },
+  { title: 'Open Supply', desc: 'Anyone can register as a provider — GPU operators, cloud instances, API resellers, fine-tuned model hosts, and custom model endpoints.' },
+  { title: 'Unified Metering', desc: 'Every AI request is metered by model tokens, provider price, route mode, and account, then recorded for settlement and rewards.' },
   { title: 'Automatic Settlement', desc: 'Smart contracts split verified payments: 97% to Provider, 3% to Treasury. No invoices. No payment delays.' },
   { title: 'Non-Custodial', desc: 'User USDC sits in a program-owned escrow (PDA). No human holds the key. Withdraw anytime.' },
 ]

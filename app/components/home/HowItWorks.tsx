@@ -1,10 +1,8 @@
 const STEPS = [
-  { num: '01', title: 'Register', desc: 'Providers register models, APIs, GPU nodes, agent services, data services, or evaluators.' },
-  { num: '02', title: 'Discover', desc: 'Agents and apps discover available services through the provider registry.' },
-  { num: '03', title: 'Execute', desc: 'Requests and tasks are routed through eco, auto, or premium modes.' },
-  { num: '04', title: 'Verify', desc: 'Usage proofs, task outputs, and evaluator signals confirm valid work.' },
-  { num: '05', title: 'Settle', desc: 'USDC flows from user escrow to the provider wallet through smart contracts.' },
-  { num: '06', title: 'Reward', desc: 'Verified contribution earns protocol rewards based on usage, price, and quality.' },
+  { num: '01', title: 'Route', desc: 'Users, apps, and agents route AI requests across registered model, API, and compute providers.' },
+  { num: '02', title: 'Meter', desc: 'Every request is measured by model-token usage, provider, price, route, and account.' },
+  { num: '03', title: 'Settle', desc: 'USDC moves through non-custodial escrow and settles on-chain after verified usage.' },
+  { num: '04', title: 'Reward', desc: 'Verified supply and demand participation earn protocol rewards over time.' },
 ]
 
 export default function HowItWorks() {
@@ -16,7 +14,7 @@ export default function HowItWorks() {
           From request to <span className="accent">settlement</span><br />
           in one flow.
         </h2>
-        <div className="exec-flow">
+        <div className="exec-flow exec-flow-4">
           {STEPS.map((s) => (
             <div key={s.num} className="flow-step">
               <span className="flow-step-num">{s.num}</span>
