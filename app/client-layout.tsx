@@ -30,7 +30,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             <nav className="header-nav-inner" aria-label="Primary">
               <Link href="/users" className="nav-item">Protocol Users</Link>
               <Link href="/builders" className="nav-item">Builders</Link>
-              <Link href="/builders#agent-commerce" className="nav-item">Agent Commerce</Link>
               <Link href="/providers" className="nav-item">Marketplace</Link>
               <Link href="/install" className="nav-item">Become Provider</Link>
               <Link href="/masterpool" className="nav-item">Explorer</Link>
@@ -81,7 +80,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
               <a href="https://x.com/ClawFarm54892" target="_blank" rel="noopener">X</a>
             </div>
             <div className="footer-meta">
-              <span>ClawFarm Protocol · v2.0 · Autonomous AI Work Settlement</span>
+              <span>ClawFarm Protocol · v2.0 · Decentralized AI Token Router</span>
               <span>© 2026 — Non-custodial · On-chain settlement · Solana</span>
             </div>
           </div>

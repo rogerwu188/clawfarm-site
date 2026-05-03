@@ -528,6 +528,7 @@ body {
   margin-top: 48px;
   counter-reset: flow;
 }
+.exec-flow-4 { grid-template-columns: repeat(4, 1fr); }
 .exec-flow-3 { grid-template-columns: repeat(3, 1fr); }
 .flow-step {
   padding: 24px 20px;

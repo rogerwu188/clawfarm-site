@@ -2,17 +2,17 @@ export default function PoweredDemandApps() {
   return (
     <section className="section">
       <div className="section-inner">
-        <p className="section-eyebrow">Powered demand apps</p>
+        <p className="section-eyebrow">StoryClaw example</p>
         <div className="panel demand-app-panel">
           <div>
             <h2 className="section-title" style={{ marginBottom: 16 }}>
-              Demand apps bring work into <span className="accent">ClawFarm.</span>
+              Demand-side <span className="accent">apps</span>
             </h2>
             <p className="section-text">
-              StoryClaw is a flagship demand-side application built on top of
-              ClawFarm routing and metering. StoryClaw gives enterprise customers
-              and developers a commercial AI compute market, while ClawFarm provides
-              the protocol layer underneath.
+              StoryClaw is a commercial AI compute market built on top of ClawFarm
+              routing and metering. StoryClaw gives enterprise customers and developers
+              a business-friendly purchase experience, while ClawFarm provides
+              decentralized routing, metering, and settlement underneath.
             </p>
           </div>
           <a

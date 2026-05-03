@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Docs — ClawFarm',
-  description: 'Quickstart, routing modes, SDK reference, provider setup, agent commerce, verification, settlement ledger, rewards, and UI mirroring.',
+  description: 'Quickstart, routing modes, SDK reference, provider setup, usage metering, settlement ledger, rewards, and UI mirroring.',
 }
 
 const SECTIONS = [
@@ -10,10 +10,11 @@ const SECTIONS = [
   'Routing Modes',
   'SDK Reference',
   'Provider Setup',
-  'Agent Commerce',
+  'Usage Metering',
   'Verification',
   'Settlement Ledger',
   'Rewards',
+  'Future Use Case',
   'UI Mirroring',
 ]
 
@@ -25,8 +26,8 @@ export default function Docs() {
           <p className="section-tag">Documentation</p>
           <h1 className="section-title text-[36px]">Build on ClawFarm</h1>
           <p className="section-text mt-4">
-            Docs for routing, metering, verification, settlement, provider setup,
-            rewards, and agent-to-agent commerce.
+            Docs for AI token routing, model-token metering, provider setup,
+            non-custodial escrow, settlement, and rewards.
           </p>
           <div className="grid-3 mt-6">
             {SECTIONS.map((section) => (
@@ -45,8 +46,8 @@ export default function Docs() {
           <div className="panel">
             <div className="panel-row"><span className="panel-label">1. Connect wallet</span><span className="panel-value">Use a Solana wallet or app Master Pool</span></div>
             <div className="panel-row"><span className="panel-label">2. Deposit USDC</span><span className="panel-value">Funds enter non-custodial escrow</span></div>
-            <div className="panel-row"><span className="panel-label">3. Route AI work</span><span className="panel-value">Models, tools, data services, evaluators</span></div>
-            <div className="panel-row"><span className="panel-label">4. Verify and settle</span><span className="panel-value">Proofs create settlement ledger entries</span></div>
+            <div className="panel-row"><span className="panel-label">3. Route AI requests</span><span className="panel-value">Models, APIs, GPU nodes, custom endpoints</span></div>
+            <div className="panel-row"><span className="panel-label">4. Meter and settle</span><span className="panel-value">Dual-signed token usage creates settlement ledger entries</span></div>
           </div>
         </div>
       </section>
@@ -71,14 +72,17 @@ export default function Docs() {
 
 const cf = new ClawFarm({ wallet })
 
-const result = await cf.work.call({
+const result = await cf.chat({
   mode: 'auto',
-  type: 'model',
-  input: { prompt: 'Review this code diff' },
-  verification: { evaluator: 'code-review' }
+  model: 'auto',
+  messages: [{ role: 'user', content: 'Review this code diff' }]
 })
 
-await cf.settle({ proofs: [result.proof] })`}
+await cf.settle({
+  provider: result.provider,
+  tokens: result.usage.total_tokens,
+  proof: result.proof
+})`}
             </pre>
           </div>
         </div>
@@ -88,33 +92,27 @@ await cf.settle({ proofs: [result.proof] })`}
         <div className="max-w-4xl mx-auto px-6">
           <p className="section-tag">Provider Setup</p>
           <p className="section-text mb-4">
-            Providers can register GPUs, API proxies, custom model services, routers,
-            agent services, data services, and evaluators.
+            Providers can register GPU nodes, API proxies, custom model services,
+            multi-model routers, and hosted model endpoints.
           </p>
           <div className="panel">
-            <div className="panel-row"><span className="panel-label">Endpoint</span><span className="panel-value">HTTPS service endpoint</span></div>
-            <div className="panel-row"><span className="panel-label">Pricing</span><span className="panel-value">Published on-chain by service type</span></div>
+            <div className="panel-row"><span className="panel-label">Endpoint</span><span className="panel-value">HTTPS model or routing endpoint</span></div>
+            <div className="panel-row"><span className="panel-label">Pricing</span><span className="panel-value">Published on-chain by model and token type</span></div>
             <div className="panel-row"><span className="panel-label">Stake</span><span className="panel-value">Minimum $CLAF stake for accountability</span></div>
-            <div className="panel-row"><span className="panel-label">Proofs</span><span className="panel-value">Must sign usage or delivery proofs</span></div>
+            <div className="panel-row"><span className="panel-label">Proofs</span><span className="panel-value">Must sign model-token usage proofs</span></div>
           </div>
         </div>
       </section>
 
-      <section className="section" id="agent-commerce">
+      <section className="section" id="usage-metering">
         <div className="max-w-4xl mx-auto px-6">
-          <p className="section-tag">Agent Commerce</p>
-          <p className="section-text">
-            An agent can discover providers, call a model, call a data service, request
-            evaluation, settle automatically, and log usage proof. ClawFarm does not
-            define the agent persona; it defines the registry, metering, proof, and
-            settlement layer underneath the transaction.
-          </p>
+          <p className="section-tag">Usage Metering</p>
           <div className="grid-2 mt-6">
             {[
-              ['AI Work Unit', 'A metered unit of AI work, including token inference, image generation, video generation seconds, data retrieval, tool execution, or evaluator-verified task output.'],
-              ['Demand App', 'An application that brings users or agents into ClawFarm and routes their AI work through the protocol.'],
-              ['Evaluator', 'A registered service that checks whether an output meets task requirements.'],
-              ['Service Agent', 'A registered provider that performs machine-consumable work such as research, translation, data enrichment, or code review.'],
+              ['AI Token', 'A metered token of model usage that can be priced, routed, and settled through ClawFarm.'],
+              ['Model Token', 'Input and output token counts reported by the model/API provider and verified by the client.'],
+              ['Demand App', 'An application that brings users into ClawFarm and routes their AI requests through the protocol.'],
+              ['Usage Proof', 'A dual-signed record containing provider, model, route, price, token count, and account.'],
             ].map(([title, desc]) => (
               <div key={title} className="grid-cell">
                 <h4>{title}</h4>
@@ -129,9 +127,9 @@ await cf.settle({ proofs: [result.proof] })`}
         <div className="max-w-4xl mx-auto px-6">
           <p className="section-tag">Verification</p>
           <div className="panel">
-            <div className="panel-row"><span className="panel-label">Usage proof</span><span className="panel-value">User and provider agree on metered work</span></div>
-            <div className="panel-row"><span className="panel-label">Delivery proof</span><span className="panel-value">Task output or artifact confirms completion</span></div>
-            <div className="panel-row"><span className="panel-label">Evaluator proof</span><span className="panel-value">Optional quality signal before settlement</span></div>
+            <div className="panel-row"><span className="panel-label">Usage proof</span><span className="panel-value">User and provider agree on metered token usage</span></div>
+            <div className="panel-row"><span className="panel-label">Client count</span><span className="panel-value">Client verifies model-token counts before signing</span></div>
+            <div className="panel-row"><span className="panel-label">Sampling audit</span><span className="panel-value">Suspicious usage can be re-checked and disputed</span></div>
           </div>
         </div>
       </section>
@@ -140,8 +138,9 @@ await cf.settle({ proofs: [result.proof] })`}
         <div className="max-w-4xl mx-auto px-6">
           <p className="section-tag">Settlement Ledger</p>
           <p className="section-text">
-            Ledger entries record demand app, provider, service type, AI Work Unit,
-            price, proof hash, provider payout, treasury fee, and transaction hash.
+            Ledger entries record account, demand app, provider, model, route mode,
+            token count, price, proof hash, provider payout, treasury fee, and
+            transaction hash.
           </p>
         </div>
       </section>
@@ -154,6 +153,18 @@ await cf.settle({ proofs: [result.proof] })`}
             <div className="panel-row"><span className="panel-label">Demand-side</span><span className="panel-value">30% based on verified consumption</span></div>
             <div className="panel-row"><span className="panel-label">Treasury fee</span><span className="panel-value">3% of settlement, allocated 70/20/10</span></div>
           </div>
+        </div>
+      </section>
+
+      <section className="section" id="future-use-case">
+        <div className="max-w-4xl mx-auto px-6">
+          <p className="section-tag">Future Use Case</p>
+          <p className="section-text">
+            Agent-to-agent commerce may use the same routing, metering, and settlement
+            primitives for future transactions such as data retrieval, evaluation, and
+            tool execution. Today, ClawFarm&apos;s core focus is decentralized AI compute
+            routing.
+          </p>
         </div>
       </section>
 

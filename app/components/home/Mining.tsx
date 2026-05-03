@@ -6,12 +6,12 @@ export default function Mining() {
       <div className="section-inner">
         <p className="section-eyebrow">Rewards and economics</p>
         <h2 className="section-title">
-          Rewards support <span className="accent">verified work</span><br />
+          Rewards support <span className="accent">verified usage</span><br />
           after settlement.
         </h2>
         <p className="section-text">
           $CLAF rewards reinforce useful protocol activity. Providers earn for verified
-          AI Work Units, demand apps earn for real usage, and the treasury receives a
+          token volume, demand apps earn for real routed usage, and the treasury receives a
           small settlement fee for buyback, maintenance, and resilience.
         </p>
 
@@ -19,16 +19,16 @@ export default function Mining() {
           <div className="stat-card">
             <div className="stat-value"><span className="accent">70</span>%</div>
             <div className="stat-label">Supply-side Rewards</div>
-            <p className="stat-desc">Distributed to providers based on verified work, price efficiency, and quality scores.</p>
+            <p className="stat-desc">Distributed to providers based on verified token volume, price efficiency, and quality scores.</p>
           </div>
           <div className="stat-card">
             <div className="stat-value"><span className="accent">30</span>%</div>
             <div className="stat-label">Demand-side Rewards</div>
-            <p className="stat-desc">Earned by protocol users and demand apps proportional to verified AI work consumption.</p>
+            <p className="stat-desc">Earned by protocol users and demand apps proportional to verified AI token consumption.</p>
           </div>
           <div className="stat-card">
             <div className="stat-value"><span className="accent">3</span>%</div>
-            <div className="stat-label">Autonomous Treasury</div>
+            <div className="stat-label">Protocol Treasury</div>
             <p className="stat-desc">70% Buyback · 20% Core Maintenance · 10% Infra Resilience.</p>
           </div>
         </div>
@@ -39,8 +39,8 @@ export default function Mining() {
           </div>
           <div style={{ padding: '22px 24px' }}>
             <p style={{ fontSize: 15, color: 'var(--text-mid)', lineHeight: 1.6, marginBottom: 18 }}>
-              Every settlement collects a 3% fee into the Treasury PDA. An autonomous on-chain
-              AI agent manages these funds:
+              Every settlement collects a 3% fee into the Treasury PDA. The on-chain
+              treasury mandate allocates these funds:
             </p>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
