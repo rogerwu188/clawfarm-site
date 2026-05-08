@@ -302,33 +302,6 @@ No Stripe. No centralized billing system. No payment processor custody.`}
         </div>
       </section>
 
-      {/* Repos */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Open Source Repositories</div>
-          <div className="grid-3 mt-6">
-            <a href="https://github.com/rogerwu188/clawfarm-skill" target="_blank" rel="noopener" className="grid-cell">
-              <h4 style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--green)' }}>clawfarm-skill</h4>
-              <p className="section-small" style={{ marginTop: '8px', fontSize: '11px' }}>
-                Provider SDK, registration scripts, usage proof signing, and gateway examples.
-              </p>
-            </a>
-            <a href="https://github.com/rogerwu188/clawfarm-gateway" target="_blank" rel="noopener" className="grid-cell">
-              <h4 style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--green)' }}>clawfarm-gateway</h4>
-              <p className="section-small" style={{ marginTop: '8px', fontSize: '11px' }}>
-                Routing, metering, provider discovery, and request forwarding.
-              </p>
-            </a>
-            <a href="https://github.com/rogerwu188/clawfarm-contracts" target="_blank" rel="noopener" className="grid-cell">
-              <h4 style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--green)' }}>clawfarm-contracts</h4>
-              <p className="section-small" style={{ marginTop: '8px', fontSize: '11px' }}>
-                Solana programs for escrow, provider registry, staking, and settlement.
-              </p>
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="section">
         <div className="max-w-4xl mx-auto px-6">
