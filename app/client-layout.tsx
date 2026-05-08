@@ -32,7 +32,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
               <Link href="/builders" className="nav-item">Builders</Link>
               <Link href="/providers" className="nav-item">Marketplace</Link>
               <Link href="/install" className="nav-item">Become Provider</Link>
-              <Link href="/masterpool" className="nav-item">Explorer</Link>
+              <Link href="/masterpool" className="nav-item">Network</Link>
               <Link href="/whitepaper" className="nav-item">Protocol</Link>
               <Link href="/docs" className="nav-item">Docs</Link>
             </nav>
@@ -71,7 +71,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
               <Link href="/builders">Builders</Link>
               <Link href="/providers">Marketplace</Link>
               <Link href="/install">Become Provider</Link>
-              <Link href="/masterpool">Explorer</Link>
+              <Link href="/masterpool">Network</Link>
               <Link href="/docs">Docs</Link>
               <Link href="/whitepaper">Whitepaper</Link>
               <a href="/docs#mirror" style={{ color: 'var(--green-bright)' }}>Mirror this UI</a>

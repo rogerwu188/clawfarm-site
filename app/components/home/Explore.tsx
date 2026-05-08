@@ -3,7 +3,7 @@ import Link from 'next/link'
 const TILES = [
   { label: 'Docs', desc: 'SDK, guides, API reference', href: '/docs', external: false },
   { label: 'Protocol', desc: 'Architecture, economics, verification', href: '/whitepaper', external: false },
-  { label: 'Explorer', desc: 'Network state, providers, settlement', href: '/masterpool', external: false },
+  { label: 'Network', desc: 'Network state, providers, settlement', href: '/masterpool', external: false },
   { label: 'GitHub', desc: 'Open-source code, contribute', href: 'https://github.com/rogerwu188/clawfarm-site', external: true },
 ]
 
