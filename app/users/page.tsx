@@ -25,7 +25,7 @@ export default function Users() {
   return (
     <main>
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Protocol Users</p>
           <h1 className="section-title text-[38px] leading-tight">
             Use AI compute without centralized billing.
@@ -52,7 +52,7 @@ export default function Users() {
       </section>
 
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Core usage flow</p>
           <div className="exec-flow exec-flow-3">
             {FLOW.map(([num, title, desc]) => (
@@ -67,7 +67,7 @@ export default function Users() {
       </section>
 
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Why use ClawFarm directly</p>
           <div className="grid-2 mt-6">
             {DETAILS.map(([title, desc]) => (
@@ -81,7 +81,7 @@ export default function Users() {
       </section>
 
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Usage rewards</p>
           <h2 className="section-title text-[28px]">Rewards support verified demand.</h2>
           <p className="section-text mt-4">

@@ -1,230 +1,245 @@
+import Link from 'next/link'
+
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Become a Provider - ClawFarm',
-  description: 'Register AI capacity into the ClawFarm decentralized AI token router as an API Gateway Provider or Community Spot Capacity Pool.',
+  title: 'Become a Provider — ClawFarm | Earn with AI Compute',
+  description: 'Register on-chain with a model endpoint, pricing, and start earning. No approval. No whitelist. 97% USDC revenue + $CLAF rewards.',
   metadataBase: new URL('https://www.clawfarm.network'),
   alternates: { canonical: '/install' },
   openGraph: {
-    title: 'Become a Provider - ClawFarm',
-    description: 'Register AI capacity, meter usage, sign usage proofs, and receive on-chain settlement.',
+    title: 'Become a Provider — ClawFarm',
+    description: 'Register on-chain, set your price, start earning. No approval needed.',
     url: 'https://www.clawfarm.network/install',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Become a ClawFarm Provider' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Become a Provider - ClawFarm',
-    description: 'Register AI capacity into the ClawFarm decentralized AI token router.',
+    title: 'Become a Provider — ClawFarm',
+    description: 'Register on-chain, set your price, start earning.',
     images: ['/og-image.png'],
   },
 }
-
-const providerModes = [
-  {
-    title: 'API Gateway Provider',
-    desc: 'Connect an existing AI API, model endpoint, router, or enterprise inference service. Meter usage, sign usage proofs, and settle verified consumption through ClawFarm.',
-  },
-  {
-    title: 'Community Spot Capacity Pool',
-    desc: 'Aggregate idle AI execution capacity from multiple community operators into one routed pool. The pool operator handles routing, metering, quality control, and internal settlement.',
-  },
-]
-
-const accordionSections = [
-  {
-    id: 'how-registration-works',
-    title: 'How registration works',
-    body: (
-      <p className="section-text">
-        Connect endpoint or pool gateway → configure capacity → stake CLAF → sign
-        usage proofs → receive settlement.
-      </p>
-    ),
-  },
-  {
-    id: 'pricing-settlement',
-    title: 'Pricing & settlement',
-    body: (
-      <div className="panel">
-        <div className="panel-row"><span className="panel-label">Provider Revenue</span><span className="panel-value">Eligible usage revenue settles to the provider wallet.</span></div>
-        <div className="panel-row"><span className="panel-label">Treasury Fee</span><span className="panel-value">Protocol fee routes to treasury for buyback, burn, and network operations.</span></div>
-        <div className="panel-row"><span className="panel-label">$CLAF Rewards</span><span className="panel-value">Rewards may be weighted by metered usage, price efficiency, uptime, and routing reputation.</span></div>
-      </div>
-    ),
-  },
-  {
-    id: 'staking-requirement',
-    title: 'Staking requirement',
-    body: (
-      <p className="section-text">
-        Provider registration requires a minimum 1,000 $CLAF stake. Unstaking follows
-        the protocol delay and remains subject to pending disputes or settlement checks.
-      </p>
-    ),
-  },
-  {
-    id: 'usage-proof-flow',
-    title: 'Usage proof flow',
-    body: (
-      <p className="section-text">
-        User request → router selects provider → provider serves task → usage proof
-        signed → settlement contract verifies → provider receives payout.
-      </p>
-    ),
-  },
-  {
-    id: 'sdk-setup',
-    title: 'SDK setup',
-    body: (
-      <div className="panel">
-        <pre className="text-[13px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{ padding: '18px 22px' }}>
-{`git clone https://github.com/rogerwu188/clawfarm-skill.git ~/clawfarm-provider
-
-cd ~/clawfarm-provider
-npm install
-
-# Register on-chain: stakes $CLAF + creates Provider account
-npx clawfarm register
-
-# Check provider status
-npx clawfarm status
-
-# View earnings: USDC revenue + $CLAF rewards
-npx clawfarm earnings
-
-# Update pricing and limits
-npx clawfarm update-pricing --config provider.config.json
-
-# Begin unstaking
-npx clawfarm unstake`}
-        </pre>
-      </div>
-    ),
-  },
-  {
-    id: 'config-example',
-    title: 'Config example',
-    body: (
-      <div className="panel">
-        <pre className="text-[13px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{ padding: '18px 22px' }}>
-{`# provider.config.json
-{
-  "provider_type": "api_gateway | community_spot_capacity_pool",
-  "endpoint": "https://your-provider.example.com/v1",
-  "wallet": "your_solana_wallet_address",
-  "stake_amount": 1000,
-  "pricing": {
-    "unit": "token | request | second | task",
-    "input_price": 0.0000008,
-    "output_price": 0.0000024,
-    "currency": "USDC"
-  },
-  "limits": {
-    "max_requests_per_minute": 120,
-    "max_spend_per_user": 100,
-    "timeout_ms": 60000
-  },
-  "routing_tags": [
-    "text",
-    "image",
-    "video",
-    "agent",
-    "enterprise",
-    "low-latency",
-    "spot-capacity"
-  ],
-  "proofs": {
-    "usage_proof": true,
-    "provider_signature": true,
-    "client_cosign": true
-  }
-}`}
-        </pre>
-      </div>
-    ),
-  },
-  {
-    id: 'open-source-repositories',
-    title: 'Open-source repositories',
-    body: (
-      <div className="grid-3">
-        <a href="https://github.com/rogerwu188/clawfarm-skill" target="_blank" rel="noopener" className="grid-cell">
-          <h4 style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--green)' }}>clawfarm-skill</h4>
-          <p className="section-small" style={{ marginTop: '8px', fontSize: '11px' }}>Provider SDK and usage proof signing.</p>
-        </a>
-        <a href="https://github.com/rogerwu188/clawfarm-gateway" target="_blank" rel="noopener" className="grid-cell">
-          <h4 style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--green)' }}>clawfarm-gateway</h4>
-          <p className="section-small" style={{ marginTop: '8px', fontSize: '11px' }}>Routing, metering, and provider discovery.</p>
-        </a>
-        <a href="https://github.com/rogerwu188/clawfarm-contracts" target="_blank" rel="noopener" className="grid-cell">
-          <h4 style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--green)' }}>clawfarm-contracts</h4>
-          <p className="section-small" style={{ marginTop: '8px', fontSize: '11px' }}>Escrow, registry, staking, and settlement programs.</p>
-        </a>
-      </div>
-    ),
-  },
-]
 
 export default function Install() {
   return (
     <main>
       <div className="state-strip">
-        <div className="max-w-6xl mx-auto px-6 flex flex-wrap gap-x-8 gap-y-2">
+        <div className="section-inner" style={{ display: "flex", gap: 32 }}>
           <span>Surface: <span className="text-[#8a8f98]">Provider Registration</span></span>
           <span>Version: <span className="text-[#8a8f98]">v2.0</span></span>
-          <span>Gate: <span className="text-[#8a8f98]">Provider Registration</span></span>
+          <span>Gate: <span className="text-[#8a8f98]">Permissionless</span></span>
         </div>
       </div>
 
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
-          <p className="section-tag">Provider Console</p>
+        <div className="section-inner">
           <h1 className="section-title text-[36px]">Become a Provider</h1>
-          <p className="section-text" style={{ marginTop: '12px', fontSize: '18px', color: 'var(--text-mid)' }}>
-            Register AI capacity into the ClawFarm decentralized AI token router.
+          <p className="section-text" style={{marginTop:'12px', fontSize:'16px', color:'var(--text-mid)'}}>
+            Register on-chain with a model endpoint, a price table, and a $CLAF stake. No approval. No billing infrastructure. Settlement goes directly from user escrow to your wallet via smart contract.
           </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="https://github.com/rogerwu188/clawfarm-skill" target="_blank" rel="noopener" className="btn-primary">
+              📂 Provider SDK on GitHub
+            </a>
+            <Link href="/whitepaper" className="btn-secondary">Read Protocol</Link>
+          </div>
+        </div>
+      </section>
 
-          <div className="grid-2 mt-8">
-            {providerModes.map((mode) => (
-              <div key={mode.title} className="grid-cell">
-                <h4>{mode.title}</h4>
-                <p>{mode.desc}</p>
+      {/* What you earn */}
+      <section className="section">
+        <div className="section-inner">
+          <div className="panel" style={{borderLeft:'3px solid var(--green)'}}>
+            <p className="section-text" style={{fontSize:'15px', padding:'18px 22px'}}>
+              <strong>Two revenue streams: 97% of every USDC payment for verified token usage + protocol rewards per Epoch, weighted by verified usage, price efficiency, and quality.</strong>
+            </p>
+          </div>
+          <div className="panel mt-4">
+            <div className="panel-row"><span className="panel-label">Service Revenue</span><span className="panel-value" style={{color:'var(--green)'}}>97% of every user payment (USDC, on-chain)</span></div>
+            <div className="panel-row"><span className="panel-label">$CLAF Rewards</span><span className="panel-value" style={{color:'var(--green)'}}>70% of Epoch issuance, weighted by W_i</span></div>
+            <div className="panel-row"><span className="panel-label">Staking Requirement</span><span className="panel-value">Minimum 1,000 $CLAF</span></div>
+            <div className="panel-row"><span className="panel-label">Vesting</span><span className="panel-value">180-day linear release</span></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Provider types */}
+      <section className="section">
+        <div className="section-inner">
+          <div className="section-tag">What Can You Register?</div>
+          <div className="grid-2 mt-6">
+            <div className="grid-cell">
+              <h4>GPU Node (Local or Cloud)</h4>
+              <p>Deploy LLaMA, Mistral, Qwen, DeepSeek, or any open-source model on your own hardware or cloud GPU (Lambda, RunPod, CoreWeave).</p>
+            </div>
+            <div className="grid-cell">
+              <h4>Third-Party API Proxy</h4>
+              <p>Wrap OpenAI, Anthropic, Gemini, MiniMax, or any model API behind a ClawFarm-compatible endpoint.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>Custom Model Service</h4>
+              <p>Fine-tuned models, domain-specific inference services, or proprietary runtimes — if it serves tokens, it qualifies.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>Multi-Model Router</h4>
+              <p>Register a single endpoint that routes to multiple models. The protocol meters each call individually.</p>
+            </div>
+            <div className="grid-cell">
+              <h4>Custom Endpoint Operator</h4>
+              <p>Expose a hosted inference endpoint with signed usage proofs, model metadata, and route-compatible pricing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Registration steps */}
+      <section className="section">
+        <div className="section-inner">
+          <div className="section-tag">Registration Steps</div>
+          <div className="space-y-0 mt-6">
+            {[
+              {step:'1', title:'Get the Provider SDK', desc:'Clone from GitHub — includes registration script and dual-sig support'},
+              {step:'2', title:'Configure endpoint and pricing', desc:'Set your inference endpoint URL, supported models, and per-token pricing (on-chain)'},
+              {step:'3', title:'Stake $CLAF tokens', desc:'Minimum 1,000 $CLAF locked as collateral against misbehavior'},
+              {step:'4', title:'Register on-chain', desc:'Call the registry contract — no approval, instant activation'},
+              {step:'5', title:'Implement dual-signature', desc:'Your endpoint must sign usage proofs per response (SDK handles this)'},
+              {step:'6', title:'Go live', desc:'Traffic routes to you immediately. $CLAF rewards from first Epoch.'},
+            ].map((f, i) => (
+              <div key={i} className="seq-item">
+                <span className="seq-num">{f.step}</span>
+                <div>
+                  <span className="seq-text">{f.title}</span>
+                  <span className="block text-[11px] text-[#505560] mt-1">{f.desc}</span>
+                </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a href="#sdk-setup" className="btn-primary">Start Registration</a>
-            <a href="https://github.com/rogerwu188/clawfarm-skill" target="_blank" rel="noopener" className="btn-secondary">
-              Read Provider SDK
+      {/* Step 1 */}
+      <section className="section">
+        <div className="section-inner">
+          <div className="section-tag">Step 1: Get Provider SDK</div>
+          <div className="panel mt-4">
+            <pre className="text-[13px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>
+{`git clone https://github.com/rogerwu188/clawfarm-skill.git ~/clawfarm-provider
+
+cd ~/clawfarm-provider
+npm install`}
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      {/* Step 2 */}
+      <section className="section">
+        <div className="section-inner">
+          <div className="section-tag">Step 2: Configure</div>
+          <div className="panel mt-4">
+            <pre className="text-[13px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>
+{`# provider.config.json
+{
+  "endpoint": "https://your-endpoint.example.com/v1",
+  "models": [
+    {
+      "id": "llama-3-70b",
+      "input_price_per_token": 0.0000008,
+      "output_price_per_token": 0.0000024
+    },
+    {
+      "id": "mistral-7b",
+      "input_price_per_token": 0.0000002,
+      "output_price_per_token": 0.0000006
+    }
+  ],
+  "wallet": "your_solana_wallet_address",
+  "stake_amount": 1000
+}`}
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      {/* Step 3 */}
+      <section className="section">
+        <div className="section-inner">
+          <div className="section-tag">Step 3: Register and Go Live</div>
+          <div className="panel mt-4">
+            <pre className="text-[13px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>
+{`# Register on-chain (stakes $CLAF + creates Provider account)
+npx clawfarm register
+
+# Check status
+npx clawfarm status
+
+# View earnings (USDC revenue + $CLAF rewards)
+npx clawfarm earnings
+
+# Update pricing
+npx clawfarm update-pricing --config provider.config.json
+
+# Begin unstaking (7-day period)
+npx clawfarm unstake`}
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      {/* Settlement flow */}
+      <section className="section">
+        <div className="section-inner">
+          <div className="section-tag">Settlement Flow</div>
+          <div className="panel mt-4">
+            <pre className="text-[13px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>
+{`User deposits USDC to escrow contract
+  ↓
+User sends request → routed to your endpoint
+  ↓
+You serve inference → return response + sign usage proof
+  ↓
+User SDK counts tokens client-side → co-signs usage proof
+  ↓
+Settlement contract processes dual-signed proof:
+  ├── 0.97 × cost → your wallet (on-chain)
+  └── 0.03 × cost → treasury → buyback & burn
+
+No Stripe. No billing system. No payment processing.`}
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      {/* Repos */}
+      <section className="section">
+        <div className="section-inner">
+          <div className="section-tag">Open Source Repositories</div>
+          <div className="grid-3 mt-6" style={{gridTemplateColumns:'repeat(3, 1fr)', gap:'16px'}}>
+            <a href="https://github.com/rogerwu188/clawfarm-skill" target="_blank" rel="noopener" className="grid-cell">
+              <h4 style={{fontSize:'13px', textTransform:'uppercase', letterSpacing:'0.05em', color:'var(--green)'}}>clawfarm-skill</h4>
+              <p className="section-small" style={{marginTop:'8px', fontSize:'11px'}}>Provider SDK & registration</p>
+            </a>
+            <a href="https://github.com/rogerwu188/clawfarm-gateway" target="_blank" rel="noopener" className="grid-cell">
+              <h4 style={{fontSize:'13px', textTransform:'uppercase', letterSpacing:'0.05em', color:'var(--green)'}}>clawfarm-gateway</h4>
+              <p className="section-small" style={{marginTop:'8px', fontSize:'11px'}}>Protocol routing & metering</p>
+            </a>
+            <a href="https://github.com/rogerwu188/clawfarm-contracts" target="_blank" rel="noopener" className="grid-cell">
+              <h4 style={{fontSize:'13px', textTransform:'uppercase', letterSpacing:'0.05em', color:'var(--green)'}}>clawfarm-contracts</h4>
+              <p className="section-small" style={{marginTop:'8px', fontSize:'11px'}}>Solana programs (Escrow, Registry, Settlement)</p>
             </a>
           </div>
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="section-tag">Provider Details</div>
-          <div className="panel">
-            {accordionSections.map((section) => (
-              <details id={section.id} key={section.id} style={{ borderBottom: '1px solid var(--border)' }}>
-                <summary
-                  style={{
-                    cursor: 'pointer',
-                    padding: '18px 20px',
-                    color: 'var(--text-high)',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 13,
-                    letterSpacing: '0.02em',
-                  }}
-                >
-                  {section.title}
-                </summary>
-                <div style={{ padding: '0 20px 22px' }}>
-                  {section.body}
-                </div>
-              </details>
-            ))}
+      {/* Next steps */}
+      <section className="section">
+        <div className="section-inner">
+          <div className="flex flex-wrap gap-3 mt-4">
+            <Link href="/masterpool" className="btn-primary">Network Explorer</Link>
+            <Link href="/providers" className="btn-secondary">Provider Guide</Link>
+            <Link href="/whitepaper" className="btn-secondary">Full Protocol</Link>
+            <Link href="/docs" className="btn-secondary">Docs</Link>
           </div>
         </div>
       </section>

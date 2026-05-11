@@ -22,7 +22,7 @@ export default function Docs() {
   return (
     <main>
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Documentation</p>
           <h1 className="section-title text-[36px]">Build on ClawFarm</h1>
           <p className="section-text mt-4">
@@ -41,7 +41,7 @@ export default function Docs() {
       </section>
 
       <section className="section" id="quickstart">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Quickstart</p>
           <div className="panel">
             <div className="panel-row"><span className="panel-label">1. Connect wallet</span><span className="panel-value">Use a Solana wallet or app Master Pool</span></div>
@@ -53,7 +53,7 @@ export default function Docs() {
       </section>
 
       <section className="section" id="routing-modes">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Routing Modes</p>
           <div className="panel">
             <div className="panel-row"><span className="panel-label">eco</span><span className="panel-value">Lowest cost qualified provider</span></div>
@@ -64,7 +64,7 @@ export default function Docs() {
       </section>
 
       <section className="section" id="sdk-reference">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">SDK Reference</p>
           <div className="panel">
             <pre className="text-[12px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{ padding: '18px 22px' }}>
@@ -89,7 +89,7 @@ await cf.settle({
       </section>
 
       <section className="section" id="provider-setup">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Provider Setup</p>
           <p className="section-text mb-4">
             Providers can register GPU nodes, API proxies, custom model services,
@@ -105,7 +105,7 @@ await cf.settle({
       </section>
 
       <section className="section" id="usage-metering">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Usage Metering</p>
           <div className="grid-2 mt-6">
             {[
@@ -124,7 +124,7 @@ await cf.settle({
       </section>
 
       <section className="section" id="verification">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Verification</p>
           <div className="panel">
             <div className="panel-row"><span className="panel-label">Usage proof</span><span className="panel-value">User and provider agree on metered token usage</span></div>
@@ -135,7 +135,7 @@ await cf.settle({
       </section>
 
       <section className="section" id="settlement-ledger">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Settlement Ledger</p>
           <p className="section-text">
             Ledger entries record account, demand app, provider, model, route mode,
@@ -146,7 +146,7 @@ await cf.settle({
       </section>
 
       <section className="section" id="rewards">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Rewards</p>
           <div className="panel">
             <div className="panel-row"><span className="panel-label">Supply-side</span><span className="panel-value">70% based on verified usage, price efficiency, and quality</span></div>
@@ -157,7 +157,7 @@ await cf.settle({
       </section>
 
       <section className="section" id="future-use-case">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Future Use Case</p>
           <p className="section-text">
             Agent-to-agent commerce may use the same routing, metering, and settlement
@@ -169,7 +169,7 @@ await cf.settle({
       </section>
 
       <section className="section" id="ui-mirroring">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">UI Mirroring</p>
           <p className="section-text mb-4">
             The interface is a static client that can be mirrored without changing the

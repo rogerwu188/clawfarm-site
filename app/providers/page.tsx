@@ -1,42 +1,64 @@
 import Link from 'next/link'
 
-const COMPUTE_PROVIDERS = [
-  ['NodeX Labs', 'Model API Proxy', 'GPT-4o · Claude · embeddings', '$2.50 / 1M input', '99.7%', '380ms', '94', 'Staked', '12.4M tokens'],
-  ['Dragon Compute', 'GPU Node', 'DeepSeek R1 · V3 · Qwen', '$0.55 / 1M input', '99.9%', '420ms', '92', 'Staked', '8.2M tokens'],
-  ['OpenPool DAO', 'Multi-Model Router', 'Llama · SD · Wan video', '$0.20 / 1M input', '99.4%', '510ms', '88', 'Staked', '5.0M tokens'],
-  ['StudioRelay', 'Custom Model Endpoint', 'Runway · Kling · image/video', '$0.25 / sec', '99.2%', '610ms', '90', 'Staked', '410K seconds'],
-  ['MiniGPU Pool', 'GPU / Compute Node', 'GPT-4o Mini · embeddings', '$0.15 / 1M input', '99.5%', '340ms', '87', 'Staked', '7.6M tokens'],
+type Row = {
+  provider: string
+  type: string
+  models: string
+  price: string
+  success: string
+  latency: string
+  usage: string
+}
+
+const COMPUTE_PROVIDERS: Row[] = [
+  { provider: 'NodeX Labs',     type: 'Model API Proxy',       models: 'GPT-4o · Claude · embeddings', price: '$2.50 / 1M input', success: '99.7%', latency: '380ms', usage: '12.4M tokens' },
+  { provider: 'Dragon Compute', type: 'GPU Node',              models: 'DeepSeek R1 · V3 · Qwen',      price: '$0.55 / 1M input', success: '99.9%', latency: '420ms', usage: '8.2M tokens'  },
+  { provider: 'OpenPool DAO',   type: 'Multi-Model Router',    models: 'Llama · SD · Wan video',       price: '$0.20 / 1M input', success: '99.4%', latency: '510ms', usage: '5.0M tokens'  },
+  { provider: 'StudioRelay',    type: 'Custom Model Endpoint', models: 'Runway · Kling · image/video', price: '$0.25 / sec',      success: '99.2%', latency: '610ms', usage: '410K seconds' },
+  { provider: 'MiniGPU Pool',   type: 'GPU / Compute Node',    models: 'GPT-4o Mini · embeddings',     price: '$0.15 / 1M input', success: '99.5%', latency: '340ms', usage: '7.6M tokens'  },
 ]
 
-function ProviderTable({ rows }: { rows: string[][] }) {
-  const headers = ['Provider', 'Type', 'Models / Services', 'Price', 'Success', 'Latency', 'Quality', 'Stake', '30d Usage', '']
+const GRID = 'minmax(0,160px) minmax(0,170px) minmax(220px,1fr) minmax(0,150px) minmax(0,80px) minmax(0,80px) minmax(0,130px) minmax(0,150px)'
+
+function ProviderTable({ rows }: { rows: Row[] }) {
   return (
-    <div className="mkt-table-wrap">
-      <table className="mkt-table">
-        <thead>
-          <tr>
-            {headers.map((h) => <th key={h}>{h}</th>)}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row) => (
-            <tr key={row[0]}>
-              <td className="td-model" data-label="Provider">{row[0]}</td>
-              <td data-label="Type">{row[1]}</td>
-              <td data-label="Services">{row[2]}</td>
-              <td className="td-right" data-label="Price">{row[3]}</td>
-              <td className="td-usage" data-label="Success rate">{row[4]}</td>
-              <td className="td-ctx" data-label="Latency">{row[5]}</td>
-              <td className="td-usage" data-label="Quality score">{row[6]}</td>
-              <td className="td-providers-link" data-label="Stake status">{row[7]}</td>
-              <td className="td-right" data-label="30d usage">{row[8]}</td>
-              <td className="td-cta">
-                <Link href="/docs" className="mkt-integrate-btn">Route / Details</Link>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="mkt-table-wrap" style={{ padding: 0 }}>
+      <div className="provider-grid-head" style={{ display: 'grid', gridTemplateColumns: GRID, alignItems: 'center', padding: '11px 20px', borderBottom: '1px solid var(--border)', background: 'rgba(20,23,27,0.5)', fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-dim)' }}>
+        <div>Provider</div>
+        <div>Type</div>
+        <div>Models / Services</div>
+        <div style={{ textAlign: 'right' }}>Price</div>
+        <div style={{ textAlign: 'right' }}>Success</div>
+        <div style={{ textAlign: 'right' }}>Latency</div>
+        <div style={{ textAlign: 'right' }}>30d Usage</div>
+        <div></div>
+      </div>
+      {rows.map((r, idx) => (
+        <div
+          key={r.provider}
+          className="provider-grid-row"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: GRID,
+            alignItems: 'center',
+            padding: '13px 20px',
+            borderBottom: idx === rows.length - 1 ? 'none' : '1px solid rgba(26,29,34,0.7)',
+            fontFamily: 'var(--font-mono)',
+            fontSize: 13,
+          }}
+        >
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: 15, fontWeight: 600, color: 'var(--text-high)', letterSpacing: '-0.015em', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', minWidth: 0 }}>{r.provider}</div>
+          <div style={{ color: 'var(--text-mid)', fontSize: 12, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', minWidth: 0 }}>{r.type}</div>
+          <div style={{ color: 'var(--text-mid)', fontSize: 12, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', minWidth: 0 }}>{r.models}</div>
+          <div style={{ textAlign: 'right', whiteSpace: 'nowrap' }}>{r.price}</div>
+          <div style={{ textAlign: 'right', color: 'var(--green)', fontSize: 12 }}>{r.success}</div>
+          <div style={{ textAlign: 'right', color: 'var(--text-dim)', fontSize: 12 }}>{r.latency}</div>
+          <div style={{ textAlign: 'right', color: 'var(--text-dim)', fontSize: 12, whiteSpace: 'nowrap' }}>{r.usage}</div>
+          <div style={{ textAlign: 'right' }}>
+            <Link href="/docs" className="mkt-integrate-btn">Route / Details</Link>
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
@@ -45,7 +67,7 @@ export default function ProvidersPage() {
   return (
     <main>
       <section className="section">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Marketplace</p>
           <h1 className="section-title text-[38px] leading-tight">
             Open marketplace for AI compute providers.
@@ -64,7 +86,7 @@ export default function ProvidersPage() {
       </section>
 
       <section className="section">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="section-inner">
           <div className="mkt-category-head">
             <div>
               <div className="mkt-category-title">Compute <span className="accent">Providers</span></div>

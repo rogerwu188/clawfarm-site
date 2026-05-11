@@ -16,7 +16,7 @@ export default function Builders() {
   return (
     <main>
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Builders</p>
           <h1 className="section-title text-[38px] leading-tight">
             Build AI apps without billing risk.
@@ -35,7 +35,7 @@ export default function Builders() {
       </section>
 
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Routing workflows</p>
           <h2 className="section-title text-[28px]">Route, meter, and settle model usage.</h2>
           <p className="section-text mt-4">
@@ -55,7 +55,7 @@ export default function Builders() {
       </section>
 
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">SDK Example</p>
           <div className="panel mt-4">
             <pre className="text-[12px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{ padding: '18px 22px' }}>
@@ -87,7 +87,7 @@ await cf.settle({
       </section>
 
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Builder surface</p>
           <div className="grid-3 mt-6">
             <div className="grid-cell">
@@ -107,7 +107,7 @@ await cf.settle({
       </section>
 
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <p className="section-tag">Future extension</p>
           <p className="section-text">
             The same routing and settlement rails may support future agent-to-agent

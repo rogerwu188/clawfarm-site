@@ -205,7 +205,7 @@ export default function ExplorerClient() {
     <main>
       {/* ── State Strip ── */}
       <div className="state-strip">
-        <div style={{ maxWidth: 1152, margin: '0 auto', padding: '0 24px', display: 'flex', gap: 24, alignItems: 'center' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px', display: 'flex', gap: 24, alignItems: 'center' }}>
           <span>Surface: <span style={{ color: 'var(--text-mid)' }}>Network Explorer</span></span>
           <span>Chain: <span style={{ color: 'var(--text-mid)' }}>Solana</span></span>
           <span>Custody: <span style={{ color: 'var(--text-mid)' }}>Non-Custodial</span></span>
@@ -218,7 +218,7 @@ export default function ExplorerClient() {
 
       {/* ── Hero ── */}
       <section className="section" style={{ paddingBottom: 48 }}>
-        <div style={{ maxWidth: 1152, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px' }}>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-dim)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 14, display: 'flex', alignItems: 'center', gap: 8 }}>
             <span className="state-dot" /> ClawFarm · Network Explorer
           </div>
@@ -250,7 +250,7 @@ export default function ExplorerClient() {
           ★  BUYBACK & BURN CENTER
       ══════════════════════════════════════════════════ */}
       <section className="section" style={{ background: 'rgba(16,185,129,0.018)' }}>
-        <div style={{ maxWidth: 1152, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px' }}>
 
           {/* Section header */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
@@ -390,7 +390,7 @@ export default function ExplorerClient() {
 
       {/* ── Protocol Snapshot ── */}
       <section className="section">
-        <div style={{ maxWidth: 1152, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px' }}>
           <div className="section-tag">Protocol Snapshot</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
             {([
@@ -409,7 +409,7 @@ export default function ExplorerClient() {
 
       {/* ── Escrow State ── */}
       <section className="section">
-        <div style={{ maxWidth: 1152, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px' }}>
           <div className="section-tag" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             Escrow State
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--green)', background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.25)', borderRadius: 4, padding: '1px 6px', letterSpacing: '0.06em' }}>NON-CUSTODIAL</span>
@@ -432,7 +432,7 @@ export default function ExplorerClient() {
 
       {/* ── Provider Ecosystem ── */}
       <section className="section">
-        <div style={{ maxWidth: 1152, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px' }}>
           <div className="section-tag">Provider Ecosystem</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginBottom: 20 }}>
 
@@ -501,7 +501,7 @@ export default function ExplorerClient() {
 
       {/* ── Routing & Settlement ── */}
       <section className="section">
-        <div style={{ maxWidth: 1152, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px' }}>
           <div className="section-tag">Routing &amp; Settlement</div>
           <p style={{ fontSize: 12, color: 'var(--text-mid)', marginBottom: 20, lineHeight: 1.55, maxWidth: 600 }}>
             Token-level usage metrics for routed AI compute. Only dual-signed usage proofs count toward settlement and rewards.
@@ -526,7 +526,7 @@ export default function ExplorerClient() {
             {/* Right — settlement flow */}
             <div>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-mid)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 10 }}>Settlement Flow</div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 10 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
                 {[
                   { label: 'Settled 24h', value: '—', unit: 'USDC' },
                   { label: 'Transactions 24h', value: '—', unit: 'settlements' },
@@ -536,16 +536,18 @@ export default function ExplorerClient() {
                   <MiniStat key={p.label} {...p} />
                 ))}
               </div>
-              <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: '13px 16px' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--text-dim)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>Revenue Split</div>
-                <div style={{ height: 6, background: 'rgba(255,255,255,0.05)', borderRadius: 3, overflow: 'hidden', display: 'flex' }}>
-                  <div style={{ width: '97%', background: 'var(--green)', borderRadius: '3px 0 0 3px' }} />
-                  <div style={{ width: '3%', background: 'var(--accent)', borderRadius: '0 3px 3px 0' }} />
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 6 }}>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--green)' }}>97% → Provider</span>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)' }}>3% → Treasury</span>
-                </div>
+            </div>
+
+            {/* Full-width Revenue Split bar spanning both columns */}
+            <div style={{ gridColumn: '1 / -1', background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: '13px 16px' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--text-dim)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>Revenue Split</div>
+              <div style={{ height: 6, background: 'rgba(255,255,255,0.05)', borderRadius: 3, overflow: 'hidden', display: 'flex' }}>
+                <div style={{ width: '97%', background: 'var(--green)', borderRadius: '3px 0 0 3px' }} />
+                <div style={{ width: '3%', background: 'var(--accent)', borderRadius: '0 3px 3px 0' }} />
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 6 }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--green)' }}>97% → Provider</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)' }}>3% → Treasury</span>
               </div>
             </div>
           </div>
@@ -570,7 +572,7 @@ export default function ExplorerClient() {
 
       {/* ── Token Power & Issuance ── */}
       <section className="section">
-        <div style={{ maxWidth: 1152, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px' }}>
           <div className="section-tag">Token Power &amp; Issuance</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
 
@@ -598,7 +600,7 @@ export default function ExplorerClient() {
               <p style={{ fontSize: 12, color: 'var(--text-mid)', marginBottom: 12, lineHeight: 1.55 }}>
                 $CLAF emitted daily based on verified network activity. No pre-mine. No team allocation in emissions.
               </p>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 10 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
                 {([
                   { label: 'Supply-Side 70%', value: 'Active', unit: 'for Providers', accent: 'var(--green)' },
                   { label: 'Demand-Side 30%', value: 'Active', unit: 'for Consumers', accent: 'var(--accent)' },
@@ -608,15 +610,17 @@ export default function ExplorerClient() {
                   <MiniStat key={p.label} {...p} />
                 ))}
               </div>
-              <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: '13px 16px' }}>
-                <div style={{ height: 6, background: 'rgba(255,255,255,0.05)', borderRadius: 3, overflow: 'hidden', display: 'flex' }}>
-                  <div style={{ width: '70%', background: 'var(--green)', borderRadius: '3px 0 0 3px' }} />
-                  <div style={{ width: '30%', background: 'var(--accent)', borderRadius: '0 3px 3px 0' }} />
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 6 }}>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--green)' }}>70% Supply-side (Providers)</span>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)' }}>30% Demand-side (Consumers)</span>
-                </div>
+            </div>
+
+            {/* Full-width 70/30 issuance bar spanning both columns */}
+            <div style={{ gridColumn: '1 / -1', background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: '13px 16px' }}>
+              <div style={{ height: 6, background: 'rgba(255,255,255,0.05)', borderRadius: 3, overflow: 'hidden', display: 'flex' }}>
+                <div style={{ width: '70%', background: 'var(--green)', borderRadius: '3px 0 0 3px' }} />
+                <div style={{ width: '30%', background: 'var(--accent)', borderRadius: '0 3px 3px 0' }} />
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 6 }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--green)' }}>70% Supply-side (Providers)</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)' }}>30% Demand-side (Consumers)</span>
               </div>
             </div>
           </div>
@@ -625,7 +629,7 @@ export default function ExplorerClient() {
 
       {/* ── Proof Verification & Protocol Infrastructure ── */}
       <section className="section">
-        <div style={{ maxWidth: 1152, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px' }}>
           <div className="section-tag">Verification &amp; Infrastructure</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
 
@@ -700,7 +704,7 @@ export default function ExplorerClient() {
 
       {/* ── Footer Links ── */}
       <section className="section" style={{ borderBottom: 'none' }}>
-        <div style={{ maxWidth: 1152, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
             <Link href="/whitepaper" className="btn-secondary">Protocol Whitepaper</Link>
             <Link href="/install" className="btn-secondary">Become a Provider</Link>

@@ -23,9 +23,9 @@ export const metadata: Metadata = {
 
 export default function Whitepaper() {
   return (
-    <main>
+    <main className="doc-page">
       <div className="state-strip">
-        <div className="max-w-6xl mx-auto px-6 flex gap-8">
+        <div className="section-inner" style={{ display: "flex", gap: 32 }}>
           <span>Surface: <span className="text-[#8a8f98]">Protocol Definition</span></span>
           <span>Version: <span className="text-[#8a8f98]">v2.0</span></span>
         </div>
@@ -33,7 +33,7 @@ export default function Whitepaper() {
 
       {/* Title */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <h1 className="section-title text-[36px]">ClawFarm Whitepaper</h1>
           <p className="section-text" style={{fontSize:'18px', marginTop:'8px'}}>
             Decentralized AI Token Router
@@ -46,7 +46,7 @@ export default function Whitepaper() {
 
       {/* Abstract */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">Abstract</div>
           <p className="section-text">
             ClawFarm is a permissionless, non-custodial AI token router and AI compute marketplace. Users, apps, and agents deposit USDC into on-chain escrow, choose an automatic routing mode (eco / auto / premium), and route AI requests across registered model, API, and GPU providers — without signing provider contracts, configuring many billing accounts, or trusting a central platform with their funds.
@@ -62,7 +62,7 @@ export default function Whitepaper() {
 
       {/* 1. Problem */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">1. Problem Statement</div>
           <h3 className="text-[#e8e8e8] text-[16px] font-semibold mt-4 mb-3">1.1 Centralized AI Inference Market</h3>
           <p className="section-text">
@@ -81,7 +81,7 @@ export default function Whitepaper() {
 
       {/* 2. Architecture */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">2. Architecture Overview</div>
           <div className="panel mt-4">
             <pre className="text-[12px] text-[#8a8f98] font-mono leading-relaxed overflow-x-auto" style={{padding:'18px 22px'}}>{`USER LAYER
@@ -103,7 +103,7 @@ PROVIDER LAYER
 
       {/* 2b. Future Agent Commerce */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">Future Use Case: Agent-to-Agent Commerce</div>
           <p className="section-text">
             The same routing, metering, and settlement primitives may support future
@@ -148,7 +148,7 @@ PROVIDER LAYER
 
       {/* 3. Smart Contracts */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">3. Smart Contracts (Solana Programs)</div>
 
           <h3 className="text-[#e8e8e8] text-[16px] font-semibold mt-6 mb-3">3.1 Escrow Contract</h3>
@@ -195,7 +195,7 @@ balance()        → available = deposited - settled - pending`}</pre>
 
       {/* 4. Routing Engine */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">4. Routing Engine</div>
           <p className="section-text">Off-chain but open-source. Runs client-side in the ClawFarm SDK. Reads on-chain Provider Registry.</p>
           <div className="panel mt-4">
@@ -211,7 +211,7 @@ balance()        → available = deposited - settled - pending`}</pre>
 
       {/* 5. Verification */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">5. Usage Verification (4-Layer Hybrid)</div>
           <div className="grid-2 mt-6">
             <div className="grid-cell">
@@ -236,7 +236,7 @@ balance()        → available = deposited - settled - pending`}</pre>
 
       {/* 6. Roles */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">6. Role Definitions</div>
           <div className="grid-3 mt-6" style={{gridTemplateColumns:'repeat(3, 1fr)', gap:'16px'}}>
             <div className="grid-cell">
@@ -257,7 +257,7 @@ balance()        → available = deposited - settled - pending`}</pre>
 
       {/* 7. Capital Flow */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">7. Capital Flow</div>
           <div className="panel mt-4">
             <pre style={{fontFamily:'var(--font-mono)', fontSize:'13px', color:'var(--text-mid)', lineHeight:2, padding:'18px 22px'}}>{`User Escrow (PDA)
@@ -273,7 +273,7 @@ balance()        → available = deposited - settled - pending`}</pre>
 
       {/* 8. Reward Formula */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">8. Provider Reward Formula</div>
           <div className="panel mt-4">
             <pre style={{fontFamily:'var(--font-mono)', fontSize:'14px', color:'var(--green)', lineHeight:2, padding:'18px 22px'}}>{`W_i = Tokens_i × (P_avg / P_i) × Q_i
@@ -295,7 +295,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
 
       {/* 9. Staking */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">9. Provider Staking</div>
           <div className="panel mt-4">
             <div className="panel-row"><span className="panel-label">Minimum Stake</span><span className="panel-value">1,000 $CLAF</span></div>
@@ -309,7 +309,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
 
       {/* 10. Anti-Gaming */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">10. Anti-Gaming</div>
           <div className="grid-2 mt-6">
             <div className="grid-cell">
@@ -334,7 +334,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
 
       {/* 11. Decentralization Guarantees */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">11. Decentralization Guarantees</div>
           <div className="grid-2 mt-6">
             <div className="grid-cell">
@@ -367,7 +367,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
 
       {/* 12. Tokenomics */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">12. Tokenomics</div>
           <div className="panel mt-4">
             <div className="panel-row"><span className="panel-label">Token</span><span className="panel-value">$CLAF (SPL on Solana)</span></div>
@@ -383,7 +383,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
 
       {/* 13. Comparison */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">13. vs. Centralized Aggregators</div>
           <div className="panel mt-4">
             <div className="panel-row"><span className="panel-label">Fund Custody</span><span className="panel-value">Smart contract escrow (not platform)</span></div>
@@ -399,7 +399,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
 
       {/* 14. Roadmap */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">14. Roadmap</div>
           <div className="grid-2 mt-6">
             <div className="grid-cell" style={{borderTop:'2px solid var(--green)'}}>
@@ -424,7 +424,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
 
       {/* Conclusion */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">Conclusion</div>
           <p className="section-text">
             ClawFarm is not another centralized aggregator on a blockchain. It is a fundamentally different architecture: users own their funds, providers own their business, and the protocol owns nothing — it executes rules, collects 3%, and burns tokens.
@@ -440,7 +440,7 @@ Reward_i = E_t × W_i / ΣW`}</pre>
 
       {/* Appendix */}
       <section className="section">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="section-inner">
           <div className="section-tag">Appendix A. Genesis Parameters</div>
           <div className="panel mt-4">
             <div className="panel-row"><span className="panel-label">Chain</span><span className="panel-value">Solana</span></div>
