@@ -1,3 +1,4 @@
+import HeroIntro from './components/HeroIntro'
 import Hero from './components/home/Hero'
 import Marketplace from './components/home/Marketplace'
 import HowItWorks from './components/home/HowItWorks'
@@ -10,16 +11,19 @@ import Explore from './components/home/Explore'
 
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <Marketplace />
-      <HowItWorks />
-      <Roles />
-      <Why />
-      <Mining />
-      <PoweredDemandApps />
-      <AgentCommerce />
-      <Explore />
-    </main>
+    <>
+      <HeroIntro />
+      <main>
+        <Hero />
+        <Marketplace />
+        <HowItWorks />
+        <Roles />
+        <Why />
+        <Mining />
+        <PoweredDemandApps />
+        <AgentCommerce />
+        <Explore />
+      </main>
+    </>
   )
 }

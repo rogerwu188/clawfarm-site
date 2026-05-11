@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.svg',
+    icon: '/fav.png',
     apple: '/apple-touch-icon.png',
   },
   themeColor: '#0a0a0f',
@@ -71,12 +71,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Google Search Console verification */}
         <meta name="google-site-verification" content="sWzolxtvpTdcaBJhwCLzAcDoQ-bq3IiQt4cxLYeh0m0" />
 
-        {/* Fonts: Geist + Geist Mono + Instrument Serif (italic display accent) */}
+        {/* Fonts: Montserrat (display + body) + Instrument Serif (italic accent) + Geist Mono */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap"
         />
 
         {/* JSON-LD Structured Data */}

@@ -1,67 +1,39 @@
 import Link from 'next/link'
 
+const STATS = [
+  { value: '70', label: 'Supply-side Rewards', desc: 'To providers — verified token volume, price efficiency, and quality scores.' },
+  { value: '30', label: 'Demand-side Rewards', desc: 'To protocol users and apps — proportional to verified AI token consumption.' },
+  { value: '3', label: 'Protocol Treasury', desc: '70% Buyback & Burn · 20% Core Maintenance · 10% Infra Resilience.' },
+]
+
 export default function Mining() {
   return (
     <section className="section">
       <div className="section-inner">
-        <p className="section-eyebrow">Rewards and economics</p>
-        <h2 className="section-title">
-          Rewards support <span className="accent">verified usage</span><br />
-          after settlement.
-        </h2>
-        <p className="section-text">
-          $CLAF rewards reinforce useful protocol activity. Providers earn for verified
-          token volume, demand apps earn for real routed usage, and the treasury receives a
-          small settlement fee for buyback, maintenance, and resilience.
-        </p>
-
-        <div className="grid-3" style={{ marginTop: 56 }}>
-          <div className="stat-card">
-            <div className="stat-value"><span className="accent">70</span>%</div>
-            <div className="stat-label">Supply-side Rewards</div>
-            <p className="stat-desc">Distributed to providers based on verified token volume, price efficiency, and quality scores.</p>
-          </div>
-          <div className="stat-card">
-            <div className="stat-value"><span className="accent">30</span>%</div>
-            <div className="stat-label">Demand-side Rewards</div>
-            <p className="stat-desc">Earned by protocol users and demand apps proportional to verified AI token consumption.</p>
-          </div>
-          <div className="stat-card">
-            <div className="stat-value"><span className="accent">3</span>%</div>
-            <div className="stat-label">Protocol Treasury</div>
-            <p className="stat-desc">70% Buyback · 20% Core Maintenance · 10% Infra Resilience.</p>
-          </div>
+        <div className="section-center">
+          <p className="section-eyebrow" style={{ justifyContent: 'center' }}>Rewards and economics</p>
+          <h2 className="section-title">
+            Rewards that reinforce<br />
+            <span className="accent">verified usage.</span>
+          </h2>
+          <p className="section-text">
+            $CLAF rewards flow to where the real work happens. The protocol takes 3% automatically, on-chain.
+          </p>
         </div>
 
-        <div className="panel" style={{ marginTop: 48, maxWidth: 640 }}>
-          <div className="panel-header">
-            <span className="panel-tag">Treasury Allocation Mandate</span>
-          </div>
-          <div style={{ padding: '22px 24px' }}>
-            <p style={{ fontSize: 15, color: 'var(--text-mid)', lineHeight: 1.6, marginBottom: 18 }}>
-              Every settlement collects a 3% fee into the Treasury PDA. The on-chain
-              treasury mandate allocates these funds:
-            </p>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 14 }}>
-              {[
-                ['70% Buyback & Burn', 'Constant deflationary pressure for $CLAF.'],
-                ['20% Core Maintenance', 'Security audits and protocol development.'],
-                ['10% Infra Resilience', 'Funding Mirror Nodes and IPFS/Arweave storage.'],
-              ].map(([k, v]) => (
-                <li key={k} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-                  <span style={{ color: 'var(--green-bright)', fontSize: 14, lineHeight: 1.6 }}>↪</span>
-                  <p style={{ fontSize: 14, color: 'var(--text-mid)', lineHeight: 1.55, margin: 0 }}>
-                    <b style={{ color: 'var(--text-high)', fontWeight: 500 }}>{k}:</b> {v}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="grid-3" style={{ marginTop: 72 }}>
+          {STATS.map((s, i) => (
+            <div key={s.label} className="stat-card spotlight tilt fade-up" style={{ transitionDelay: `${i * 0.08}s` }}>
+              <div className="stat-value"><span className="accent" data-count={s.value}>{s.value}</span>%</div>
+              <div className="stat-label">{s.label}</div>
+              <p className="stat-desc">{s.desc}</p>
+            </div>
+          ))}
         </div>
 
-        <div style={{ marginTop: 32 }}>
+        <div style={{ marginTop: 48, textAlign: 'center' }}>
           <Link href="/whitepaper" style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: 'var(--green-bright)' }}>
-            → Detailed Economics in the Whitepaper
+            → Full economics in the Whitepaper
           </Link>
         </div>
       </div>

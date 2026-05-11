@@ -526,7 +526,7 @@ export default function ExplorerClient() {
             {/* Right — settlement flow */}
             <div>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-mid)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 10 }}>Settlement Flow</div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 10 }}>
                 {[
                   { label: 'Settled 24h', value: '—', unit: 'USDC' },
                   { label: 'Transactions 24h', value: '—', unit: 'settlements' },
@@ -535,6 +535,17 @@ export default function ExplorerClient() {
                 ].map(p => (
                   <MiniStat key={p.label} {...p} />
                 ))}
+              </div>
+              <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: '13px 16px' }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--text-dim)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>Revenue Split</div>
+                <div style={{ height: 6, background: 'rgba(255,255,255,0.05)', borderRadius: 3, overflow: 'hidden', display: 'flex' }}>
+                  <div style={{ width: '97%', background: 'var(--green)', borderRadius: '3px 0 0 3px' }} />
+                  <div style={{ width: '3%', background: 'var(--accent)', borderRadius: '0 3px 3px 0' }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 6 }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--green)' }}>97% → Provider</span>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)' }}>3% → Treasury</span>
+                </div>
               </div>
             </div>
           </div>
@@ -587,7 +598,7 @@ export default function ExplorerClient() {
               <p style={{ fontSize: 12, color: 'var(--text-mid)', marginBottom: 12, lineHeight: 1.55 }}>
                 $CLAF emitted daily based on verified network activity. No pre-mine. No team allocation in emissions.
               </p>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 10 }}>
                 {([
                   { label: 'Supply-Side 70%', value: 'Active', unit: 'for Providers', accent: 'var(--green)' },
                   { label: 'Demand-Side 30%', value: 'Active', unit: 'for Consumers', accent: 'var(--accent)' },
@@ -596,6 +607,16 @@ export default function ExplorerClient() {
                 ] as { label: string; value: string; unit: string; accent?: string }[]).map(p => (
                   <MiniStat key={p.label} {...p} />
                 ))}
+              </div>
+              <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: '13px 16px' }}>
+                <div style={{ height: 6, background: 'rgba(255,255,255,0.05)', borderRadius: 3, overflow: 'hidden', display: 'flex' }}>
+                  <div style={{ width: '70%', background: 'var(--green)', borderRadius: '3px 0 0 3px' }} />
+                  <div style={{ width: '30%', background: 'var(--accent)', borderRadius: '0 3px 3px 0' }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 6 }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--green)' }}>70% Supply-side (Providers)</span>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)' }}>30% Demand-side (Consumers)</span>
+                </div>
               </div>
             </div>
           </div>
@@ -609,8 +630,8 @@ export default function ExplorerClient() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
 
             {/* Proof rules */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, alignSelf: 'start' }}>
-              <div className="panel" style={{ padding: '20px 22px' }}>
+            <div className="grid-2" style={{ alignSelf: 'start' }}>
+              <div style={{ background: 'var(--surface)', padding: '20px 22px' }}>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--green)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14 }}>
                   ✓ Settlement Accepted
                 </div>
@@ -625,7 +646,7 @@ export default function ExplorerClient() {
                   </div>
                 ))}
               </div>
-              <div className="panel" style={{ padding: '20px 22px' }}>
+              <div style={{ background: 'var(--surface)', padding: '20px 22px' }}>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--red)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14 }}>
                   ✗ Settlement Rejected
                 </div>
@@ -643,32 +664,34 @@ export default function ExplorerClient() {
             </div>
 
             {/* Protocol mirror */}
-            <div className="panel">
-              <div className="panel-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span className="panel-tag">Protocol Mirroring</span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--green)', background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.25)', borderRadius: 4, padding: '2px 7px' }}>DEPLOYED</span>
-              </div>
-              <div style={{ padding: '18px 20px' }}>
-                <p style={{ fontSize: 13, color: 'var(--text-mid)', marginBottom: 16, lineHeight: 1.6 }}>
-                  Static protocol UI deployed to IPFS — accessible independent of centralized domain availability.
-                </p>
-                <div style={{ background: 'rgba(16,185,129,0.04)', border: '1px solid rgba(16,185,129,0.25)', borderRadius: 'var(--radius-md)', padding: '14px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10, marginBottom: 16 }}>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11 }}>
-                    <div style={{ color: 'var(--text-dim)', marginBottom: 3, fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.08em' }}>IPFS CID (v2.0)</div>
-                    <div style={{ color: 'var(--green)', fontSize: 11 }}>Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <div className="panel" style={{ flex: 1 }}>
+                <div className="panel-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span className="panel-tag">Protocol Mirroring</span>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--green)', background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.25)', borderRadius: 4, padding: '2px 7px' }}>DEPLOYED</span>
+                </div>
+                <div style={{ padding: '18px 20px' }}>
+                  <p style={{ fontSize: 13, color: 'var(--text-mid)', marginBottom: 16, lineHeight: 1.6 }}>
+                    Static protocol UI deployed to IPFS — accessible independent of centralized domain availability.
+                  </p>
+                  <div style={{ background: 'rgba(16,185,129,0.04)', border: '1px solid rgba(16,185,129,0.25)', borderRadius: 'var(--radius-md)', padding: '14px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10 }}>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11 }}>
+                      <div style={{ color: 'var(--text-dim)', marginBottom: 3, fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.08em' }}>IPFS CID (v2.0)</div>
+                      <div style={{ color: 'var(--green)', fontSize: 11 }}>Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6</div>
+                    </div>
+                    <a href="https://ipfs.io/ipfs/Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6/" target="_blank" rel="noopener" className="btn-primary" style={{ fontSize: 12, padding: '7px 14px' }}>
+                      Open Mirror →
+                    </a>
                   </div>
-                  <a href="https://ipfs.io/ipfs/Qmcq5NvjVqcpqSt3xA1ebrDmyXA8TgS9goPauocc5LPjh6/" target="_blank" rel="noopener" className="btn-primary" style={{ fontSize: 12, padding: '7px 14px' }}>
-                    Open Mirror →
-                  </a>
                 </div>
-                <div>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-dim)' }}>
-                    Treasury PDA:{' '}
-                    <code style={{ background: 'rgba(255,255,255,0.05)', padding: '2px 8px', borderRadius: 4, color: 'var(--text-mid)' }}>
-                      C1awTreasuryPDA1111111111111111111111111111
-                    </code>
-                  </span>
-                </div>
+              </div>
+              <div style={{ textAlign: 'center', padding: '10px 0' }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-dim)' }}>
+                  Treasury PDA:{' '}
+                  <code style={{ background: 'var(--surface)', padding: '2px 8px', borderRadius: 4, color: 'var(--text-mid)' }}>
+                    C1awTreasuryPDA1111111111111111111111111111
+                  </code>
+                </span>
               </div>
             </div>
           </div>
